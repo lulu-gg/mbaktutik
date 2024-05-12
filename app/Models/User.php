@@ -25,7 +25,8 @@ class User extends Authenticatable
         'password',
         'verify_token',
         'role_id',
-        'account_status'
+        'account_status',
+        'organizer_id',
     ];
 
     /**
@@ -54,24 +55,23 @@ class User extends Authenticatable
         'password' => 'required|min:8|confirmed'
     ];
 
+    public static $rulesEdit = [
+        'name' => 'required|string|max:250',
+    ];
+
+    public static $rulesWithPassword = [
+        'name' => 'required|string|max:250',
+        'password' => 'required|min:8|confirmed'
+    ];
+
     public function role()
     {
         return $this->belongsTo(Role::class, 'role_id');
     }
 
-    public function client()
+    public function organizer()
     {
-        return $this->hasOne(Client::class, 'user_id', 'id');
-    }
-
-    public function driver()
-    {
-        return $this->hasOne(Driver::class, 'user_id', 'id');
-    }
-
-    public function booking_request()
-    {
-        return $this->hasMany(BookingRequest::class, 'user_id', 'id');
+        return $this->hasOne(Organizer::class, 'user_id', 'id');
     }
 
     public function getStatusNameAttribute()

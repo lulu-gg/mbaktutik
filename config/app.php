@@ -197,6 +197,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         RSmalc\Noty\NotyServiceProvider::class,
 
+        Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
+
     ],
 
     /*

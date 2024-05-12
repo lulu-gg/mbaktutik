@@ -20,17 +20,62 @@
             </a>
         </li>
 
-        @if (\App\Helpers\RoleHelpers::isAdmin())
-            <!-- Master -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
+        <!-- Menu -->
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Menu</span></li>
+        <li
+            class="menu-item {{ CustomHelpers::isActiveBool(['admin/events', 'admin/events-category']) ? 'open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-calendar-event"></i>
+                <div class="text-truncate" data-i18n="Events">Events</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ CustomHelpers::isActive('admin/events') }}">
+                    <a href="{{ url('admin/events') }}" class="menu-link">
+                        <div data-i18n="Data">Data</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ CustomHelpers::isActive('admin/events-category') }}">
+                    <a href="{{ url('admin/events-category') }}" class="menu-link">
+                        <div data-i18n="Category">Category</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
 
-            <li class="menu-item {{ CustomHelpers::isActive('admin/user') }}">
-                <a href="{{ url('admin/user') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bxs-user"></i>
-                    <div data-i18n="User">User</div>
-                </a>
-            </li>
-        @endif
+        <!-- Scanner Officer -->
+        <li class="menu-item {{ CustomHelpers::isActive('admin/scanner-officer') }}">
+            <a href="{{ url('admin/scanner-officer') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-scan"></i>
+                <div data-i18n="Scanner Officer">Scanner Officer</div>
+            </a>
+        </li>
+
+
+        <!-- Sponsors -->
+        <li class="menu-item {{ CustomHelpers::isActive('admin/sponsors') }}">
+            <a href="{{ url('admin/sponsors') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-images"></i>
+                <div data-i18n="Sponsors">Sponsors</div>
+            </a>
+        </li>
+
+        <!-- Master -->
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
+
+        <li class="menu-item {{ CustomHelpers::isActive('admin/user') }}">
+            <a href="{{ url('admin/user') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-user"></i>
+                <div data-i18n="User">User</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ CustomHelpers::isActive('admin/general-parameter') }}">
+            <a href="{{ url('admin/general-parameter') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-cog"></i>
+                <div data-i18n="General Parameter">General Parameter</div>
+            </a>
+        </li>
+        {{-- @endif --}}
 
     </ul>
 </aside>

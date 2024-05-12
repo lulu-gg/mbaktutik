@@ -29,7 +29,7 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials) && (RoleHelpers::isAdmin())) {
+        if (Auth::attempt($credentials) && (RoleHelpers::isAdmin() || RoleHelpers::isEventOrganizer())) {
             $request->session()->regenerate();
 
             return redirect()->intended('/admin');

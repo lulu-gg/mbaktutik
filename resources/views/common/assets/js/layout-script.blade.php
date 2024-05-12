@@ -45,3 +45,6 @@
 
 <!-- Moment JS -->
 <script src="https://momentjs.com/downloads/moment.min.js"></script>
+
+<!-- Chart JS -->
+<script src="{{ asset('sneat-pro/assets/vendor/libs/chartjs/chartjs.js') }}"></script>

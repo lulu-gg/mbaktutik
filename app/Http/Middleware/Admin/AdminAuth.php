@@ -18,7 +18,7 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (RoleHelpers::isAdmin()) return $next($request);
+        if (RoleHelpers::isAdmin() || RoleHelpers::isEventOrganizer()) return $next($request);
 
         return redirect()->route('admin.login');
     }

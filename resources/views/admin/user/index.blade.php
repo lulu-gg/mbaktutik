@@ -7,15 +7,6 @@
         <h5 class="card-header d-flex justify-content-between align-items-center">
             Data User
             <div class="row">
-
-                <div class="col">
-                    <form action="">
-                        <select class="form-select form-select-sm" id="filter_status">
-                            <option value="all" {{ $selected == 'all' ? 'selected' : '' }}>All User</option>
-                            <option value="1" {{ $selected == '1' ? 'selected' : '' }}>Admin</option>
-                        </select>
-                    </form>
-                </div>
                 <div class="col-auto">
                     <a href="{{ url('admin/user/create') }}" type="button" class="btn btn-sm btn-primary">Tambah
                         Data</a>
@@ -23,7 +14,6 @@
             </div>
         </h5>
         <div class="card-body">
-
             <div class="table-responsive text-nowrap">
                 <table class="table init-datatable">
                     <thead>

@@ -89,7 +89,7 @@
 
     @include('common.assets.js.custom-script')
 
-    @yield('page-script')
+    @stack('page-script')
 
 </body>
 

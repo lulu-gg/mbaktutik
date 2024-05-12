@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Controller;
+use App\Models\Events;
+use App\Models\Organizer;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -38,7 +40,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
+        $roles = Role::whereIn('id', [1, 2])->get();
         return view('admin.user.create', ['roles' => $roles]);
     }
 
@@ -60,6 +62,17 @@ class UserController extends Controller
             'role_id' => $request->role_id,
             'account_status' => 1,
         ]);
+
+        if ($request->role_id == RoleHelpers::$EVENT_ORGANIZER) {
+            $request->validate(Organizer::$rules);
+            $eventOrganizer = Organizer::create([
+                'company_name' => $request->company_name,
+                'contact_person' => $request->contact_person,
+                'phone' => $request->phone,
+                'website' => $request->website,
+                'user_id' => $user->id,
+            ]);
+        }
 
         noty("Berhasil membuat user", 'info');
 

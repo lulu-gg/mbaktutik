@@ -14,15 +14,6 @@
             });
         });
 
-        // INIT TIMEPICKER
-        $(".flatpicker-datetime").each(function(i, obj) {
-            obj.flatpickr({
-                enableTime: true,
-                dateFormat: "Y-m-d H:i",
-                time_24hr: true,
-            });
-        });
-
         // INIT SELECT2
         $(".init-select2").select2({
             allowClear: true,
@@ -186,6 +177,26 @@
                 }
             });
         });
+
+        // INIT FLATPICKR
+        if ($('.init-flatpickr').length > 0) {
+            $('.init-flatpickr').each(function(e, obj) {
+                let config = {
+                    minDate: 'today',
+                    dateFormat: "Y-m-d",
+                }
+                if ($(this).attr('data-defaultDate') != undefined) {
+                    config.defaultDate = $(this).attr('data-defaultDate')
+                    config.minDate = null
+                }
+                if ($(this).attr('data-withTime') != undefined) {
+                    config.enableTime = true
+                    config.dateFormat = "Y-m-d H:i"
+                    config.time_24hr = true
+                }
+                flatpickr(obj, config)
+            })
+        }
     });
 
     // Currency Format

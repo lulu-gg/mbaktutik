@@ -61,7 +61,7 @@ class CustomHelpers
     public static function isOptionSelected($key, $value, $oldValue = null)
     {
         if ($oldValue == null) $oldValue = old($key);
-        return ((old($key) ??  $oldValue) == $value) ? 'selected' : '';
+        return (strval((old($key) ??  $oldValue)) == strval($value)) ? 'selected' : '';
     }
 
     /**
@@ -109,5 +109,21 @@ class CustomHelpers
         $result->merge([$fileKey => $fileName]);
 
         return $resultString ? $result->$fileKey : $result;
+    }
+
+    /**
+     *
+     * Function to upload file
+     * @param Request $requestFile
+     * @param string $path
+     */
+    public static function simpleFileUpload($requestFile, $path, $oldPath = null)
+    {
+        $fileName = Str::uuid() . '.' . $requestFile->extension();
+        $requestFile->move(public_path($path), $fileName);
+
+        if ($oldPath) File::delete(public_path($path . $oldPath));
+
+        return $fileName;
     }
 }
