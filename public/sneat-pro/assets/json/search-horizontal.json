@@ -2,7 +2,7 @@
     "pages": [{
             "name": "Dashboard Analytics",
             "icon": "bx-home-circle",
-            "url": "index.html"
+            "url": "/"
         },
         {
             "name": "Dashboard CRM",

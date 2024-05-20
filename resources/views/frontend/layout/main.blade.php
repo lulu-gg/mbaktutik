@@ -21,7 +21,7 @@
     <title>Rive</title>
 </head>
 
-<body id="home">
+<body class="cs-dark">
     @if (env('ENABLE_GOOGLE_ANALYTICS', false))
         <!-- -->
     @endif
@@ -32,7 +32,7 @@
     @include('frontend.layout.includes.navbar')
     <!-- Akhir Navbar -->
 
-    {{ $slot }}
+    @yield('content')
 
     @include('frontend.layout.includes.layout-js')
 

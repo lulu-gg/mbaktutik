@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * @property integer $id
@@ -24,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Events extends Model
 {
+    use HasFactory;
+
     public static $FILE_PATH = 'uploads/events/';
 
     /**
@@ -114,6 +117,10 @@ class Events extends Model
     public function eventsCategory()
     {
         return $this->belongsTo('App\Models\EventsCategory', 'event_category_id');
+    }
+    public function organizer()
+    {
+        return $this->belongsTo('App\Models\Organizer', 'event_organizer_id');
     }
 
     /**

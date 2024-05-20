@@ -53,7 +53,7 @@
             <nav class="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme" id="layout-navbar">
                 <div class="container-xxl">
                     <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4">
-                        <a href="index.html" class="app-brand-link gap-2">
+                        <a href="/" class="app-brand-link gap-2">
                             <span class="app-brand-logo demo">
 
                                 <svg width="25" viewBox="0 0 25 42" version="1.1"
@@ -231,7 +231,7 @@
                                                     class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                                                     <i class="bx bx-pie-chart-alt-2 fs-4"></i>
                                                 </span>
-                                                <a href="index.html" class="stretched-link">Dashboard</a>
+                                                <a href="/" class="stretched-link">Dashboard</a>
                                                 <small class="text-muted mb-0">User Profile</small>
                                             </div>
                                             <div class="dropdown-shortcuts-item col">

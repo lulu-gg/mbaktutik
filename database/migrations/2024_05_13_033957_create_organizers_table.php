@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('organizers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('company_name')->nullable();
             $table->string('contact_person')->nullable();
             $table->string('phone')->nullable();

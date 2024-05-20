@@ -7334,7 +7334,7 @@ var CalGrayCS = (function CalGrayCSClosure() {
 //
 var CalRGBCS = (function CalRGBCSClosure() {
 
-  // See http://www.brucelindbloom.com/index.html?Eqn_ChromAdapt.html for these
+  // See http://www.brucelindbloom.com//?Eqn_ChromAdapt.html for these
   // matrices.
   var BRADFORD_SCALE_MATRIX = new Float32Array([
     0.8951, 0.2664, -0.1614,
@@ -7346,7 +7346,7 @@ var CalRGBCS = (function CalRGBCSClosure() {
     0.4323053, 0.5183603, 0.0492912,
     -0.0085287, 0.0400428, 0.9684867]);
 
-  // See http://www.brucelindbloom.com/index.html?Eqn_RGB_XYZ_Matrix.html.
+  // See http://www.brucelindbloom.com//?Eqn_RGB_XYZ_Matrix.html.
   var SRGB_D65_XYZ_TO_RGB_MATRIX = new Float32Array([
     3.2404542, -1.5371385, -0.4985314,
     -0.9692660, 1.8760108, 0.0415560,

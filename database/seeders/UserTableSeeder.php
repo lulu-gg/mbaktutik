@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
         User::create([
             'name' => 'Punggawa Admin',
             'email' => 'admin@mail.com',
-            'password' => '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK',
+            'password' => bcrypt('admin'),
             'role_id' => 1,
         ]);
     }
