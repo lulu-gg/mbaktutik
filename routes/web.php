@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\EventsController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
@@ -19,8 +20,13 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [HomeController::class, 'login']);
 Route::get('/register', [HomeController::class, 'register']);
 Route::get('/reset-password', [HomeController::class, 'resetPassword']);
-Route::get('/events', [HomeController::class, 'events']);
-Route::get('/events/detail', [HomeController::class, 'eventsDetail']);
+
+Route::get('/events', [EventsController::class, 'index']);
+Route::get('/events/detail/{event}', [EventsController::class, 'show']);
+Route::get('/events/detail/{event}/purchase', [EventsController::class, 'purchase']);
+Route::post('/events/detail/{event}/purchase/checkout', [EventsController::class, 'checkout']);
+Route::post('/events/detail/{event}/purchase/checkout/proceed', [EventsController::class, 'proceedCheckout']);
+
 Route::get('/sponsors', [HomeController::class, 'sponsors']);
 Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/account', [HomeController::class, 'account']);

@@ -5,10 +5,11 @@
     <section class="cs-page_head cs-bg" data-src="{{ asset('frontend/assets/img/page_head_bg.svg') }}">
         <div class="container">
             <div class="text-center">
-                <h1 class="cs-page_title">Explore Details</h1>
+                <h1 class="cs-page_title">Purchase Event Tickets</h1>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active">Event Details</li>
+                    <li class="breadcrumb-item"><a href="/events/detail/{{ $event->id }}">Events</a></li>
+                    <li class="breadcrumb-item active">Purchase</li>
                 </ol>
             </div>
         </div>
@@ -17,26 +18,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <div class="slider-for">
-                    <div class="slider-item">
-                        <div class="cs-slider_thumb_lg">
-                            <img src="{{ $event->thumbnail_path }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="cs-height_25 cs-height_lg_25"></div>
-                <div class="slider-nav">
-                    <div class="slider-item">
-                        <div class="cs-slider_thumb_sm">
-                            <img src="{{ $event->thumbnail_path }}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
                 <div class="cs-height_0 cs-height_lg_40"></div>
                 <div class="cs-single_product_head">
                     <h2>{{ $event->name }}</h2>
+                    {{-- <p>On sale for <span class="cs-accent_color">1.5 ETH</span> · Highest bid ~ <span
+                            class="cs-accent_color">0.001 ETH</span></p> --}}
                     <span class="badge badge-warning" style="background-color: rgba(255, 229, 80, 0.801)">
                         On Going
                     </span>
@@ -54,6 +40,17 @@
                         </div>
                         <div class="cs-height_25 cs-height_lg_25"></div>
                     </div>
+                    {{-- <div class="col-xl-6">
+                        <div class="cs-author_card cs-white_bg cs-box_shadow">
+                            <div class="cs-author_img"><img src="{{ asset('frontend/assets/img/avatar/avatar_21.png') }}"
+                                    alt=""></div>
+                            <div class="cs-author_right">
+                                <h3>Audiography</h3>
+                                <p>@Stanford V. McCutcheon</p>
+                            </div>
+                        </div>
+                        <div class="cs-height_25 cs-height_lg_25"></div>
+                    </div> --}}
                 </div>
                 <div class="cs-tabs cs-fade_tabs cs-style1">
                     <div class="cs-medium">
@@ -145,7 +142,7 @@
                                             <div class="d-flex justify-content-between align-items-center w-100">
                                                 <div class="cs-activity_right">
                                                     <p class="cs-activity_text">
-                                                       Belum ada ticket tersedia
+                                                        Belum ada ticket tersedia
                                                     </p>
                                                 </div>
                                             </div>
@@ -203,146 +200,86 @@
                     </div>
                 </div>
                 <div class="cs-height_10 cs-height_lg_10"></div>
-                <div class="row">
-                    <div class="col-12">
-                        <a href="{{ url()->current() . '/purchase' }}" class="cs-btn cs-style1 cs-btn_lg w-100 text-center"><span>Buy Now</span></a>
+            </div>
+            <div class="col-lg-6">
+                <div class="cs-height_0 cs-height_lg_40"></div>
+                <div class="cs-single_product_head">
+                    @error('name')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    <div class="d-flex justify-content-between w-100">
+                        <h2>Personal Information</h2>
+                        <h2 style="padding-right:10px;cursor:pointer" onclick="addBillingInformation()">+</h2>
+                    </div>
+                    <div class="mt-2 ml-2">
+                        <form action="{{ url()->current() . '/checkout' }}" method="POST">
+                            @csrf
+                            <div id="billing-form">
+                                <div class="cs-activity cs-white_bg billing-info mb-4">
+                                    <div class="row">
+                                        <div class="cs-form_field_wrap cs-select_arrow">
+                                            <select class="cs-form_field" name="ticket[]">
+                                                <option selected disabled>Select Ticket</option>
+                                                @foreach ($event->ticketVariationsAvailable as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }} |
+                                                        @format_currency($item->price)</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="cs-height_25 cs-height_lg_25"></div>
+                                        <div class="cs-form_field_wrap">
+                                            <input type="number" class="cs-form_field" placeholder="Quantity"
+                                                name="quantity[]" required>
+                                        </div>
+                                        <div class="cs-height_25 cs-height_lg_25"></div>
+                                        <div class="cs-form_field_wrap">
+                                            <input type="text" class="cs-form_field" placeholder="Fullname"
+                                                name="fullname[]" required>
+                                        </div>
+                                        <div class="cs-height_25 cs-height_lg_25"></div>
+                                        <div class="cs-form_field_wrap">
+                                            <input type="email" class="cs-form_field" placeholder="Email Address"
+                                                name="email[]" required>
+                                        </div>
+                                        <div class="cs-height_25 cs-height_lg_25"></div>
+                                        <div class="cs-form_field_wrap">
+                                            <input type="number" class="cs-form_field" placeholder="Phone Number"
+                                                name="phone[]" required>
+                                        </div>
+                                        <div class="cs-height_25 cs-height_lg_25"></div>
+                                        <div class="cs-form_field_wrap">
+                                            <input type="number" class="cs-form_field" placeholder="NIK" name="nik[]"
+                                                required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <button type="submit" class="cs-btn cs-style1 cs-btn_lg w-100 text-center">
+                                        <span>Proceed Payment</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="cs-height_95 cs-height_lg_70"></div>
-    <div class="container">
-        <h2 class="cs-section_heading cs-style1">Similar Items</h2>
-        <div class="cs-height_45 cs-height_lg_45"></div>
-        <div class="cs-grid_5 cs-gap_30">
-            <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                <span class="cs-card_like cs-primary_color">
-                    <i class="fas fa-heart fa-fw"></i>
-                    2.1K
-                </span>
-                <a href="#" class="cs-card_thumb cs-zoom_effect">
-                    <img src="{{ asset('frontend/assets/img/explore/1.jpg') }}" alt="Image" class="cs-zoom_item">
-                </a>
-                <div class="cs-card_info">
-                    <a href="#" class="cs-avatar cs-white_bg">
-                        <img src="{{ asset('frontend/assets/img/avatar/avatar_12.png') }}" alt="Avatar">
-                        <span>Johny E.</span>
-                    </a>
-                    <h3 class="cs-card_title"><a href="#">Art work #2134</a></h3>
-                    <div class="cs-card_price">Current Bid: <b class="cs-primary_color">0.29 ETH 7/21</b></div>
-                    <hr>
-                    <div class="cs-card_footer">
-                        <span class="cs-card_btn_1" data-modal="#history_1">
-                            <i class="fas fa-redo fa-fw"></i>
-                            View History
-                        </span>
-                        <span class="cs-card_btn_2" data-modal="#bid_1"><span>Place Bid</span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                <span class="cs-card_like cs-primary_color">
-                    <i class="fas fa-heart fa-fw"></i>
-                    3.3K
-                </span>
-                <a href="#" class="cs-card_thumb cs-zoom_effect">
-                    <img src="{{ asset('frontend/assets/img/explore/2.jpg') }}" alt="Image" class="cs-zoom_item">
-                </a>
-                <div class="cs-card_info">
-                    <a href="#" class="cs-avatar cs-white_bg">
-                        <img src="{{ asset('frontend/assets/img/avatar/avatar_13.png') }}" alt="Avatar">
-                        <span>debit alex</span>
-                    </a>
-                    <h3 class="cs-card_title"><a href="#">Cool octopus traveling</a></h3>
-                    <div class="cs-card_price">Current Bid: <b class="cs-primary_color">0.24 ETH 4/17</b></div>
-                    <hr>
-                    <div class="cs-card_footer">
-                        <span class="cs-card_btn_1" data-modal="#history_1">
-                            <i class="fas fa-redo fa-fw"></i>
-                            View History
-                        </span>
-                        <span class="cs-card_btn_2" data-modal="#bid_1"><span>Place Bid</span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                <span class="cs-card_like cs-primary_color">
-                    <i class="fas fa-heart fa-fw"></i>
-                    3.1K
-                </span>
-                <a href="#" class="cs-card_thumb cs-zoom_effect">
-                    <img src="{{ asset('frontend/assets/img/explore/3.jpg') }}" alt="Image" class="cs-zoom_item">
-                </a>
-                <div class="cs-card_info">
-                    <a href="#" class="cs-avatar cs-white_bg">
-                        <img src="{{ asset('frontend/assets/img/avatar/avatar_12.png') }}" alt="Avatar">
-                        <span>robert Alex</span>
-                    </a>
-                    <h3 class="cs-card_title"><a href="#">Octopus eating icecrem</a></h3>
-                    <div class="cs-card_price">Current Bid: <b class="cs-primary_color">0.09 ETH 1/9</b></div>
-                    <hr>
-                    <div class="cs-card_footer">
-                        <span class="cs-card_btn_1" data-modal="#history_1">
-                            <i class="fas fa-redo fa-fw"></i>
-                            View History
-                        </span>
-                        <span class="cs-card_btn_2" data-modal="#bid_1"><span>Place Bid</span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                <span class="cs-card_like cs-primary_color">
-                    <i class="fas fa-heart fa-fw"></i>
-                    2.1K
-                </span>
-                <a href="#" class="cs-card_thumb cs-zoom_effect">
-                    <img src="{{ asset('frontend/assets/img/explore/4.jpg') }}" alt="Image" class="cs-zoom_item">
-                </a>
-                <div class="cs-card_info">
-                    <a href="#" class="cs-avatar cs-white_bg">
-                        <img src="{{ asset('frontend/assets/img/avatar/avatar_12.png') }}" alt="Avatar">
-                        <span>johny e.</span>
-                    </a>
-                    <h3 class="cs-card_title"><a href="#">Panda with fish</a></h3>
-                    <div class="cs-card_price">Current Bid: <b class="cs-primary_color">0.19 ETH 5/11</b></div>
-                    <hr>
-                    <div class="cs-card_footer">
-                        <span class="cs-card_btn_1" data-modal="#history_1">
-                            <i class="fas fa-redo fa-fw"></i>
-                            View History
-                        </span>
-                        <span class="cs-card_btn_2" data-modal="#bid_1"><span>Place Bid</span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                <span class="cs-card_like cs-primary_color">
-                    <i class="fas fa-heart fa-fw"></i>
-                    1.2K
-                </span>
-                <a href="#" class="cs-card_thumb cs-zoom_effect">
-                    <img src="{{ asset('frontend/assets/img/explore/5.jpg') }}" alt="Image" class="cs-zoom_item">
-                </a>
-                <div class="cs-card_info">
-                    <a href="#" class="cs-avatar cs-white_bg">
-                        <img src="{{ asset('frontend/assets/img/avatar/avatar_13.png') }}" alt="Avatar">
-                        <span>austin R.</span>
-                    </a>
-                    <h3 class="cs-card_title"><a href="#">Kawaii-bubble-tea</a></h3>
-                    <div class="cs-card_price">Current Bid: <b class="cs-primary_color">0.29 ETH 11/19</b></div>
-                    <hr>
-                    <div class="cs-card_footer">
-                        <span class="cs-card_btn_1" data-modal="#history_1">
-                            <i class="fas fa-redo fa-fw"></i>
-                            View History
-                        </span>
-                        <span class="cs-card_btn_2" data-modal="#bid_1"><span>Place Bid</span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="cs-height_100 cs-height_lg_70"></div>
+
+    @section('page-script')
+        <script>
+            function addBillingInformation() {
+                var billingInfo = $('.billing-info:first').clone();
+                billingInfo.find('input').val(''); // Clear the values of the cloned inputs
+                $('#billing-form').append(billingInfo);
+            }
+        </script>
+    @endsection
 
 @endsection
