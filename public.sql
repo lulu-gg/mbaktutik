@@ -12,7 +12,7 @@
  Target Server Version : 160002 (160002)
  File Encoding         : 65001
 
- Date: 21/05/2024 15:33:33
+ Date: 23/05/2024 04:56:23
 */
 
 
@@ -120,6 +120,17 @@ CACHE 1;
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."migrations_id_seq";
 CREATE SEQUENCE "public"."migrations_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for orders2_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."orders2_id_seq";
+CREATE SEQUENCE "public"."orders2_id_seq" 
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -296,7 +307,7 @@ CREATE TABLE "public"."events_scanner_job" (
 -- ----------------------------
 -- Records of events_scanner_job
 -- ----------------------------
-INSERT INTO "public"."events_scanner_job" VALUES (2, 9, 1, '2024-05-13 03:38:36', '2024-05-13 03:38:36');
+INSERT INTO "public"."events_scanner_job" VALUES (3, 9, 1, '2024-05-21 17:31:14', '2024-05-21 17:31:14');
 
 -- ----------------------------
 -- Table structure for failed_jobs
@@ -344,18 +355,24 @@ CREATE TABLE "public"."invoices" (
   "id" int8 NOT NULL DEFAULT nextval('invoices_id_seq'::regclass),
   "order_id" int8,
   "invoice_number" varchar(255) COLLATE "pg_catalog"."default",
-  "date" date,
-  "due_date" date,
-  "amount" numeric(10,2),
+  "date" timestamp(0),
+  "due_date" timestamp(0),
   "status" int8,
   "created_at" timestamp(6),
-  "updated_at" timestamp(6)
+  "updated_at" timestamp(6),
+  "midtrans_snap_redirect" varchar(255) COLLATE "pg_catalog"."default",
+  "midtrans_snap_token" varchar(255) COLLATE "pg_catalog"."default",
+  "midtrans_order_id" varchar(255) COLLATE "pg_catalog"."default",
+  "subtotal" numeric,
+  "fee" numeric(255,0),
+  "total" numeric(255,0)
 )
 ;
 
 -- ----------------------------
 -- Records of invoices
 -- ----------------------------
+INSERT INTO "public"."invoices" VALUES (20, 28, '001/INV/RIVE/05/24', '2024-05-23 03:40:07', '2024-05-24 03:40:07', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', 'https://app.sandbox.midtrans.com/snap/v4/redirection/ddec1ec7-c314-447e-b2f9-ad7f132d3d47', 'ddec1ec7-c314-447e-b2f9-ad7f132d3d47', '3feaba5a-eab1-49d7-95fa-4a8cdf630238', 575000, 17250, 592250);
 
 -- ----------------------------
 -- Table structure for jobs
@@ -453,7 +470,8 @@ CREATE TABLE "public"."orders" (
   "status" int8,
   "invoice_id" int8,
   "created_at" timestamp(6),
-  "updated_at" timestamp(6)
+  "updated_at" timestamp(6),
+  "paid_at" timestamp(6)
 )
 ;
 COMMENT ON COLUMN "public"."orders"."payment_method" IS 'Payment method used (e.g., credit card, bank transfer)';
@@ -463,6 +481,35 @@ COMMENT ON COLUMN "public"."orders"."status" IS 'Status of the ticket (0: inacti
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
+INSERT INTO "public"."orders" VALUES (28, 1, NULL, NULL, NULL, NULL, 592250.00, NULL, 1, NULL, NULL, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL);
+
+-- ----------------------------
+-- Table structure for orders_detail
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."orders_detail";
+CREATE TABLE "public"."orders_detail" (
+  "id" int8 NOT NULL DEFAULT nextval('orders2_id_seq'::regclass),
+  "ticket_variation_id" int8,
+  "order_id" int8,
+  "ticket_name" varchar(255) COLLATE "pg_catalog"."default",
+  "ticket_price" numeric(10,2),
+  "created_at" timestamp(6),
+  "updated_at" timestamp(6),
+  "buyer_name" varchar(255) COLLATE "pg_catalog"."default",
+  "buyer_nik" varchar(255) COLLATE "pg_catalog"."default",
+  "buyer_email" varchar(255) COLLATE "pg_catalog"."default",
+  "buyer_phone" varchar(255) COLLATE "pg_catalog"."default",
+  "quantity" int8,
+  "price" numeric(10,2),
+  "total" numeric(10,2)
+)
+;
+
+-- ----------------------------
+-- Records of orders_detail
+-- ----------------------------
+INSERT INTO "public"."orders_detail" VALUES (28, 4, 28, 'Presale 2', 175000.00, '2024-05-23 03:40:07', '2024-05-23 03:40:07', 'Paijo', '7827491312313', 'paijo@mail.com', '0812312389123', 1, 175000.00, 175000.00);
+INSERT INTO "public"."orders_detail" VALUES (29, 5, 28, 'Presale 3', 200000.00, '2024-05-23 03:40:07', '2024-05-23 03:40:07', 'paimen', '2381298194819831231', 'paimen@mail.com', '0812323812931', 2, 200000.00, 400000.00);
 
 -- ----------------------------
 -- Table structure for organizers
@@ -620,18 +667,22 @@ INSERT INTO "public"."ticket_variations" VALUES (2, 1, 'Presale 1', 150000, 8, 3
 DROP TABLE IF EXISTS "public"."tickets";
 CREATE TABLE "public"."tickets" (
   "id" int8 NOT NULL DEFAULT nextval('tickets_id_seq'::regclass),
-  "order_id" int8,
+  "order_detail_id" int8,
   "ticket_code" varchar(255) COLLATE "pg_catalog"."default",
   "qr_code" varchar(255) COLLATE "pg_catalog"."default",
   "status" int8,
   "created_at" timestamp(6),
-  "updated_at" timestamp(6)
+  "updated_at" timestamp(6),
+  "scanned_at" timestamp(6)
 )
 ;
 
 -- ----------------------------
 -- Records of tickets
 -- ----------------------------
+INSERT INTO "public"."tickets" VALUES (29, 28, 'TICKET-1716410407-7873', 'aS9jtNinbjTqdNIcaO7c', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL);
+INSERT INTO "public"."tickets" VALUES (30, 29, 'TICKET-1716410407-4372', '4TXYMu8QOAUKQRglRmcs', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL);
+INSERT INTO "public"."tickets" VALUES (31, 29, 'TICKET-1716410407-3221', 'GjYyU83bmRzJh1k89j1A', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL);
 
 -- ----------------------------
 -- Table structure for users
@@ -689,7 +740,7 @@ SELECT setval('"public"."events_id_seq"', 2, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."events_scanner_job_id_seq"
 OWNED BY "public"."events_scanner_job"."id";
-SELECT setval('"public"."events_scanner_job_id_seq"', 2, true);
+SELECT setval('"public"."events_scanner_job_id_seq"', 3, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -710,7 +761,7 @@ SELECT setval('"public"."genreal_parameter_id_seq"', 1, false);
 -- ----------------------------
 ALTER SEQUENCE "public"."invoices_id_seq"
 OWNED BY "public"."invoices"."id";
-SELECT setval('"public"."invoices_id_seq"', 1, false);
+SELECT setval('"public"."invoices_id_seq"', 20, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -736,9 +787,16 @@ SELECT setval('"public"."migrations_id_seq"', 93, true);
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
+ALTER SEQUENCE "public"."orders2_id_seq"
+OWNED BY "public"."orders_detail"."id";
+SELECT setval('"public"."orders2_id_seq"', 29, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."orders_id_seq"
 OWNED BY "public"."orders"."id";
-SELECT setval('"public"."orders_id_seq"', 1, false);
+SELECT setval('"public"."orders_id_seq"', 28, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -780,7 +838,7 @@ SELECT setval('"public"."thumbnails_id_seq"', 1, false);
 -- ----------------------------
 ALTER SEQUENCE "public"."tickets_id_seq"
 OWNED BY "public"."tickets"."id";
-SELECT setval('"public"."tickets_id_seq"', 1, false);
+SELECT setval('"public"."tickets_id_seq"', 31, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -857,6 +915,11 @@ ALTER TABLE "public"."migrations" ADD CONSTRAINT "migrations_pkey" PRIMARY KEY (
 -- Primary Key structure for table orders
 -- ----------------------------
 ALTER TABLE "public"."orders" ADD CONSTRAINT "orders_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table orders_detail
+-- ----------------------------
+ALTER TABLE "public"."orders_detail" ADD CONSTRAINT "orders2_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
 -- Primary Key structure for table organizers
@@ -950,6 +1013,12 @@ ALTER TABLE "public"."orders" ADD CONSTRAINT "orders_event_id_fkey" FOREIGN KEY 
 ALTER TABLE "public"."orders" ADD CONSTRAINT "orders_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."users" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------
+-- Foreign Keys structure for table orders_detail
+-- ----------------------------
+ALTER TABLE "public"."orders_detail" ADD CONSTRAINT "orders_detail_order_id_fkey" FOREIGN KEY ("order_id") REFERENCES "public"."orders" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "public"."orders_detail" ADD CONSTRAINT "orders_detail_ticket_id_fkey" FOREIGN KEY ("ticket_variation_id") REFERENCES "public"."ticket_variations" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- ----------------------------
 -- Foreign Keys structure for table organizers
 -- ----------------------------
 ALTER TABLE "public"."organizers" ADD CONSTRAINT "organizers_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."users" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -962,7 +1031,7 @@ ALTER TABLE "public"."ticket_variations" ADD CONSTRAINT "event_variations_event_
 -- ----------------------------
 -- Foreign Keys structure for table tickets
 -- ----------------------------
-ALTER TABLE "public"."tickets" ADD CONSTRAINT "tickets_order_id_fkey" FOREIGN KEY ("order_id") REFERENCES "public"."orders" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "public"."tickets" ADD CONSTRAINT "tickets_order_detail_id_fkey" FOREIGN KEY ("order_detail_id") REFERENCES "public"."orders_detail" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------
 -- Foreign Keys structure for table users
