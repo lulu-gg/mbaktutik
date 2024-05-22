@@ -272,7 +272,7 @@
     </div>
     <div class="cs-height_95 cs-height_lg_70"></div>
 
-    @section('page-script')
+    @push('page-script')
         <script>
             function addBillingInformation() {
                 var billingInfo = $('.billing-info:first').clone();
@@ -280,6 +280,6 @@
                 $('#billing-form').append(billingInfo);
             }
         </script>
-    @endsection
+    @endpush
 
 @endsection

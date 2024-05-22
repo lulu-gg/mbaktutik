@@ -39,7 +39,21 @@ class OrdersDetail extends Model
     /**
      * @var array
      */
-    protected $fillable = ['ticket_variation_id', 'order_id', 'ticket_name', 'ticket_price', 'created_at', 'updated_at', 'buyer_name', 'buyer_nik', 'buyer_email', 'buyer_phone'];
+    protected $fillable = [
+        'ticket_variation_id',
+        'order_id',
+        'ticket_name',
+        'ticket_price',
+        'created_at',
+        'updated_at',
+        'buyer_name',
+        'buyer_nik',
+        'buyer_email',
+        'buyer_phone',
+        'quantity',
+        'price',
+        'total'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

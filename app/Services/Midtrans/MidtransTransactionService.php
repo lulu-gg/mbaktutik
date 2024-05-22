@@ -54,27 +54,35 @@ class MidtransTransactionService extends Midtrans
     {
         $invoice = $this->invoice;
 
-        return [
+        $params = [
             'order_id' => $invoice->midtrans_order_id,
-            'gross_amount' => (int)$invoice->price + (int)$invoice->transaction_code,
-            'name' => $invoice->order->booking_request->user->client->fullname,
-            'email' => $invoice->order->booking_request->user->client->email ?? $invoice->order->booking_request->user->email,
-            'phone' => $invoice->order->booking_request->user->client->phone,
-            'item_details' => [
-                [
-                    'id' => 1,
-                    'price' => (int) $invoice->price,
-                    'quantity' => 1,
-                    'name' => "Invoice $invoice->invoice_number",
-                ],
-                [
-                    'id' => 2,
-                    'price' => (int)$invoice->transaction_code,
-                    'quantity' => 1,
-                    'name' => 'Kode Unik Transaksi'
-                ],
-            ]
+            'gross_amount' => (int) $invoice->total,
+            'name' => $invoice->order->orderDetails->first()->buyer_name,
+            'email' => $invoice->order->orderDetails->first()->buyer_email,
+            'phone' => $invoice->order->orderDetails->first()->buyer_phone,
         ];
+
+        $details = [];
+        foreach ($invoice->order->orderDetails as $key => $item) {
+            $details[] = [
+                'id' => $key + 1,
+                'price' => (int) $item->total,
+                'quantity' => (int) $item->quantity,
+                'name' => "Ticket $item->ticket_name - " . $invoice->order->event->name,
+            ];
+        }
+
+        $details[] = [
+            'id' => $key + 1,
+            'price' => (int) $invoice->fee,
+            'quantity' => 1,
+            'name' => "Service Fee",
+        ];
+
+        $params['item_details'] = $details;
+
+
+        return $params;
     }
 
     public function checkTransaction($midtrans_order_id)

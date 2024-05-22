@@ -18,6 +18,9 @@
     @endif
 
     @include('frontend.layout.includes.layout-css')
+
+    @include('frontend.layout.includes.custom-css')
+
     <title>Rive</title>
 </head>
 
@@ -39,7 +42,7 @@
     @include('frontend.layout.includes.custom-script')
 
 
-    @yield('page-script')
+    @stack('page-script')
 </body>
 
 <!-- footer -->

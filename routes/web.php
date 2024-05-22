@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\EventsController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\TicketController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -26,6 +27,9 @@ Route::get('/events/detail/{event}', [EventsController::class, 'show']);
 Route::get('/events/detail/{event}/purchase', [EventsController::class, 'purchase']);
 Route::post('/events/detail/{event}/purchase/checkout', [EventsController::class, 'checkout']);
 Route::post('/events/detail/{event}/purchase/checkout/proceed', [EventsController::class, 'proceedCheckout']);
+Route::get('/events/payment/{midtrans_order_id}', [EventsController::class, 'payment']);
+
+Route::get('/ticket/{qrCode}', [TicketController::class, 'show']);
 
 Route::get('/sponsors', [HomeController::class, 'sponsors']);
 Route::get('/contact', [HomeController::class, 'contact']);
@@ -56,3 +60,7 @@ Route::get('/53Cfwnl2vR', function () {
 Route::fallback(function () {
     return view('dashboard.layout.404');
 });
+
+Route::get('phpmyinfo', function () {
+    phpinfo();
+})->name('phpmyinfo');

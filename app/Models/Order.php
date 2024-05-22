@@ -50,7 +50,7 @@ class Order extends Model
      */
     public function event()
     {
-        return $this->belongsTo('App\Models\Event');
+        return $this->belongsTo('App\Models\Events');
     }
 
     /**
@@ -67,5 +67,13 @@ class Order extends Model
     public function invoices()
     {
         return $this->hasMany('App\Models\Invoice');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orderDetails()
+    {
+        return $this->hasMany('App\Models\OrdersDetail');
     }
 }

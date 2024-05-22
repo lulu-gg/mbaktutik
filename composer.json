@@ -21,6 +21,7 @@
         "midtrans/midtrans-php": "^2.5",
         "nasution/terbilang": "^0.1.0",
         "rsmalc/laravel-noty": "^2.5",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-sluggable": "^3.4",
         "tymon/jwt-auth": "^2.0"
     },

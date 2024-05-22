@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Tickets\TicketStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -26,13 +27,41 @@ class Ticket extends Model
     /**
      * @var array
      */
-    protected $fillable = ['order_id', 'ticket_code', 'qr_code', 'status', 'created_at', 'updated_at'];
+    protected $fillable = ['order_id', 'ticket_code', 'order_detail_id', 'qr_code', 'status', 'scanned_at', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function order()
+    public function orderDetail()
     {
-        return $this->belongsTo('App\Models\Order');
+        return $this->belongsTo('App\Models\OrdersDetail');
+    }
+
+    public function getStatusSpanAttribute($darkText = false)
+    {
+        switch ($this->status) {
+            case TicketStatusEnum::Pending:
+                return '<span class="badge bg-warning text-grey">Waiting Payment</span>';
+            case TicketStatusEnum::Active:
+                return '<span class="badge bg-success text-grey">Ready to Scan</span>';
+            case TicketStatusEnum::Scanned:
+                return '<span class="badge bg-danger text-grey">Already Scanned</span>';
+            default:
+                return "-";
+        }
+    }
+
+    public static function generateTicketID($prefix = 'TICKET')
+    {
+        // Get the current timestamp
+        $timestamp = time();
+
+        // Generate a random number
+        $randomNumber = mt_rand(1000, 9999);
+
+        // Combine the prefix, timestamp, and random number to create a unique ID
+        $ticketID = $prefix . '-' . $timestamp . '-' . $randomNumber;
+
+        return $ticketID;
     }
 }
