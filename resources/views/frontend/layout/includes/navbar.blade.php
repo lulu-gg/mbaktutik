@@ -32,16 +32,16 @@
                                 <div class="cs-nav">
                                     <ul class="cs-nav_list">
                                         <li>
-                                            <a href="{{url('/')}}">Home</a>
+                                            <a href="{{ url('/') }}">Home</a>
                                         </li>
                                         <li>
-                                            <a href="{{url('/events')}}">Events</a>
+                                            <a href="{{ url('/events') }}">Events</a>
                                         </li>
                                         <li>
-                                            <a href="{{url('/sponsors')}}">Sponsors</a>
+                                            <a href="{{ url('/sponsors') }}">Sponsors</a>
                                         </li>
                                         <li>
-                                            <a href="{{url('/contact')}}">Contact Us</a>
+                                            <a href="{{ url('/contact') }}">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -60,22 +60,36 @@
                                         stroke-linejoin="round" />
                                 </svg>
                             </div>
-                            <div class="cs-toggle_box cs-profile_box">
-                                <div class="cs-toggle_btn cs-header_icon_btn cs-center">
-                                    <a href="{{ url('account') }}">
-                                    <svg width="19" height="18" viewBox="0 0 19 18" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M15.5 15.75V14.25C15.5 13.4544 15.1839 12.6913 14.6213 12.1287C14.0587 11.5661 13.2956 11.25 12.5 11.25H6.5C5.70435 11.25 4.94129 11.5661 4.37868 12.1287C3.81607 12.6913 3.5 13.4544 3.5 14.25V15.75"
-                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path
-                                            d="M9.5 8.25C11.1569 8.25 12.5 6.90685 12.5 5.25C12.5 3.59315 11.1569 2.25 9.5 2.25C7.84315 2.25 6.5 3.59315 6.5 5.25C6.5 6.90685 7.84315 8.25 9.5 8.25Z"
-                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                    </a>
+
+                            @if (\App\Helpers\RoleHelpers::isScanOfficer())
+                                <div class="cs-toggle_box cs-profile_box">
+                                    <div class="cs-toggle_btn cs-header_icon_btn cs-center">
+                                        <a href="{{ url('account') }}">
+                                            <svg width="19" height="18" viewBox="0 0 19 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M15.5 15.75V14.25C15.5 13.4544 15.1839 12.6913 14.6213 12.1287C14.0587 11.5661 13.2956 11.25 12.5 11.25H6.5C5.70435 11.25 4.94129 11.5661 4.37868 12.1287C3.81607 12.6913 3.5 13.4544 3.5 14.25V15.75"
+                                                    stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M9.5 8.25C11.1569 8.25 12.5 6.90685 12.5 5.25C12.5 3.59315 11.1569 2.25 9.5 2.25C7.84315 2.25 6.5 3.59315 6.5 5.25C6.5 6.90685 7.84315 8.25 9.5 8.25Z"
+                                                    stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <a href="{{ url('login') }}" class="cs-btn cs-style1"><span>Login</span></a>
+                                <a href="javascript:document.getElementById('signout-form').submit();"
+                                    class="cs-btn cs-style1"><span>Logout</span></a>
+                                <div>
+                                    <form action="{{ url('/logout') }}" id="signout-form" method="POST">
+                                        @csrf
+                                    </form>
+                                </div>
+                            @else
+                                <a href="{{ url('/login') }}" class="cs-btn cs-style1"><span>Login</span></a>
+                            @endif
+
                         </div>
                     </div>
                 </div>

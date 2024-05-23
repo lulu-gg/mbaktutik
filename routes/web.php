@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\EventsController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TicketController;
@@ -17,8 +18,14 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
+
+
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/login', [HomeController::class, 'login']);
+
+Route::get('/login', [AuthController::class, 'index']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout']);
+
 Route::get('/register', [HomeController::class, 'register']);
 Route::get('/reset-password', [HomeController::class, 'resetPassword']);
 
@@ -30,6 +37,8 @@ Route::post('/events/detail/{event}/purchase/checkout/proceed', [EventsControlle
 Route::get('/events/payment/{midtrans_order_id}', [EventsController::class, 'payment']);
 
 Route::get('/ticket/{qrCode}', [TicketController::class, 'show']);
+Route::get('/ticket/scan/{qrCode}', [TicketController::class, 'scan']);
+Route::post('/ticket/scan/{qrCode}/update', [TicketController::class, 'update']);
 
 Route::get('/sponsors', [HomeController::class, 'sponsors']);
 Route::get('/contact', [HomeController::class, 'contact']);
@@ -49,18 +58,21 @@ Route::get('/account/organizer/events/index', [HomeController::class, 'organizer
 
 Route::get('/organizer-register', [HomeController::class, 'organizerRegister']);
 
+// //
+// Route::fallback(function () {
+//     return view('frontend.layout.404');
+// });
+
+Route::fallback(function () {
+    if (request()->is('admin/*')) {
+        return response()->view('admin.layout.404', [], 404);
+    } else {
+        return response()->view('frontend.layout.404', [], 404);
+    }
+});
 
 // for reset cache in production
 Route::get('/53Cfwnl2vR', function () {
     Artisan::call('optimize:clear');
     return "Cleared!";
 });
-
-// // 404 Page Handling
-Route::fallback(function () {
-    return view('dashboard.layout.404');
-});
-
-Route::get('phpmyinfo', function () {
-    phpinfo();
-})->name('phpmyinfo');

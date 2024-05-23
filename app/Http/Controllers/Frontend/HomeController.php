@@ -43,11 +43,6 @@ class HomeController extends Controller
         return view('frontend.contact.index');
     }
 
-    public function login()
-    {
-        return view('frontend.general.login');
-    }
-
     public function register()
     {
         return view('frontend.general.register');

@@ -18,7 +18,7 @@
         <div class="cs-activity cs-white_bg billing-info mb-4">
             <div class="d-flex justify-content-center flex-column">
                 <div id="qrcode"></div>
-                <h4 class="text-center mt-4">{{ $ticket->ticket_code }}</h4>
+                <h4 class="text-center mt-4 m-0">{{ $ticket->ticket_code }}</h4>
             </div>
         </div>
     </div>
