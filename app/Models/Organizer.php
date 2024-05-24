@@ -75,4 +75,14 @@ class Organizer extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function getLogoPathAttribute()
+    {
+        return $this->logo ? url(self::$FILE_PATH . $this->logo) : null;
+    }
+
+    public function getProposalPathAttribute()
+    {
+        return $this->proposal ? url(self::$FILE_PATH . $this->proposal) : null;
+    }
 }

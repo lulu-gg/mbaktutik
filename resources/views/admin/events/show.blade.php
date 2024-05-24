@@ -201,7 +201,7 @@
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->price }}</td>
+                                        <td>@format_currency($item->price)</td>
                                         <td>{{ $item->quota }}</td>
                                         <td>{{ $item->max_user_purchase }}</td>
                                         <td>{{ \App\Enums\Events\EventStatusEnum::getKey($item->status) }}</td>

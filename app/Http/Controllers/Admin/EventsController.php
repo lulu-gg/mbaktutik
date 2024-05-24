@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\Events\EventStatusEnum;
 use App\Helpers\CustomHelpers;
+use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\Events;
 use App\Models\EventsCategory;
@@ -22,7 +23,10 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $data = Events::with(['eventsCategory'])->withCount('ticketVariations')->get();
+        $query = Events::with(['eventsCategory'])->withCount('ticketVariations');
+
+        $data = RoleHelpers::isAdmin() ? $query->get() : $query->where(['event_organizer_id' => Auth::user()->organizer->id])->get();
+
         return view('admin.events.index', ['data' => $data]);
     }
 

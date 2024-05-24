@@ -62,8 +62,7 @@
                     <div class="card-body">
                         <!-- Logo -->
                         <div class="app-brand justify-content-center">
-                            <img src="{{ asset('images/rive-logo-500.png') }}" alt=""
-                                class="image-fluid w-50">
+                            <img src="{{ asset('images/rive-logo-500.png') }}" alt="" class="image-fluid w-50">
                         </div>
                         <!-- /Logo -->
                         <h4 class="mb-2">Welcome to Rive! 👋</h4>
@@ -74,7 +73,6 @@
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" name="email"
-                                    value="{{ app()->isLocal() ? 'admin@mail.com' : '' }}"
                                     placeholder="Enter your email" autofocus required />
                                 @error('email')
                                     <div class="invalid-feedback d-block">
@@ -89,14 +87,13 @@
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" class="form-control" name="password"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" value="{{ app()->isLocal() ? 'admin' : '' }}"
-                                        required />
+                                        aria-describedby="password" required />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="remember-me" />
+                                    <input class="form-check-input" type="checkbox" id="remember-me" name="remember" />
                                     <label class="form-check-label" for="remember-me"> Remember Me </label>
                                 </div>
                             </div>

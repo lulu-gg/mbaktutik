@@ -59,6 +59,14 @@
             </a>
         </li>
 
+        <!-- Event Organizer Registration -->
+        <li class="menu-item {{ CustomHelpers::isActive('dashboard/organizer-registration') }}">
+            <a href="{{ url('dashboard/organizer-registration') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-images"></i>
+                <div data-i18n="EO Registration">EO Registration</div>
+            </a>
+        </li>
+
         <!-- Master -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
 

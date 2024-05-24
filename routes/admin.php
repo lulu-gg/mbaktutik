@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\EventsCategoryController;
 use App\Http\Controllers\Admin\EventsController;
 use App\Http\Controllers\Admin\GeneralParameterController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\OrganizerRegistrationController;
 use App\Http\Controllers\Admin\ScannerOfficerController;
 use App\Http\Controllers\Admin\SponsorsController;
 use App\Http\Controllers\Admin\TicketVariationsController;
@@ -52,6 +53,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
         });
     });
 
+    // Events
     Route::resource('/events', EventsController::class);
 
     // Events Category
@@ -62,6 +64,13 @@ Route::group(['middleware' => 'admin.auth'], function () {
 
     // Scanner Officer
     Route::resource('/scanner-officer', ScannerOfficerController::class);
+
+    // Event Oragnizer Request
+    Route::prefix('/organizer-registration')->group(function () {
+        Route::get('/', [OrganizerRegistrationController::class, 'index']);
+        Route::get('/{organizer}', [OrganizerRegistrationController::class, 'show']);
+        Route::post('/{organizer}/accept', [OrganizerRegistrationController::class, 'accept']);
+    });
 
     // General Parameter
     Route::get('/general-parameter', [GeneralParameterController::class, 'index']);

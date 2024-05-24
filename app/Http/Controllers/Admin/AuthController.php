@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\User\AccountStatusEnum;
 use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -29,10 +30,18 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials) && (RoleHelpers::isAdmin() || RoleHelpers::isEventOrganizer())) {
-            $request->session()->regenerate();
+        $remember = $request->has('remember');
 
-            return redirect()->intended('/dashboard');
+        if (Auth::attempt($credentials, $remember)) {
+            if ((RoleHelpers::isAdmin() || RoleHelpers::isEventOrganizer()) && Auth::user()->account_status == AccountStatusEnum::Active) {
+                $request->session()->regenerate();
+                return redirect()->intended('/dashboard');
+            } else {
+                Auth::logout();
+                return back()->withErrors([
+                    'email' => 'You do not have the required permission to access this resource.',
+                ])->onlyInput('email');
+            }
         }
 
         return back()->withErrors([
