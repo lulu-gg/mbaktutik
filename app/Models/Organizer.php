@@ -27,7 +27,22 @@ class Organizer extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'company_name', 'contact_person', 'phone', 'website'];
+    protected $fillable = [
+        'user_id',
+        'company_name',
+        'contact_person',
+        'phone',
+        'website',
+        'about_us',
+        'logo',
+        'username',
+        'province',
+        'city',
+        'zip',
+        'address',
+        'proposal',
+        'status'
+    ];
 
     public static $rules = [
         'company_name' => 'required',
@@ -35,6 +50,23 @@ class Organizer extends Model
         'phone' => 'required',
         'website' => 'required',
     ];
+
+    public static $rulesRegister = [
+        'logo' => 'required|file|mimes:png|max:2048',
+        'company_name' => 'required',
+        'about_us' => 'required',
+        'username' => 'required|unique:organizers',
+        'email' => 'required|email|unique:users',
+        'email' => 'required|min:8',
+        'phone' => 'required',
+        'province' => 'required',
+        'city' => 'required',
+        'zip' => 'required',
+        'address' => 'required',
+        'proposal' => 'required|file|mimes:pdf|max:2048',
+    ];
+
+    public static $FILE_PATH = 'uploads/event-organizers/';
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

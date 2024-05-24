@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Enums\EventOrganizer\EventOganizerStatusEnum;
+use App\Helpers\CustomHelpers;
 use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Controller;
+use App\Models\Organizer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -58,5 +64,46 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function registerEventOrganizer()
+    {
+        if (Auth::check() && RoleHelpers::isScanOfficer()) return redirect('/');
+
+        return view('frontend.auth.event-organizer.register-form');
+    }
+
+    public function registerEventOrganizerSubmit(Request $request)
+    {
+        $request->validate(Organizer::$rulesRegister);
+
+        $uploadLogo = CustomHelpers::simpleFileUpload(requestFile: $request->logo, path: Organizer::$FILE_PATH);
+
+        $uploadProposal = CustomHelpers::simpleFileUpload(requestFile: $request->proposal, path: Organizer::$FILE_PATH);
+
+        $user = User::create([
+            'name' => $request->company_name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'verify_token' => Str::random(30),
+            'role_id' => RoleHelpers::$EVENT_ORGANIZER,
+            'account_status' => 0,
+        ]);
+
+        $eventOrganizer = Organizer::create([
+            ...$request->except(['logo', 'proposal']),
+            'user_id' => $user->id,
+            'status' => EventOganizerStatusEnum::WaitingApproval,
+            'contact_person' => $request->email,
+            'logo' => $uploadLogo,
+            'proposal' => $uploadProposal,
+        ]);
+
+        return redirect("/register/event-organizer/thankyou");
+    }
+
+    public function registerEventOrganizerComplete()
+    {
+        return view('frontend.auth.event-organizer.register-complete');
     }
 }

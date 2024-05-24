@@ -53,7 +53,6 @@ class SponsorsController extends Controller
 
         Sponsors::create([...$request->all(), 'logo' => $uploadedImage]);
 
-
         noty('Berhasil Simpan Data', 'info');
 
         return redirect($this->HOME_URL);

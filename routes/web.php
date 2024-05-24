@@ -25,9 +25,12 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
+Route::get('/register/event-organizer', [AuthController::class, 'registerEventOrganizer']);
+Route::post('/register/event-organizer/submit', [AuthController::class, 'registerEventOrganizerSubmit']);
+Route::get('/register/event-organizer/thankyou', [AuthController::class, 'registerEventOrganizerComplete']);
 
-Route::get('/register', [HomeController::class, 'register']);
-Route::get('/reset-password', [HomeController::class, 'resetPassword']);
+// Route::get('/register', [HomeController::class, 'register']);
+// Route::get('/reset-password', [HomeController::class, 'resetPassword']);
 
 Route::get('/events', [EventsController::class, 'index']);
 Route::get('/events/detail/{event}', [EventsController::class, 'show']);

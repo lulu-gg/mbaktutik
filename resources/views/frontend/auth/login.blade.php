@@ -81,7 +81,7 @@
                                     Sign up now to start creating and managing your events
                                 </p>
                             </div>
-                            <a href="#" class="cs-iconbox_btn cs-primary_font">
+                            <a href="{{ url('/register/event-organizer') }}" class="cs-iconbox_btn cs-primary_font">
                                 Register Now
                                 <svg width="17" height="12" viewBox="0 0 17 12" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
