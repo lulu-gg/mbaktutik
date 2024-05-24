@@ -1,11 +1,11 @@
 <x-admin.app-layout>
 
-    <form action="{{ url('admin/user') }}" method="POST" data-parsley-validate>
+    <form action="{{ url('dashboard/user') }}" method="POST" data-parsley-validate>
 
         <div class="card mb-4">
             <h5 class="card-header d-flex justify-content-between align-items-center">
                 Tambah User
-                <a href="{{ url('admin/user') }}" type="button" class="btn btn-sm btn-secondary">Kembali</a>
+                <a href="{{ url('dashboard/user') }}" type="button" class="btn btn-sm btn-secondary">Kembali</a>
             </h5>
             <div class="card-body">
                 @csrf

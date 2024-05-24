@@ -2,7 +2,7 @@
 
     @php 
         $currentName = "Events Category";
-        $currentPath = "admin/events-category";
+        $currentPath = "dashboard/events-category";
     @endphp
 
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Menu /</span> {{ $currentName }}</h4>
@@ -66,7 +66,7 @@
         <script>
             $(function() {
                 $('#filter_status').change(function() {
-                    window.location.href = `{{ url('admin/user?q=') }}${this.value}`
+                    window.location.href = `{{ url('dashboard/user?q=') }}${this.value}`
                 })
             })
         </script>

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class EventsCategoryController extends Controller
 {
-    protected $HOME_URL = 'admin/events-category';
+    protected $HOME_URL = 'dashboard/events-category';
 
     /**
      * Display a listing of the resource.

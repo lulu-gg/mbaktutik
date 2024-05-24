@@ -1,11 +1,11 @@
 <x-admin.app-layout>
 
-    <form action="{{ url('admin/scanner-officer') }}" method="POST" data-parsley-validate>
+    <form action="{{ url('dashboard/scanner-officer') }}" method="POST" data-parsley-validate>
 
         <div class="card mb-4">
             <h5 class="card-header d-flex justify-content-between align-items-center">
                 Tambah Scanner Officer
-                <a href="{{ url('admin/scanner-officer') }}" type="button" class="btn btn-sm btn-secondary">Kembali</a>
+                <a href="{{ url('dashboard/scanner-officer') }}" type="button" class="btn btn-sm btn-secondary">Kembali</a>
             </h5>
             <div class="card-body">
                 @csrf

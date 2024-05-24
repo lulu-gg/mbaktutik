@@ -2,7 +2,7 @@
 
     @php
         $currentName = 'Sponsors';
-        $currentPath = 'admin/sponsors';
+        $currentPath = 'dashboard/sponsors';
     @endphp
 
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Menu /</span> {{ $currentName }}</h4>

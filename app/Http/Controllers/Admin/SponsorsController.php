@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 
 class SponsorsController extends Controller
 {
-    protected $HOME_URL = 'admin/sponsors';
+    protected $HOME_URL = 'dashboard/sponsors';
 
     /**
      * Display a listing of the resource.

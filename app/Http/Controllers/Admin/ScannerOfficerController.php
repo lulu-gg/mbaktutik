@@ -58,7 +58,7 @@ class ScannerOfficerController extends Controller
 
         noty("Berhasil membuat scan officer", 'info');
 
-        return redirect('admin/scanner-officer');
+        return redirect('dashboard/scanner-officer');
     }
 
     /**
@@ -104,7 +104,7 @@ class ScannerOfficerController extends Controller
 
         noty("Berhasil edit scan officer", 'info');
 
-        return redirect('admin/scanner-officer');
+        return redirect('dashboard/scanner-officer');
     }
 
     /**
@@ -121,6 +121,6 @@ class ScannerOfficerController extends Controller
             noty("Gagal menghapus user", 'error');
         }
 
-        return redirect("admin/scanner-officer");
+        return redirect("dashboard/scanner-officer");
     }
 }

@@ -61,7 +61,7 @@
                                 <p>Access your personalized dashboard manage your events.
                                 </p>
                             </div>
-                            <a href="{{ url('/admin/login') }}" class="cs-iconbox_btn cs-primary_font">
+                            <a href="{{ url('/dashboard/login') }}" class="cs-iconbox_btn cs-primary_font">
                                 Login Now
                                 <svg width="17" height="12" viewBox="0 0 17 12" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">

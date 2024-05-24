@@ -32,7 +32,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials) && (RoleHelpers::isAdmin() || RoleHelpers::isEventOrganizer())) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/admin');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->withErrors([
@@ -48,6 +48,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/admin');
+        return redirect('/dashboard');
     }
 }

@@ -240,7 +240,7 @@
 
 
     async function clearLocalNotification(isAdmin) {
-        const url = isAdmin ? `{{ url('admin/local-notification/clear') }}` :
+        const url = isAdmin ? `{{ url('dashboard/local-notification/clear') }}` :
             `{{ url('dashboard/local-notification/clear') }}`;
 
         await $.post(url, {

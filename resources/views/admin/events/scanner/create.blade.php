@@ -5,10 +5,10 @@
             <span class="text-muted fw-light">Menu / Events / </span>
             Assign Ticket Scanner
         </div>
-        <a href="{{ url("admin/events/$event->id") }}" type="button" class="btn btn-sm btn-secondary">Kembali</a>
+        <a href="{{ url("dashboard/events/$event->id") }}" type="button" class="btn btn-sm btn-secondary">Kembali</a>
     </h4>
 
-    <form action="{{ url("admin/events/$event->id/scanner") }}" method="POST" data-parsley-validate>
+    <form action="{{ url("dashboard/events/$event->id/scanner") }}" method="POST" data-parsley-validate>
         @csrf
         <x-admin.alert-message />
         <div id="form-container">

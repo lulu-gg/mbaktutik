@@ -2,7 +2,7 @@
 
     @php
         $currentName = 'Events';
-        $currentPath = 'admin/events';
+        $currentPath = 'dashboard/events';
     @endphp
 
     <div class="row">

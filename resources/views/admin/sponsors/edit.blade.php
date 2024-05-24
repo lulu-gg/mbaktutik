@@ -2,7 +2,7 @@
 
     @php
         $currentName = 'Events Category';
-        $currentPath = 'admin/sponsors';
+        $currentPath = 'dashboard/sponsors';
     @endphp
 
     <div class="card">

@@ -209,5 +209,5 @@
 </nav>
 
 <div>
-    <form action="{{ url('/admin/logout') }}" id="signout-form" method="POST">@csrf</form>
+    <form action="{{ url('/dashboard/logout') }}" id="signout-form" method="POST">@csrf</form>
 </div>

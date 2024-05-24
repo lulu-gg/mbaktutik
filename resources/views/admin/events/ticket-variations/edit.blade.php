@@ -5,10 +5,10 @@
             <span class="text-muted fw-light">Menu / Events / </span>
             Edit Ticket
         </div>
-        <a href="{{ url("admin/events/$event->id") }}" type="button" class="btn btn-sm btn-secondary">Kembali</a>
+        <a href="{{ url("dashboard/events/$event->id") }}" type="button" class="btn btn-sm btn-secondary">Kembali</a>
     </h4>
 
-    <form action="{{ url("admin/events/$event->id/ticket/$ticket->id") }}" method="POST" data-parsley-validate>
+    <form action="{{ url("dashboard/events/$event->id/ticket/$ticket->id") }}" method="POST" data-parsley-validate>
         @csrf
         @method('PATCH')
         <x-admin.alert-message />

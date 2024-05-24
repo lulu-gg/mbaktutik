@@ -8,7 +8,7 @@
             Data Scanner Officer
             <div class="row">
                 <div class="col-auto">
-                    <a href="{{ url('admin/scanner-officer/create') }}" type="button" class="btn btn-sm btn-primary">
+                    <a href="{{ url('dashboard/scanner-officer/create') }}" type="button" class="btn btn-sm btn-primary">
                         Tambah Data
                     </a>
                 </div>
@@ -34,11 +34,11 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{!! $user->getStatusSpan() !!}</td>
                                 <td>
-                                    <form action="{{ url("admin/scanner-officer/$user->id") }}" method="POST">
-                                        <a href="{{ url("admin/scanner-officer/$user->id/edit") }}" class="btn">
+                                    <form action="{{ url("dashboard/scanner-officer/$user->id") }}" method="POST">
+                                        <a href="{{ url("dashboard/scanner-officer/$user->id/edit") }}" class="btn">
                                             <i class="bx bx-edit"></i>
                                         </a>
-                                        <a href="{{ url("admin/scanner-officer/$user->id") }}" class="btn">
+                                        <a href="{{ url("dashboard/scanner-officer/$user->id") }}" class="btn">
                                             <i class="bx bx-right-arrow-alt"></i>
                                         </a>
 

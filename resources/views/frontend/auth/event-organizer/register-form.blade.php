@@ -288,7 +288,7 @@
                             <span>Register Now</span>
                         </button>
                         <div class="cs-height_30 cs-height_lg_30"></div>
-                        <div class="cs-form_footer text-center">Have an account? <a href="{{ url('/admin/login') }}">Log
+                        <div class="cs-form_footer text-center">Have an account? <a href="{{ url('/dashboard/login') }}">Log
                                 In</a></div>
                     </div>
                 </form>

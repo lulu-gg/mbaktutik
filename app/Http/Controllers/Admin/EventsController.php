@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\File;
 
 class EventsController extends Controller
 {
-    protected $HOME_URL = 'admin/events';
+    protected $HOME_URL = 'dashboard/events';
 
     /**
      * Display a listing of the resource.

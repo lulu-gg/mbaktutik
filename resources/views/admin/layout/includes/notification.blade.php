@@ -56,7 +56,7 @@
         </li>
         @if (count($notifications) > 0)
             <li class="dropdown-menu-footer border-top">
-                <a href="{{ url('/admin/local-notification') }}"
+                <a href="{{ url('/dashboard/local-notification') }}"
                     class="dropdown-item d-flex justify-content-center p-3">
                     View all notifications
                 </a>

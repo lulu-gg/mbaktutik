@@ -2,7 +2,7 @@
 
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Master /</span> General Parameter</h4>
 
-    <form action="{{ url('admin/general-parameter') }}" method="POST" data-parsley-validate>
+    <form action="{{ url('dashboard/general-parameter') }}" method="POST" data-parsley-validate>
         @csrf
         <x-admin.alert-message />
 

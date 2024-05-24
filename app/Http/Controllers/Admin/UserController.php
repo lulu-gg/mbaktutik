@@ -76,7 +76,7 @@ class UserController extends Controller
 
         noty("Berhasil membuat user", 'info');
 
-        return redirect('admin/user');
+        return redirect('dashboard/user');
     }
 
     /**
@@ -127,6 +127,6 @@ class UserController extends Controller
             noty("Gagal menghapus user", 'error');
         }
 
-        return redirect("admin/user");
+        return redirect("dashboard/user");
     }
 }

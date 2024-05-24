@@ -8,7 +8,7 @@
             Data User
             <div class="row">
                 <div class="col-auto">
-                    <a href="{{ url('admin/user/create') }}" type="button" class="btn btn-sm btn-primary">Tambah
+                    <a href="{{ url('dashboard/user/create') }}" type="button" class="btn btn-sm btn-primary">Tambah
                         Data</a>
                 </div>
             </div>
@@ -35,8 +35,8 @@
                                 <td>{{ $user->role->name }}</td>
                                 <td>{!! $user->getStatusSpan() !!}</td>
                                 <td>
-                                    <form action="{{ url("admin/user/$user->id") }}" method="POST">
-                                        <a href="{{ url("admin/user/$user->id") }}" class="btn">
+                                    <form action="{{ url("dashboard/user/$user->id") }}" method="POST">
+                                        <a href="{{ url("dashboard/user/$user->id") }}" class="btn">
                                             <i class="bx bx-right-arrow-alt"></i>
                                         </a>
 
@@ -60,7 +60,7 @@
         <script>
             $(function() {
                 $('#filter_status').change(function() {
-                    window.location.href = `{{ url('admin/user?q=') }}${this.value}`
+                    window.location.href = `{{ url('dashboard/user?q=') }}${this.value}`
                 })
             })
         </script>

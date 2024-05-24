@@ -67,7 +67,7 @@ Route::get('/organizer-register', [HomeController::class, 'organizerRegister']);
 // });
 
 Route::fallback(function () {
-    if (request()->is('admin/*')) {
+    if (request()->is('dashboard/*')) {
         return response()->view('admin.layout.404', [], 404);
     } else {
         return response()->view('frontend.layout.404', [], 404);

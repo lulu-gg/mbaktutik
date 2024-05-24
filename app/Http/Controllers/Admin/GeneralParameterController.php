@@ -34,6 +34,6 @@ class GeneralParameterController extends Controller
 
         noty('Berhasil Simpan Data', 'info');
 
-        return redirect("/admin/general-parameter");
+        return redirect("/dashboard/general-parameter");
     }
 }
