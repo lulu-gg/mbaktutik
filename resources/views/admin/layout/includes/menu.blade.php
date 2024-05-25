@@ -2,10 +2,15 @@
     <div class="app-brand demo mb-2" style="padding-left: 5%">
         <a href="{{ url('/') }}" class="app-brand-link">
             <span class="app-brand-logo demo">
-                {{-- <img src="{{ asset('images/logo-transparent-150.png') }}" style="height: 5em" alt="logo"> --}}
             </span>
             <span class="app-brand-text demo menu-text fw-bolder ms-2" style="text-transform: none!important">
-                <small style="font-size: 70%;padding-left:5px"><i>Rive Administrator</i></small>
+                @if (\App\Helpers\RoleHelpers::isAdmin())
+                    <small style="font-size: 70%;padding-left:5px"><i>Rive Administrator</i></small>
+                @endif
+
+                @if (\App\Helpers\RoleHelpers::isEventOrganizer())
+                    <small style="font-size: 70%;padding-left:5px"><i>Dashboard Organizer</i></small>
+                @endif
             </span>
         </a>
     </div>
@@ -51,39 +56,40 @@
         </li>
 
 
-        <!-- Sponsors -->
-        <li class="menu-item {{ CustomHelpers::isActive('dashboard/sponsors') }}">
-            <a href="{{ url('dashboard/sponsors') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-images"></i>
-                <div data-i18n="Sponsors">Sponsors</div>
-            </a>
-        </li>
+        @if (\App\Helpers\RoleHelpers::isAdmin())
+            <!-- Sponsors -->
+            <li class="menu-item {{ CustomHelpers::isActive('dashboard/sponsors') }}">
+                <a href="{{ url('dashboard/sponsors') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-images"></i>
+                    <div data-i18n="Sponsors">Sponsors</div>
+                </a>
+            </li>
 
-        <!-- Event Organizer Registration -->
-        <li class="menu-item {{ CustomHelpers::isActive('dashboard/organizer-registration') }}">
-            <a href="{{ url('dashboard/organizer-registration') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-images"></i>
-                <div data-i18n="EO Registration">EO Registration</div>
-            </a>
-        </li>
+            <!-- Event Organizer Registration -->
+            <li class="menu-item {{ CustomHelpers::isActive('dashboard/organizer-registration') }}">
+                <a href="{{ url('dashboard/organizer-registration') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-images"></i>
+                    <div data-i18n="EO Registration">EO Registration</div>
+                </a>
+            </li>
 
-        <!-- Master -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
+            <!-- Master -->
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
 
-        <li class="menu-item {{ CustomHelpers::isActive('dashboard/user') }}">
-            <a href="{{ url('dashboard/user') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-user"></i>
-                <div data-i18n="User">User</div>
-            </a>
-        </li>
+            <li class="menu-item {{ CustomHelpers::isActive('dashboard/user') }}">
+                <a href="{{ url('dashboard/user') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bxs-user"></i>
+                    <div data-i18n="User">User</div>
+                </a>
+            </li>
 
-        <li class="menu-item {{ CustomHelpers::isActive('dashboard/general-parameter') }}">
-            <a href="{{ url('dashboard/general-parameter') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-cog"></i>
-                <div data-i18n="General Parameter">General Parameter</div>
-            </a>
-        </li>
-        {{-- @endif --}}
+            <li class="menu-item {{ CustomHelpers::isActive('dashboard/general-parameter') }}">
+                <a href="{{ url('dashboard/general-parameter') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bxs-cog"></i>
+                    <div data-i18n="General Parameter">General Parameter</div>
+                </a>
+            </li>
+        @endif
 
     </ul>
 </aside>

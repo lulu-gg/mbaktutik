@@ -21,7 +21,7 @@
         <ul class="navbar-nav flex-row align-items-center ms-auto">
 
             <!-- Quick links  -->
-            <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-2 me-xl-0">
+            {{-- <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-2 me-xl-0">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
                     data-bs-auto-close="outside" aria-expanded="false">
                     <i class='bx bx-grid-alt bx-sm'></i>
@@ -104,11 +104,11 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> --}}
             <!-- Quick links -->
 
             <!-- Notification -->
-            @include('admin.layout.includes.notification')
+            {{-- @include('admin.layout.includes.notification') --}}
             <!--/ Notification -->
             <!-- User -->
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -143,7 +143,7 @@
                             <span class="align-middle">My Profile</span>
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a class="dropdown-item" href="pages-account-settings-account.html">
                             <i class="bx bx-cog me-2"></i>
                             <span class="align-middle">Settings</span>
@@ -182,7 +182,7 @@
                     </li>
                     <li>
                         <div class="dropdown-divider"></div>
-                    </li>
+                    </li> --}}
                     <li>
                         <a class="dropdown-item" href="javascript:document.getElementById('signout-form').submit();">
                             <i class="bx bx-power-off me-2"></i>

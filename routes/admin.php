@@ -60,7 +60,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::resource('/events-category', EventsCategoryController::class);
 
     // Sponsors
-    Route::resource('/sponsors', SponsorsController::class);
+    Route::resource('/sponsors', SponsorsController::class)->middleware('admin.admin-permission');
 
     // Scanner Officer
     Route::resource('/scanner-officer', ScannerOfficerController::class);
@@ -70,14 +70,16 @@ Route::group(['middleware' => 'admin.auth'], function () {
         Route::get('/', [OrganizerRegistrationController::class, 'index']);
         Route::get('/{organizer}', [OrganizerRegistrationController::class, 'show']);
         Route::post('/{organizer}/accept', [OrganizerRegistrationController::class, 'accept']);
-    });
+    })->middleware('admin.admin-permission');
 
     // General Parameter
-    Route::get('/general-parameter', [GeneralParameterController::class, 'index']);
-    Route::post('/general-parameter', [GeneralParameterController::class, 'update']);
+    Route::prefix('/general-parameter')->group(function () {
+        Route::get('/', [GeneralParameterController::class, 'index']);
+        Route::post('/', [GeneralParameterController::class, 'update']);
+    })->middleware('admin.admin-permission');
 
     // User
-    Route::resource('/user', UserController::class)->except(['edit', 'update']);
+    Route::resource('/user', UserController::class)->except(['edit', 'update'])->middleware('admin.admin-permission');
 
     // Auth Logout
     Route::post('/logout', [AuthController::class, 'logout']);

@@ -12,7 +12,7 @@
  Target Server Version : 160002 (160002)
  File Encoding         : 65001
 
- Date: 23/05/2024 04:56:23
+ Date: 25/05/2024 15:37:02
 */
 
 
@@ -215,6 +215,17 @@ START 1
 CACHE 1;
 
 -- ----------------------------
+-- Sequence structure for transaction_history_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."transaction_history_id_seq";
+CREATE SEQUENCE "public"."transaction_history_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
 -- Sequence structure for users_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."users_id_seq";
@@ -392,6 +403,10 @@ CREATE TABLE "public"."jobs" (
 -- ----------------------------
 -- Records of jobs
 -- ----------------------------
+INSERT INTO "public"."jobs" VALUES (1, 'default', '{"uuid":"7c69670b-2734-4d35-b823-9539ec6c5864","displayName":"App\\Jobs\\SendWelcomeMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendWelcomeMailJob","command":"O:27:\"App\\Jobs\\SendWelcomeMailJob\":1:{s:33:\"\u0000App\\Jobs\\SendWelcomeMailJob\u0000user\";O:45:\"Illuminate\\Contracts\\Database\\ModelIdentifier\":5:{s:5:\"class\";s:15:\"App\\Models\\User\";s:2:\"id\";i:2;s:9:\"relations\";a:0:{}s:10:\"connection\";s:5:\"pgsql\";s:15:\"collectionClass\";N;}}"}}', 0, NULL, 1716501849, 1716501849);
+INSERT INTO "public"."jobs" VALUES (2, 'default', '{"uuid":"5d9ab8fa-b5cc-4d2c-87d2-d1fedff3762d","displayName":"App\\Jobs\\SendWelcomeMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendWelcomeMailJob","command":"O:27:\"App\\Jobs\\SendWelcomeMailJob\":1:{s:33:\"\u0000App\\Jobs\\SendWelcomeMailJob\u0000user\";O:45:\"Illuminate\\Contracts\\Database\\ModelIdentifier\":5:{s:5:\"class\";s:15:\"App\\Models\\User\";s:2:\"id\";i:2;s:9:\"relations\";a:0:{}s:10:\"connection\";s:5:\"pgsql\";s:15:\"collectionClass\";N;}}"}}', 0, NULL, 1716501893, 1716501893);
+INSERT INTO "public"."jobs" VALUES (3, 'default', '{"uuid":"07e5803f-e927-44c7-bb44-bd0b9e5ac8f5","displayName":"App\\Jobs\\SendWelcomeMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendWelcomeMailJob","command":"O:27:\"App\\Jobs\\SendWelcomeMailJob\":1:{s:33:\"\u0000App\\Jobs\\SendWelcomeMailJob\u0000user\";O:45:\"Illuminate\\Contracts\\Database\\ModelIdentifier\":5:{s:5:\"class\";s:15:\"App\\Models\\User\";s:2:\"id\";i:2;s:9:\"relations\";a:0:{}s:10:\"connection\";s:5:\"pgsql\";s:15:\"collectionClass\";N;}}"}}', 0, NULL, 1716501938, 1716501938);
+INSERT INTO "public"."jobs" VALUES (4, 'default', '{"uuid":"46356e10-d503-4e82-af00-f53b933bec7c","displayName":"App\\Jobs\\SendWelcomeMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendWelcomeMailJob","command":"O:27:\"App\\Jobs\\SendWelcomeMailJob\":1:{s:33:\"\u0000App\\Jobs\\SendWelcomeMailJob\u0000user\";O:45:\"Illuminate\\Contracts\\Database\\ModelIdentifier\":5:{s:5:\"class\";s:15:\"App\\Models\\User\";s:2:\"id\";i:2;s:9:\"relations\";a:0:{}s:10:\"connection\";s:5:\"pgsql\";s:15:\"collectionClass\";N;}}"}}', 0, NULL, 1716501962, 1716501962);
 
 -- ----------------------------
 -- Table structure for local_notification
@@ -523,14 +538,24 @@ CREATE TABLE "public"."organizers" (
   "phone" varchar(255) COLLATE "pg_catalog"."default",
   "website" varchar(255) COLLATE "pg_catalog"."default",
   "created_at" timestamp(6),
-  "updated_at" timestamp(6)
+  "updated_at" timestamp(6),
+  "about_us" text COLLATE "pg_catalog"."default",
+  "logo" varchar(255) COLLATE "pg_catalog"."default",
+  "username" varchar(255) COLLATE "pg_catalog"."default",
+  "province" varchar(255) COLLATE "pg_catalog"."default",
+  "city" varchar(255) COLLATE "pg_catalog"."default",
+  "zip" varchar(255) COLLATE "pg_catalog"."default",
+  "address" varchar(255) COLLATE "pg_catalog"."default",
+  "proposal" varchar(255) COLLATE "pg_catalog"."default",
+  "status" int8
 )
 ;
 
 -- ----------------------------
 -- Records of organizers
 -- ----------------------------
-INSERT INTO "public"."organizers" VALUES (1, 5, 'Rive Corp', 'rive@gmail.com', '0812123123128491', 'https://asfjklasjl.com', '2024-05-11 04:32:15', '2024-05-11 04:32:15');
+INSERT INTO "public"."organizers" VALUES (1, 5, 'Rive Corp', 'rive@gmail.com', '0812123123128491', 'https://asfjklasjl.com', '2024-05-11 04:32:15', '2024-05-11 04:32:15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."organizers" VALUES (2, 10, 'Rive 2', 'rive2@gmail.com', '081249118805', NULL, '2024-05-24 18:11:17', '2024-05-24 19:24:46', 'Lorem Ipsum', '60054755-a45a-4a4b-889a-23d3e5593b9d.png', 'rive2', 'DKI Jakarta', 'Jakarta Pusat', '99812', 'Lorem Ipsum todor', 'cb6b2391-c0f1-483e-9f54-84579b51ad17.pdf', 1);
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -680,9 +705,22 @@ CREATE TABLE "public"."tickets" (
 -- ----------------------------
 -- Records of tickets
 -- ----------------------------
-INSERT INTO "public"."tickets" VALUES (29, 28, 'TICKET-1716410407-7873', 'aS9jtNinbjTqdNIcaO7c', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL);
-INSERT INTO "public"."tickets" VALUES (30, 29, 'TICKET-1716410407-4372', '4TXYMu8QOAUKQRglRmcs', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL);
 INSERT INTO "public"."tickets" VALUES (31, 29, 'TICKET-1716410407-3221', 'GjYyU83bmRzJh1k89j1A', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL);
+INSERT INTO "public"."tickets" VALUES (29, 28, 'TICKET-1716410407-7873', 'aS9jtNinbjTqdNIcaO7c', 2, '2024-05-23 03:40:07', '2024-05-24 04:50:16', '2024-05-24 04:50:16');
+INSERT INTO "public"."tickets" VALUES (30, 29, 'TICKET-1716410407-4372', '4TXYMu8QOAUKQRglRmcs', 2, '2024-05-23 03:40:07', '2024-05-24 04:52:14', '2024-05-24 04:52:14');
+
+-- ----------------------------
+-- Table structure for transaction_history
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."transaction_history";
+CREATE TABLE "public"."transaction_history" (
+  "id" int8 NOT NULL DEFAULT nextval('transaction_history_id_seq'::regclass)
+)
+;
+
+-- ----------------------------
+-- Records of transaction_history
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for users
@@ -710,9 +748,10 @@ CREATE TABLE "public"."users" (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-04 22:16:12', '2024-05-04 22:16:12', 1, 1, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (9, 'paijo3', 'paijo@gmail.com', NULL, '$2y$10$TDuWofhCAm48A7zeaXJME.bYijtHoqV29e/NHGSdQ2SRgU.OGgq7O', NULL, '2024-05-13 02:14:25', '2024-05-13 02:24:57', 3, 1, 'LpQoWberRIOmsxbB9qp8lXNw5UWysh', NULL, NULL, NULL, 1);
 INSERT INTO "public"."users" VALUES (5, 'Rive', 'rive@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-11 04:32:15', '2024-05-11 04:32:15', 2, 1, '9msZdJP9Ba5EO2KH6aKvULiW0Uq24C', NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (9, 'Budi', 'budiscanner@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-13 02:14:25', '2024-05-13 02:24:57', 3, 1, 'LpQoWberRIOmsxbB9qp8lXNw5UWysh', NULL, NULL, NULL, 1);
+INSERT INTO "public"."users" VALUES (10, 'Rive 2', 'rive2@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-24 18:11:17', '2024-05-24 19:24:46', 2, 1, 'z4uTycyAkMDIzIchRNlvpuMkHrhInK', NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 's4ArOIZXGcUFFs71npC0zeiLH2tU1N5cuOfvz9GECLa9aZTLlFFCp3R7k91D', '2024-05-04 22:16:12', '2024-05-04 22:16:12', 1, 1, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -768,7 +807,7 @@ SELECT setval('"public"."invoices_id_seq"', 20, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."jobs_id_seq"
 OWNED BY "public"."jobs"."id";
-SELECT setval('"public"."jobs_id_seq"', 1, false);
+SELECT setval('"public"."jobs_id_seq"', 4, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -803,7 +842,7 @@ SELECT setval('"public"."orders_id_seq"', 28, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."organizers_id_seq"
 OWNED BY "public"."organizers"."id";
-SELECT setval('"public"."organizers_id_seq"', 1, true);
+SELECT setval('"public"."organizers_id_seq"', 2, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -843,9 +882,16 @@ SELECT setval('"public"."tickets_id_seq"', 31, true);
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
+ALTER SEQUENCE "public"."transaction_history_id_seq"
+OWNED BY "public"."transaction_history"."id";
+SELECT setval('"public"."transaction_history_id_seq"', 1, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."users_id_seq"
 OWNED BY "public"."users"."id";
-SELECT setval('"public"."users_id_seq"', 9, true);
+SELECT setval('"public"."users_id_seq"', 10, true);
 
 -- ----------------------------
 -- Primary Key structure for table events
@@ -973,6 +1019,11 @@ ALTER TABLE "public"."ticket_variations" ADD CONSTRAINT "event_variations_pkey" 
 -- Primary Key structure for table tickets
 -- ----------------------------
 ALTER TABLE "public"."tickets" ADD CONSTRAINT "tickets_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table transaction_history
+-- ----------------------------
+ALTER TABLE "public"."transaction_history" ADD CONSTRAINT "transaction_history_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
 -- Uniques structure for table users

@@ -66,6 +66,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         'admin.auth' => \App\Http\Middleware\Admin\AdminAuth::class,
+        'admin.admin-permission' => \App\Http\Middleware\Admin\AdminPermission::class,
+        'admin.organizer-permission' => \App\Http\Middleware\Admin\OrganizerPermission::class,
         'dashboard.auth' => \App\Http\Middleware\Dashboard\DashboardAuth::class,
         'driver.auth' => \App\Http\Middleware\Driver\DriverAuth::class,
         'api.auth' => \App\Http\Middleware\Api\ApiAuth::class,
