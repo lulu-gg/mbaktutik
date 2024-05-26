@@ -29,6 +29,8 @@ class Ticket extends Model
      */
     protected $fillable = ['order_id', 'ticket_code', 'order_detail_id', 'qr_code', 'status', 'scanned_at', 'created_at', 'updated_at'];
 
+    protected $dates = ['scanned_at'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -37,7 +39,7 @@ class Ticket extends Model
         return $this->belongsTo('App\Models\OrdersDetail');
     }
 
-    public function getStatusSpanAttribute($darkText = false)
+    public function getStatusSpanAttribute($inDashboard = false)
     {
         switch ($this->status) {
             case TicketStatusEnum::Pending:
@@ -45,7 +47,8 @@ class Ticket extends Model
             case TicketStatusEnum::Active:
                 return '<span class="badge bg-success text-grey">Ready to Scan</span>';
             case TicketStatusEnum::Scanned:
-                return '<span class="badge bg-danger text-grey">Already Scanned</span>';
+                $bgColor = $inDashboard ? 'bg-primary' : 'bg-danger';
+                return "<span class='badge $bgColor text-grey'>Already Scanned</span>";
             default:
                 return "-";
         }

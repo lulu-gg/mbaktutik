@@ -17,8 +17,8 @@ class HomeController extends Controller
     {
         $isAdmin = RoleHelpers::isAdmin();
         $totalEvent = $isAdmin ? Events::count() : Events::where(['event_organizer_id' => Auth::user()->organizer->id])->count();
-        $balance = $isAdmin ? Order::where(['payment_status', PaymentStatusEnum::Done])->sum('total_amount') : Order::sum('total_amount');
-        $totalTransaction = $isAdmin ? Order::where(['payment_status', PaymentStatusEnum::Done])->count() : Order::count();
+        $balance = $isAdmin ? Order::where('payment_status', PaymentStatusEnum::Done)->sum('total_amount') : Order::sum('total_amount');
+        $totalTransaction = $isAdmin ? Order::where('payment_status', PaymentStatusEnum::Done)->count() : Order::count();
 
         $chartData = json_encode($this->generateMonthlySummary());
 

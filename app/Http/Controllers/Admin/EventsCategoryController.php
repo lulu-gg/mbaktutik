@@ -2,13 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\EventsCategory;
+use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class EventsCategoryController extends Controller
 {
     protected $HOME_URL = 'dashboard/events-category';
+
+    public function __construct()
+    {
+        $this->middleware(function (Request $request, Closure $next) {
+            if (RoleHelpers::isEventOrganizer() && Route::getCurrentRoute()->getActionMethod() != 'index') {
+                return abort(403);
+            }
+
+            return $next($request);
+        });
+    }
 
     /**
      * Display a listing of the resource.

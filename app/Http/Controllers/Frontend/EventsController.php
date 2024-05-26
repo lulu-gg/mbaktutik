@@ -82,6 +82,18 @@ class EventsController extends Controller
                 return back()->withErrors(['name' => "NIK " . $request->nik[$key] . " was already reached max purchase for ticket $ticket->name"]);
             }
 
+            // validate quota
+            $currentQuota = 0;
+            $maxQuota = $ticket->quota;
+            $findRelatedTransaction = OrdersDetail::where(['ticket_variation_id' => $ticket->id])->get();
+            foreach ($findRelatedTransaction as $relatedOrderDetail) {
+                $currentQuota += $relatedOrderDetail->quantity;
+            }
+
+            if ($currentQuota > $maxQuota) {
+                return back()->withErrors(['name' => "$ticket->name was sold out"]);
+            }
+
             $subtotal += $ticket->price * $request->quantity[$key];
             $formData[] = (object) [
                 'ticket' => $ticket,

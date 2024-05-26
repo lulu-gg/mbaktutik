@@ -55,6 +55,13 @@
             </a>
         </li>
 
+        <!-- Withdrawl -->
+        <li class="menu-item {{ CustomHelpers::isActive('dashboard/withdrawl') }}">
+            <a href="{{ url('dashboard/withdrawl') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-dollar"></i>
+                <div data-i18n="Withdrawl">Withdrawl</div>
+            </a>
+        </li>
 
         @if (\App\Helpers\RoleHelpers::isAdmin())
             <!-- Sponsors -->
@@ -72,7 +79,30 @@
                     <div data-i18n="EO Registration">EO Registration</div>
                 </a>
             </li>
+        @endif
 
+
+        <!-- Report -->
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Report</span></li>
+
+        <!-- Transacation -->
+        <li class="menu-item {{ CustomHelpers::isActive('dashboard/transaction-report') }}">
+            <a href="{{ url('dashboard/transaction-report') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-report"></i>
+                <div data-i18n="Transaction">Transaction</div>
+            </a>
+        </li>
+
+        <!-- Transacation -->
+        <li class="menu-item {{ CustomHelpers::isActive('dashboard/ticket-report') }}">
+            <a href="{{ url('dashboard/ticket-report') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-discount"></i>
+                <div data-i18n="Ticket">Ticket</div>
+            </a>
+        </li>
+
+
+        @if (\App\Helpers\RoleHelpers::isAdmin())
             <!-- Master -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
 

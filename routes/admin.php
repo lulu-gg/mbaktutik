@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\EventScannerJobController;
 use App\Http\Controllers\Admin\EventsCategoryController;
@@ -9,8 +10,13 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\OrganizerRegistrationController;
 use App\Http\Controllers\Admin\ScannerOfficerController;
 use App\Http\Controllers\Admin\SponsorsController;
+use App\Http\Controllers\Admin\TicketReportController;
 use App\Http\Controllers\Admin\TicketVariationsController;
+use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\TransactionReportController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Middleware\Admin\AdminPermission;
+use App\Http\Middleware\Admin\RestrictedOrganizerPermission;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,26 +66,37 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::resource('/events-category', EventsCategoryController::class);
 
     // Sponsors
-    Route::resource('/sponsors', SponsorsController::class)->middleware('admin.admin-permission');
+    Route::resource('/sponsors', SponsorsController::class)->middleware(AdminPermission::class);
 
     // Scanner Officer
     Route::resource('/scanner-officer', ScannerOfficerController::class);
+
+    // Transaction Report
+    Route::prefix('/transaction-report')->group(function () {
+        Route::get('/', [TransactionReportController::class, 'index']);
+        Route::get('/{order}', [TransactionReportController::class, 'show']);
+    });
+
+    // Ticket Report
+    Route::prefix('/ticket-report')->group(function () {
+        Route::get('/', [TicketReportController::class, 'index']);
+    });
 
     // Event Oragnizer Request
     Route::prefix('/organizer-registration')->group(function () {
         Route::get('/', [OrganizerRegistrationController::class, 'index']);
         Route::get('/{organizer}', [OrganizerRegistrationController::class, 'show']);
         Route::post('/{organizer}/accept', [OrganizerRegistrationController::class, 'accept']);
-    })->middleware('admin.admin-permission');
+    })->middleware(AdminPermission::class);
 
     // General Parameter
     Route::prefix('/general-parameter')->group(function () {
         Route::get('/', [GeneralParameterController::class, 'index']);
         Route::post('/', [GeneralParameterController::class, 'update']);
-    })->middleware('admin.admin-permission');
+    })->middleware(AdminPermission::class);
 
     // User
-    Route::resource('/user', UserController::class)->except(['edit', 'update'])->middleware('admin.admin-permission');
+    Route::resource('/user', UserController::class)->except(['edit', 'update'])->middleware(AdminPermission::class);
 
     // Auth Logout
     Route::post('/logout', [AuthController::class, 'logout']);

@@ -22,7 +22,9 @@ class ScannerOfficerController extends Controller
      */
     public function index()
     {
-        $data = User::where('organizer_id', Auth::user()->organizer->id)->get();
+        $query = User::where('role_id', RoleHelpers::$EVENT_ORGANIZER);
+
+        $data = RoleHelpers::isAdmin() ? $query->get() : $query('organizer_id', Auth::user()->organizer->id)->get();
         return view('admin.scanner-officer.index', ['data' => $data]);
     }
 

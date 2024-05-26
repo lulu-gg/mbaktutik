@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Orders\PaymentStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -35,7 +36,7 @@ class Order extends Model
     /**
      * @var array
      */
-    protected $fillable = ['event_id', 'user_id', 'date', 'time', 'quantity', 'total_amount', 'payment_method', 'payment_status', 'status', 'invoice_id'];
+    protected $fillable = ['event_id', 'user_id', 'date', 'time', 'quantity', 'total_amount', 'payment_method', 'payment_status', 'status', 'invoice_id', 'paid_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -64,9 +65,9 @@ class Order extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function invoices()
+    public function invoice()
     {
-        return $this->hasMany('App\Models\Invoice');
+        return $this->hasOne('App\Models\Invoice');
     }
 
     /**
@@ -75,5 +76,24 @@ class Order extends Model
     public function orderDetails()
     {
         return $this->hasMany('App\Models\OrdersDetail');
+    }
+
+    public function getStatusSpanAttribute()
+    {
+        if ($this->payment_status == PaymentStatusEnum::Pending) {
+            return '<span class="badge bg-warning">Waiting for Payment</span>';
+        }
+
+        if ($this->payment_status == PaymentStatusEnum::Done) {
+            return '<span class="badge bg-primary">Payment Accepted</span>';
+        }
+
+        if ($this->payment_status == PaymentStatusEnum::Cancel) {
+            return '<span class="badge bg-danger">Payment Cancelled</span>';
+        }
+
+        if ($this->payment_status == PaymentStatusEnum::Error) {
+            return '<span class="badge bg-danger">Payment Error</span>';
+        }
     }
 }
