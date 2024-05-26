@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\TicketVariationsController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\TransactionReportController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\WithdrawlController;
 use App\Http\Middleware\Admin\AdminPermission;
 use App\Http\Middleware\Admin\RestrictedOrganizerPermission;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +71,14 @@ Route::group(['middleware' => 'admin.auth'], function () {
 
     // Scanner Officer
     Route::resource('/scanner-officer', ScannerOfficerController::class);
+
+    // Withdrawl
+    Route::prefix('/withdrawl/{withdrawl}/')->group(function () {
+        Route::post('/accept', [WithdrawlController::class, 'accept']);
+        Route::post('/reject', [WithdrawlController::class, 'reject']);
+    });
+
+    Route::resource('/withdrawl', WithdrawlController::class)->except(['edit', 'update']);
 
     // Transaction Report
     Route::prefix('/transaction-report')->group(function () {
