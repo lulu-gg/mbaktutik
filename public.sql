@@ -12,7 +12,7 @@
  Target Server Version : 160002 (160002)
  File Encoding         : 65001
 
- Date: 25/05/2024 15:37:02
+ Date: 26/05/2024 21:41:32
 */
 
 
@@ -233,6 +233,17 @@ CREATE SEQUENCE "public"."users_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for withdrawl_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."withdrawl_id_seq";
+CREATE SEQUENCE "public"."withdrawl_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
 START 1
 CACHE 1;
 
@@ -748,10 +759,34 @@ CREATE TABLE "public"."users" (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO "public"."users" VALUES (5, 'Rive', 'rive@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-11 04:32:15', '2024-05-11 04:32:15', 2, 1, '9msZdJP9Ba5EO2KH6aKvULiW0Uq24C', NULL, NULL, NULL, NULL);
 INSERT INTO "public"."users" VALUES (9, 'Budi', 'budiscanner@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-13 02:14:25', '2024-05-13 02:24:57', 3, 1, 'LpQoWberRIOmsxbB9qp8lXNw5UWysh', NULL, NULL, NULL, 1);
 INSERT INTO "public"."users" VALUES (10, 'Rive 2', 'rive2@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-24 18:11:17', '2024-05-24 19:24:46', 2, 1, 'z4uTycyAkMDIzIchRNlvpuMkHrhInK', NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 's4ArOIZXGcUFFs71npC0zeiLH2tU1N5cuOfvz9GECLa9aZTLlFFCp3R7k91D', '2024-05-04 22:16:12', '2024-05-04 22:16:12', 1, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'CmJMruTprZmJ8CTFLszIh1Dnx6NJD209NPxeKoIJ5RCwzSnvU7Qrhv6UepuF', '2024-05-04 22:16:12', '2024-05-04 22:16:12', 1, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (5, 'Rive', 'rive@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'xGxWYJ9Gzy7cIvMp4X0DiDFGOqGWlUrnSzn45a7YZICZhF0ndq7JlU9PHI4w', '2024-05-11 04:32:15', '2024-05-11 04:32:15', 2, 1, '9msZdJP9Ba5EO2KH6aKvULiW0Uq24C', NULL, NULL, NULL, NULL);
+
+-- ----------------------------
+-- Table structure for withdrawl
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."withdrawl";
+CREATE TABLE "public"."withdrawl" (
+  "id" int8 NOT NULL DEFAULT nextval('withdrawl_id_seq'::regclass),
+  "beneficiary_name" varchar(255) COLLATE "pg_catalog"."default",
+  "beneficiary_account" varchar(255) COLLATE "pg_catalog"."default",
+  "beneficiary_bank" varchar(255) COLLATE "pg_catalog"."default",
+  "amount" numeric(255,0),
+  "status" int4,
+  "event_organizer_id" int8,
+  "notes" text COLLATE "pg_catalog"."default",
+  "paid_at" timestamp(6),
+  "created_at" timestamp(6),
+  "updated_at" timestamp(6)
+)
+;
+
+-- ----------------------------
+-- Records of withdrawl
+-- ----------------------------
+INSERT INTO "public"."withdrawl" VALUES (1, 'Paijo', '123123', 'BCA', 200000, 1, 1, '-', '2024-05-26 21:37:59', '2024-05-26 20:56:06', '2024-05-26 21:37:59');
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -892,6 +927,13 @@ SELECT setval('"public"."transaction_history_id_seq"', 1, false);
 ALTER SEQUENCE "public"."users_id_seq"
 OWNED BY "public"."users"."id";
 SELECT setval('"public"."users_id_seq"', 10, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."withdrawl_id_seq"
+OWNED BY "public"."withdrawl"."id";
+SELECT setval('"public"."withdrawl_id_seq"', 1, true);
 
 -- ----------------------------
 -- Primary Key structure for table events
@@ -1036,6 +1078,11 @@ ALTER TABLE "public"."users" ADD CONSTRAINT "users_email_unique" UNIQUE ("email"
 ALTER TABLE "public"."users" ADD CONSTRAINT "users_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
+-- Primary Key structure for table withdrawl
+-- ----------------------------
+ALTER TABLE "public"."withdrawl" ADD CONSTRAINT "withdrawl_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
 -- Foreign Keys structure for table events
 -- ----------------------------
 ALTER TABLE "public"."events" ADD CONSTRAINT "events_event_category_id_fkey" FOREIGN KEY ("event_category_id") REFERENCES "public"."events_category" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -1089,3 +1136,8 @@ ALTER TABLE "public"."tickets" ADD CONSTRAINT "tickets_order_detail_id_fkey" FOR
 -- ----------------------------
 ALTER TABLE "public"."users" ADD CONSTRAINT "users_organizer_id_fkey" FOREIGN KEY ("organizer_id") REFERENCES "public"."organizers" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "public"."users" ADD CONSTRAINT "users_role_id_fkey" FOREIGN KEY ("role_id") REFERENCES "public"."role" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- ----------------------------
+-- Foreign Keys structure for table withdrawl
+-- ----------------------------
+ALTER TABLE "public"."withdrawl" ADD CONSTRAINT "withdrawl_event_organizer_id_fkey" FOREIGN KEY ("event_organizer_id") REFERENCES "public"."organizers" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
