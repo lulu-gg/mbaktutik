@@ -66,7 +66,7 @@ class MidtransTransactionService extends Midtrans
         foreach ($invoice->order->orderDetails as $key => $item) {
             $details[] = [
                 'id' => $key + 1,
-                'price' => (int) $item->total,
+                'price' => (int) $item->price,
                 'quantity' => (int) $item->quantity,
                 'name' => "Ticket $item->ticket_name - " . $invoice->order->event->name,
             ];
