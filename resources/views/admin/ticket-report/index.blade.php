@@ -25,6 +25,7 @@
                             <th>Status</th>
                             <th>Created Date</th>
                             <th>Scanned Date</th>
+                            <th>Scanned By</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -39,6 +40,7 @@
                                         <td>{!! $ticket->getStatusSpanAttribute(true) !!}</td>
                                         <td>@format_date($ticket->created_at)</td>
                                         <td>@format_date($ticket->scanned_at)</td>
+                                        <td>{{ $ticket->scannedBy?->name ?? "-" }}</td>
                                     </tr>
                                 @endforeach
                             @endforeach

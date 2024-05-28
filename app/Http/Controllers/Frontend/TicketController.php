@@ -56,6 +56,7 @@ class TicketController extends Controller
 
         $ticket->update([
             'scanned_at' => now(),
+            'scanned_by' => Auth::user()->id,
             'status' => TicketStatusEnum::Scanned,
         ]);
 

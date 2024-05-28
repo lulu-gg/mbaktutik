@@ -27,7 +27,7 @@ class Ticket extends Model
     /**
      * @var array
      */
-    protected $fillable = ['order_id', 'ticket_code', 'order_detail_id', 'qr_code', 'status', 'scanned_at', 'created_at', 'updated_at'];
+    protected $fillable = ['order_id', 'ticket_code', 'order_detail_id', 'qr_code', 'status', 'scanned_at', 'scanned_by', 'created_at', 'updated_at'];
 
     protected $dates = ['scanned_at'];
 
@@ -37,6 +37,14 @@ class Ticket extends Model
     public function orderDetail()
     {
         return $this->belongsTo('App\Models\OrdersDetail');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function scannedBy()
+    {
+        return $this->belongsTo('App\Models\User', 'scanned_by', 'id');
     }
 
     public function getStatusSpanAttribute($inDashboard = false)
