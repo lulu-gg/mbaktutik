@@ -54,16 +54,30 @@ class HomeController extends Controller
         // Get the current year
         $currentYear = Carbon::now()->year;
 
-        // Fetch the data
-        $data = DB::table('orders')
-            ->select(
-                DB::raw('EXTRACT(MONTH FROM created_at) as month'),
-                DB::raw('SUM(total_amount) as total_amount')
-            )
-            ->whereYear('created_at', $currentYear)
-            ->groupBy(DB::raw('EXTRACT(MONTH FROM created_at)'))
-            ->orderBy(DB::raw('EXTRACT(MONTH FROM created_at)'))
-            ->get();
+        if (RoleHelpers::isAdmin()) {
+            // Fetch the data
+            $data = DB::table('orders')
+                ->select(
+                    DB::raw('EXTRACT(MONTH FROM created_at) as month'),
+                    DB::raw('SUM(total_amount) as total_amount')
+                )
+                ->whereYear('created_at', $currentYear)
+                ->groupBy(DB::raw('EXTRACT(MONTH FROM created_at)'))
+                ->orderBy(DB::raw('EXTRACT(MONTH FROM created_at)'))
+                ->get();
+        } else {
+            // Fetch the data
+            $data = DB::table('orders')
+                ->where('event_id', Auth::user()->organizer->id)
+                ->select(
+                    DB::raw('EXTRACT(MONTH FROM created_at) as month'),
+                    DB::raw('SUM(total_amount) as total_amount')
+                )
+                ->whereYear('created_at', $currentYear)
+                ->groupBy(DB::raw('EXTRACT(MONTH FROM created_at)'))
+                ->orderBy(DB::raw('EXTRACT(MONTH FROM created_at)'))
+                ->get();
+        }
 
         // Initialize the report data structure
         $monthlySummary = [];
