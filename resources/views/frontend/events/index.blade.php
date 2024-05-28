@@ -183,11 +183,7 @@
                     @foreach ($events as $item)
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                                <span class="cs-card_like cs-primary_color">
-                                    <i class="fas fa-heart fa-fw"></i>
-                                    2.1K
-                                </span>
-                                <a href="{{ url('/events/detail') }}" class="cs-card_thumb cs-zoom_effect">
+                                <a href="{{ url('/events/detail/' . $item->id) }}" class="cs-card_thumb cs-zoom_effect">
                                     <img src="{{ $item->thumbnail_path }}" alt="Image" class="cs-zoom_item">
                                 </a>
                                 <div class="cs-card_info">
@@ -213,7 +209,7 @@
 
                                         <hr>
                                         <div class="cs-card_footer">
-                                            <a href="{{ url('/events/' . $item->seo) }}">
+                                            <a href="{{ url('/events/detail/' . $item->id) }}">
                                                 <span class="cs-card_btn_2">
                                                     <span>
                                                         Buy Ticket

@@ -154,7 +154,7 @@
                     </div>
                 </div>
                 <div class="cs-height_30 cs-height_lg_30"></div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-xl-6">
                         <div class="cs-general_box_4 cs-box_shadow cs-white_bg cs-center">
                             <div class="cs-countdown" data-countdate="24 August 2022">
@@ -198,7 +198,7 @@
                         </div>
                         <div class="cs-height_30 cs-height_lg_30"></div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="cs-height_10 cs-height_lg_10"></div>
             </div>
             <div class="col-lg-6">

@@ -145,7 +145,7 @@
                                             <div class="d-flex justify-content-between align-items-center w-100">
                                                 <div class="cs-activity_right">
                                                     <p class="cs-activity_text">
-                                                       Belum ada ticket tersedia
+                                                        Belum ada ticket tersedia
                                                     </p>
                                                 </div>
                                             </div>
@@ -157,7 +157,7 @@
                     </div>
                 </div>
                 <div class="cs-height_30 cs-height_lg_30"></div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-xl-6">
                         <div class="cs-general_box_4 cs-box_shadow cs-white_bg cs-center">
                             <div class="cs-countdown" data-countdate="24 August 2022">
@@ -201,13 +201,17 @@
                         </div>
                         <div class="cs-height_30 cs-height_lg_30"></div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="cs-height_10 cs-height_lg_10"></div>
-                <div class="row">
-                    <div class="col-12">
-                        <a href="{{ url()->current() . '/purchase' }}" class="cs-btn cs-style1 cs-btn_lg w-100 text-center"><span>Buy Now</span></a>
+
+                @if (count($event->ticketVariations) > 0)
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="{{ url()->current() . '/purchase' }}"
+                                class="cs-btn cs-style1 cs-btn_lg w-100 text-center"><span>Buy Now</span></a>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>

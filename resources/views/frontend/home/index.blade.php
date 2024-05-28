@@ -28,8 +28,9 @@
                                             <span class="cs-card_like cs-primary_color">
                                                 {{ $item->eventsCategory->name }}
                                             </span>
-                                            <a href="{{ url('/events/detail') }}" class="cs-card_thumb cs-zoom_effect">
-                                                <img src="{{ asset('frontend/assets/img/general/general_16.jpg') }}"
+                                            <a href="{{ url('/events/detail/' . $item->id) }}"
+                                                class="cs-card_thumb cs-zoom_effect">
+                                                <img src="{{ $item->thumbnail_path }}"
                                                     alt="Image" class="cs-zoom_item">
                                             </a>
                                             <div class="cs-card_info">
@@ -41,7 +42,7 @@
                                                 </a>
                                                 <div class="cs-height_10 cs-height_lg_10"></div>
                                                 <h3 class="cs-card_title"><a
-                                                        href="{{ url('/events/detail') }}">{{ $item->name }}</a>
+                                                        href="{{ url('/events/detail/' . $item->id) }}">{{ $item->name }}</a>
                                                 </h3>
                                                 <div class="cs-card_price">Start Date: <b
                                                         class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->start_date)) }}</b>
@@ -58,7 +59,7 @@
 
                                                     <hr>
                                                     <div class="cs-card_footer">
-                                                        <a href="{{ url('/events/' . $item->seo) }}"><span
+                                                        <a href="{{ url('/events/detail/' . $item->id) }}"><span
                                                                 class="cs-card_btn_2"><span>Buy
                                                                     Ticket</span></span></a>
                                                     </div>
@@ -118,8 +119,9 @@
                                     <span class="cs-card_like cs-primary_color">
                                         {{ $item->eventsCategory->name }}
                                     </span>
-                                    <a href="{{ url('/events/detail') }}" class="cs-card_thumb cs-zoom_effect">
-                                        <img src="{{ asset('frontend/assets/img/general/general_14.jpg') }}"
+                                    <a href="{{ url('/events/detail/' . $item->id) }}"
+                                        class="cs-card_thumb cs-zoom_effect">
+                                        <img src="{{ $item->thumbnail_path }}"
                                             alt="Image" class="cs-zoom_item">
                                     </a>
                                     <div class="cs-card_info">
@@ -157,7 +159,7 @@
                                     </div>
                                 </div> --}}
                                         <h3 class="cs-card_title"><a
-                                                href="{{ url('/events/detail') }}">{{ $item->name }}</a>
+                                                href="{{ url('/events/detail/' . $item->id) }}">{{ $item->name }}</a>
                                         </h3>
                                         <div class="cs-card_price">Start Date: <b
                                                 class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->start_date)) }}</b>
@@ -177,7 +179,7 @@
                                         <i class="fas fa-redo fa-fw"></i>
                                         View History
                                     </span> --}}
-                                                <a href="{{ url('/events/' . $item->seo) }}"><span
+                                                <a href="{{ url('/events/detail/' . $item->id) }}"><span
                                                         class="cs-card_btn_2"><span>Buy Ticket</span></span></a>
                                             </div>
                                         </div>
@@ -214,8 +216,9 @@
                                     <span class="cs-card_like cs-primary_color">
                                         {{ $item->eventsCategory->name }}
                                     </span>
-                                    <a href="{{ url('/events/detail') }}" class="cs-card_thumb cs-zoom_effect">
-                                        <img src="{{ asset('frontend/assets/img/general/general_12.jpg') }}"
+                                    <a href="{{ url('/events/detail/' . $item->id) }}"
+                                        class="cs-card_thumb cs-zoom_effect">
+                                        <img src="{{ $item->thumbnail_path }}"
                                             alt="Image" class="cs-zoom_item">
                                     </a>
                                     <div class="cs-card_info">
@@ -253,7 +256,7 @@
                                     </div>
                                 </div> --}}
                                         <h3 class="cs-card_title"><a
-                                                href="{{ url('/events/detail') }}">{{ $item->name }}</a>
+                                                href="{{ url('/events/detail/' . $item->id) }}">{{ $item->name }}</a>
                                         </h3>
                                         <div class="cs-card_price">Start Date: <b
                                                 class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->start_date)) }}</b>
@@ -274,7 +277,7 @@
                                             <i class="fas fa-redo fa-fw"></i>
                                             View History
                                         </span> --}}
-                                                <a href="{{ url('/events/' . $item->seo) }}"><span
+                                                <a href="{{ url('/events/detail/' . $item->id) }}"><span
                                                         class="cs-card_btn_2"><span>Buy
                                                             Ticket</span></span></a>
                                             </div>
@@ -412,7 +415,8 @@
                 <div class="cs-single_moving_item">
                     <div class="cs-partner">
                         <div class="cs-partner_in cs-center cs-white_bg" style="background-color: white; width:150px;">
-                            <img src="{{ asset('uploads/sponsors/' . $item->logo) }}" alt="Partner logo"></div>
+                            <img src="{{ asset('uploads/sponsors/' . $item->logo) }}" alt="Partner logo">
+                        </div>
                     </div>
                 </div>
             @endforeach
