@@ -12,7 +12,7 @@
  Target Server Version : 160002 (160002)
  File Encoding         : 65001
 
- Date: 26/05/2024 21:41:32
+ Date: 29/05/2024 05:36:07
 */
 
 
@@ -215,17 +215,6 @@ START 1
 CACHE 1;
 
 -- ----------------------------
--- Sequence structure for transaction_history_id_seq
--- ----------------------------
-DROP SEQUENCE IF EXISTS "public"."transaction_history_id_seq";
-CREATE SEQUENCE "public"."transaction_history_id_seq" 
-INCREMENT 1
-MINVALUE  1
-MAXVALUE 2147483647
-START 1
-CACHE 1;
-
--- ----------------------------
 -- Sequence structure for users_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."users_id_seq";
@@ -329,7 +318,6 @@ CREATE TABLE "public"."events_scanner_job" (
 -- ----------------------------
 -- Records of events_scanner_job
 -- ----------------------------
-INSERT INTO "public"."events_scanner_job" VALUES (3, 9, 1, '2024-05-21 17:31:14', '2024-05-21 17:31:14');
 
 -- ----------------------------
 -- Table structure for failed_jobs
@@ -395,6 +383,8 @@ CREATE TABLE "public"."invoices" (
 -- Records of invoices
 -- ----------------------------
 INSERT INTO "public"."invoices" VALUES (20, 28, '001/INV/RIVE/05/24', '2024-05-23 03:40:07', '2024-05-24 03:40:07', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', 'https://app.sandbox.midtrans.com/snap/v4/redirection/ddec1ec7-c314-447e-b2f9-ad7f132d3d47', 'ddec1ec7-c314-447e-b2f9-ad7f132d3d47', '3feaba5a-eab1-49d7-95fa-4a8cdf630238', 575000, 17250, 592250);
+INSERT INTO "public"."invoices" VALUES (21, 29, '002/INV/RIVE/05/24', '2024-05-27 20:13:55', '2024-05-28 20:13:55', 1, '2024-05-27 20:13:57', '2024-05-27 20:15:51', 'https://app.sandbox.midtrans.com/snap/v4/redirection/83f04ee9-b13f-487b-879b-deb06f7cce0a', '83f04ee9-b13f-487b-879b-deb06f7cce0a', 'af5793f1-413a-475d-ab5f-db656c880f17', 600000, 18000, 618000);
+INSERT INTO "public"."invoices" VALUES (22, 30, '003/INV/RIVE/05/24', '2024-05-27 20:24:16', '2024-05-28 20:24:16', 0, '2024-05-27 20:24:16', '2024-05-27 20:24:16', 'https://app.sandbox.midtrans.com/snap/v4/redirection/84d87aa2-e228-4305-a841-fb257cad43ce', '84d87aa2-e228-4305-a841-fb257cad43ce', '6abdd96b-8578-4a8b-8203-54ba35c1e5c9', 175000, 5250, 180250);
 
 -- ----------------------------
 -- Table structure for jobs
@@ -508,6 +498,8 @@ COMMENT ON COLUMN "public"."orders"."status" IS 'Status of the ticket (0: inacti
 -- Records of orders
 -- ----------------------------
 INSERT INTO "public"."orders" VALUES (28, 1, NULL, NULL, NULL, NULL, 592250.00, NULL, 1, NULL, NULL, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL);
+INSERT INTO "public"."orders" VALUES (29, 1, NULL, NULL, NULL, NULL, 618000.00, NULL, 1, NULL, NULL, '2024-05-27 20:13:55', '2024-05-27 20:21:08', '2024-05-27 20:21:08');
+INSERT INTO "public"."orders" VALUES (30, 1, NULL, NULL, NULL, NULL, 180250.00, NULL, 0, NULL, NULL, '2024-05-27 20:24:16', '2024-05-27 20:24:16', NULL);
 
 -- ----------------------------
 -- Table structure for orders_detail
@@ -536,6 +528,9 @@ CREATE TABLE "public"."orders_detail" (
 -- ----------------------------
 INSERT INTO "public"."orders_detail" VALUES (28, 4, 28, 'Presale 2', 175000.00, '2024-05-23 03:40:07', '2024-05-23 03:40:07', 'Paijo', '7827491312313', 'paijo@mail.com', '0812312389123', 1, 175000.00, 175000.00);
 INSERT INTO "public"."orders_detail" VALUES (29, 5, 28, 'Presale 3', 200000.00, '2024-05-23 03:40:07', '2024-05-23 03:40:07', 'paimen', '2381298194819831231', 'paimen@mail.com', '0812323812931', 2, 200000.00, 400000.00);
+INSERT INTO "public"."orders_detail" VALUES (30, 4, 29, 'Presale 2', 175000.00, '2024-05-27 20:13:55', '2024-05-27 20:13:55', 'Paijo', '1238983918391312', 'paijo@gmail.com', '0812391823989123', 2, 175000.00, 350000.00);
+INSERT INTO "public"."orders_detail" VALUES (31, 6, 29, 'Presale 4', 250000.00, '2024-05-27 20:13:55', '2024-05-27 20:13:55', 'Paijo 2', '12839128391231923', 'paijo2@gmail.com', '08123982193891', 1, 250000.00, 250000.00);
+INSERT INTO "public"."orders_detail" VALUES (32, 4, 30, 'Presale 2', 175000.00, '2024-05-27 20:24:16', '2024-05-27 20:24:16', 'paijo', '21839128391238129', 'paijo@mail.com', '081232138129', 1, 175000.00, 175000.00);
 
 -- ----------------------------
 -- Table structure for organizers
@@ -567,6 +562,7 @@ CREATE TABLE "public"."organizers" (
 -- ----------------------------
 INSERT INTO "public"."organizers" VALUES (1, 5, 'Rive Corp', 'rive@gmail.com', '0812123123128491', 'https://asfjklasjl.com', '2024-05-11 04:32:15', '2024-05-11 04:32:15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "public"."organizers" VALUES (2, 10, 'Rive 2', 'rive2@gmail.com', '081249118805', NULL, '2024-05-24 18:11:17', '2024-05-24 19:24:46', 'Lorem Ipsum', '60054755-a45a-4a4b-889a-23d3e5593b9d.png', 'rive2', 'DKI Jakarta', 'Jakarta Pusat', '99812', 'Lorem Ipsum todor', 'cb6b2391-c0f1-483e-9f54-84579b51ad17.pdf', 1);
+INSERT INTO "public"."organizers" VALUES (3, 11, 'Test Organizer', 'test123@gmail.com', '0812381293821', NULL, '2024-05-27 20:45:51', '2024-05-27 20:47:53', 'Lorem Ipsum', '0282ddff-59bf-418d-8f30-013111b90444.png', 'test123', 'JKT', 'JKT', '12312', 'Lorem Ipsum', 'cc12bb92-3fe2-443a-95a5-039fe3eabbd0.pdf', 1);
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -709,29 +705,21 @@ CREATE TABLE "public"."tickets" (
   "status" int8,
   "created_at" timestamp(6),
   "updated_at" timestamp(6),
-  "scanned_at" timestamp(6)
+  "scanned_at" timestamp(6),
+  "scanned_by" int8
 )
 ;
 
 -- ----------------------------
 -- Records of tickets
 -- ----------------------------
-INSERT INTO "public"."tickets" VALUES (31, 29, 'TICKET-1716410407-3221', 'GjYyU83bmRzJh1k89j1A', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL);
-INSERT INTO "public"."tickets" VALUES (29, 28, 'TICKET-1716410407-7873', 'aS9jtNinbjTqdNIcaO7c', 2, '2024-05-23 03:40:07', '2024-05-24 04:50:16', '2024-05-24 04:50:16');
-INSERT INTO "public"."tickets" VALUES (30, 29, 'TICKET-1716410407-4372', '4TXYMu8QOAUKQRglRmcs', 2, '2024-05-23 03:40:07', '2024-05-24 04:52:14', '2024-05-24 04:52:14');
-
--- ----------------------------
--- Table structure for transaction_history
--- ----------------------------
-DROP TABLE IF EXISTS "public"."transaction_history";
-CREATE TABLE "public"."transaction_history" (
-  "id" int8 NOT NULL DEFAULT nextval('transaction_history_id_seq'::regclass)
-)
-;
-
--- ----------------------------
--- Records of transaction_history
--- ----------------------------
+INSERT INTO "public"."tickets" VALUES (31, 29, 'TICKET-1716410407-3221', 'GjYyU83bmRzJh1k89j1A', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (33, 30, 'TICKET-1716815635-5167', 'pBhkNnc2RgDK6Yl1Qs93Gx7K6y97YE6jKS6hpSH4', 1, '2024-05-27 20:13:55', '2024-05-27 20:15:51', NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (34, 31, 'TICKET-1716815635-9938', '0qfm4afp6BrkEZN68ITubMY9okiOwVKVr38udVrV', 1, '2024-05-27 20:13:55', '2024-05-27 20:15:51', NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (35, 32, 'TICKET-1716816256-1567', 'om62dfwJHAMmMZoDKxnU7AFQrzSJp3uFu52U0U7j', 0, '2024-05-27 20:24:16', '2024-05-27 20:24:16', NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (29, 28, 'TICKET-1716410407-7873', 'aS9jtNinbjTqdNIcaO7c', 2, '2024-05-23 03:40:07', '2024-05-24 04:50:16', '2024-05-24 04:50:16', 9);
+INSERT INTO "public"."tickets" VALUES (32, 30, 'TICKET-1716815635-6648', '7GoK7ilwwaDTQy1axQrQybtU8r2JpDsg2xPB6urj', 2, '2024-05-27 20:13:55', '2024-05-27 20:21:17', '2024-05-27 20:21:17', 9);
+INSERT INTO "public"."tickets" VALUES (30, 29, 'TICKET-1716410407-4372', '4TXYMu8QOAUKQRglRmcs', 2, '2024-05-23 03:40:07', '2024-05-24 04:52:14', '2024-05-24 04:52:14', 9);
 
 -- ----------------------------
 -- Table structure for users
@@ -759,10 +747,11 @@ CREATE TABLE "public"."users" (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
+INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', '10NbIQQW24d38mJIbXmHF9rQIdlwMSjcNQWLlcWWr6NzMvoykfuWSICnFCx5', '2024-05-04 22:16:12', '2024-05-04 22:16:12', 1, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (5, 'Rive', 'rive@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'YzmBtC36wnKRRVmjEyXiObuEBZFQUMcmluGgjCXN1r8Urw2zTNjgVdlvxqLl', '2024-05-11 04:32:15', '2024-05-11 04:32:15', 2, 1, '9msZdJP9Ba5EO2KH6aKvULiW0Uq24C', NULL, NULL, NULL, NULL);
 INSERT INTO "public"."users" VALUES (9, 'Budi', 'budiscanner@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-13 02:14:25', '2024-05-13 02:24:57', 3, 1, 'LpQoWberRIOmsxbB9qp8lXNw5UWysh', NULL, NULL, NULL, 1);
 INSERT INTO "public"."users" VALUES (10, 'Rive 2', 'rive2@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-24 18:11:17', '2024-05-24 19:24:46', 2, 1, 'z4uTycyAkMDIzIchRNlvpuMkHrhInK', NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'CmJMruTprZmJ8CTFLszIh1Dnx6NJD209NPxeKoIJ5RCwzSnvU7Qrhv6UepuF', '2024-05-04 22:16:12', '2024-05-04 22:16:12', 1, 1, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (5, 'Rive', 'rive@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'xGxWYJ9Gzy7cIvMp4X0DiDFGOqGWlUrnSzn45a7YZICZhF0ndq7JlU9PHI4w', '2024-05-11 04:32:15', '2024-05-11 04:32:15', 2, 1, '9msZdJP9Ba5EO2KH6aKvULiW0Uq24C', NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (11, 'Test Organizer', 'test123@gmail.com', NULL, '$2y$10$A5h8d3js4j50voZwSEelouAhFsjM05b/Q2cMHm/w.f4MTuQVcEBqG', NULL, '2024-05-27 20:45:51', '2024-05-27 20:47:53', 2, 1, 'wznhXiRk42Iw5YAfTcv81efq0FHovt', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for withdrawl
@@ -787,6 +776,7 @@ CREATE TABLE "public"."withdrawl" (
 -- Records of withdrawl
 -- ----------------------------
 INSERT INTO "public"."withdrawl" VALUES (1, 'Paijo', '123123', 'BCA', 200000, 1, 1, '-', '2024-05-26 21:37:59', '2024-05-26 20:56:06', '2024-05-26 21:37:59');
+INSERT INTO "public"."withdrawl" VALUES (2, 'Paijo', '193829', 'BCA', 100000, 1, 1, '-', '2024-05-27 20:39:00', '2024-05-27 20:37:59', '2024-05-27 20:39:00');
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -835,7 +825,7 @@ SELECT setval('"public"."genreal_parameter_id_seq"', 1, false);
 -- ----------------------------
 ALTER SEQUENCE "public"."invoices_id_seq"
 OWNED BY "public"."invoices"."id";
-SELECT setval('"public"."invoices_id_seq"', 20, true);
+SELECT setval('"public"."invoices_id_seq"', 22, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -863,21 +853,21 @@ SELECT setval('"public"."migrations_id_seq"', 93, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."orders2_id_seq"
 OWNED BY "public"."orders_detail"."id";
-SELECT setval('"public"."orders2_id_seq"', 29, true);
+SELECT setval('"public"."orders2_id_seq"', 32, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."orders_id_seq"
 OWNED BY "public"."orders"."id";
-SELECT setval('"public"."orders_id_seq"', 28, true);
+SELECT setval('"public"."orders_id_seq"', 30, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."organizers_id_seq"
 OWNED BY "public"."organizers"."id";
-SELECT setval('"public"."organizers_id_seq"', 2, true);
+SELECT setval('"public"."organizers_id_seq"', 3, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -912,28 +902,21 @@ SELECT setval('"public"."thumbnails_id_seq"', 1, false);
 -- ----------------------------
 ALTER SEQUENCE "public"."tickets_id_seq"
 OWNED BY "public"."tickets"."id";
-SELECT setval('"public"."tickets_id_seq"', 31, true);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
-ALTER SEQUENCE "public"."transaction_history_id_seq"
-OWNED BY "public"."transaction_history"."id";
-SELECT setval('"public"."transaction_history_id_seq"', 1, false);
+SELECT setval('"public"."tickets_id_seq"', 35, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."users_id_seq"
 OWNED BY "public"."users"."id";
-SELECT setval('"public"."users_id_seq"', 10, true);
+SELECT setval('"public"."users_id_seq"', 11, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."withdrawl_id_seq"
 OWNED BY "public"."withdrawl"."id";
-SELECT setval('"public"."withdrawl_id_seq"', 1, true);
+SELECT setval('"public"."withdrawl_id_seq"', 2, true);
 
 -- ----------------------------
 -- Primary Key structure for table events
@@ -1063,11 +1046,6 @@ ALTER TABLE "public"."ticket_variations" ADD CONSTRAINT "event_variations_pkey" 
 ALTER TABLE "public"."tickets" ADD CONSTRAINT "tickets_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Primary Key structure for table transaction_history
--- ----------------------------
-ALTER TABLE "public"."transaction_history" ADD CONSTRAINT "transaction_history_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
 -- Uniques structure for table users
 -- ----------------------------
 ALTER TABLE "public"."users" ADD CONSTRAINT "users_email_unique" UNIQUE ("email");
@@ -1130,6 +1108,7 @@ ALTER TABLE "public"."ticket_variations" ADD CONSTRAINT "event_variations_event_
 -- Foreign Keys structure for table tickets
 -- ----------------------------
 ALTER TABLE "public"."tickets" ADD CONSTRAINT "tickets_order_detail_id_fkey" FOREIGN KEY ("order_detail_id") REFERENCES "public"."orders_detail" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "public"."tickets" ADD CONSTRAINT "tickets_scanned_by_fkey" FOREIGN KEY ("scanned_by") REFERENCES "public"."users" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------
 -- Foreign Keys structure for table users
