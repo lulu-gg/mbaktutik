@@ -30,7 +30,6 @@
                             <th>Kategori</th>
                             <th>Ticket</th>
                             <th>Status</th>
-                            <th>Total</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -42,7 +41,6 @@
                                 <td>{{ $item->eventsCategory->name }}</td>
                                 <td>{{ $item->ticket_variations_count }}</td>
                                 <td>{{ \App\Enums\Events\EventStatusEnum::getKey($item->status) }}</td>
-                                <td>-</td>
                                 <td>
                                     <form action="{{ url("$currentPath/$item->id") }}" method="POST">
                                         <a href="{{ url("$currentPath/$item->id/edit") }}" class="btn">
