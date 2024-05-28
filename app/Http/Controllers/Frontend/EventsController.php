@@ -192,6 +192,10 @@ class EventsController extends Controller
 
     public function checkMidtransStatus(Invoice $invoice)
     {
+        if ($invoice->status != InvoiceStatusEnum::Pending) {
+            return;
+        }
+
         // check payment manual outside callback
         $midtransTransaction  = new MidtransTransactionService();
         $checkTransaction = $midtransTransaction->checkTransaction($invoice->midtrans_order_id);
