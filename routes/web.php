@@ -4,6 +4,11 @@ use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\EventsController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TicketController;
+use App\Jobs\SendBroadcastMailJob;
+use App\Models\Invoice;
+use App\Models\Order;
+use App\Models\Organizer;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -61,10 +66,30 @@ Route::get('/account/organizer/events/index', [HomeController::class, 'organizer
 
 Route::get('/organizer-register', [HomeController::class, 'organizerRegister']);
 
-// //
-// Route::fallback(function () {
-//     return view('frontend.layout.404');
-// });
+Route::get('/mail/welcome', function () {
+    return view('common.mail.welcome.welcome', [
+        'organizer' => Organizer::first(),
+    ]);
+});
+
+Route::get('/mail/invoice', function () {
+    // SEND EMAIL INVOICE TO CUSTOMER
+    $invoice = Invoice::where(['id' => 23])->first();
+    $receivers = [$invoice->order->orderDetails->first()->buyer_email];
+    $subject =  "Invoice #" . $invoice->invoice_number;
+    $message = view('common.mail.invoice.invoice', ['invoice' => $invoice])->render();
+    dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
+
+    // return view('common.mail.invoice.invoice',[
+    //     'invoice' => $invoice,
+    // ]);
+});
+
+Route::get('/mail/eticket', function () {
+    return view('common.mail.ticket.ticket', [
+        'order' => Order::first(),
+    ]);
+});
 
 Route::fallback(function () {
     if (request()->is('dashboard/*')) {

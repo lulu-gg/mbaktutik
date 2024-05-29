@@ -52,9 +52,9 @@
                     <table role="presentation"
                         style="width:94%;max-width:600px;border:none;border-spacing:0;text-align:left;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
                         <tr>
-                            <td style="padding:40px 30px 30px 30px;text-align:center;font-size:24px;font-weight:bold;">
+                            <td style="padding:50px 30px 40px 30px;text-align:center;font-size:24px;font-weight:bold;">
                                 <a href="{{ url('/') }}" style="text-decoration:none;"><img
-                                        src="{{ asset('/images/rive-logo-white-1000.png') }}" width="350"
+                                        src="{{ asset('/images/logo-black.png') }}" width="350"
                                         alt="Logo"
                                         style="width:350px;max-width:80%;height:auto;border:none;text-decoration:none;color:#ffffff;"></a>
                             </td>
@@ -68,7 +68,7 @@
                             <td
                                 style="padding:30px;text-align:center;font-size:12px;background-color:#404040;color:#cccccc;">
                                 <p style="margin:0;font-size:14px;line-height:20px;">&reg; Rive
-                                    {{ now()->year }}<br>PT -- </p>
+                                    {{ now()->year }}<br>Rive Indonesia </p>
                             </td>
                         </tr>
                     </table>

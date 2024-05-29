@@ -6,7 +6,9 @@ use App\Enums\Invoice\InvoiceStatusEnum;
 use App\Enums\Midtrans\MidtransTransactionStatusEnum;
 use App\Enums\Orders\PaymentStatusEnum;
 use App\Enums\Tickets\TicketStatusEnum;
+use App\Helpers\MailHelpers;
 use App\Http\Controllers\Controller;
+use App\Jobs\SendBroadcastMailJob;
 use App\Models\Events;
 use App\Models\EventsCategory;
 use App\Models\GeneralParamter;
@@ -187,6 +189,12 @@ class EventsController extends Controller
         $invoice->midtrans_snap_redirect = $transaction->redirect_url;
         $invoice->save();
 
+        // SEND EMAIL INVOICE TO CUSTOMER
+        $receivers = [$invoice->order->orderDetails->first()->buyer_email];
+        $subject =  "Invoice #" . $invoice->invoice_number;
+        $message = view('common.mail.invoice.invoice', ['invoice' => $invoice])->render();
+        dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
+
         return redirect("/events/payment/$invoice->midtrans_order_id");
     }
 
@@ -216,12 +224,11 @@ class EventsController extends Controller
                 }
             }
 
-            // // SEND EMAIL NOTIF TO CUSTOMER
-            // $name = $invoice->user->name;
-            // $receivers = MailHelpers::getAdminEmails();
-            // $subject =  "Pembayaran Invoice #$invoice->invoice_number Berhasil!";
-            // $message = view('common.mail.notify-messages.admin.payment-success', ['name' => $name, 'invoice' => $invoice])->render();
-            // dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
+            // SEND EMAIL ETICKET TO CUSTOMER
+            $receivers = [$invoice->order->orderDetails->first()->buyer_email];
+            $subject =  "E-Ticket " . $invoice->order->event->name;
+            $message = view('common.mail.ticket.ticket', ['order' => $invoice->order])->render();
+            dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
         }
 
         if ($checkTransaction !== null && in_array($checkTransaction?->result ?? '', [MidtransTransactionStatusEnum::Expired, MidtransTransactionStatusEnum::Cancelled])) {

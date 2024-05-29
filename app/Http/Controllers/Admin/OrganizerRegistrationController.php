@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\EventOrganizer\EventOganizerStatusEnum;
 use App\Enums\User\AccountStatusEnum;
 use App\Http\Controllers\Controller;
+use App\Jobs\SendBroadcastMailJob;
 use App\Models\Organizer;
 use Illuminate\Http\Request;
 
@@ -57,6 +58,13 @@ class OrganizerRegistrationController extends Controller
         $organizer->user->update(['account_status' => AccountStatusEnum::Active]);
 
         noty('Berhasil menyetujui pendaftaran', 'info');
+
+        // SEND EMAIL NOTIF TO EO
+        $receivers = [$organizer->user->email];
+        $subject =  "Selamat datang di Rive!";
+        $message = view('common.mail.welcome.welcome', ['organizer' => $organizer])->render();
+        dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
+
 
         return redirect('/dashboard/organizer-registration');
     }
