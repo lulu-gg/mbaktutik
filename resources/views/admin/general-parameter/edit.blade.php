@@ -33,6 +33,23 @@
             </div>
         </div>
 
+        <div class="card mb-4">
+            <h5 class="card-header d-flex justify-content-between align-items-center">
+                Contact Information
+            </h5>
+            <div class="card-body">
+                <div class="mb-3">
+                    <x-admin.form-input label="Phone" name="phone" value="{{ $data->phone }}" />
+                </div>
+                <div class="mb-3">
+                    <x-admin.form-input label="Email" name="email" value="{{ $data->email }}" />
+                </div>
+                <div class="mb-3">
+                    <x-admin.form-input label="Location" name="address" value="{{ $data->address }}" />
+                </div>
+            </div>
+        </div>
+
         <div class="mt-2">
             <button type="submit" class="btn btn-primary">Simpan</button>
         </div>

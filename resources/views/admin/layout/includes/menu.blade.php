@@ -75,8 +75,16 @@
             <!-- Event Organizer Registration -->
             <li class="menu-item {{ CustomHelpers::isActive('dashboard/organizer-registration') }}">
                 <a href="{{ url('dashboard/organizer-registration') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-images"></i>
+                    <i class="menu-icon tf-icons bx bxs-user-account"></i>
                     <div data-i18n="EO Registration">EO Registration</div>
+                </a>
+            </li>
+
+            <!-- Contact Us -->
+            <li class="menu-item {{ CustomHelpers::isActive('dashboard/contact-us') }}">
+                <a href="{{ url('dashboard/contact-us') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-message-dots"></i>
+                    <div data-i18n="Contact">Contact</div>
                 </a>
             </li>
         @endif

@@ -2,6 +2,7 @@
 
 use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\EventScannerJobController;
 use App\Http\Controllers\Admin\EventsCategoryController;
 use App\Http\Controllers\Admin\EventsController;
@@ -71,6 +72,9 @@ Route::group(['middleware' => 'admin.auth'], function () {
 
     // Scanner Officer
     Route::resource('/scanner-officer', ScannerOfficerController::class);
+
+    // Contact Us
+    Route::get('/contact-us', [ContactUsController::class, 'index'])->middleware(AdminPermission::class);
 
     // Withdrawl
     Route::prefix('/withdrawl/{withdrawl}/')->group(function () {

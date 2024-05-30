@@ -47,6 +47,7 @@ Route::post('/ticket/scan/{qrCode}/update', [TicketController::class, 'update'])
 
 Route::get('/sponsors', [HomeController::class, 'sponsors']);
 Route::get('/contact', [HomeController::class, 'contact']);
+Route::post('/contact', [HomeController::class, 'contactStore']);
 
 Route::get('/terms-and-conditions', [HomeController::class, 'termsConditions']);
 Route::get('/privacy-and-policy', [HomeController::class, 'privacyPolicy']);

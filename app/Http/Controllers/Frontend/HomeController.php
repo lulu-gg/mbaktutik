@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactUs;
 use App\Models\Events;
+use App\Models\GeneralParamter;
 use App\Models\Sponsors;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
 class HomeController extends Controller
@@ -39,7 +42,20 @@ class HomeController extends Controller
 
     public function contact()
     {
-        return view('frontend.contact.index');
+        $generalParameter = GeneralParamter::first();
+        return view('frontend.contact.index', [
+            'generalParameter' => $generalParameter,
+        ]);
+    }
+
+    public function contactStore(Request $request)
+    {
+        $request->validate(ContactUs::$rules);
+
+        ContactUs::create([...$request->all()]);
+        noty('Thankyou!! your message has been send');
+
+        return redirect('/contact');
     }
 
     public function termsConditions()

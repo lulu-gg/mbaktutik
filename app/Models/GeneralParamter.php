@@ -21,11 +21,21 @@ class GeneralParamter extends Model
     /**
      * @var array
      */
-    protected $fillable = ['seo_keyword', 'seo_description', 'transaction_tax'];
+    protected $fillable = [
+        'seo_keyword',
+        'seo_description',
+        'transaction_tax',
+        'email',
+        'phone',
+        'address',
+    ];
 
     public static $rules = [
         'seo_keyword' => 'required',
         'seo_description' => 'required',
         'transaction_tax' => 'required',
+        'email' => 'required',
+        'phone' => 'required',
+        'address' => 'required',
     ];
 }
