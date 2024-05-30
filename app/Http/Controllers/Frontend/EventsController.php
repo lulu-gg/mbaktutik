@@ -25,13 +25,36 @@ use Illuminate\Support\Str;
 
 class EventsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $events = Events::orderBy('id', 'desc')->with(['organizer'])->get();
+        $eventsQuery = Events::orderBy('id', 'desc')->with(['organizer']);
+
+
+        if ($request->query('name') != null) {
+            $eventsQuery->where('name', 'ilike', "%" . $request->query('name') . "%");
+        }
+
+        if ($request->query('status') != null) {
+            $currentDate = Carbon::now()->toDateString();
+
+            if ($request->query('status') == 1) {
+                $eventsQuery->whereDate('start_date', '<=', $currentDate)
+                    ->whereDate('end_date', '>=', $currentDate);
+            }
+
+            if ($request->query('status') == 2) {
+                $eventsQuery->whereDate('end_date', '<', $currentDate);
+            }
+        }
+
+        if ($request->query('category') != null) {
+            $eventsQuery->where('event_category_id', $request->query('category'));
+        }
+
         $eventCategorys = EventsCategory::all();
 
         return view('frontend.events.index', [
-            'events' => $events,
+            'events' => $eventsQuery->get(),
             'eventCategorys' => $eventCategorys,
         ]);
     }
