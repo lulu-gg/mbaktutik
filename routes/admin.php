@@ -88,6 +88,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::prefix('/transaction-report')->group(function () {
         Route::get('/', [TransactionReportController::class, 'index']);
         Route::get('/{order}', [TransactionReportController::class, 'show']);
+        Route::get('/{order}/invoice', [TransactionReportController::class, 'invoice']);
     });
 
     // Ticket Report

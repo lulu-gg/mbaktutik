@@ -88,6 +88,19 @@ class Invoice extends Model
             default:
                 return "-";
         }
+    }
 
+    public function getStatusInvoiceAttribute()
+    {
+        switch ($this->status) {
+            case InvoiceStatusEnum::Pending:
+                return 'Menunggu Pembayaran';
+            case InvoiceStatusEnum::Done:
+                return 'Pembayaran Diterima';
+            case InvoiceStatusEnum::Cancel:
+                return 'Pembayaran Gagal';
+            default:
+                return "-";
+        }
     }
 }

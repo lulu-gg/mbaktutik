@@ -10,7 +10,63 @@
 
         $(".init-datatable-responsive").each(function(i, obj) {
             $(obj).DataTable({
-                responsive: true
+                responsive: true,
+                layout: {
+                    topStart: {
+                        buttons: ['pdf']
+                    }
+                }
+                // buttons: [{
+                //         extend: 'collection',
+                //         className: 'btn btn-label-primary dropdown-toggle me-2',
+                //         text: '<i class="bx bx-show me-1"></i>Export',
+                //         buttons: [{
+                //                 extend: 'print',
+                //                 text: '<i class="bx bx-printer me-1" ></i>Print',
+                //                 className: 'dropdown-item',
+                //                 exportOptions: {
+                //                     columns: [3, 4, 5, 6, 7]
+                //                 }
+                //             },
+                //             {
+                //                 extend: 'csv',
+                //                 text: '<i class="bx bx-file me-1" ></i>Csv',
+                //                 className: 'dropdown-item',
+                //                 exportOptions: {
+                //                     columns: [3, 4, 5, 6, 7]
+                //                 }
+                //             },
+                //             {
+                //                 extend: 'excel',
+                //                 text: 'Excel',
+                //                 className: 'dropdown-item',
+                //                 exportOptions: {
+                //                     columns: [3, 4, 5, 6, 7]
+                //                 }
+                //             },
+                //             {
+                //                 extend: 'pdf',
+                //                 text: '<i class="bx bxs-file-pdf me-1"></i>Pdf',
+                //                 className: 'dropdown-item',
+                //                 exportOptions: {
+                //                     columns: [3, 4, 5, 6, 7]
+                //                 }
+                //             },
+                //             {
+                //                 extend: 'copy',
+                //                 text: '<i class="bx bx-copy me-1" ></i>Copy',
+                //                 className: 'dropdown-item',
+                //                 exportOptions: {
+                //                     columns: [3, 4, 5, 6, 7]
+                //                 }
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         text: '<i class="bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Add New Record</span>',
+                //         className: 'create-new btn btn-primary'
+                //     }
+                // ],
             });
         });
 

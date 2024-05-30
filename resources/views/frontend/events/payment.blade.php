@@ -38,6 +38,10 @@
                                 <div class="col-9">
                                     {!! $invoice->status_span !!}
                                 </div>
+                                <div class="col-3 mb-3">Invoice</div>
+                                <div class="col-9">
+                                   <a href="{{ url()->current() . '/invoice' }}" target="_blank" class="btn btn-sm btn-primary">{{ $invoice->invoice_number }}.pdf</a>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -18,16 +18,19 @@ class SendBroadcastMailJob implements ShouldQueue
     private $subject;
     private $message;
 
+    private $invoiceId;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($receivers, $subject, $message)
+    public function __construct($receivers, $subject, $message, $invoiceId = null)
     {
         $this->receivers = $receivers;
         $this->subject = $subject;
         $this->message = $message;
+        $this->invoiceId = $invoiceId;
     }
 
     /**
@@ -38,7 +41,7 @@ class SendBroadcastMailJob implements ShouldQueue
     public function handle()
     {
         foreach ($this->receivers as $email) {
-            Mail::to($email)->send(new BroadcastMail($this->subject, $this->message));
+            Mail::to($email)->send(new BroadcastMail($this->subject, $this->message, $this->invoiceId));
         }
     }
 }

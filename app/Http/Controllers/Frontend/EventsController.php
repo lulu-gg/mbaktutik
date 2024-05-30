@@ -18,10 +18,12 @@ use App\Models\OrdersDetail;
 use App\Models\Ticket;
 use App\Models\TicketVariation;
 use App\Services\Midtrans\MidtransTransactionService;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
+use Nasution\Terbilang;
 
 class EventsController extends Controller
 {
@@ -238,7 +240,8 @@ class EventsController extends Controller
         $receivers = [$invoice->order->orderDetails->first()->buyer_email];
         $subject =  "Invoice #" . $invoice->invoice_number;
         $message = view('common.mail.invoice.invoice', ['invoice' => $invoice])->render();
-        dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
+
+        dispatch(new SendBroadcastMailJob($receivers, $subject, $message, $invoice->id));
 
         return redirect("/events/payment/$invoice->midtrans_order_id");
     }
@@ -273,7 +276,7 @@ class EventsController extends Controller
             $receivers = [$invoice->order->orderDetails->first()->buyer_email];
             $subject =  "E-Ticket " . $invoice->order->event->name;
             $message = view('common.mail.ticket.ticket', ['order' => $invoice->order])->render();
-            dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
+            dispatch(new SendBroadcastMailJob($receivers, $subject, $message, $invoice->id));
         }
 
         if ($checkTransaction !== null && in_array($checkTransaction?->result ?? '', [MidtransTransactionStatusEnum::Expired, MidtransTransactionStatusEnum::Cancelled])) {
@@ -284,5 +287,20 @@ class EventsController extends Controller
                 'payment_status' => PaymentStatusEnum::Cancel,
             ]);
         }
+    }
+
+    public function invoice($midtrans_order_id)
+    {
+        $invoice = Invoice::where(['midtrans_order_id' => $midtrans_order_id])->with(['order.event', 'order.orderDetails.tickets'])->firstOrFail();
+
+        $generalParameter = GeneralParamter::first();
+        $pdf = Pdf::loadView('common.pdf.invoice.invoice-pdf', [
+            'invoice' => $invoice,
+            'orderDetail' => $invoice->order->orderDetails->first(),
+            'generalParameter' => $generalParameter,
+            'amountStr' => Terbilang::convert($invoice->total),
+        ]);
+
+        return $pdf->stream();
     }
 }

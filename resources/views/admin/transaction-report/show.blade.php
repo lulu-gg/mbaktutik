@@ -92,6 +92,16 @@
                             <p>: {!! $data->status_span !!}</p>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <p>Invoice</p>
+                        </div>
+                        <div class="col-8">
+                            <p>: <a href="{{ url()->current() . '/invoice' }}" class="btn btn-sm btn-primary"
+                                    target="_blank">{{ $data->invoice->invoice_number }}.pdf</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
