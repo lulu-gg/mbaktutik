@@ -60,6 +60,8 @@
                                     <div class="col-10">{{ $item->email }}</div>
                                     <div class="col-2 mb-2">Phone</div>
                                     <div class="col-10">{{ $item->phone }}</div>
+                                    <div class="col-2 mb-2">City</div>
+                                    <div class="col-10">{{ $item->city }}</div>
                                     <div class="col-2 mb-2">NIK</div>
                                     <div class="col-10">{{ $item->nik }}</div>
                                     <div class="col-2 mb-2">Ticket</div>

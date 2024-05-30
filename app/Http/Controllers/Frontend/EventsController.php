@@ -103,6 +103,7 @@ class EventsController extends Controller
                 'fullname' => $request->fullname[$key],
                 'email' => $request->email[$key],
                 'phone' => $request->phone[$key],
+                'city' => $request->city[$key],
                 'nik' => $request->nik[$key],
                 'price' => (int) $ticket->price,
                 'subtotal' => $ticket->price * $request->quantity[$key]
@@ -153,6 +154,7 @@ class EventsController extends Controller
                 'buyer_nik' => $item->nik,
                 'buyer_email' => $item->email,
                 'buyer_phone' => $item->phone,
+                'buyer_city' => $item->city,
                 'quantity' => $item->quantity,
                 'price' => $item->ticket->price,
                 'total' => $item->ticket->price * $item->quantity,

@@ -34,9 +34,6 @@ Route::get('/register/event-organizer', [AuthController::class, 'registerEventOr
 Route::post('/register/event-organizer/submit', [AuthController::class, 'registerEventOrganizerSubmit']);
 Route::get('/register/event-organizer/thankyou', [AuthController::class, 'registerEventOrganizerComplete']);
 
-// Route::get('/register', [HomeController::class, 'register']);
-// Route::get('/reset-password', [HomeController::class, 'resetPassword']);
-
 Route::get('/events', [EventsController::class, 'index']);
 Route::get('/events/detail/{event}', [EventsController::class, 'show']);
 Route::get('/events/detail/{event}/purchase', [EventsController::class, 'purchase']);
@@ -66,30 +63,30 @@ Route::get('/account/organizer/events/index', [HomeController::class, 'organizer
 
 Route::get('/organizer-register', [HomeController::class, 'organizerRegister']);
 
-Route::get('/mail/welcome', function () {
-    return view('common.mail.welcome.welcome', [
-        'organizer' => Organizer::first(),
-    ]);
-});
+// Route::get('/mail/welcome', function () {
+//     return view('common.mail.welcome.welcome', [
+//         'organizer' => Organizer::first(),
+//     ]);
+// });
 
-Route::get('/mail/invoice', function () {
-    // SEND EMAIL INVOICE TO CUSTOMER
-    $invoice = Invoice::where(['id' => 23])->first();
-    $receivers = [$invoice->order->orderDetails->first()->buyer_email];
-    $subject =  "Invoice #" . $invoice->invoice_number;
-    $message = view('common.mail.invoice.invoice', ['invoice' => $invoice])->render();
-    dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
+// Route::get('/mail/invoice', function () {
+//     // SEND EMAIL INVOICE TO CUSTOMER
+//     $invoice = Invoice::where(['id' => 23])->first();
+//     $receivers = [$invoice->order->orderDetails->first()->buyer_email];
+//     $subject =  "Invoice #" . $invoice->invoice_number;
+//     $message = view('common.mail.invoice.invoice', ['invoice' => $invoice])->render();
+//     dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
 
-    // return view('common.mail.invoice.invoice',[
-    //     'invoice' => $invoice,
-    // ]);
-});
+//     // return view('common.mail.invoice.invoice',[
+//     //     'invoice' => $invoice,
+//     // ]);
+// });
 
-Route::get('/mail/eticket', function () {
-    return view('common.mail.ticket.ticket', [
-        'order' => Order::first(),
-    ]);
-});
+// Route::get('/mail/eticket', function () {
+//     return view('common.mail.ticket.ticket', [
+//         'order' => Order::first(),
+//     ]);
+// });
 
 Route::fallback(function () {
     if (request()->is('dashboard/*')) {

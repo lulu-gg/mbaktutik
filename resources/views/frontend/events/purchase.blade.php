@@ -250,6 +250,10 @@
                                         </div>
                                         <div class="cs-height_25 cs-height_lg_25"></div>
                                         <div class="cs-form_field_wrap">
+                                            <input class="cs-form_field" placeholder="City" name="city[]" required>
+                                        </div>
+                                        <div class="cs-height_25 cs-height_lg_25"></div>
+                                        <div class="cs-form_field_wrap">
                                             <input type="number" class="cs-form_field" placeholder="NIK" name="nik[]"
                                                 required>
                                         </div>

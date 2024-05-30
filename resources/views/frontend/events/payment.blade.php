@@ -93,6 +93,8 @@
                                     <div class="col-10">{{ $item->buyer_phone }}</div>
                                     <div class="col-2 mb-2">NIK</div>
                                     <div class="col-10">{{ $item->buyer_nik }}</div>
+                                    <div class="col-2 mb-2">City</div>
+                                    <div class="col-10">{{ $item->buyer_city }}</div>
                                     <div class="col-2 mb-2">Ticket</div>
                                     <div class="col-10">{{ $item->ticket_name }}</div>
                                     <div class="col-2 mb-2">Quantity</div>

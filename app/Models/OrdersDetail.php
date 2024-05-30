@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $buyer_nik
  * @property string $buyer_email
  * @property string $buyer_phone
+ * @property string $buyer_city
  * @property Order $order
  * @property TicketVariation $ticketVariation
  * @property Ticket[] $tickets
@@ -50,9 +51,10 @@ class OrdersDetail extends Model
         'buyer_nik',
         'buyer_email',
         'buyer_phone',
+        'buyer_city',
         'quantity',
         'price',
-        'total'
+        'total',
     ];
 
     /**
