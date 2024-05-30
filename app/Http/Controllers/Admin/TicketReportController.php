@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Events;
 use App\Models\Invoice;
 use App\Models\Order;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,5 +24,20 @@ class TicketReportController extends Controller
         return view('admin.ticket-report.index', [
             'data' => $data,
         ]);
+    }
+
+    public function pdf()
+    {
+        $query = Order::with(['orderDetails.tickets']);
+
+        $eventsId = RoleHelpers::isAdmin() ? [] : Events::where('event_organizer_id', Auth::user()->organizer->id)->pluck('id')->toArray();
+
+        $data = RoleHelpers::isAdmin() ? $query->get() : $query->whereIn('event_id', $eventsId)->get();
+
+        $pdf = Pdf::loadView('common.pdf.ticket.ticket-pdf', [
+            'data' => $data,
+        ]);
+
+        return $pdf->stream();
     }
 }

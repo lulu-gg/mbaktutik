@@ -87,6 +87,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     // Transaction Report
     Route::prefix('/transaction-report')->group(function () {
         Route::get('/', [TransactionReportController::class, 'index']);
+        Route::get('/pdf', [TransactionReportController::class, 'pdf']);
         Route::get('/{order}', [TransactionReportController::class, 'show']);
         Route::get('/{order}/invoice', [TransactionReportController::class, 'invoice']);
     });
@@ -94,6 +95,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     // Ticket Report
     Route::prefix('/ticket-report')->group(function () {
         Route::get('/', [TicketReportController::class, 'index']);
+        Route::get('/pdf', [TicketReportController::class, 'pdf']);
     });
 
     // Event Oragnizer Request

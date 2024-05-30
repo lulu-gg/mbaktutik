@@ -62,6 +62,20 @@ class Ticket extends Model
         }
     }
 
+    public function getStatusReportAttribute()
+    {
+        switch ($this->status) {
+            case TicketStatusEnum::Pending:
+                return "Waiting Payment";
+            case TicketStatusEnum::Active:
+                return "Ready to Scan";
+            case TicketStatusEnum::Scanned:
+                return "Already Scanned";
+            default:
+                return "-";
+        }
+    }
+
     public static function generateTicketID($prefix = 'TICKET')
     {
         // Get the current timestamp

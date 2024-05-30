@@ -96,4 +96,23 @@ class Order extends Model
             return '<span class="badge bg-danger">Payment Error</span>';
         }
     }
+
+    public function getStatusReportAttribute()
+    {
+        if ($this->payment_status == PaymentStatusEnum::Pending) {
+            return "Waiting for Payment";
+        }
+
+        if ($this->payment_status == PaymentStatusEnum::Done) {
+            return "Payment Accepted";
+        }
+
+        if ($this->payment_status == PaymentStatusEnum::Cancel) {
+            return "Payment Cancelled";
+        }
+
+        if ($this->payment_status == PaymentStatusEnum::Error) {
+            return "Payment Error";
+        }
+    }
 }

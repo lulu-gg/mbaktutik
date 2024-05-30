@@ -49,4 +49,19 @@ class TransactionReportController extends Controller
 
         return $pdf->stream();
     }
+
+    public function pdf()
+    {
+        $query = Order::with(['invoice', 'event']);
+
+        $eventsId = RoleHelpers::isAdmin() ? [] : Events::where('event_organizer_id', Auth::user()->organizer->id)->pluck('id')->toArray();
+
+        $data = RoleHelpers::isAdmin() ? $query->get() : $query->whereIn('event_id', $eventsId)->get();
+
+        $pdf = Pdf::loadView('common.pdf.transaction.transaction-pdf', [
+            'data' => $data,
+        ]);
+
+        return $pdf->stream();
+    }
 }

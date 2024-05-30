@@ -11,6 +11,13 @@
     <div class="card">
         <h5 class="card-header d-flex justify-content-between align-items-center">
             Data {{ $currentName }}
+            <div class="row">
+                <div class="col-auto">
+                    <a href="{{ url()->current() . '/pdf' }}" type="button" target="_blank" class="btn btn-sm btn-danger">
+                        Export PDF
+                    </a>
+                </div>
+            </div>
         </h5>
         <div class="card-body">
 
