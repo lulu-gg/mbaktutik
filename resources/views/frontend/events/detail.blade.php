@@ -37,9 +37,7 @@
                 <div class="cs-height_0 cs-height_lg_40"></div>
                 <div class="cs-single_product_head">
                     <h2>{{ $event->name }}</h2>
-                    <span class="badge badge-warning" style="background-color: rgba(255, 229, 80, 0.801)">
-                        On Going
-                    </span>
+                    {!! $event->status_time_span !!}
                 </div>
                 <div class="cs-height_25 cs-height_lg_25"></div>
                 <div class="row">
