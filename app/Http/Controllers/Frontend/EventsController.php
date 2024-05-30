@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Enums\Events\EventStatusEnum;
 use App\Enums\Invoice\InvoiceStatusEnum;
 use App\Enums\Midtrans\MidtransTransactionStatusEnum;
 use App\Enums\Orders\PaymentStatusEnum;
@@ -70,8 +71,12 @@ class EventsController extends Controller
     public function show(Events $event)
     {
         $event = Events::where(['id' => $event->id])->with(['ticketVariations', 'organizer'])->firstOrFail();
+
+        $otherEvents = Events::whereNot('id', $event->id)->where('status', EventStatusEnum::Active)->inRandomOrder()->limit(5)->get();
+
         return view('frontend.events.detail', [
             'event' => $event,
+            'otherEvents' => $otherEvents,
         ]);
     }
 

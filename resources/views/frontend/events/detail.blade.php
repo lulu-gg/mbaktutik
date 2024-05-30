@@ -230,134 +230,55 @@
     </div>
     <div class="cs-height_95 cs-height_lg_70"></div>
     <div class="container">
-        <h2 class="cs-section_heading cs-style1">Similar Items</h2>
+        <h2 class="cs-section_heading cs-style1">Other Events</h2>
         <div class="cs-height_45 cs-height_lg_45"></div>
         <div class="cs-grid_5 cs-gap_30">
-            <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                <span class="cs-card_like cs-primary_color">
-                    <i class="fas fa-heart fa-fw"></i>
-                    2.1K
-                </span>
-                <a href="#" class="cs-card_thumb cs-zoom_effect">
-                    <img src="{{ asset('frontend/assets/img/explore/1.jpg') }}" alt="Image" class="cs-zoom_item">
-                </a>
-                <div class="cs-card_info">
-                    <a href="#" class="cs-avatar cs-white_bg">
-                        <img src="{{ asset('frontend/assets/img/avatar/avatar_12.png') }}" alt="Avatar">
-                        <span>Johny E.</span>
+            @foreach ($otherEvents as $item)
+                <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
+                    <a href="{{ url('/events/detail/' . $item->id) }}" class="cs-card_thumb cs-zoom_effect">
+                        <img src="{{ $item->thumbnail_path }}" alt="Image" class="cs-zoom_item">
                     </a>
-                    <h3 class="cs-card_title"><a href="#">Art work #2134</a></h3>
-                    <div class="cs-card_price">Current Bid: <b class="cs-primary_color">0.29 ETH 7/21</b></div>
-                    <hr>
-                    <div class="cs-card_footer">
-                        <span class="cs-card_btn_1" data-modal="#history_1">
-                            <i class="fas fa-redo fa-fw"></i>
-                            View History
-                        </span>
-                        <span class="cs-card_btn_2" data-modal="#bid_1"><span>Place Bid</span></span>
+                    <div class="cs-card_info">
+                        <a href="#" class="cs-avatar cs-white_bg">
+                            <img src="{{ asset('frontend/assets/img/avatar/avatar_12.png') }}" alt="Avatar">
+                            <span>{{ $item->organizer->company_name }}</span>
+                        </a>
+                        <h3 class="cs-card_title">
+                            <a href="{{ url('/events/detail/' . $item->id) }}">{{ $item->name }}</a>
+                        </h3>
+                        <div class="cs-card_price">Start Date: <b
+                                class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->start_date)) }}</b>
+                            <div class="cs-card_price">End Date: <b
+                                    class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->end_date)) }}</b>
+                            </div>
+                            <div class="cs-card_price">
+                                {!! $item->status_time_span !!}
+                            </div>
+
+                            <hr>
+                            @if ($item->isPast())
+                                <div class="cs-card_footer">
+                                    <span class="cs-card_btn_2" style="background: grey">
+                                        <span>
+                                            Unavailable
+                                        </span>
+                                    </span>
+                                </div>
+                            @else
+                                <div class="cs-card_footer">
+                                    <a href="{{ url('/events/detail/' . $item->id) }}">
+                                        <span class="cs-card_btn_2">
+                                            <span>
+                                                Buy Ticket
+                                            </span>
+                                        </span>
+                                    </a>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                <span class="cs-card_like cs-primary_color">
-                    <i class="fas fa-heart fa-fw"></i>
-                    3.3K
-                </span>
-                <a href="#" class="cs-card_thumb cs-zoom_effect">
-                    <img src="{{ asset('frontend/assets/img/explore/2.jpg') }}" alt="Image" class="cs-zoom_item">
-                </a>
-                <div class="cs-card_info">
-                    <a href="#" class="cs-avatar cs-white_bg">
-                        <img src="{{ asset('frontend/assets/img/avatar/avatar_13.png') }}" alt="Avatar">
-                        <span>debit alex</span>
-                    </a>
-                    <h3 class="cs-card_title"><a href="#">Cool octopus traveling</a></h3>
-                    <div class="cs-card_price">Current Bid: <b class="cs-primary_color">0.24 ETH 4/17</b></div>
-                    <hr>
-                    <div class="cs-card_footer">
-                        <span class="cs-card_btn_1" data-modal="#history_1">
-                            <i class="fas fa-redo fa-fw"></i>
-                            View History
-                        </span>
-                        <span class="cs-card_btn_2" data-modal="#bid_1"><span>Place Bid</span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                <span class="cs-card_like cs-primary_color">
-                    <i class="fas fa-heart fa-fw"></i>
-                    3.1K
-                </span>
-                <a href="#" class="cs-card_thumb cs-zoom_effect">
-                    <img src="{{ asset('frontend/assets/img/explore/3.jpg') }}" alt="Image" class="cs-zoom_item">
-                </a>
-                <div class="cs-card_info">
-                    <a href="#" class="cs-avatar cs-white_bg">
-                        <img src="{{ asset('frontend/assets/img/avatar/avatar_12.png') }}" alt="Avatar">
-                        <span>robert Alex</span>
-                    </a>
-                    <h3 class="cs-card_title"><a href="#">Octopus eating icecrem</a></h3>
-                    <div class="cs-card_price">Current Bid: <b class="cs-primary_color">0.09 ETH 1/9</b></div>
-                    <hr>
-                    <div class="cs-card_footer">
-                        <span class="cs-card_btn_1" data-modal="#history_1">
-                            <i class="fas fa-redo fa-fw"></i>
-                            View History
-                        </span>
-                        <span class="cs-card_btn_2" data-modal="#bid_1"><span>Place Bid</span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                <span class="cs-card_like cs-primary_color">
-                    <i class="fas fa-heart fa-fw"></i>
-                    2.1K
-                </span>
-                <a href="#" class="cs-card_thumb cs-zoom_effect">
-                    <img src="{{ asset('frontend/assets/img/explore/4.jpg') }}" alt="Image" class="cs-zoom_item">
-                </a>
-                <div class="cs-card_info">
-                    <a href="#" class="cs-avatar cs-white_bg">
-                        <img src="{{ asset('frontend/assets/img/avatar/avatar_12.png') }}" alt="Avatar">
-                        <span>johny e.</span>
-                    </a>
-                    <h3 class="cs-card_title"><a href="#">Panda with fish</a></h3>
-                    <div class="cs-card_price">Current Bid: <b class="cs-primary_color">0.19 ETH 5/11</b></div>
-                    <hr>
-                    <div class="cs-card_footer">
-                        <span class="cs-card_btn_1" data-modal="#history_1">
-                            <i class="fas fa-redo fa-fw"></i>
-                            View History
-                        </span>
-                        <span class="cs-card_btn_2" data-modal="#bid_1"><span>Place Bid</span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                <span class="cs-card_like cs-primary_color">
-                    <i class="fas fa-heart fa-fw"></i>
-                    1.2K
-                </span>
-                <a href="#" class="cs-card_thumb cs-zoom_effect">
-                    <img src="{{ asset('frontend/assets/img/explore/5.jpg') }}" alt="Image" class="cs-zoom_item">
-                </a>
-                <div class="cs-card_info">
-                    <a href="#" class="cs-avatar cs-white_bg">
-                        <img src="{{ asset('frontend/assets/img/avatar/avatar_13.png') }}" alt="Avatar">
-                        <span>austin R.</span>
-                    </a>
-                    <h3 class="cs-card_title"><a href="#">Kawaii-bubble-tea</a></h3>
-                    <div class="cs-card_price">Current Bid: <b class="cs-primary_color">0.29 ETH 11/19</b></div>
-                    <hr>
-                    <div class="cs-card_footer">
-                        <span class="cs-card_btn_1" data-modal="#history_1">
-                            <i class="fas fa-redo fa-fw"></i>
-                            View History
-                        </span>
-                        <span class="cs-card_btn_2" data-modal="#bid_1"><span>Place Bid</span></span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="cs-height_100 cs-height_lg_70"></div>
