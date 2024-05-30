@@ -28,6 +28,7 @@ class GeneralParamter extends Model
         'email',
         'phone',
         'address',
+        'whatsapp_url'
     ];
 
     public static $rules = [
@@ -37,5 +38,6 @@ class GeneralParamter extends Model
         'email' => 'required',
         'phone' => 'required',
         'address' => 'required',
+        'whatsapp_url' => 'required|url'
     ];
 }

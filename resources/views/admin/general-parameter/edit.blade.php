@@ -39,7 +39,15 @@
             </h5>
             <div class="card-body">
                 <div class="mb-3">
-                    <x-admin.form-input label="Phone" name="phone" value="{{ $data->phone }}" />
+                    <div class="row">
+                        <div class="col">
+                            <x-admin.form-input label="Phone" name="phone" value="{{ $data->phone }}" />
+                        </div>
+                        <div class="col">
+                            <x-admin.form-input label="Whatsapp URL" name="whatsapp_url"
+                                value="{!! $data->whatsapp_url !!}" />
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <x-admin.form-input label="Email" name="email" value="{{ $data->email }}" />
