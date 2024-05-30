@@ -103,33 +103,46 @@
                     <div class="cs-tab_content">
                         <div id="tab_one" class="cs-tab active">
                             <ul class="cs-activity_list cs-mp0">
-                                @forelse ($event->ticketVariations as $ticket)
+                                @if ($event->isPast())
                                     <li>
                                         <div class="cs-activity cs-white_bg cs-type1">
                                             <div class="d-flex justify-content-between align-items-center w-100">
-
                                                 <div class="cs-activity_right">
                                                     <p class="cs-activity_text">
-                                                        {{ $ticket->name }}
-                                                    </p>
-                                                    <p class="cs-activity_posted_by">
-                                                        @if ($ticket->status == 0)
-                                                            Not Available
-                                                        @endif
-
-                                                        @if ($ticket->status == 1)
-                                                            Available
-                                                        @endif
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <p class="cs-activity_text">
-                                                        @format_currency($ticket->price)
+                                                        Ticket tidak tersedia pada event yang sudah berlalu
                                                     </p>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </li>
+                                @else
+                                    @forelse ($event->ticketVariations as $ticket)
+                                        <li>
+                                            <div class="cs-activity cs-white_bg cs-type1">
+                                                <div class="d-flex justify-content-between align-items-center w-100">
 
-                                            {{-- <div class="cs-activity_icon cs-center cs-gray_bg cs-accent_color">
+                                                    <div class="cs-activity_right">
+                                                        <p class="cs-activity_text">
+                                                            {{ $ticket->name }}
+                                                        </p>
+                                                        <p class="cs-activity_posted_by">
+                                                            @if ($ticket->status == 0)
+                                                                Not Available
+                                                            @endif
+
+                                                            @if ($ticket->status == 1)
+                                                                Available
+                                                            @endif
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="cs-activity_text">
+                                                            @format_currency($ticket->price)
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                {{-- <div class="cs-activity_icon cs-center cs-gray_bg cs-accent_color">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -137,21 +150,23 @@
                                                     fill="currentColor" />
                                             </svg>
                                         </div> --}}
-                                        </div>
-                                    </li>
-                                @empty
-                                    <li>
-                                        <div class="cs-activity cs-white_bg cs-type1">
-                                            <div class="d-flex justify-content-between align-items-center w-100">
-                                                <div class="cs-activity_right">
-                                                    <p class="cs-activity_text">
-                                                        Belum ada ticket tersedia
-                                                    </p>
+                                            </div>
+                                        </li>
+                                    @empty
+                                        <li>
+                                            <div class="cs-activity cs-white_bg cs-type1">
+                                                <div class="d-flex justify-content-between align-items-center w-100">
+                                                    <div class="cs-activity_right">
+                                                        <p class="cs-activity_text">
+                                                            Belum ada ticket tersedia
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                @endforelse
+                                        </li>
+                                    @endforelse
+                                @endif
+
                             </ul>
                         </div>
                     </div>
@@ -204,7 +219,7 @@
                 </div> --}}
                 <div class="cs-height_10 cs-height_lg_10"></div>
 
-                @if (count($event->ticketVariations) > 0)
+                @if (count($event->ticketVariations) > 0 && !$event->isPast())
                     <div class="row">
                         <div class="col-12">
                             <a href="{{ url()->current() . '/purchase' }}"

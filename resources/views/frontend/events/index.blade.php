@@ -21,7 +21,8 @@
                     <form action="" class="">
                         <div class="cs-search_widget">
                             <div class="cs-search">
-                                <input type="text" class="cs-search_input" placeholder="Search" name="name" value="{{ Request::get('name') }}">
+                                <input type="text" class="cs-search_input" placeholder="Search" name="name"
+                                    value="{{ Request::get('name') }}">
                                 <button class="cs-search_btn">
                                     <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -128,22 +129,29 @@
                                                 class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->end_date)) }}</b>
                                         </div>
                                         <div class="cs-card_price">
-                                            <span class="badge badge-warning"
-                                                style="background-color: rgba(255, 229, 80, 0.801)">On
-                                                Going</span>
-
+                                            {!! $item->status_time_span !!}
                                         </div>
 
                                         <hr>
-                                        <div class="cs-card_footer">
-                                            <a href="{{ url('/events/detail/' . $item->id) }}">
-                                                <span class="cs-card_btn_2">
+                                        @if ($item->isPast())
+                                            <div class="cs-card_footer">
+                                                <span class="cs-card_btn_2" style="background: grey">
                                                     <span>
-                                                        Buy Ticket
+                                                        Unavailable
                                                     </span>
                                                 </span>
-                                            </a>
-                                        </div>
+                                            </div>
+                                        @else
+                                            <div class="cs-card_footer">
+                                                <a href="{{ url('/events/detail/' . $item->id) }}">
+                                                    <span class="cs-card_btn_2">
+                                                        <span>
+                                                            Buy Ticket
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

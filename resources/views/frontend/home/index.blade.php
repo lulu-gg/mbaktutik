@@ -19,10 +19,12 @@
                 <div class="cs-hero_in_right">
                     <div class="cs-slider cs-style1">
                         <div class="cs-slider_container" data-autoplay="0" data-loop="1" data-speed="600" data-center="1"
-                            data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="3" data-md-slides="3"
-                            data-lg-slides="3" data-add-slides="3">
+                            data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="1"
+                            data-md-slides="{{ count($upcomingEvents) > 3 ? 3 : count($upcomingEvents) }}"
+                            data-lg-slides="{{ count($upcomingEvents) > 3 ? 3 : count($upcomingEvents) }}"
+                            data-add-slides="{{ count($upcomingEvents) > 3 ? 3 : count($upcomingEvents) }}">
                             <div class="cs-slider_wrapper">
-                                @foreach ($banner as $item)
+                                @foreach ($upcomingEvents as $item)
                                     <div class="cs-slide">
                                         <div class="cs-card cs-style4 cs-type1 cs-box_shadow cs-white_bg">
                                             <span class="cs-card_like cs-primary_color">
@@ -30,8 +32,7 @@
                                             </span>
                                             <a href="{{ url('/events/detail/' . $item->id) }}"
                                                 class="cs-card_thumb cs-zoom_effect">
-                                                <img src="{{ $item->thumbnail_path }}"
-                                                    alt="Image" class="cs-zoom_item">
+                                                <img src="{{ $item->thumbnail_path }}" alt="Image" class="cs-zoom_item">
                                             </a>
                                             <div class="cs-card_info">
 
@@ -49,13 +50,11 @@
                                                     <div class="cs-card_price">End Date: <b
                                                             class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->end_date)) }}</b>
                                                     </div>
-                                                    <div class="cs-card_price">
+                                                    {{-- <div class="cs-card_price">
 
-                                                        <span class="badge badge-warning"
-                                                            style="background-color: rgba(255, 229, 80, 0.801)">On
-                                                            Going</span>
+                                                        {!! $item->status_time_span !!}
 
-                                                    </div>
+                                                    </div> --}}
 
                                                     <hr>
                                                     <div class="cs-card_footer">
@@ -104,7 +103,7 @@
                     <h2 class="cs-section_title">Events</h2>
                 </div>
                 <div class="cs-section_right">
-                    <a href="live-action.html" class="cs-btn cs-style1"><span>Explore More</span></a>
+                    <a href="{{ url('/events') }}" class="cs-btn cs-style1"><span>Explore More</span></a>
                 </div>
             </div>
             <div class="cs-height_45 cs-height_lg_45"></div>
@@ -113,7 +112,7 @@
                     data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2" data-md-slides="4"
                     data-lg-slides="5" data-add-slides="5">
                     <div class="cs-slider_wrapper">
-                        @foreach ($new as $item)
+                        @foreach ($ongoingEvents as $item)
                             <div class="cs-slide">
                                 <div class="cs-card cs-style4 cs-type1 cs-box_shadow cs-white_bg">
                                     <span class="cs-card_like cs-primary_color">
@@ -121,8 +120,7 @@
                                     </span>
                                     <a href="{{ url('/events/detail/' . $item->id) }}"
                                         class="cs-card_thumb cs-zoom_effect">
-                                        <img src="{{ $item->thumbnail_path }}"
-                                            alt="Image" class="cs-zoom_item">
+                                        <img src="{{ $item->thumbnail_path }}" alt="Image" class="cs-zoom_item">
                                     </a>
                                     <div class="cs-card_info">
 
@@ -132,32 +130,6 @@
                                             <span>{{ $item->organizer->company_name }}</span>
                                         </a>
                                         <div class="cs-height_10 cs-height_lg_10"></div>
-                                        {{-- <div class="cs-countdown" data-countdate="24 August 2022">
-                                    <div class="cs-countdown_item">
-                                        <div class="cs-countdown_number">
-                                            <div class="cs-count_days"></div>
-                                        </div>
-                                        <h3 class="cs-countdown_text">Days</h3>
-                                    </div>
-                                    <div class="cs-countdown_item">
-                                        <div class="cs-countdown_number">
-                                            <div class="cs-count_hours"></div>
-                                        </div>
-                                        <h3 class="cs-countdown_text">Hours</h3>
-                                    </div>
-                                    <div class="cs-countdown_item">
-                                        <div class="cs-countdown_number">
-                                            <div class="cs-count_minutes"></div>
-                                        </div>
-                                        <h3 class="cs-countdown_text">Min</h3>
-                                    </div>
-                                    <div class="cs-countdown_item">
-                                        <div class="cs-countdown_number">
-                                            <div class="cs-count_seconds"></div>
-                                        </div>
-                                        <h3 class="cs-countdown_text">Sec</h3>
-                                    </div>
-                                </div> --}}
                                         <h3 class="cs-card_title"><a
                                                 href="{{ url('/events/detail/' . $item->id) }}">{{ $item->name }}</a>
                                         </h3>
@@ -166,19 +138,12 @@
                                             <div class="cs-card_price">End Date: <b
                                                     class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->end_date)) }}</b>
                                             </div>
-                                            <div class="cs-card_price">
-
-                                                <span class="badge badge-warning"
-                                                    style="background-color: rgba(255, 229, 80, 0.801)">On Going</span>
-
-                                            </div>
+                                            {{-- <div class="cs-card_price">
+                                                {!! $item->status_time_span !!}
+                                            </div> --}}
 
                                             <hr>
                                             <div class="cs-card_footer">
-                                                {{-- <span class="cs-card_btn_1" data-modal="#history_1">
-                                        <i class="fas fa-redo fa-fw"></i>
-                                        View History
-                                    </span> --}}
                                                 <a href="{{ url('/events/detail/' . $item->id) }}"><span
                                                         class="cs-card_btn_2"><span>Buy Ticket</span></span></a>
                                             </div>
@@ -201,7 +166,7 @@
                     <h2 class="cs-section_title">Past Event</h2>
                 </div>
                 <div class="cs-section_right">
-                    <a href="live-action.html" class="cs-btn cs-style1"><span>Explore More</span></a>
+                    <a href="{{ url('/events') }}" class="cs-btn cs-style1"><span>Explore More</span></a>
                 </div>
             </div>
             <div class="cs-height_45 cs-height_lg_45"></div>
@@ -210,7 +175,7 @@
                     data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2" data-md-slides="4"
                     data-lg-slides="5" data-add-slides="5">
                     <div class="cs-slider_wrapper">
-                        @foreach ($past as $item)
+                        @foreach ($pastEvents as $item)
                             <div class="cs-slide">
                                 <div class="cs-card cs-style4 cs-type1 cs-box_shadow cs-white_bg">
                                     <span class="cs-card_like cs-primary_color">
@@ -218,8 +183,7 @@
                                     </span>
                                     <a href="{{ url('/events/detail/' . $item->id) }}"
                                         class="cs-card_thumb cs-zoom_effect">
-                                        <img src="{{ $item->thumbnail_path }}"
-                                            alt="Image" class="cs-zoom_item">
+                                        <img src="{{ $item->thumbnail_path }}" alt="Image" class="cs-zoom_item">
                                     </a>
                                     <div class="cs-card_info">
 
@@ -229,32 +193,6 @@
                                             <span>{{ $item->organizer->company_name }}</span>
                                         </a>
                                         <div class="cs-height_10 cs-height_lg_10"></div>
-                                        {{-- <div class="cs-countdown" data-countdate="24 August 2022">
-                                    <div class="cs-countdown_item">
-                                        <div class="cs-countdown_number">
-                                            <div class="cs-count_days"></div>
-                                        </div>
-                                        <h3 class="cs-countdown_text">Days</h3>
-                                    </div>
-                                    <div class="cs-countdown_item">
-                                        <div class="cs-countdown_number">
-                                            <div class="cs-count_hours"></div>
-                                        </div>
-                                        <h3 class="cs-countdown_text">Hours</h3>
-                                    </div>
-                                    <div class="cs-countdown_item">
-                                        <div class="cs-countdown_number">
-                                            <div class="cs-count_minutes"></div>
-                                        </div>
-                                        <h3 class="cs-countdown_text">Min</h3>
-                                    </div>
-                                    <div class="cs-countdown_item">
-                                        <div class="cs-countdown_number">
-                                            <div class="cs-count_seconds"></div>
-                                        </div>
-                                        <h3 class="cs-countdown_text">Sec</h3>
-                                    </div>
-                                </div> --}}
                                         <h3 class="cs-card_title"><a
                                                 href="{{ url('/events/detail/' . $item->id) }}">{{ $item->name }}</a>
                                         </h3>
@@ -262,24 +200,6 @@
                                                 class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->start_date)) }}</b>
                                             <div class="cs-card_price">End Date: <b
                                                     class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->end_date)) }}</b>
-                                            </div>
-                                            <div class="cs-card_price">
-
-                                                <span class="badge badge-warning"
-                                                    style="background-color: rgba(255, 229, 80, 0.801)">On
-                                                    Going</span>
-
-                                            </div>
-
-                                            <hr>
-                                            <div class="cs-card_footer">
-                                                {{-- <span class="cs-card_btn_1" data-modal="#history_1">
-                                            <i class="fas fa-redo fa-fw"></i>
-                                            View History
-                                        </span> --}}
-                                                <a href="{{ url('/events/detail/' . $item->id) }}"><span
-                                                        class="cs-card_btn_2"><span>Buy
-                                                            Ticket</span></span></a>
                                             </div>
                                         </div>
                                     </div>

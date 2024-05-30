@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Carbon;
 
 /**
  * @property integer $id
@@ -155,5 +156,20 @@ class Events extends Model
     public function getThumbnailPathAttribute()
     {
         return $this->thumbnail ? url(self::$FILE_PATH . $this->thumbnail) : null;
+    }
+
+    public function isPast()
+    {
+        $currentDate = Carbon::now();
+        return $this->end_date < $currentDate;
+    }
+
+    public function getStatusTimeSpanAttribute()
+    {
+        if ($this->isPast()) {
+            return '<span class="badge badge-danger bg-danger">Past Event</span>';
+        }
+
+        return '<span class="badge badge-primary bg-primary">Ongoing Event</span>';
     }
 }

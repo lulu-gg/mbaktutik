@@ -27,24 +27,30 @@ class EventsController extends Controller
 {
     public function index(Request $request)
     {
-        $eventsQuery = Events::orderBy('id', 'desc')->with(['organizer']);
-
+        $eventsQuery = Events::with(['organizer']);
 
         if ($request->query('name') != null) {
             $eventsQuery->where('name', 'ilike', "%" . $request->query('name') . "%");
         }
 
+        $currentDate = Carbon::now()->toDateString();
         if ($request->query('status') != null) {
-            $currentDate = Carbon::now()->toDateString();
 
             if ($request->query('status') == 1) {
-                $eventsQuery->whereDate('start_date', '<=', $currentDate)
-                    ->whereDate('end_date', '>=', $currentDate);
+                $eventsQuery->whereDate('end_date', '>=', $currentDate);
             }
 
             if ($request->query('status') == 2) {
                 $eventsQuery->whereDate('end_date', '<', $currentDate);
             }
+        } else {
+            $eventsQuery->orderByRaw(
+                "CASE 
+                    WHEN end_date >= ? THEN 0
+                    ELSE 1
+                END, end_date ASC",
+                [$currentDate]
+            );
         }
 
         if ($request->query('category') != null) {
@@ -70,6 +76,11 @@ class EventsController extends Controller
     public function purchase(Events $event)
     {
         $event = Events::where(['id' => $event->id])->with(['ticketVariations', 'organizer'])->firstOrFail();
+
+        if ($event->isPast()) {
+            return abort(404);
+        }
+
         return view('frontend.events.purchase', [
             'event' => $event,
         ]);
@@ -91,6 +102,11 @@ class EventsController extends Controller
 
     public function checkout(Request $request, Events $event)
     {
+
+        if ($event->isPast()) {
+            return abort(404);
+        }
+
         $formData = [];
         $subtotal = 0;
 
@@ -154,6 +170,10 @@ class EventsController extends Controller
 
     public function proceedCheckout(Request $request, Events $event)
     {
+        if ($event->isPast()) {
+            return abort(404);
+        }
+
         $request->validate(['encData' => 'required']);
 
         $decryptedData = Crypt::decryptString($request->encData);

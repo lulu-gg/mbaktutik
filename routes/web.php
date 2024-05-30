@@ -47,19 +47,10 @@ Route::post('/ticket/scan/{qrCode}/update', [TicketController::class, 'update'])
 
 Route::get('/sponsors', [HomeController::class, 'sponsors']);
 Route::get('/contact', [HomeController::class, 'contact']);
-Route::get('/account', [HomeController::class, 'account']);
-Route::get('/account/settings', [HomeController::class, 'accountSettings']);
-Route::get('/account/myevents', [HomeController::class, 'accountMyEvents']);
-Route::get('/account/myorder', [HomeController::class, 'accountmyOrder']);
+
 Route::get('/terms-and-conditions', [HomeController::class, 'termsConditions']);
 Route::get('/privacy-and-policy', [HomeController::class, 'privacyPolicy']);
 Route::get('/biaya', [HomeController::class, 'biaya']);
-
-
-Route::get('/account/organizer/events/create', [HomeController::class, 'organizerEventsCreate']);
-Route::get('/account/organizer/events/edit', [HomeController::class, 'organizerEventsEdit']);
-Route::get('/account/organizer/events/detail', [HomeController::class, 'organizerEventsDetail']);
-Route::get('/account/organizer/events/index', [HomeController::class, 'organizerEvents']);
 
 Route::get('/organizer-register', [HomeController::class, 'organizerRegister']);
 
