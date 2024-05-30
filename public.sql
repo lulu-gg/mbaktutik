@@ -12,7 +12,7 @@
  Target Server Version : 160002 (160002)
  File Encoding         : 65001
 
- Date: 31/05/2024 03:05:39
+ Date: 31/05/2024 03:22:31
 */
 
 
@@ -434,7 +434,7 @@ CREATE TABLE "public"."general_parameter" (
   "id" int4 NOT NULL DEFAULT nextval('genreal_parameter_id_seq'::regclass),
   "seo_keyword" varchar(255) COLLATE "pg_catalog"."default",
   "seo_description" text COLLATE "pg_catalog"."default",
-  "transaction_tax" int2,
+  "transaction_tax" numeric(7,2),
   "created_at" timestamp(6),
   "updated_at" timestamp(6),
   "email" varchar(255) COLLATE "pg_catalog"."default",
@@ -447,7 +447,7 @@ CREATE TABLE "public"."general_parameter" (
 -- ----------------------------
 -- Records of general_parameter
 -- ----------------------------
-INSERT INTO "public"."general_parameter" VALUES (1, 'rive', 'rive', 3, NULL, '2024-05-31 03:05:17', 'mbaktutik@rive.co.id', '+62 8953 9602 5436', 'Jl. Yos Sudarso No.158, RT 18, RW 05, Kel. Madiun Lor, Kec. Manguharjo, Kota Madiun, Jawa Timur 63122', 'https://api.whatsapp.com/send/?phone=62895396025436');
+INSERT INTO "public"."general_parameter" VALUES (1, 'rive', 'rive', 3.00, NULL, '2024-05-31 03:21:59', 'mbaktutik@rive.co.id', '+62 8953 9602 5436', 'Jl. Yos Sudarso No.158, RT 18, RW 05, Kel. Madiun Lor, Kec. Manguharjo, Kota Madiun, Jawa Timur 63122', 'https://api.whatsapp.com/send/?phone=62895396025436');
 
 -- ----------------------------
 -- Table structure for invoices

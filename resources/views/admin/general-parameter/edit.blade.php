@@ -28,7 +28,7 @@
             <div class="card-body">
                 <div class="mb-3">
                     <x-admin.form-input label="Transaction Tax" name="transaction_tax"
-                        value="{{ $data->transaction_tax }}" type="number" information="in percentage" />
+                        value="{{ $data->transaction_tax }}" type="number" information="in percentage" step="0.1" />
                 </div>
             </div>
         </div>
