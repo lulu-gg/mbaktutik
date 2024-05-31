@@ -21,16 +21,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $filter = request()->query('q', 'all');
+        $data = User::where('role_id', RoleHelpers::$ADMIN)->get();
 
-        if (!in_array($filter, [RoleHelpers::$ADMIN])) {
-            $filter = 'all';
-        }
-
-
-        $data = $filter == 'all' ? User::all() : User::where('role_id', $filter)->get();
-
-        return view('admin.user.index', ['data' => $data, 'selected' => $filter]);
+        return view('admin.user.index', ['data' => $data]);
     }
 
     /**
@@ -59,24 +52,13 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'verify_token' => Str::random(30),
-            'role_id' => $request->role_id,
+            'role_id' => RoleHelpers::$ADMIN,
             'account_status' => 1,
         ]);
 
-        if ($request->role_id == RoleHelpers::$EVENT_ORGANIZER) {
-            $request->validate(Organizer::$rules);
-            $eventOrganizer = Organizer::create([
-                'company_name' => $request->company_name,
-                'contact_person' => $request->contact_person,
-                'phone' => $request->phone,
-                'website' => $request->website,
-                'user_id' => $user->id,
-            ]);
-        }
+        noty("Berhasil membuat admin", 'info');
 
-        noty("Berhasil membuat user", 'info');
-
-        return redirect('dashboard/user');
+        return redirect('dashboard/user/admin');
     }
 
     /**
@@ -85,9 +67,9 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $admin)
     {
-        return view('admin.user.show', ['user' => $user]);
+        return view('admin.user.show', ['user' => $admin]);
     }
 
     /**
@@ -96,7 +78,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(User $admin)
     {
         //
     }
@@ -108,7 +90,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $admin)
     {
         //
     }
@@ -119,14 +101,28 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $admin)
     {
         try {
-            $user->delete();
+            $admin->delete();
         } catch (\Exception $e) {
             noty("Gagal menghapus user", 'error');
         }
 
-        return redirect("dashboard/user");
+        return redirect("dashboard/user/admin");
+    }
+
+    public function organizer()
+    {
+        $data = User::where('role_id', RoleHelpers::$EVENT_ORGANIZER)->get();
+
+        return view('admin.user.organizer.index', ['data' => $data]);
+    }
+
+    public function scannerOfficer()
+    {
+        $data = User::where('role_id', RoleHelpers::$SCAN_OFFICER)->get();
+
+        return view('admin.user.scanner-officer.index', ['data' => $data]);
     }
 }

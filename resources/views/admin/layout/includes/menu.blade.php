@@ -114,11 +114,29 @@
             <!-- Master -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
 
-            <li class="menu-item {{ CustomHelpers::isActive('dashboard/user') }}">
-                <a href="{{ url('dashboard/user') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bxs-user"></i>
-                    <div data-i18n="User">User</div>
+            <li
+                class="menu-item {{ CustomHelpers::isActiveBool(['dashboard/user/admin', 'dashboard/user/organizer', 'dashboard/user/scanner-officer']) ? 'open' : '' }}">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx bxs-user"></i>
+                    <div class="text-truncate" data-i18n="User">User</div>
                 </a>
+                <ul class="menu-sub">
+                    <li class="menu-item {{ CustomHelpers::isActive('dashboard/user/admin') }}">
+                        <a href="{{ url('dashboard/user/admin') }}" class="menu-link">
+                            <div data-i18n="Admin">Admin</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ CustomHelpers::isActive('dashboard/user/organizer') }}">
+                        <a href="{{ url('dashboard/user/organizer') }}" class="menu-link">
+                            <div data-i18n="Event Organizer">Event Organizer</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ CustomHelpers::isActive('dashboard/user/scanner-officer') }}">
+                        <a href="{{ url('dashboard/user/scanner-officer') }}" class="menu-link">
+                            <div data-i18n="Scanner Officer">Scanner Officer</div>
+                        </a>
+                    </li>
+                </ul>
             </li>
 
             <li class="menu-item {{ CustomHelpers::isActive('dashboard/general-parameter') }}">

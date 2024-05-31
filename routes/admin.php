@@ -112,7 +112,9 @@ Route::group(['middleware' => 'admin.auth'], function () {
     })->middleware(AdminPermission::class);
 
     // User
-    Route::resource('/user', UserController::class)->except(['edit', 'update'])->middleware(AdminPermission::class);
+    Route::get('/user/organizer', [UserController::class, 'organizer'])->middleware(AdminPermission::class);
+    Route::get('/user/scanner-officer', [UserController::class, 'scannerOfficer'])->middleware(AdminPermission::class);
+    Route::resource('/user/admin', UserController::class)->except(['edit', 'update'])->middleware(AdminPermission::class);
 
     // Auth Logout
     Route::post('/logout', [AuthController::class, 'logout']);

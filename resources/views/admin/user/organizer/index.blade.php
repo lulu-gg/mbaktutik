@@ -1,17 +1,11 @@
 <x-admin.app-layout>
 
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Master / User / </span> Admin</h4>
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Master / User / </span> Event Organizer</h4>
 
     <!-- Basic Bootstrap Table -->
     <div class="card">
         <h5 class="card-header d-flex justify-content-between align-items-center">
-            Data Admin
-            <div class="row">
-                <div class="col-auto">
-                    <a href="{{ url('dashboard/user/admin/create') }}" type="button" class="btn btn-sm btn-primary">Tambah
-                        Data</a>
-                </div>
-            </div>
+            Data Event Organizer
         </h5>
         <div class="card-body">
             <div class="table-responsive text-nowrap">
@@ -24,7 +18,6 @@
                             <th>Role</th>
                             <th>Join Date</th>
                             <th>Status</th>
-                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -36,19 +29,6 @@
                                 <td>{{ $user->role->name }}</td>
                                 <td>@format_date($user->created_at)</td>
                                 <td>{!! $user->getStatusSpan() !!}</td>
-                                <td>
-                                    <form action="{{ url("dashboard/user/admin/$user->id") }}" method="POST">
-                                        <a href="{{ url("dashboard/user/admin/$user->id") }}" class="btn">
-                                            <i class="bx bx-right-arrow-alt"></i>
-                                        </a>
-
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="button" class="btn btn-delete">
-                                            <i class="bx bx-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
                             </tr>
                         @endforeach
                     </tbody>

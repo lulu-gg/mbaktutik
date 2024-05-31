@@ -1,18 +1,18 @@
 <x-admin.app-layout>
 
-    <form action="{{ url('dashboard/user') }}" method="POST" data-parsley-validate>
+    <form action="{{ url('dashboard/user/admin') }}" method="POST" data-parsley-validate>
 
         <div class="card mb-4">
             <h5 class="card-header d-flex justify-content-between align-items-center">
                 Tambah User
-                <a href="{{ url('dashboard/user') }}" type="button" class="btn btn-sm btn-secondary">Kembali</a>
+                <a href="{{ url('dashboard/user/admin') }}" type="button" class="btn btn-sm btn-secondary">Kembali</a>
             </h5>
             <div class="card-body">
                 @csrf
                 <x-admin.alert-message />
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <x-admin.form-select label="Role" name="role_id" :options=$roles />
-                </div>
+                </div> --}}
                 <div class="mb-3">
                     <x-admin.form-input label="Name" name="name" />
                 </div>
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="mb-4 card card-event-organizer d-none">
+        {{-- <div class="mb-4 card card-event-organizer d-none">
             <h5 class="card-header d-flex justify-content-between align-items-center">
                 Event Organizer Detail
             </h5>
@@ -46,7 +46,7 @@
                     <x-admin.form-input label="Website" name="website" />
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="mt-2">
             <button type="submit" class="btn btn-primary">Simpan</button>
