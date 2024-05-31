@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\OrganizerRegistrationController;
 use App\Http\Controllers\Admin\ScannerOfficerController;
 use App\Http\Controllers\Admin\SponsorsController;
+use App\Http\Controllers\Admin\TenantRegistrationController;
 use App\Http\Controllers\Admin\TicketReportController;
 use App\Http\Controllers\Admin\TicketVariationsController;
 use App\Http\Controllers\Admin\TransactionController;
@@ -103,6 +104,13 @@ Route::group(['middleware' => 'admin.auth'], function () {
         Route::get('/', [OrganizerRegistrationController::class, 'index']);
         Route::get('/{organizer}', [OrganizerRegistrationController::class, 'show']);
         Route::post('/{organizer}/accept', [OrganizerRegistrationController::class, 'accept']);
+    })->middleware(AdminPermission::class);
+
+    // Event Oragnizer Request
+    Route::prefix('/tenant-registration')->group(function () {
+        Route::get('/', [TenantRegistrationController::class, 'index']);
+        Route::get('/{tenant}', [TenantRegistrationController::class, 'show']);
+        Route::post('/{tenant}/accept', [TenantRegistrationController::class, 'accept']);
     })->middleware(AdminPermission::class);
 
     // General Parameter

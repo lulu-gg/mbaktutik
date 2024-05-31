@@ -7,6 +7,7 @@ use App\Helpers\CustomHelpers;
 use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\Organizer;
+use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -105,5 +106,32 @@ class AuthController extends Controller
     public function registerEventOrganizerComplete()
     {
         return view('frontend.auth.event-organizer.register-complete');
+    }
+
+    public function registerTenant()
+    {
+        if (Auth::check() && RoleHelpers::isScanOfficer()) return redirect('/');
+
+        return view('frontend.auth.tenant.register-form');
+    }
+
+    public function registerTenantSubmit(Request $request)
+    {
+        $request->validate(Tenant::$rulesRegister);
+        
+        $uploadPhoto = CustomHelpers::simpleFileUpload(requestFile: $request->photo, path: Tenant::$FILE_PATH);
+
+        Tenant::create([
+            ...$request->all(),
+            'photo' => $uploadPhoto,
+            'status' => 0,
+        ]);
+
+        return redirect("/register/tenant/thankyou");
+    }
+
+    public function registerTenantComplete()
+    {
+        return view('frontend.auth.tenant.register-complete');
     }
 }

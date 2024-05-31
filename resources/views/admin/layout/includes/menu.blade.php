@@ -80,6 +80,14 @@
                 </a>
             </li>
 
+              <!-- Event Tenant Registration -->
+              <li class="menu-item {{ CustomHelpers::isActive('dashboard/tenant-registration') }}">
+                <a href="{{ url('dashboard/tenant-registration') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bxs-user-account"></i>
+                    <div data-i18n="Tenant Registration">Tenant Registration</div>
+                </a>
+            </li>
+
             <!-- Contact Us -->
             <li class="menu-item {{ CustomHelpers::isActive('dashboard/contact-us') }}">
                 <a href="{{ url('dashboard/contact-us') }}" class="menu-link">

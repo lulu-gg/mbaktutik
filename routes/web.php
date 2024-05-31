@@ -34,9 +34,14 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
+
 Route::get('/register/event-organizer', [AuthController::class, 'registerEventOrganizer']);
 Route::post('/register/event-organizer/submit', [AuthController::class, 'registerEventOrganizerSubmit']);
 Route::get('/register/event-organizer/thankyou', [AuthController::class, 'registerEventOrganizerComplete']);
+
+Route::get('/register/tenant', [AuthController::class, 'registerTenant']);
+Route::post('/register/tenant/submit', [AuthController::class, 'registerTenantSubmit']);
+Route::get('/register/tenant/thankyou', [AuthController::class, 'registerTenantComplete']);
 
 Route::get('/events', [EventsController::class, 'index']);
 Route::get('/events/detail/{event}', [EventsController::class, 'show']);

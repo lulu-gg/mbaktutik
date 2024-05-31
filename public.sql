@@ -12,7 +12,7 @@
  Target Server Version : 160002 (160002)
  File Encoding         : 65001
 
- Date: 31/05/2024 07:07:55
+ Date: 31/05/2024 08:26:26
 */
 
 
@@ -200,6 +200,17 @@ CREATE SEQUENCE "public"."sponsors_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for tenant_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."tenant_id_seq";
+CREATE SEQUENCE "public"."tenant_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
 START 1
 CACHE 1;
 
@@ -829,6 +840,33 @@ INSERT INTO "public"."sponsors" VALUES (3, 'test', '5a79382a-24e9-4696-b3bb-d597
 INSERT INTO "public"."sponsors" VALUES (5, 'test', '7b2e1e3d-f4c0-401c-9e36-0dee42383feb.png', 2, 1, '2024-05-05 12:52:57', '2024-05-21 02:14:42');
 
 -- ----------------------------
+-- Table structure for tenant
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."tenant";
+CREATE TABLE "public"."tenant" (
+  "id" int8 NOT NULL DEFAULT nextval('tenant_id_seq'::regclass),
+  "name" varchar(255) COLLATE "pg_catalog"."default",
+  "username" varchar(255) COLLATE "pg_catalog"."default",
+  "type" varchar(255) COLLATE "pg_catalog"."default",
+  "city" varchar(255) COLLATE "pg_catalog"."default",
+  "phone" varchar(255) COLLATE "pg_catalog"."default",
+  "sheet_number" int4,
+  "photo" varchar(255) COLLATE "pg_catalog"."default",
+  "price" int8,
+  "quota" int8,
+  "description" text COLLATE "pg_catalog"."default",
+  "status" int8,
+  "created_at" timestamp(6),
+  "updated_at" timestamp(6)
+)
+;
+
+-- ----------------------------
+-- Records of tenant
+-- ----------------------------
+INSERT INTO "public"."tenant" VALUES (1, 'Tenand', 'tenand', 'Food', 'JKT', '012319', 1, '3392de87-61a5-43cc-87a4-15e3cc416683.png', 12000, 1, 'Lorem Ipsum', 0, '2024-05-31 08:13:39', '2024-05-31 08:25:42');
+
+-- ----------------------------
 -- Table structure for thumbnails
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."thumbnails";
@@ -940,7 +978,7 @@ INSERT INTO "public"."users" VALUES (5, 'Rive', 'rive@gmail.com', NULL, '$2y$10$
 INSERT INTO "public"."users" VALUES (9, 'Budi', 'budiscanner@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-13 02:14:25', '2024-05-13 02:24:57', 3, 1, 'LpQoWberRIOmsxbB9qp8lXNw5UWysh', NULL, NULL, NULL, 1);
 INSERT INTO "public"."users" VALUES (12, 'Willy Org', 'willysantoso1997@gmail.com', NULL, '$2y$10$gbACGkjhYMX2fRWzn8y5c.V8nSr1r4Dnv7dUpIgu0Curxf3ULSY7a', NULL, '2024-05-30 04:36:58', '2024-05-30 04:37:47', 2, 1, 'yANKGCIBmOHeFqidblw5PBT1LGSx1P', NULL, NULL, NULL, NULL);
 INSERT INTO "public"."users" VALUES (10, 'Rive 2', 'rive2@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-24 18:11:17', '2024-05-24 19:24:46', 2, 1, 'z4uTycyAkMDIzIchRNlvpuMkHrhInK', NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'smEtTPh41VT8r0MCmi8QXzE42RDlmSYcC7QZvhiegNNXRupuCeNiEbevizOm', '2024-05-04 22:16:12', '2024-05-04 22:16:12', 1, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', '9a1ODraRgmXYbxDSbX7vlKjmVALREmtFNBR9IXs8hUB77v9BNQrAmHvBdCK0', '2024-05-04 22:16:12', '2024-05-04 22:16:12', 1, 1, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "public"."users" VALUES (11, 'Test Organizer', 'test123@gmail.com', NULL, '$2y$10$A5h8d3js4j50voZwSEelouAhFsjM05b/Q2cMHm/w.f4MTuQVcEBqG', NULL, '2024-05-27 20:45:51', '2024-05-27 20:47:53', 2, 1, 'wznhXiRk42Iw5YAfTcv81efq0FHovt', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
@@ -1090,6 +1128,13 @@ SELECT setval('"public"."sponsors_id_seq"', 5, true);
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
+ALTER SEQUENCE "public"."tenant_id_seq"
+OWNED BY "public"."tenant"."id";
+SELECT setval('"public"."tenant_id_seq"', 1, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
 ALTER SEQUENCE "public"."thumbnails_id_seq"
 OWNED BY "public"."thumbnails"."id";
 SELECT setval('"public"."thumbnails_id_seq"', 1, false);
@@ -1231,6 +1276,11 @@ ALTER TABLE "public"."role" ADD CONSTRAINT "role_pkey" PRIMARY KEY ("id");
 -- Primary Key structure for table sponsors
 -- ----------------------------
 ALTER TABLE "public"."sponsors" ADD CONSTRAINT "sponsors_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table tenant
+-- ----------------------------
+ALTER TABLE "public"."tenant" ADD CONSTRAINT "tenant_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
 -- Primary Key structure for table thumbnails
