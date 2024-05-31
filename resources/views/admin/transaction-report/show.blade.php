@@ -130,18 +130,18 @@
                         </div>
                         <div class="row">
                             <div class="col-3">
-                                <p>Email</p>
-                            </div>
-                            <div class="col-9">
-                                <p>: {{ $detail->buyer_email }}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
                                 <p>Phone</p>
                             </div>
                             <div class="col-9">
                                 <p>: {{ $detail->buyer_phone }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p>City</p>
+                            </div>
+                            <div class="col-9">
+                                <p>: {{ $detail->buyer_city }}</p>
                             </div>
                         </div>
                         <div class="row">
