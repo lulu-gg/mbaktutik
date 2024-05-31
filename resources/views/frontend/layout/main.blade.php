@@ -42,11 +42,12 @@
     @include('frontend.layout.includes.custom-script')
 
 
-    @stack('page-script')
 </body>
 
 <!-- footer -->
 @include('frontend.layout.includes.footer')
 <!-- end of footer -->
+
+@stack('page-script')
 
 </html>

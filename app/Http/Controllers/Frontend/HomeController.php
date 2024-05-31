@@ -24,7 +24,7 @@ class HomeController extends Controller
 
         $pastEvents = Events::whereDate('end_date', '<', $currentDate)->limit(20)->get();
 
-        $sponsor = Sponsors::where('status', 1)->get();
+        $sponsor = Sponsors::where('status', 1)->orderBy('display_order')->get();
 
         return view('frontend.home.index', [
             'upcomingEvents' => $upcomingEvents->take(6),
@@ -37,7 +37,10 @@ class HomeController extends Controller
 
     public function sponsors()
     {
-        return view('frontend.sponsors.index');
+        $sponsor = Sponsors::where('status', 1)->orderBy('display_order')->get();
+        return view('frontend.sponsors.index', [
+            'sponsor' => $sponsor
+        ]);
     }
 
     public function contact()
