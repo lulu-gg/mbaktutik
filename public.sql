@@ -12,7 +12,7 @@
  Target Server Version : 160002 (160002)
  File Encoding         : 65001
 
- Date: 31/05/2024 03:22:31
+ Date: 31/05/2024 07:07:55
 */
 
 
@@ -370,61 +370,150 @@ CREATE TABLE "public"."failed_jobs" (
 -- ----------------------------
 -- Records of failed_jobs
 -- ----------------------------
-INSERT INTO "public"."failed_jobs" VALUES (1, '76ee56dd-9621-48f5-a46f-2d51bbc93499', 'database', 'default', '{"uuid":"76ee56dd-9621-48f5-a46f-2d51bbc93499","displayName":"App\\Jobs\\SendBroadcastMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendBroadcastMailJob","command":"O:29:\"App\\Jobs\\SendBroadcastMailJob\":3:{s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000receivers\";a:1:{i:0;s:26:\"willysantoso1997@gmail.com\";}s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000subject\";s:27:\"Invoice #004\/INV\/RIVE\/05\/24\";s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000message\";s:1381:\"<h1 style=\"margin-top:0;margin-bottom:16px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;\">\r\n    Invoice #004\/INV\/RIVE\/05\/24\r\n<\/h1>\r\n<p style=\"margin:0;\">\r\n    Halo Fairuz,\r\n<\/p>\r\n<p>\r\n    Segera selesaikan pembayaran ticket anda sejumlah <strong>Rp. 566.500<\/strong> untuk mendapatkan ticket\r\n    yang anda inginkan!\r\n<\/p>\r\n<p>Invoice Details:<\/p>\r\n<ul>\r\n    <li><strong>Event :<\/strong> Rock Music Concert<\/li>\r\n    <li><strong>Subtotal :<\/strong> Rp. 550.000 <\/li>\r\n    <li><strong>Fee :<\/strong> Rp. 16.500<\/li>\r\n    <li><strong>Total :<\/strong> Rp. 566.500<\/li>\r\n<\/ul>\r\n<p>\r\n    Klik tautan dibawah untuk melanjutkan pembayaran\r\n    <br>\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/b157a2e8-0c72-42d8-a71e-6f42c32e6cc1\"\r\n        style=\"background: #244379; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#244379\">\r\n        <span style=\"mso-text-raise:10pt;font-weight:bold;\">Bayar Sekarang<\/span>\r\n    <\/a>\r\n<\/p>\r\n<br>\r\n<p>\r\n    Jika tombol tidak dapat diklik, gunakan link berikut untuk melanjutkan pembayaran\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/b157a2e8-0c72-42d8-a71e-6f42c32e6cc1\"\r\n        style=\"color:#213D6C;text-decoration:underline;\">http:\/\/rive.test\/events\/payment\/b157a2e8-0c72-42d8-a71e-6f42c32e6cc1<\/a>\r\n<\/p>\r\n\r\n\";}"}}', 'ErrorException: Trying to access array offset on value of type null in D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\Stream\AbstractStream.php:91
+INSERT INTO "public"."failed_jobs" VALUES (4, '9448894b-197b-4a87-928d-fe30f513bdb4', 'database', 'default', '{"uuid":"9448894b-197b-4a87-928d-fe30f513bdb4","displayName":"App\\Jobs\\SendBroadcastMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendBroadcastMailJob","command":"O:29:\"App\\Jobs\\SendBroadcastMailJob\":4:{s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000receivers\";a:1:{i:0;s:26:\"willysantoso1997@gmail.com\";}s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000subject\";s:27:\"Invoice #005\/INV\/RIVE\/05\/24\";s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000message\";s:1380:\"<h1 style=\"margin-top:0;margin-bottom:16px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;\">\r\n    Invoice #005\/INV\/RIVE\/05\/24\r\n<\/h1>\r\n<p style=\"margin:0;\">\r\n    Halo Fairuz,\r\n<\/p>\r\n<p>\r\n    Segera selesaikan pembayaran ticket anda sejumlah <strong>Rp. 180.250<\/strong> untuk mendapatkan ticket\r\n    yang anda inginkan!\r\n<\/p>\r\n<p>Invoice Details:<\/p>\r\n<ul>\r\n    <li><strong>Event :<\/strong> Rock Music Concert<\/li>\r\n    <li><strong>Subtotal :<\/strong> Rp. 175.000 <\/li>\r\n    <li><strong>Fee :<\/strong> Rp. 5.250<\/li>\r\n    <li><strong>Total :<\/strong> Rp. 180.250<\/li>\r\n<\/ul>\r\n<p>\r\n    Klik tautan dibawah untuk melanjutkan pembayaran\r\n    <br>\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124\"\r\n        style=\"background: #244379; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#244379\">\r\n        <span style=\"mso-text-raise:10pt;font-weight:bold;\">Bayar Sekarang<\/span>\r\n    <\/a>\r\n<\/p>\r\n<br>\r\n<p>\r\n    Jika tombol tidak dapat diklik, gunakan link berikut untuk melanjutkan pembayaran\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124\"\r\n        style=\"color:#213D6C;text-decoration:underline;\">http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124<\/a>\r\n<\/p>\r\n\r\n\";s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000invoiceId\";i:24;}"}}', 'InvalidArgumentException: View [common.mail.broadcast.broadcasts] not found. in D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\View\FileViewFinder.php:137
 Stack trace:
-#0 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\HandleExceptions.php(270): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, ''Trying to acces...'', ''D:\\Project\\web\\...'', 91)
-#1 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\Stream\AbstractStream.php(91): Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}(2, ''Trying to acces...'', ''D:\\Project\\web\\...'', 91)
-#2 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\SmtpTransport.php(346): Symfony\Component\Mailer\Transport\Smtp\Stream\AbstractStream->readLine()
-#3 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\SmtpTransport.php(196): Symfony\Component\Mailer\Transport\Smtp\SmtpTransport->getFullResponse()
-#4 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\EsmtpTransport.php(118): Symfony\Component\Mailer\Transport\Smtp\SmtpTransport->executeCommand(''NOOP\r\n'', Array)
-#5 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\SmtpTransport.php(316): Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport->executeCommand(''NOOP\r\n'', Array)
-#6 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\SmtpTransport.php(205): Symfony\Component\Mailer\Transport\Smtp\SmtpTransport->ping()
-#7 D:\Project\web\rive\vendor\symfony\mailer\Transport\AbstractTransport.php(69): Symfony\Component\Mailer\Transport\Smtp\SmtpTransport->doSend(Object(Symfony\Component\Mailer\SentMessage))
-#8 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\SmtpTransport.php(137): Symfony\Component\Mailer\Transport\AbstractTransport->send(Object(Symfony\Component\Mime\Email), Object(Symfony\Component\Mailer\DelayedEnvelope))
-#9 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(523): Symfony\Component\Mailer\Transport\Smtp\SmtpTransport->send(Object(Symfony\Component\Mime\Email), Object(Symfony\Component\Mailer\DelayedEnvelope))
-#10 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(287): Illuminate\Mail\Mailer->sendSymfonyMessage(Object(Symfony\Component\Mime\Email))
-#11 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailable.php(212): Illuminate\Mail\Mailer->send(''common.mail.bro...'', Array, Object(Closure))
-#12 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Support\Traits\Localizable.php(19): Illuminate\Mail\Mailable->Illuminate\Mail\{closure}()
-#13 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailable.php(213): Illuminate\Mail\Mailable->withLocale(NULL, Object(Closure))
-#14 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(309): Illuminate\Mail\Mailable->send(Object(Illuminate\Mail\Mailer))
-#15 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(253): Illuminate\Mail\Mailer->sendMailable(Object(App\Mail\BroadcastMail))
-#16 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\PendingMail.php(124): Illuminate\Mail\Mailer->send(Object(App\Mail\BroadcastMail))
-#17 D:\Project\web\rive\app\Jobs\SendBroadcastMailJob.php(41): Illuminate\Mail\PendingMail->send(Object(App\Mail\BroadcastMail))
-#18 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): App\Jobs\SendBroadcastMailJob->handle()
-#19 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#20 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
-#21 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(37): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#22 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Container.php(661): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#23 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(128): Illuminate\Container\Container->call(Array)
-#24 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(141): Illuminate\Bus\Dispatcher->Illuminate\Bus\{closure}(Object(App\Jobs\SendBroadcastMailJob))
-#25 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(116): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(App\Jobs\SendBroadcastMailJob))
-#26 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(132): Illuminate\Pipeline\Pipeline->then(Object(Closure))
-#27 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(124): Illuminate\Bus\Dispatcher->dispatchNow(Object(App\Jobs\SendBroadcastMailJob), false)
-#28 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(141): Illuminate\Queue\CallQueuedHandler->Illuminate\Queue\{closure}(Object(App\Jobs\SendBroadcastMailJob))
-#29 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(116): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(App\Jobs\SendBroadcastMailJob))
-#30 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(126): Illuminate\Pipeline\Pipeline->then(Object(Closure))
-#31 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(70): Illuminate\Queue\CallQueuedHandler->dispatchThroughMiddleware(Object(Illuminate\Queue\Jobs\DatabaseJob), Object(App\Jobs\SendBroadcastMailJob))
-#32 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Jobs\Job.php(98): Illuminate\Queue\CallQueuedHandler->call(Object(Illuminate\Queue\Jobs\DatabaseJob), Array)
-#33 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(425): Illuminate\Queue\Jobs\Job->fire()
-#34 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(375): Illuminate\Queue\Worker->process(''database'', Object(Illuminate\Queue\Jobs\DatabaseJob), Object(Illuminate\Queue\WorkerOptions))
-#35 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(173): Illuminate\Queue\Worker->runJob(Object(Illuminate\Queue\Jobs\DatabaseJob), ''database'', Object(Illuminate\Queue\WorkerOptions))
-#36 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(148): Illuminate\Queue\Worker->daemon(''database'', ''default'', Object(Illuminate\Queue\WorkerOptions))
-#37 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(131): Illuminate\Queue\Console\WorkCommand->runWorker(''database'', ''default'')
-#38 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): Illuminate\Queue\Console\WorkCommand->handle()
-#39 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#40 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
-#41 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(37): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#42 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Container.php(661): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#43 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(183): Illuminate\Container\Container->call(Array)
-#44 D:\Project\web\rive\vendor\symfony\console\Command\Command.php(326): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
-#45 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(153): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
-#46 D:\Project\web\rive\vendor\symfony\console\Application.php(1078): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#47 D:\Project\web\rive\vendor\symfony\console\Application.php(324): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Queue\Console\WorkCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#48 D:\Project\web\rive\vendor\symfony\console\Application.php(175): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#49 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Application.php(102): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#50 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(155): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#51 D:\Project\web\rive\artisan(37): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#52 {main}', '2024-05-30 04:31:30');
+#0 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\View\FileViewFinder.php(79): Illuminate\View\FileViewFinder->findInPaths(''common.mail.bro...'', Array)
+#1 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\View\Factory.php(138): Illuminate\View\FileViewFinder->find(''common.mail.bro...'')
+#2 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(383): Illuminate\View\Factory->make(''common.mail.bro...'', Array)
+#3 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(360): Illuminate\Mail\Mailer->renderView(''common.mail.bro...'', Array)
+#4 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(272): Illuminate\Mail\Mailer->addContent(Object(Illuminate\Mail\Message), ''common.mail.bro...'', NULL, NULL, Array)
+#5 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailable.php(212): Illuminate\Mail\Mailer->send(''common.mail.bro...'', Array, Object(Closure))
+#6 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Support\Traits\Localizable.php(19): Illuminate\Mail\Mailable->Illuminate\Mail\{closure}()
+#7 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailable.php(213): Illuminate\Mail\Mailable->withLocale(NULL, Object(Closure))
+#8 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(309): Illuminate\Mail\Mailable->send(Object(Illuminate\Mail\Mailer))
+#9 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(253): Illuminate\Mail\Mailer->sendMailable(Object(App\Mail\BroadcastMail))
+#10 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\PendingMail.php(124): Illuminate\Mail\Mailer->send(Object(App\Mail\BroadcastMail))
+#11 D:\Project\web\rive\app\Jobs\SendBroadcastMailJob.php(44): Illuminate\Mail\PendingMail->send(Object(App\Mail\BroadcastMail))
+#12 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): App\Jobs\SendBroadcastMailJob->handle()
+#13 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#14 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
+#15 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(37): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
+#16 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Container.php(661): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
+#17 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(128): Illuminate\Container\Container->call(Array)
+#18 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(141): Illuminate\Bus\Dispatcher->Illuminate\Bus\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#19 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(116): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#20 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(132): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#21 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(124): Illuminate\Bus\Dispatcher->dispatchNow(Object(App\Jobs\SendBroadcastMailJob), false)
+#22 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(141): Illuminate\Queue\CallQueuedHandler->Illuminate\Queue\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#23 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(116): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#24 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(126): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#25 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(70): Illuminate\Queue\CallQueuedHandler->dispatchThroughMiddleware(Object(Illuminate\Queue\Jobs\DatabaseJob), Object(App\Jobs\SendBroadcastMailJob))
+#26 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Jobs\Job.php(98): Illuminate\Queue\CallQueuedHandler->call(Object(Illuminate\Queue\Jobs\DatabaseJob), Array)
+#27 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(425): Illuminate\Queue\Jobs\Job->fire()
+#28 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(375): Illuminate\Queue\Worker->process(''database'', Object(Illuminate\Queue\Jobs\DatabaseJob), Object(Illuminate\Queue\WorkerOptions))
+#29 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(173): Illuminate\Queue\Worker->runJob(Object(Illuminate\Queue\Jobs\DatabaseJob), ''database'', Object(Illuminate\Queue\WorkerOptions))
+#30 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(148): Illuminate\Queue\Worker->daemon(''database'', ''default'', Object(Illuminate\Queue\WorkerOptions))
+#31 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(131): Illuminate\Queue\Console\WorkCommand->runWorker(''database'', ''default'')
+#32 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): Illuminate\Queue\Console\WorkCommand->handle()
+#33 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#34 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
+#35 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(37): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
+#36 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Container.php(661): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
+#37 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(183): Illuminate\Container\Container->call(Array)
+#38 D:\Project\web\rive\vendor\symfony\console\Command\Command.php(326): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#39 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(153): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#40 D:\Project\web\rive\vendor\symfony\console\Application.php(1078): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#41 D:\Project\web\rive\vendor\symfony\console\Application.php(324): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Queue\Console\WorkCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#42 D:\Project\web\rive\vendor\symfony\console\Application.php(175): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#43 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Application.php(102): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#44 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(155): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#45 D:\Project\web\rive\artisan(37): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#46 {main}', '2024-05-31 05:00:16');
+INSERT INTO "public"."failed_jobs" VALUES (5, '67484473-f86a-4c43-a46a-825797de2406', 'database', 'default', '{"uuid":"67484473-f86a-4c43-a46a-825797de2406","displayName":"App\\Jobs\\SendBroadcastMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendBroadcastMailJob","command":"O:29:\"App\\Jobs\\SendBroadcastMailJob\":4:{s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000receivers\";a:1:{i:0;s:26:\"willysantoso1997@gmail.com\";}s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000subject\";s:27:\"Invoice #005\/INV\/RIVE\/05\/24\";s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000message\";s:1380:\"<h1 style=\"margin-top:0;margin-bottom:16px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;\">\r\n    Invoice #005\/INV\/RIVE\/05\/24\r\n<\/h1>\r\n<p style=\"margin:0;\">\r\n    Halo Fairuz,\r\n<\/p>\r\n<p>\r\n    Segera selesaikan pembayaran ticket anda sejumlah <strong>Rp. 180.250<\/strong> untuk mendapatkan ticket\r\n    yang anda inginkan!\r\n<\/p>\r\n<p>Invoice Details:<\/p>\r\n<ul>\r\n    <li><strong>Event :<\/strong> Rock Music Concert<\/li>\r\n    <li><strong>Subtotal :<\/strong> Rp. 175.000 <\/li>\r\n    <li><strong>Fee :<\/strong> Rp. 5.250<\/li>\r\n    <li><strong>Total :<\/strong> Rp. 180.250<\/li>\r\n<\/ul>\r\n<p>\r\n    Klik tautan dibawah untuk melanjutkan pembayaran\r\n    <br>\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124\"\r\n        style=\"background: #244379; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#244379\">\r\n        <span style=\"mso-text-raise:10pt;font-weight:bold;\">Bayar Sekarang<\/span>\r\n    <\/a>\r\n<\/p>\r\n<br>\r\n<p>\r\n    Jika tombol tidak dapat diklik, gunakan link berikut untuk melanjutkan pembayaran\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124\"\r\n        style=\"color:#213D6C;text-decoration:underline;\">http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124<\/a>\r\n<\/p>\r\n\r\n\";s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000invoiceId\";i:24;}"}}', 'InvalidArgumentException: View [common.mail.broadcast.broadcasts] not found. in D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\View\FileViewFinder.php:137
+Stack trace:
+#0 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\View\FileViewFinder.php(79): Illuminate\View\FileViewFinder->findInPaths(''common.mail.bro...'', Array)
+#1 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\View\Factory.php(138): Illuminate\View\FileViewFinder->find(''common.mail.bro...'')
+#2 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(383): Illuminate\View\Factory->make(''common.mail.bro...'', Array)
+#3 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(360): Illuminate\Mail\Mailer->renderView(''common.mail.bro...'', Array)
+#4 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(272): Illuminate\Mail\Mailer->addContent(Object(Illuminate\Mail\Message), ''common.mail.bro...'', NULL, NULL, Array)
+#5 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailable.php(212): Illuminate\Mail\Mailer->send(''common.mail.bro...'', Array, Object(Closure))
+#6 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Support\Traits\Localizable.php(19): Illuminate\Mail\Mailable->Illuminate\Mail\{closure}()
+#7 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailable.php(213): Illuminate\Mail\Mailable->withLocale(NULL, Object(Closure))
+#8 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(309): Illuminate\Mail\Mailable->send(Object(Illuminate\Mail\Mailer))
+#9 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(253): Illuminate\Mail\Mailer->sendMailable(Object(App\Mail\BroadcastMail))
+#10 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\PendingMail.php(124): Illuminate\Mail\Mailer->send(Object(App\Mail\BroadcastMail))
+#11 D:\Project\web\rive\app\Jobs\SendBroadcastMailJob.php(44): Illuminate\Mail\PendingMail->send(Object(App\Mail\BroadcastMail))
+#12 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): App\Jobs\SendBroadcastMailJob->handle()
+#13 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#14 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
+#15 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(37): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
+#16 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Container.php(661): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
+#17 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(128): Illuminate\Container\Container->call(Array)
+#18 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(141): Illuminate\Bus\Dispatcher->Illuminate\Bus\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#19 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(116): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#20 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(132): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#21 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(124): Illuminate\Bus\Dispatcher->dispatchNow(Object(App\Jobs\SendBroadcastMailJob), false)
+#22 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(141): Illuminate\Queue\CallQueuedHandler->Illuminate\Queue\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#23 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(116): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#24 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(126): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#25 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(70): Illuminate\Queue\CallQueuedHandler->dispatchThroughMiddleware(Object(Illuminate\Queue\Jobs\DatabaseJob), Object(App\Jobs\SendBroadcastMailJob))
+#26 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Jobs\Job.php(98): Illuminate\Queue\CallQueuedHandler->call(Object(Illuminate\Queue\Jobs\DatabaseJob), Array)
+#27 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(425): Illuminate\Queue\Jobs\Job->fire()
+#28 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(375): Illuminate\Queue\Worker->process(''database'', Object(Illuminate\Queue\Jobs\DatabaseJob), Object(Illuminate\Queue\WorkerOptions))
+#29 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(173): Illuminate\Queue\Worker->runJob(Object(Illuminate\Queue\Jobs\DatabaseJob), ''database'', Object(Illuminate\Queue\WorkerOptions))
+#30 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(148): Illuminate\Queue\Worker->daemon(''database'', ''default'', Object(Illuminate\Queue\WorkerOptions))
+#31 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(131): Illuminate\Queue\Console\WorkCommand->runWorker(''database'', ''default'')
+#32 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): Illuminate\Queue\Console\WorkCommand->handle()
+#33 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#34 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
+#35 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(37): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
+#36 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Container.php(661): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
+#37 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(183): Illuminate\Container\Container->call(Array)
+#38 D:\Project\web\rive\vendor\symfony\console\Command\Command.php(326): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#39 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(153): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#40 D:\Project\web\rive\vendor\symfony\console\Application.php(1078): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#41 D:\Project\web\rive\vendor\symfony\console\Application.php(324): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Queue\Console\WorkCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#42 D:\Project\web\rive\vendor\symfony\console\Application.php(175): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#43 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Application.php(102): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#44 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(155): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#45 D:\Project\web\rive\artisan(37): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#46 {main}', '2024-05-31 05:00:36');
+INSERT INTO "public"."failed_jobs" VALUES (6, '40b64e7c-8fe0-4ac2-87ed-323287d8681d', 'database', 'default', '{"uuid":"40b64e7c-8fe0-4ac2-87ed-323287d8681d","displayName":"App\\Jobs\\SendBroadcastMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendBroadcastMailJob","command":"O:29:\"App\\Jobs\\SendBroadcastMailJob\":4:{s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000receivers\";a:1:{i:0;s:26:\"willysantoso1997@gmail.com\";}s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000subject\";s:27:\"Invoice #005\/INV\/RIVE\/05\/24\";s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000message\";s:1380:\"<h1 style=\"margin-top:0;margin-bottom:16px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;\">\r\n    Invoice #005\/INV\/RIVE\/05\/24\r\n<\/h1>\r\n<p style=\"margin:0;\">\r\n    Halo Fairuz,\r\n<\/p>\r\n<p>\r\n    Segera selesaikan pembayaran ticket anda sejumlah <strong>Rp. 180.250<\/strong> untuk mendapatkan ticket\r\n    yang anda inginkan!\r\n<\/p>\r\n<p>Invoice Details:<\/p>\r\n<ul>\r\n    <li><strong>Event :<\/strong> Rock Music Concert<\/li>\r\n    <li><strong>Subtotal :<\/strong> Rp. 175.000 <\/li>\r\n    <li><strong>Fee :<\/strong> Rp. 5.250<\/li>\r\n    <li><strong>Total :<\/strong> Rp. 180.250<\/li>\r\n<\/ul>\r\n<p>\r\n    Klik tautan dibawah untuk melanjutkan pembayaran\r\n    <br>\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124\"\r\n        style=\"background: #244379; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#244379\">\r\n        <span style=\"mso-text-raise:10pt;font-weight:bold;\">Bayar Sekarang<\/span>\r\n    <\/a>\r\n<\/p>\r\n<br>\r\n<p>\r\n    Jika tombol tidak dapat diklik, gunakan link berikut untuk melanjutkan pembayaran\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124\"\r\n        style=\"color:#213D6C;text-decoration:underline;\">http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124<\/a>\r\n<\/p>\r\n\r\n\";s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000invoiceId\";i:24;}"}}', 'Illuminate\Queue\MaxAttemptsExceededException: App\Jobs\SendBroadcastMailJob has been attempted too many times or run too long. The job may have previously timed out. in D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php:746
+Stack trace:
+#0 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(505): Illuminate\Queue\Worker->maxAttemptsExceededException(Object(Illuminate\Queue\Jobs\DatabaseJob))
+#1 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(415): Illuminate\Queue\Worker->markJobAsFailedIfAlreadyExceedsMaxAttempts(''database'', Object(Illuminate\Queue\Jobs\DatabaseJob), 1)
+#2 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(375): Illuminate\Queue\Worker->process(''database'', Object(Illuminate\Queue\Jobs\DatabaseJob), Object(Illuminate\Queue\WorkerOptions))
+#3 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(173): Illuminate\Queue\Worker->runJob(Object(Illuminate\Queue\Jobs\DatabaseJob), ''database'', Object(Illuminate\Queue\WorkerOptions))
+#4 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(148): Illuminate\Queue\Worker->daemon(''database'', ''default'', Object(Illuminate\Queue\WorkerOptions))
+#5 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(131): Illuminate\Queue\Console\WorkCommand->runWorker(''database'', ''default'')
+#6 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): Illuminate\Queue\Console\WorkCommand->handle()
+#7 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
+#9 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(37): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
+#10 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Container.php(661): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
+#11 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(183): Illuminate\Container\Container->call(Array)
+#12 D:\Project\web\rive\vendor\symfony\console\Command\Command.php(326): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#13 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(153): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#14 D:\Project\web\rive\vendor\symfony\console\Application.php(1078): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 D:\Project\web\rive\vendor\symfony\console\Application.php(324): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Queue\Console\WorkCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 D:\Project\web\rive\vendor\symfony\console\Application.php(175): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Application.php(102): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(155): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 D:\Project\web\rive\artisan(37): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 {main}', '2024-05-31 05:00:55');
+INSERT INTO "public"."failed_jobs" VALUES (7, '5e30dea1-ab35-4897-8790-08598b1d6a4e', 'database', 'default', '{"uuid":"5e30dea1-ab35-4897-8790-08598b1d6a4e","displayName":"App\\Jobs\\SendBroadcastMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendBroadcastMailJob","command":"O:29:\"App\\Jobs\\SendBroadcastMailJob\":4:{s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000receivers\";a:1:{i:0;s:26:\"willysantoso1997@gmail.com\";}s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000subject\";s:27:\"Invoice #005\/INV\/RIVE\/05\/24\";s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000message\";s:1380:\"<h1 style=\"margin-top:0;margin-bottom:16px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;\">\r\n    Invoice #005\/INV\/RIVE\/05\/24\r\n<\/h1>\r\n<p style=\"margin:0;\">\r\n    Halo Fairuz,\r\n<\/p>\r\n<p>\r\n    Segera selesaikan pembayaran ticket anda sejumlah <strong>Rp. 180.250<\/strong> untuk mendapatkan ticket\r\n    yang anda inginkan!\r\n<\/p>\r\n<p>Invoice Details:<\/p>\r\n<ul>\r\n    <li><strong>Event :<\/strong> Rock Music Concert<\/li>\r\n    <li><strong>Subtotal :<\/strong> Rp. 175.000 <\/li>\r\n    <li><strong>Fee :<\/strong> Rp. 5.250<\/li>\r\n    <li><strong>Total :<\/strong> Rp. 180.250<\/li>\r\n<\/ul>\r\n<p>\r\n    Klik tautan dibawah untuk melanjutkan pembayaran\r\n    <br>\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124\"\r\n        style=\"background: #244379; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#244379\">\r\n        <span style=\"mso-text-raise:10pt;font-weight:bold;\">Bayar Sekarang<\/span>\r\n    <\/a>\r\n<\/p>\r\n<br>\r\n<p>\r\n    Jika tombol tidak dapat diklik, gunakan link berikut untuk melanjutkan pembayaran\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124\"\r\n        style=\"color:#213D6C;text-decoration:underline;\">http:\/\/rive.test\/events\/payment\/512398ed-f7d2-455d-8e12-9d05bcc54124<\/a>\r\n<\/p>\r\n\r\n\";s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000invoiceId\";i:24;}"}}', 'Illuminate\Queue\MaxAttemptsExceededException: App\Jobs\SendBroadcastMailJob has been attempted too many times or run too long. The job may have previously timed out. in D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php:746
+Stack trace:
+#0 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(505): Illuminate\Queue\Worker->maxAttemptsExceededException(Object(Illuminate\Queue\Jobs\DatabaseJob))
+#1 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(415): Illuminate\Queue\Worker->markJobAsFailedIfAlreadyExceedsMaxAttempts(''database'', Object(Illuminate\Queue\Jobs\DatabaseJob), 1)
+#2 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(375): Illuminate\Queue\Worker->process(''database'', Object(Illuminate\Queue\Jobs\DatabaseJob), Object(Illuminate\Queue\WorkerOptions))
+#3 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(173): Illuminate\Queue\Worker->runJob(Object(Illuminate\Queue\Jobs\DatabaseJob), ''database'', Object(Illuminate\Queue\WorkerOptions))
+#4 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(148): Illuminate\Queue\Worker->daemon(''database'', ''default'', Object(Illuminate\Queue\WorkerOptions))
+#5 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(131): Illuminate\Queue\Console\WorkCommand->runWorker(''database'', ''default'')
+#6 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): Illuminate\Queue\Console\WorkCommand->handle()
+#7 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
+#9 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(37): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
+#10 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Container.php(661): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
+#11 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(183): Illuminate\Container\Container->call(Array)
+#12 D:\Project\web\rive\vendor\symfony\console\Command\Command.php(326): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#13 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(153): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#14 D:\Project\web\rive\vendor\symfony\console\Application.php(1078): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 D:\Project\web\rive\vendor\symfony\console\Application.php(324): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Queue\Console\WorkCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 D:\Project\web\rive\vendor\symfony\console\Application.php(175): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Application.php(102): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(155): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 D:\Project\web\rive\artisan(37): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 {main}', '2024-05-31 05:01:22');
 
 -- ----------------------------
 -- Table structure for general_parameter
@@ -474,6 +563,7 @@ CREATE TABLE "public"."invoices" (
 -- ----------------------------
 -- Records of invoices
 -- ----------------------------
+INSERT INTO "public"."invoices" VALUES (24, 32, '005/INV/RIVE/05/24', '2024-05-31 04:15:35', '2024-06-01 04:15:35', 0, '2024-05-31 04:15:37', '2024-05-31 04:15:39', 'https://app.sandbox.midtrans.com/snap/v4/redirection/00005706-d157-426d-952a-d0c328f64825', '00005706-d157-426d-952a-d0c328f64825', '512398ed-f7d2-455d-8e12-9d05bcc54124', 175000, 5250, 180250);
 INSERT INTO "public"."invoices" VALUES (20, 28, '001/INV/RIVE/05/24', '2024-05-23 03:40:07', '2024-05-24 03:40:07', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', 'https://app.sandbox.midtrans.com/snap/v4/redirection/ddec1ec7-c314-447e-b2f9-ad7f132d3d47', 'ddec1ec7-c314-447e-b2f9-ad7f132d3d47', '3feaba5a-eab1-49d7-95fa-4a8cdf630238', 575000, 17250, 592250);
 INSERT INTO "public"."invoices" VALUES (21, 29, '002/INV/RIVE/05/24', '2024-05-27 20:13:55', '2024-05-28 20:13:55', 1, '2024-05-27 20:13:57', '2024-05-27 20:15:51', 'https://app.sandbox.midtrans.com/snap/v4/redirection/83f04ee9-b13f-487b-879b-deb06f7cce0a', '83f04ee9-b13f-487b-879b-deb06f7cce0a', 'af5793f1-413a-475d-ab5f-db656c880f17', 600000, 18000, 618000);
 INSERT INTO "public"."invoices" VALUES (22, 30, '003/INV/RIVE/05/24', '2024-05-27 20:24:16', '2024-05-28 20:24:16', 0, '2024-05-27 20:24:16', '2024-05-27 20:24:16', 'https://app.sandbox.midtrans.com/snap/v4/redirection/84d87aa2-e228-4305-a841-fb257cad43ce', '84d87aa2-e228-4305-a841-fb257cad43ce', '6abdd96b-8578-4a8b-8203-54ba35c1e5c9', 175000, 5250, 180250);
@@ -590,6 +680,7 @@ INSERT INTO "public"."orders" VALUES (28, 1, NULL, NULL, NULL, NULL, 592250.00, 
 INSERT INTO "public"."orders" VALUES (29, 1, NULL, NULL, NULL, NULL, 618000.00, NULL, 1, NULL, NULL, '2024-05-27 20:13:55', '2024-05-27 20:21:08', '2024-05-27 20:21:08');
 INSERT INTO "public"."orders" VALUES (30, 1, NULL, NULL, NULL, NULL, 180250.00, NULL, 0, NULL, NULL, '2024-05-27 20:24:16', '2024-05-27 20:24:16', NULL);
 INSERT INTO "public"."orders" VALUES (31, 1, NULL, NULL, NULL, NULL, 566500.00, NULL, 1, NULL, NULL, '2024-05-30 04:22:20', '2024-05-30 04:34:00', '2024-05-30 04:34:00');
+INSERT INTO "public"."orders" VALUES (32, 1, NULL, NULL, NULL, NULL, 180250.00, NULL, 0, NULL, NULL, '2024-05-31 04:15:35', '2024-05-31 04:15:35', NULL);
 
 -- ----------------------------
 -- Table structure for orders_detail
@@ -624,6 +715,7 @@ INSERT INTO "public"."orders_detail" VALUES (31, 6, 29, 'Presale 4', 250000.00, 
 INSERT INTO "public"."orders_detail" VALUES (32, 4, 30, 'Presale 2', 175000.00, '2024-05-27 20:24:16', '2024-05-27 20:24:16', 'paijo', '21839128391238129', 'paijo@mail.com', '081232138129', 1, 175000.00, 175000.00, 'Jakarta');
 INSERT INTO "public"."orders_detail" VALUES (33, 4, 31, 'Presale 2', 175000.00, '2024-05-30 04:22:20', '2024-05-30 04:22:20', 'Fairuz', '00000000000000000000000', 'willysantoso1997@gmail.com', '081249118805', 2, 175000.00, 350000.00, 'Jakarta');
 INSERT INTO "public"."orders_detail" VALUES (34, 5, 31, 'Presale 3', 200000.00, '2024-05-30 04:22:20', '2024-05-30 04:22:20', 'Willy', '00000000000000000000000', 'willysantoso1997@gmail.com', '081249118805', 1, 200000.00, 200000.00, 'Jakarta');
+INSERT INTO "public"."orders_detail" VALUES (35, 4, 32, 'Presale 2', 175000.00, '2024-05-31 04:15:35', '2024-05-31 04:15:35', 'Fairuz', '12318273813918239123918', 'willysantoso1997@gmail.com', '081249118805', 1, 175000.00, 175000.00, 'Jakarta');
 
 -- ----------------------------
 -- Table structure for organizers
@@ -816,6 +908,7 @@ INSERT INTO "public"."tickets" VALUES (30, 29, 'TICKET-1716410407-4372', '4TXYMu
 INSERT INTO "public"."tickets" VALUES (36, 33, 'TICKET-1717017740-9007', '6FUWGVUSYscy8seVqwA7QEO7CIoUy8P04Da8HmjR', 1, '2024-05-30 04:22:20', '2024-05-30 04:34:00', NULL, NULL);
 INSERT INTO "public"."tickets" VALUES (37, 33, 'TICKET-1717017740-9150', 'R5ArF4GNAGZui5J3xRIJKRnE0kgVP8rcjNcNqHaI', 1, '2024-05-30 04:22:20', '2024-05-30 04:34:00', NULL, NULL);
 INSERT INTO "public"."tickets" VALUES (38, 34, 'TICKET-1717017740-3751', 'iWGGQivUUnF45zM3rfl72oNWmjpdY9kOoDNZo80I', 1, '2024-05-30 04:22:20', '2024-05-30 04:34:00', NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (39, 35, 'TICKET-1717103735-2116', 'IxCDGdcKrezr7biojGs0wHDlVSVnlilV45k3Tghy', 0, '2024-05-31 04:15:35', '2024-05-31 04:15:35', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for users
@@ -846,8 +939,8 @@ CREATE TABLE "public"."users" (
 INSERT INTO "public"."users" VALUES (5, 'Rive', 'rive@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'YzmBtC36wnKRRVmjEyXiObuEBZFQUMcmluGgjCXN1r8Urw2zTNjgVdlvxqLl', '2024-05-11 04:32:15', '2024-05-11 04:32:15', 2, 1, '9msZdJP9Ba5EO2KH6aKvULiW0Uq24C', NULL, NULL, NULL, NULL);
 INSERT INTO "public"."users" VALUES (9, 'Budi', 'budiscanner@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-13 02:14:25', '2024-05-13 02:24:57', 3, 1, 'LpQoWberRIOmsxbB9qp8lXNw5UWysh', NULL, NULL, NULL, 1);
 INSERT INTO "public"."users" VALUES (12, 'Willy Org', 'willysantoso1997@gmail.com', NULL, '$2y$10$gbACGkjhYMX2fRWzn8y5c.V8nSr1r4Dnv7dUpIgu0Curxf3ULSY7a', NULL, '2024-05-30 04:36:58', '2024-05-30 04:37:47', 2, 1, 'yANKGCIBmOHeFqidblw5PBT1LGSx1P', NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'YVYI9nRMghDgM5RSJkiCMFH1mNaKRrAzono5d7DTWFe780rBZ9dtg4Y9CWLd', '2024-05-04 22:16:12', '2024-05-04 22:16:12', 1, 1, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "public"."users" VALUES (10, 'Rive 2', 'rive2@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-24 18:11:17', '2024-05-24 19:24:46', 2, 1, 'z4uTycyAkMDIzIchRNlvpuMkHrhInK', NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'smEtTPh41VT8r0MCmi8QXzE42RDlmSYcC7QZvhiegNNXRupuCeNiEbevizOm', '2024-05-04 22:16:12', '2024-05-04 22:16:12', 1, 1, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO "public"."users" VALUES (11, 'Test Organizer', 'test123@gmail.com', NULL, '$2y$10$A5h8d3js4j50voZwSEelouAhFsjM05b/Q2cMHm/w.f4MTuQVcEBqG', NULL, '2024-05-27 20:45:51', '2024-05-27 20:47:53', 2, 1, 'wznhXiRk42Iw5YAfTcv81efq0FHovt', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
@@ -915,7 +1008,7 @@ SELECT setval('"public"."events_scanner_job_id_seq"', 3, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."failed_jobs_id_seq"
 OWNED BY "public"."failed_jobs"."id";
-SELECT setval('"public"."failed_jobs_id_seq"', 1, true);
+SELECT setval('"public"."failed_jobs_id_seq"', 7, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -929,14 +1022,14 @@ SELECT setval('"public"."genreal_parameter_id_seq"', 1, false);
 -- ----------------------------
 ALTER SEQUENCE "public"."invoices_id_seq"
 OWNED BY "public"."invoices"."id";
-SELECT setval('"public"."invoices_id_seq"', 23, true);
+SELECT setval('"public"."invoices_id_seq"', 24, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."jobs_id_seq"
 OWNED BY "public"."jobs"."id";
-SELECT setval('"public"."jobs_id_seq"', 11, true);
+SELECT setval('"public"."jobs_id_seq"', 32, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -957,14 +1050,14 @@ SELECT setval('"public"."migrations_id_seq"', 93, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."orders2_id_seq"
 OWNED BY "public"."orders_detail"."id";
-SELECT setval('"public"."orders2_id_seq"', 34, true);
+SELECT setval('"public"."orders2_id_seq"', 35, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."orders_id_seq"
 OWNED BY "public"."orders"."id";
-SELECT setval('"public"."orders_id_seq"', 31, true);
+SELECT setval('"public"."orders_id_seq"', 32, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -1006,7 +1099,7 @@ SELECT setval('"public"."thumbnails_id_seq"', 1, false);
 -- ----------------------------
 ALTER SEQUENCE "public"."tickets_id_seq"
 OWNED BY "public"."tickets"."id";
-SELECT setval('"public"."tickets_id_seq"', 38, true);
+SELECT setval('"public"."tickets_id_seq"', 39, true);
 
 -- ----------------------------
 -- Alter sequences owned by
