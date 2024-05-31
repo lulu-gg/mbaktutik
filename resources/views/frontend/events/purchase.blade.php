@@ -216,8 +216,8 @@
                                 <div class="cs-activity cs-white_bg billing-info mb-4">
                                     <div class="row">
                                         <div class="cs-form_field_wrap cs-select_arrow">
-                                            <select class="cs-form_field" name="ticket[]">
-                                                <option selected disabled>Select Ticket</option>
+                                            <select class="cs-form_field" name="ticket[]" required>
+                                                <option selected disabled value="">Select Ticket</option>
                                                 @foreach ($event->ticketVariationsAvailable as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }} |
                                                         @format_currency($item->price)</option>

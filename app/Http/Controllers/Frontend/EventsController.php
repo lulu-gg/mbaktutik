@@ -114,6 +114,27 @@ class EventsController extends Controller
             return abort(404);
         }
 
+        try {
+            $request->validate([
+                "ticket"    => "required|array",
+                "ticket.*"  => "required|string",
+                "quantity"    => "required|array",
+                "quantity.*"  => "required|string",
+                "fullname"    => "required|array",
+                "fullname.*"  => "required|string",
+                "email"    => "required|array",
+                "email.*"  => "required|string|email",
+                "phone"    => "required|array",
+                "phone.*"  => "required|string",
+                "city"    => "required|array",
+                "city.*"  => "required|string",
+                "nik"    => "required|array",
+                "nik.*"  => "required|string",
+            ]);
+        } catch (\Exception $e) {
+            return back()->withErrors(['name' => $e->getMessage()]);
+        }
+
         $formData = [];
         $subtotal = 0;
 
