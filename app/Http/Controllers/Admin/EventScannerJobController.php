@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\EventPermissionHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\Events;
 use App\Models\EventScannerJob;
@@ -66,7 +67,7 @@ class EventScannerJobController extends Controller
     public function destroy(Events $event, EventScannerJob $scanner)
     {
         EventPermissionHelpers::isEventOwner($event);
-        
+
         try {
             $scanner->delete();
             noty('Berhasil Hapus Data', 'info');
