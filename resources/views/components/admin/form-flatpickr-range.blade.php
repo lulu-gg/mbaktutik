@@ -7,7 +7,7 @@ STILL BROKEN DONT USE IT!!
 @props(['required' => true, 'defaultStart' => null, 'defaultEnd' => null, 'readonly' => false, 'information' => null])
 
 <div class="form-group">
-    <label>{{ $label }}</label>
+    <label for="{{ $name }}" class="mb-2">{{ $label }}</label>
     <input type="date" class="form-control @error($name) is-invalid @enderror" name="{{ $name }}"
         placeholder="Select {{ $label }}" id="xid-{{ $name }}" {{ $required ? 'required' : '' }}
         {{ $readonly ? 'readonly' : '' }} />

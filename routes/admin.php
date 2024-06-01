@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\EventsController;
 use App\Http\Controllers\Admin\GeneralParameterController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\OrganizerRegistrationController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ScannerOfficerController;
 use App\Http\Controllers\Admin\SponsorsController;
 use App\Http\Controllers\Admin\TenantRegistrationController;
@@ -123,6 +124,15 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('/user/organizer', [UserController::class, 'organizer'])->middleware(AdminPermission::class);
     Route::get('/user/scanner-officer', [UserController::class, 'scannerOfficer'])->middleware(AdminPermission::class);
     Route::resource('/user/admin', UserController::class)->except(['edit', 'update'])->middleware(AdminPermission::class);
+
+    // Profile
+    Route::prefix('/profile')->group(function () {
+        Route::get('/', [ProfileController::class, 'index']);
+        Route::post('/', [ProfileController::class, 'save']);
+
+        Route::get('/security', [ProfileController::class, 'security']);
+        Route::post('/security', [ProfileController::class, 'updateSecurity']);
+    });
 
     // Auth Logout
     Route::post('/logout', [AuthController::class, 'logout']);

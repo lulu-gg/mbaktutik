@@ -1,7 +1,7 @@
 @props(['value' => null, 'multiple' => false, 'information' => null])
 
 <div class="form-group">
-    <label>{{ $label }}</label>
+    <label for="{{ $name }}" class="mb-2">{{ $label }}</label>
 
     <input type="file" id="xid-{{ $multiple ? str_replace('[]', '', $name) : $name }}" name="{{ $name }}"
         {{ $multiple ? 'multiple' : '' }} />

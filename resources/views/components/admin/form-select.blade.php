@@ -19,7 +19,7 @@
 
 
 <div class="form-group">
-    <label>{{ $label }}</label>
+    <label for="{{ $name }}" class="mb-2">{{ $label }}</label>
     <select class="init-select2 form-control @error($name) is-invalid @enderror" name="{{ $name }}"
         id="xid-{{ $name }}" {{ $required ? 'required' : '' }}
         @if ($multiple == 'multiple') multiple="multiple" @endif>

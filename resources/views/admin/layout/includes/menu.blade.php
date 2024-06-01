@@ -80,8 +80,8 @@
                 </a>
             </li>
 
-              <!-- Event Tenant Registration -->
-              <li class="menu-item {{ CustomHelpers::isActive('dashboard/tenant-registration') }}">
+            <!-- Event Tenant Registration -->
+            <li class="menu-item {{ CustomHelpers::isActive('dashboard/tenant-registration') }}">
                 <a href="{{ url('dashboard/tenant-registration') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bxs-user-account"></i>
                     <div data-i18n="Tenant Registration">Tenant Registration</div>
@@ -120,7 +120,14 @@
 
         @if (\App\Helpers\RoleHelpers::isAdmin())
             <!-- Master -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Setting</span></li>
+
+            <li class="menu-item {{ CustomHelpers::isActive('dashboard/profile') }}">
+                <a href="{{ url('dashboard/profile') }}" class="menu-link">
+                    <i class='menu-icon tf-icons bx bxs-user-detail'></i>
+                    <div data-i18n="Profile">Profile</div>
+                </a>
+            </li>
 
             <li
                 class="menu-item {{ CustomHelpers::isActiveBool(['dashboard/user/admin', 'dashboard/user/organizer', 'dashboard/user/scanner-officer']) ? 'open' : '' }}">
@@ -155,5 +162,15 @@
             </li>
         @endif
 
+        @if (\App\Helpers\RoleHelpers::isEventOrganizer())
+            <!-- Setting -->
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Setting</span></li>
+            <li class="menu-item {{ CustomHelpers::isActive('dashboard/profile') }}">
+                <a href="{{ url('dashboard/profile') }}" class="menu-link">
+                    <i class='menu-icon tf-icons bx bxs-user-detail'></i>
+                    <div data-i18n="Profile">Profile</div>
+                </a>
+            </li>
+        @endif
     </ul>
 </aside>

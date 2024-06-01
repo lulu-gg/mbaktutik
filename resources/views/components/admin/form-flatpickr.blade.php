@@ -1,7 +1,7 @@
 @props(['required' => true, 'value' => null, 'readonly' => false, 'information' => null, 'withTime' => false])
 
 <div class="form-group">
-    <label>{{ $label }}</label>
+    <label for="{{ $name }}" class="mb-2">{{ $label }}</label>
     <input type="date" class="form-control init-flatpickr @error($name) is-invalid @enderror" name="{{ $name }}"
         placeholder="Select {{ $label }}" id="xid-{{ $name }}"
         @if ($withTime) data-withTime="true" @endif {{ $required ? 'required' : '' }}

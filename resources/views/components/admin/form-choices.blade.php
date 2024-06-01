@@ -1,6 +1,6 @@
 @props(['required' => true, 'selected' => [], 'options' => [], 'optionValue' => null, 'optionDisplay' => null, 'multiple' => false])
 <div class="form-group">
-    <label>{{ $label }}</label>
+    <label for="{{ $name }}" class="mb-2">{{ $label }}</label>
 
     <select class="choices form-select @error($name) is-invalid @enderror" name="{{ $name }}"
         id="xid-{{ $multiple ? str_replace('[]', '', $name) : $name }}" {{ $required ? 'required' : '' }}
