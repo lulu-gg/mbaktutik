@@ -2,20 +2,15 @@
 
 namespace App\Http\Controllers\Midtrans;
 
-use App\Enums\BookingRequest\StatusFlowEnum;
-use App\Enums\Order\OrderStatusEnum;
-use App\Enums\Order\PaymentTypeEnum;
-use App\Enums\Order\StatusPembayaranEnum;
-use App\Enums\OrderInvoice\InvoiceStatusEnum;
-use App\Helpers\MailHelpers;
+use App\Enums\Invoice\InvoiceStatusEnum;
+use App\Enums\Orders\PaymentStatusEnum;
+use App\Enums\Tickets\TicketStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendBroadcastMailJob;
-use App\Models\Order;
-use App\Models\OrderInvoice;
-use App\Models\TrackingDataShipment;
-use App\Services\LocalNotification\LocalNotificationService;
+use App\Models\Invoice;
 use App\Services\Midtrans\MidtransCallbackService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class MidtransController extends Controller
 {
@@ -28,74 +23,48 @@ class MidtransController extends Controller
 
             $message = 'Notification Success';
 
+            $invoice = Invoice::where('midtrans_order_id', $notification->order_id)->with('order')->firstOrFail();
+
+            if ($invoice->status != InvoiceStatusEnum::Pending) {
+                return response()
+                    ->json([
+                        'success' => true,
+                        'message' => 'Invoice status already done'
+                    ], 200);
+            }
+
             if ($callback->isSuccess()) {
                 // Update invoice
-                $orderInvoice = OrderInvoice::where('midtrans_order_id', $notification->order_id)->with('order')->first();
-                $orderInvoice->update(['status_invoice' => InvoiceStatusEnum::Complete, 'complete_date' => date('Y-m-d H:i:s')]);
+                $invoice->update(['status' => InvoiceStatusEnum::Done]);
 
-                // Update Order
-                $order = $orderInvoice->order;
-                if ($order->payment_type == PaymentTypeEnum::Cost) {
-                    $order->update(['status_pembayaran' => StatusPembayaranEnum::Paid, 'order_status' => OrderStatusEnum::Done]);
-                    $order->booking_request->update(['status_flow' => StatusFlowEnum::PendingDocumentShipment]);
+                // Update order
+                $invoice->order->update([
+                    'paid_at' => Carbon::now(),
+                    'payment_status' => PaymentStatusEnum::Done,
+                ]);
 
-                    TrackingDataShipment::create([
-                        'status' => StatusFlowEnum::PendingDocumentShipment,
-                        'data_shipment_id' => $order->booking_request->data_shipment->id
-                    ]);
-                }
-
-                if ($order->payment_type == PaymentTypeEnum::Tempo) {
-                    // check termin
-                    $done = true;
-                    foreach ($order->order_invoices as $otherInvoice) {
-                        if ($otherInvoice->status_invoice != InvoiceStatusEnum::Complete) $done = false;
-                    }
-
-                    if ($done) {
-                        $order->update(['status_pembayaran' => StatusPembayaranEnum::Paid, 'order_status' => OrderStatusEnum::Done]);
+                // Update ticket status 
+                foreach ($invoice->order->orderDetails as $orderDetail) {
+                    foreach ($orderDetail->tickets as $ticket) {
+                        $ticket->update(['status' => TicketStatusEnum::Active]);
                     }
                 }
 
-                // SEND EMAIL NOTIF TO ADMIN
-                $name = $orderInvoice->user->name;
-                $receivers = MailHelpers::getAdminEmails();
-                $subject =  "Pembayaran Invoice #$orderInvoice->invoice_number Berhasil!";
-                $message = view('common.mail.notify-messages.admin.payment-success', ['name' => $name, 'invoice' => $orderInvoice])->render();
-                dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
-
-                // CREATE LOCAL NOTIFICATION
-                LocalNotificationService::createAdminNotification($subject, "$name telah menyelesaikan pembayaran invoice");
-
-                // SEND EMAIL NOTIF TO CLIENT
-                $name = $orderInvoice->user->name;
-                $receivers = [$orderInvoice->user->email];
-                $subject =  "Pembayaran Invoice #$orderInvoice->invoice_number Berhasil!";
-                $message = view('common.mail.notify-messages.client.payment-success', ['name' => $name, 'invoice' => $orderInvoice])->render();
-                dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
-
-                // CREATE LOCAL NOTIFICATION
-                LocalNotificationService::createNotification($orderInvoice->user->id, $subject, "Terimakasih telah menyelesaikan pembayaran invoice");
+                // SEND EMAIL ETICKET TO CUSTOMER
+                $receivers = [$invoice->order->orderDetails->first()->buyer_email];
+                $subject =  "E-Ticket " . $invoice->order->event->name;
+                $message = view('common.mail.ticket.ticket', ['order' => $invoice->order])->render();
+                dispatch(new SendBroadcastMailJob($receivers, $subject, $message, $invoice->id));
             }
 
             if ($callback->isExpire() || $callback->isCancelled()) {
-                OrderInvoice::where('midtrans_order_id', $notification->order_id)->update(['status_invoice' => InvoiceStatusEnum::Expired]);
+                $invoice->update(['status' => InvoiceStatusEnum::Cancel]);
 
-                $order = $orderInvoice->order;
-                if ($order->payment_type == PaymentTypeEnum::Cost) {
-                    $order->update(['status_pembayaran' => StatusPembayaranEnum::Expired, 'order_status' => OrderStatusEnum::Cancel]);
-                    $order->booking_request->update(['status_flow' => StatusFlowEnum::FailedPayment]);
-
-                    TrackingDataShipment::create([
-                        'status' => StatusFlowEnum::FailedPayment,
-                        'data_shipment_id' => $order->booking_request->data_shipment->id
-                    ]);
-                }
+                // Update order
+                $invoice->order->update([
+                    'payment_status' => PaymentStatusEnum::Cancel,
+                ]);
             }
-
-            // if ($callback->isCancelled()) {
-            //     OrderInvoice::where('midtrans_order_id', $notification->order_id)->update(['status_invoice' => InvoiceStatusEnum::Cancelled]);
-            // }
 
             return response()
                 ->json([

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Midtrans\MidtransController;
-use App\Models\OrderInvoice;
 use Illuminate\Support\Facades\Route;
 
 /*
