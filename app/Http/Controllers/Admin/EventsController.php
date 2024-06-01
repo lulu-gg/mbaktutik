@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\Events\EventStatusEnum;
 use App\Helpers\CustomHelpers;
+use App\Helpers\EventPermissionHelpers;
 use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\Events;
@@ -78,6 +79,8 @@ class EventsController extends Controller
      */
     public function show(Events $event)
     {
+        EventPermissionHelpers::isEventOwner($event);
+
         $event = Events::with(['ticketVariations', 'eventsScannerJob', 'eventsScannerJob.user'])->findOrFail($event->id);
         return view('admin.events.show', [
             'data' => $event
@@ -92,6 +95,8 @@ class EventsController extends Controller
      */
     public function edit(Events $event)
     {
+        EventPermissionHelpers::isEventOwner($event);
+        
         $categorys = EventsCategory::all();
         $statuses = EventStatusEnum::asSelectArray();
         return view('admin.events.edit', [
@@ -110,6 +115,8 @@ class EventsController extends Controller
      */
     public function update(Request $request, Events $event)
     {
+        EventPermissionHelpers::isEventOwner($event);
+
         $request->validate(Events::$rules_update);
 
         $event->update([...$request->except(['thumbnail', 'banner'])]);
@@ -137,6 +144,8 @@ class EventsController extends Controller
      */
     public function destroy(Events $event)
     {
+        EventPermissionHelpers::isEventOwner($event);
+        
         try {
             File::delete(public_path(events::$FILE_PATH . $event->thumbnail));
             $event->delete();

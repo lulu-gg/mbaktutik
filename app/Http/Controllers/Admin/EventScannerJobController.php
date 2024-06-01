@@ -20,6 +20,8 @@ class EventScannerJobController extends Controller
      */
     public function create(Events $event)
     {
+        EventPermissionHelpers::isEventOwner($event);
+
         $registeredScanner = EventScannerJob::where('event_id', $event->id)->pluck('user_id')->toArray();
         $scanners = User::where('organizer_id', Auth::user()->organizer->id)->where('account_status', 1)->whereNotIn('id', $registeredScanner)->get();
         
@@ -43,6 +45,8 @@ class EventScannerJobController extends Controller
      */
     public function store(Request $request, Events $event)
     {
+        EventPermissionHelpers::isEventOwner($event);
+
         EventScannerJob::create([
             'event_id' => $event->id,
             'user_id' => $request->user_id,
@@ -61,6 +65,8 @@ class EventScannerJobController extends Controller
      */
     public function destroy(Events $event, EventScannerJob $scanner)
     {
+        EventPermissionHelpers::isEventOwner($event);
+        
         try {
             $scanner->delete();
             noty('Berhasil Hapus Data', 'info');

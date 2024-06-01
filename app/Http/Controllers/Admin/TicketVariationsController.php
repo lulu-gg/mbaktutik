@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\EventPermissionHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\Events;
 use App\Models\TicketVariation;
@@ -27,6 +28,8 @@ class TicketVariationsController extends Controller
      */
     public function create(Events $event)
     {
+        EventPermissionHelpers::isEventOwner($event);
+
         return view('admin.events.ticket-variations.create', [
             'event' => $event,
         ]);
@@ -40,6 +43,8 @@ class TicketVariationsController extends Controller
      */
     public function store(Request $request, Events $event)
     {
+        EventPermissionHelpers::isEventOwner($event);
+
         $request->validate(TicketVariation::$rules);
         TicketVariation::create([
             ...$request->all(),
@@ -71,6 +76,8 @@ class TicketVariationsController extends Controller
      */
     public function edit(Events $event, TicketVariation $ticket)
     {
+        EventPermissionHelpers::isEventOwner($event);
+        
         return view('admin.events.ticket-variations.edit', [
             'event' => $event,
             'ticket' => $ticket,
@@ -86,6 +93,8 @@ class TicketVariationsController extends Controller
      */
     public function update(Request $request, Events $event, TicketVariation $ticket)
     {
+        EventPermissionHelpers::isEventOwner($event);
+
         $request->validate(TicketVariation::$rules);
         $ticket->update($request->all());
 
@@ -102,6 +111,8 @@ class TicketVariationsController extends Controller
      */
     public function destroy(Events $event, TicketVariation $ticket)
     {
+        EventPermissionHelpers::isEventOwner($event);
+
         try {
             $ticket->delete();
             noty('Berhasil Hapus Data', 'info');
