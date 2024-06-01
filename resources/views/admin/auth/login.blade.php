@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" class="dark-style layout-menu-fixed" dir="ltr" data-theme="theme-semi-dark"
+<html lang="en" class="dark-style layout-menu-fixed customizer-hide" dir="ltr" data-theme="theme-semi-dark"
     data-assets-path="{{ asset('sneat-pro/assets/') }}/" data-template="vertical-menu-template">
 
 <head>
