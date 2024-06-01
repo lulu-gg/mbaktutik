@@ -15,7 +15,7 @@
             </h4>
         </div>
     </div>
-    <form action="{{ url($currentPath . $data->id) }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
+    <form action="{{ url($currentPath . $data->slug) }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
         <div class="card mb-4">
             <h5 class="card-header d-flex justify-content-between align-items-center">
                 Banner & Thumbnail

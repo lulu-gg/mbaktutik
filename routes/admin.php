@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\TransactionReportController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WithdrawlController;
 use App\Http\Middleware\Admin\AdminPermission;
+use App\Http\Middleware\Admin\OrganizerPermission;
 use App\Http\Middleware\Admin\RestrictedOrganizerPermission;
 use Illuminate\Support\Facades\Route;
 
@@ -46,20 +47,20 @@ Route::group(['middleware' => 'admin.auth'], function () {
     // Events
     Route::prefix('/events/{event}/')->group(function () {
         Route::prefix('/ticket')->group(function () {
-            Route::get('/create', [TicketVariationsController::class, 'create']);
-            Route::post('/', [TicketVariationsController::class, 'store']);
+            Route::get('/create', [TicketVariationsController::class, 'create'])->middleware(OrganizerPermission::class);;
+            Route::post('/', [TicketVariationsController::class, 'store'])->middleware(OrganizerPermission::class);;
 
-            Route::get('/{ticket}/edit', [TicketVariationsController::class, 'edit']);
-            Route::patch('/{ticket}', [TicketVariationsController::class, 'update']);
+            Route::get('/{ticket}/edit', [TicketVariationsController::class, 'edit'])->middleware(OrganizerPermission::class);;
+            Route::patch('/{ticket}', [TicketVariationsController::class, 'update'])->middleware(OrganizerPermission::class);;
 
-            Route::delete('/{ticket}', [TicketVariationsController::class, 'destroy']);
+            Route::delete('/{ticket}', [TicketVariationsController::class, 'destroy'])->middleware(OrganizerPermission::class);;
         });
 
         Route::prefix('scanner')->group(function () {
-            Route::get('/create', [EventScannerJobController::class, 'create']);
-            Route::post('/', [EventScannerJobController::class, 'store']);
+            Route::get('/create', [EventScannerJobController::class, 'create'])->middleware(OrganizerPermission::class);;
+            Route::post('/', [EventScannerJobController::class, 'store'])->middleware(OrganizerPermission::class);;
 
-            Route::delete('/{scanner}', [EventScannerJobController::class, 'destroy']);
+            Route::delete('/{scanner}', [EventScannerJobController::class, 'destroy'])->middleware(OrganizerPermission::class);;
         });
     });
 

@@ -29,7 +29,7 @@ class EventScannerJobController extends Controller
         if ($scanners->count() == 0) {
             noty('Tidak ada scanner officer tersedia', 'error');
             
-            return redirect("/dashboard/events/$event->id");
+            return redirect("/dashboard/events/$event->slug");
         }
         
         return view('admin.events.scanner.create', [
@@ -55,7 +55,7 @@ class EventScannerJobController extends Controller
 
         noty('Berhasil Simpan Data', 'info');
 
-        return redirect("/dashboard/events/$event->id");
+        return redirect("/dashboard/events/$event->slug");
     }
 
     /**
@@ -75,6 +75,6 @@ class EventScannerJobController extends Controller
             noty('Gagal Hapus Data', 'error');
         }
 
-        return redirect("/dashboard/events/$event->id");
+        return redirect("/dashboard/events/$event->slug");
     }
 }

@@ -42,11 +42,11 @@
                                 <td>{{ $item->ticket_variations_count }}</td>
                                 <td>{{ \App\Enums\Events\EventStatusEnum::getKey($item->status) }}</td>
                                 <td>
-                                    <form action="{{ url("$currentPath/$item->id") }}" method="POST">
-                                        <a href="{{ url("$currentPath/$item->id/edit") }}" class="btn">
+                                    <form action="{{ url("$currentPath/$item->slug") }}" method="POST">
+                                        <a href="{{ url("$currentPath/$item->slug/edit") }}" class="btn">
                                             <i class="bx bx-edit"></i>
                                         </a>
-                                        <a href="{{ url("$currentPath/$item->id/") }}" class="btn">
+                                        <a href="{{ url("$currentPath/$item->slug/") }}" class="btn">
                                             <i class="bx bx-right-arrow-alt"></i>
                                         </a>
 

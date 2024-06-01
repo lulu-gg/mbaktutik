@@ -207,13 +207,13 @@
                                         <td>{{ \App\Enums\Events\EventStatusEnum::getKey($item->status) }}</td>
                                         <td>{{ $item->description }}</td>
                                         <td>
-                                            <form action="{{ url("dashboard/events/$data->id/ticket/$item->id") }}"
+                                            <form action="{{ url("dashboard/events/$data->slug/ticket/$item->id") }}"
                                                 method="POST">
-                                                <a href="{{ url("dashboard/events/$data->id/ticket/$item->id/edit") }}"
+                                                <a href="{{ url("dashboard/events/$data->slug/ticket/$item->id/edit") }}"
                                                     class="btn">
                                                     <i class="bx bx-edit"></i>
                                                 </a>
-                                                <a href="{{ url("dashboard/events/$data->id/ticket/$item->id/") }}"
+                                                <a href="{{ url("dashboard/events/$data->slug/ticket/$item->id/") }}"
                                                     class="btn">
                                                     <i class="bx bx-right-arrow-alt"></i>
                                                 </a>

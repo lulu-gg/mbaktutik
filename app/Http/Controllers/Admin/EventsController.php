@@ -68,7 +68,7 @@ class EventsController extends Controller
 
         noty('Berhasil Simpan Data', 'info');
 
-        return redirect($this->HOME_URL . "/" . $event->id);
+        return redirect($this->HOME_URL . "/" . $event->slug);
     }
 
     /**
@@ -133,7 +133,7 @@ class EventsController extends Controller
 
         noty('Berhasil Edit Data', 'info');
 
-        return redirect($this->HOME_URL . "/" . $event->id);
+        return redirect($this->HOME_URL . "/" . $event->slug);
     }
 
     /**
@@ -147,7 +147,7 @@ class EventsController extends Controller
         EventPermissionHelpers::isEventOwner($event);
         
         try {
-            File::delete(public_path(events::$FILE_PATH . $event->thumbnail));
+            // File::delete(public_path(events::$FILE_PATH . $event->thumbnail));
             $event->delete();
             noty('Berhasil Hapus Data', 'info');
         } catch (\Exception $e) {

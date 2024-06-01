@@ -36,7 +36,7 @@
                                             <span class="cs-card_like cs-primary_color">
                                                 {{ $item->eventsCategory->name }}
                                             </span>
-                                            <a href="{{ url('/events/detail/' . $item->id) }}"
+                                            <a href="{{ url('/events/detail/' . $item->slug) }}"
                                                 class="cs-card_thumb cs-zoom_effect">
                                                 <img src="{{ $item->thumbnail_path }}" alt="Image" class="cs-zoom_item">
                                             </a>
@@ -49,7 +49,7 @@
                                                 </a>
                                                 <div class="cs-height_10 cs-height_lg_10"></div>
                                                 <h3 class="cs-card_title"><a
-                                                        href="{{ url('/events/detail/' . $item->id) }}">{{ $item->name }}</a>
+                                                        href="{{ url('/events/detail/' . $item->slug) }}">{{ $item->name }}</a>
                                                 </h3>
                                                 <div class="cs-card_price">Start Date: <b
                                                         class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->start_date)) }}</b>
@@ -64,7 +64,7 @@
 
                                                     <hr>
                                                     <div class="cs-card_footer">
-                                                        <a href="{{ url('/events/detail/' . $item->id) }}"><span
+                                                        <a href="{{ url('/events/detail/' . $item->slug) }}"><span
                                                                 class="cs-card_btn_2"><span>Buy
                                                                     Ticket</span></span></a>
                                                     </div>
@@ -124,7 +124,7 @@
                                     <span class="cs-card_like cs-primary_color">
                                         {{ $item->eventsCategory->name }}
                                     </span>
-                                    <a href="{{ url('/events/detail/' . $item->id) }}"
+                                    <a href="{{ url('/events/detail/' . $item->slug) }}"
                                         class="cs-card_thumb cs-zoom_effect">
                                         <img src="{{ $item->thumbnail_path }}" alt="Image" class="cs-zoom_item">
                                     </a>
@@ -137,7 +137,7 @@
                                         </a>
                                         <div class="cs-height_10 cs-height_lg_10"></div>
                                         <h3 class="cs-card_title"><a
-                                                href="{{ url('/events/detail/' . $item->id) }}">{{ $item->name }}</a>
+                                                href="{{ url('/events/detail/' . $item->slug) }}">{{ $item->name }}</a>
                                         </h3>
                                         <div class="cs-card_price">Start Date: <b
                                                 class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->start_date)) }}</b>
@@ -150,7 +150,7 @@
 
                                             <hr>
                                             <div class="cs-card_footer">
-                                                <a href="{{ url('/events/detail/' . $item->id) }}"><span
+                                                <a href="{{ url('/events/detail/' . $item->slug) }}"><span
                                                         class="cs-card_btn_2"><span>Buy Ticket</span></span></a>
                                             </div>
                                         </div>
@@ -187,7 +187,7 @@
                                     <span class="cs-card_like cs-primary_color">
                                         {{ $item->eventsCategory->name }}
                                     </span>
-                                    <a href="{{ url('/events/detail/' . $item->id) }}"
+                                    <a href="{{ url('/events/detail/' . $item->slug) }}"
                                         class="cs-card_thumb cs-zoom_effect">
                                         <img src="{{ $item->thumbnail_path }}" alt="Image" class="cs-zoom_item">
                                     </a>
@@ -200,7 +200,7 @@
                                         </a>
                                         <div class="cs-height_10 cs-height_lg_10"></div>
                                         <h3 class="cs-card_title"><a
-                                                href="{{ url('/events/detail/' . $item->id) }}">{{ $item->name }}</a>
+                                                href="{{ url('/events/detail/' . $item->slug) }}">{{ $item->name }}</a>
                                         </h3>
                                         <div class="cs-card_price">Start Date: <b
                                                 class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->start_date)) }}</b>

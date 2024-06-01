@@ -235,7 +235,7 @@
         <div class="cs-grid_5 cs-gap_30">
             @foreach ($otherEvents as $item)
                 <div class="cs-card cs-style4 cs-box_shadow cs-white_bg">
-                    <a href="{{ url('/events/detail/' . $item->id) }}" class="cs-card_thumb cs-zoom_effect">
+                    <a href="{{ url('/events/detail/' . $item->slug) }}" class="cs-card_thumb cs-zoom_effect">
                         <img src="{{ $item->thumbnail_path }}" alt="Image" class="cs-zoom_item">
                     </a>
                     <div class="cs-card_info">
@@ -244,7 +244,7 @@
                             <span>{{ $item->organizer->company_name }}</span>
                         </a>
                         <h3 class="cs-card_title">
-                            <a href="{{ url('/events/detail/' . $item->id) }}">{{ $item->name }}</a>
+                            <a href="{{ url('/events/detail/' . $item->slug) }}">{{ $item->name }}</a>
                         </h3>
                         <div class="cs-card_price">Start Date: <b
                                 class="cs-primary_color">{{ date('d M, H:i:s', strtotime($item->start_date)) }}</b>
@@ -266,7 +266,7 @@
                                 </div>
                             @else
                                 <div class="cs-card_footer">
-                                    <a href="{{ url('/events/detail/' . $item->id) }}">
+                                    <a href="{{ url('/events/detail/' . $item->slug) }}">
                                         <span class="cs-card_btn_2">
                                             <span>
                                                 Buy Ticket

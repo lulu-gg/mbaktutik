@@ -8,7 +8,7 @@
                 <h1 class="cs-page_title">Purchase Event Tickets</h1>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item"><a href="/events/detail/{{ $event->id }}">Events</a></li>
+                    <li class="breadcrumb-item"><a href="/events/detail/{{ $event->slug }}">Events</a></li>
                     <li class="breadcrumb-item active">Purchase</li>
                 </ol>
             </div>

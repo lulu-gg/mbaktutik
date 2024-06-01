@@ -54,7 +54,7 @@ class TicketVariationsController extends Controller
 
         noty('Berhasil Simpan Data', 'info');
 
-        return redirect("/dashboard/events/$event->id");
+        return redirect("/dashboard/events/$event->slug");
     }
 
     /**
@@ -100,7 +100,7 @@ class TicketVariationsController extends Controller
 
         noty('Berhasil Simpan Data', 'info');
 
-        return redirect("/dashboard/events/$event->id");
+        return redirect("/dashboard/events/$event->slug");
     }
 
     /**
@@ -120,6 +120,6 @@ class TicketVariationsController extends Controller
             noty('Gagal Hapus Data', 'error');
         }
 
-        return redirect("/dashboard/events/$event->id");
+        return redirect("/dashboard/events/$event->slug");
     }
 }
