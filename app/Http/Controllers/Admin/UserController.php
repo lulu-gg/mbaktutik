@@ -9,6 +9,7 @@ use App\Models\Organizer;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -104,6 +105,13 @@ class UserController extends Controller
     public function destroy(User $admin)
     {
         try {
+            $adminLeft = User::where('role_id', RoleHelpers::$ADMIN)->where('id', Auth::user()->id)->count();
+
+            if (RoleHelpers::isAdmin() && $adminLeft <= 1) {
+                noty("Minimal harus ada 1 admin tersedia", 'error');
+                return redirect("dashboard/user/admin");
+            }
+
             $admin->delete();
         } catch (\Exception $e) {
             noty("Gagal menghapus user", 'error');
