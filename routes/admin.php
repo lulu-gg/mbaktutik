@@ -132,6 +132,9 @@ Route::group(['middleware' => 'admin.auth'], function () {
 
         Route::get('/security', [ProfileController::class, 'security']);
         Route::post('/security', [ProfileController::class, 'updateSecurity']);
+
+        Route::get('/organizer', [ProfileController::class, 'organizer']);
+        Route::post('/organizer', [ProfileController::class, 'updateorganizer']);
     });
 
     // Auth Logout

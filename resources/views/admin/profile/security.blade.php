@@ -21,6 +21,14 @@
                             Security
                         </a>
                     </li>
+                    @if (\App\Helpers\RoleHelpers::isEventOrganizer())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/dashboard/profile/organizer') }}">
+                                <i class='bx bx-podcast me-1'></i>
+                                Organizer
+                            </a>
+                        </li>
+                    @endif
                 </ul>
                 <!-- Change Password -->
                 <div class="card mb-4">
@@ -35,7 +43,8 @@
                                     <div class="input-group input-group-merge">
                                         <input class="form-control" type="password" name="currentPassword"
                                             id="currentPassword"
-                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" required />
+                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                            required />
                                         <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                     </div>
                                 </div>
@@ -45,7 +54,8 @@
                                     <label class="form-label" for="password">New Password</label>
                                     <div class="input-group input-group-merge">
                                         <input class="form-control" type="password" id="password" name="password"
-                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" required />
+                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                            required />
                                         <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                     </div>
                                 </div>
@@ -55,7 +65,8 @@
                                     <div class="input-group input-group-merge">
                                         <input class="form-control" type="password" name="password_confirmation"
                                             id="password_confirmation"
-                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" required />
+                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                            required />
                                         <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                     </div>
                                 </div>

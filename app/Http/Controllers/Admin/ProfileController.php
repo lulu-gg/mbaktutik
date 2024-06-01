@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\CustomHelpers;
 use App\Http\Controllers\Controller;
+use App\Models\Organizer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +15,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $data = User::where(['id' => Auth::user()->id])->first();
+        $data = User::where(['id' => Auth::user()->id])->firstOrFail();
         return view('admin.profile.index', [
             'data' => $data,
         ]);
@@ -23,7 +25,7 @@ class ProfileController extends Controller
     {
         $request->validate(['name' => 'required']);
 
-        $data = User::where(['id' => Auth::user()->id])->first();
+        $data = User::where(['id' => Auth::user()->id])->firstOrFail();
         $data->update([
             'name' => $request->name,
         ]);
@@ -59,7 +61,7 @@ class ProfileController extends Controller
             ],
         ]);
 
-        $user = User::where(['id' => Auth::user()->id])->first();
+        $user = User::where(['id' => Auth::user()->id])->firstOrFail();
         if (!Hash::check($request->currentPassword, $user->password)) {
             return redirect()->back()->withErrors(['currentPassword' => 'The provided password does not match your current password.']);
         }
@@ -69,5 +71,48 @@ class ProfileController extends Controller
         noty('Berhasil Update Password', 'info');
 
         return redirect('/dashboard/profile/security');
+    }
+
+    public function organizer()
+    {
+        $data = Organizer::where(['user_id' => Auth::user()->id])->firstOrFail();
+        return view('admin.profile.organizer', [
+            'data' => $data,
+        ]);
+    }
+
+    public function updateOrganizer(Request $request)
+    {
+        $request->validate([
+            'company_name' => 'required',
+            'contact_person' => 'required',
+            'phone' => 'required',
+            'about_us' => 'required',
+            'username' => 'required',
+            'province' => 'required',
+            'city' => 'required',
+            'zip' => 'required',
+            'address' => 'required',
+        ]);
+
+        $data = Organizer::where(['user_id' => Auth::user()->id])->firstOrFail();
+
+        if ($request->hasFile('logo')) {
+            // Validate the input
+            $request->validate([
+                'logo' => ['required', 'image', 'mimes:jpeg,png', 'max:2048'],
+            ]);
+
+            $logo = CustomHelpers::simpleFileUpload(requestFile: $request->logo, path: Organizer::$FILE_PATH);
+            $data->update(['logo' => $logo]);
+        }
+
+        $data->update([
+            ...$request->except('logo')
+        ]);
+
+        noty('Berhasil Simpan Data', 'info');
+
+        return redirect('/dashboard/profile/organizer');
     }
 }
