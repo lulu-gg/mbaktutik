@@ -12,7 +12,7 @@
  Target Server Version : 160002 (160002)
  File Encoding         : 65001
 
- Date: 31/05/2024 08:26:26
+ Date: 02/06/2024 05:58:35
 */
 
 
@@ -303,30 +303,32 @@ CREATE TABLE "public"."events" (
   "city" varchar(255) COLLATE "pg_catalog"."default",
   "zip" varchar(255) COLLATE "pg_catalog"."default",
   "latitude" varchar(255) COLLATE "pg_catalog"."default",
-  "longitude" varchar(255) COLLATE "pg_catalog"."default"
+  "longitude" varchar(255) COLLATE "pg_catalog"."default",
+  "deleted_at" timestamp(6),
+  "slug" varchar(255) COLLATE "pg_catalog"."default"
 )
 ;
 
 -- ----------------------------
 -- Records of events
 -- ----------------------------
+INSERT INTO "public"."events" VALUES (2, 'Food Festival Extravaganza', 2, 'A culinary delight featuring dishes from various regions, cooked by renowned chefs. Indulge in a gastronomic journey with food tastings, cooking demos, and live entertainment.', 'Jakarta Convention Center', 'c3557db1-8934-418b-b8c5-1841b72830e23.png', '7ba40918-d600-4469-a02e-bb4c12b6a535.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-05-11 12:00:00', '2024-05-13 12:00:00', 'Tickets are non-refundable. Pets are not allowed. Please follow hygiene protocols.
+food-festival-extravaganza', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Jakarta', 'Jakarta', '1124', '0', '0', NULL, 'food-festival-extravaganza');
+INSERT INTO "public"."events" VALUES (4, 'Art and Craft Fair', 2, 'A vibrant fair showcasing handmade arts and crafts from local artisans. Enjoy workshops, live demonstrations, and purchase unique items directly from the makers.', 'Surabaya Town Square', 'c3557db1-8934-418b-b8c5-1841b72830e22.png', '7ba40918-d600-4469-a02e-bb4c12b6a534.png', 1, 1, '2024-05-11 04:35:30', '2024-06-02 05:15:24', '2024-06-06 12:00:00', '2024-06-18 12:00:00', 'No refunds. Children under 12 must be accompanied by an adult. No outside food and drinks allowed.
+art-and-craft-fair', 'Discover beautiful handmade arts and crafts at our fair. Join workshops and meet talented local artisans.', 'Discover beautiful handmade arts and crafts at our fair. Join workshops and meet talented local artisans.', 'Jawa Timur', 'Surabaya', '1124', '0', '0', NULL, 'art-and-craft-fair');
 INSERT INTO "public"."events" VALUES (1, 'Rock Music Concert', 2, '
 Rock Music Concert
 1
-An electrifying rock music concert featuring famous bands from both local and international scenes. Expect high-energy performances, stunning light shows, and an unforgettable experience for all rock enthusiasts.', 'Gelora Bung Karno Stadium', 'c3557db1-8934-418b-b8c5-1841b72830e2.png', '7ba40918-d600-4469-a02e-bb4c12b6a53a.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-06-01 12:00:00', '2024-06-17 12:00:00', 'No refunds. Ticket resale is prohibited. Attendees must comply with all event guidelines.
-rock-music-concert', 'Join us for an unforgettable night of rock music with top bands from around the world. Secure your tickets now!', 'Join us for an unforgettable night of rock music with top bands from around the world. Secure your tickets now!', 'Jakarta', 'Jakarta', '1124', '0', '0');
-INSERT INTO "public"."events" VALUES (4, 'Art and Craft Fair', 2, 'A vibrant fair showcasing handmade arts and crafts from local artisans. Enjoy workshops, live demonstrations, and purchase unique items directly from the makers.', 'Surabaya Town Square', 'c3557db1-8934-418b-b8c5-1841b72830e2.png', '7ba40918-d600-4469-a02e-bb4c12b6a53a.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-06-06 12:00:00', '2024-06-18 12:00:00', 'No refunds. Children under 12 must be accompanied by an adult. No outside food and drinks allowed.
-art-and-craft-fair', 'Discover beautiful handmade arts and crafts at our fair. Join workshops and meet talented local artisans.', 'Discover beautiful handmade arts and crafts at our fair. Join workshops and meet talented local artisans.', 'Jawa Timur', 'Surabaya', '1124', '0', '0');
+An electrifying rock music concert featuring famous bands from both local and international scenes. Expect high-energy performances, stunning light shows, and an unforgettable experience for all rock enthusiasts.', 'Gelora Bung Karno Stadium', 'c3557db1-8934-418b-b8c5-1841b72830e2.png', '7ba40918-d600-4469-a02e-bb4c12b6a53a.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-06-05 12:00:00', '2024-06-17 12:00:00', 'No refunds. Ticket resale is prohibited. Attendees must comply with all event guidelines.
+rock-music-concert', 'Join us for an unforgettable night of rock music with top bands from around the world. Secure your tickets now!', 'Join us for an unforgettable night of rock music with top bands from around the world. Secure your tickets now!', 'Jakarta', 'Jakarta', '1124', '0', '0', NULL, 'rock-music-concert');
 INSERT INTO "public"."events" VALUES (3, 'Tech Innovation Summit', 2, 'A summit bringing together industry leaders to discuss the latest trends in technology and innovation. Includes keynote speeches, panel discussions, and networking opportunities.
-Bali International Convention Centre', 'Bali International Convention Centre', 'c3557db1-8934-418b-b8c5-1841b72830e2.png', '7ba40918-d600-4469-a02e-bb4c12b6a53a.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-06-02 12:00:00', '2024-06-17 12:00:00', 'All sales are final. No on-site registration allowed. Attendees must present ID at check-in.
+Bali International Convention Centre', 'Bali International Convention Centre', 'c3557db1-8934-418b-b8c5-1841b72830e25.png', '7ba40918-d600-4469-a02e-bb4c12b6a536.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-06-05 12:00:00', '2024-06-17 12:00:00', 'All sales are final. No on-site registration allowed. Attendees must present ID at check-in.
 tech-innovation-summit
-', 'askdfjsal', 'laksfjdlas', 'Jawa Timur', 'Surabaya', '1124', '0', '0');
-INSERT INTO "public"."events" VALUES (6, 'Food Festival Extravaganza', 2, 'A culinary delight featuring dishes from various regions, cooked by renowned chefs. Indulge in a gastronomic journey with food tastings, cooking demos, and live entertainment.', 'Jakarta Convention Center', 'c3557db1-8934-418b-b8c5-1841b72830e2.png', '7ba40918-d600-4469-a02e-bb4c12b6a53a.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-05-11 12:00:00', '2024-05-13 12:00:00', 'Tickets are non-refundable. Pets are not allowed. Please follow hygiene protocols.
-food-festival-extravaganza', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Jakarta', 'Jakarta', '1124', '0', '0');
-INSERT INTO "public"."events" VALUES (5, 'Fitness and Wellness Expo', 2, 'An expo dedicated to health and fitness enthusiasts. Features fitness classes, wellness workshops, and products from leading brands in the health industry.', 'Bandung Convention Center', 'c3557db1-8934-418b-b8c5-1841b72830e2.png', '7ba40918-d600-4469-a02e-bb4c12b6a53a.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-06-03 12:00:00', '2024-06-17 12:00:00', 'No refunds. Proper workout attire required for fitness classes. Follow all safety guidelines.
-fitness-and-wellness-expo', 'Enhance your fitness journey at our Wellness Expo. Participate in classes, workshops, and explore health products.', 'Enhance your fitness journey at our Wellness Expo. Participate in classes, workshops, and explore health products.', 'Jawa Timur', 'Surabaya', '1124', '0', '0');
-INSERT INTO "public"."events" VALUES (2, 'Food Festival Extravaganza', 2, 'A culinary delight featuring dishes from various regions, cooked by renowned chefs. Indulge in a gastronomic journey with food tastings, cooking demos, and live entertainment.', 'Jakarta Convention Center', 'c3557db1-8934-418b-b8c5-1841b72830e2.png', '7ba40918-d600-4469-a02e-bb4c12b6a53a.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-05-11 12:00:00', '2024-05-13 12:00:00', 'Tickets are non-refundable. Pets are not allowed. Please follow hygiene protocols.
-food-festival-extravaganza', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Jakarta', 'Jakarta', '1124', '0', '0');
+', 'askdfjsal', 'laksfjdlas', 'Jawa Timur', 'Surabaya', '1124', '0', '0', NULL, 'tech-innovation-summit');
+INSERT INTO "public"."events" VALUES (6, 'Food Festival Extravaganza', 2, 'A culinary delight featuring dishes from various regions, cooked by renowned chefs. Indulge in a gastronomic journey with food tastings, cooking demos, and live entertainment.', 'Jakarta Convention Center', 'c3557db1-8934-418b-b8c5-1841b72830e24.png', '7ba40918-d600-4469-a02e-bb4c12b6a532.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-05-11 12:00:00', '2024-05-13 12:00:00', 'Tickets are non-refundable. Pets are not allowed. Please follow hygiene protocols.
+food-festival-extravaganza', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Jakarta', 'Jakarta', '1124', '0', '0', NULL, 'food-festival-extravaganza-2');
+INSERT INTO "public"."events" VALUES (5, 'Fitness and Wellness Expo', 2, 'An expo dedicated to health and fitness enthusiasts. Features fitness classes, wellness workshops, and products from leading brands in the health industry.', 'Bandung Convention Center', 'c3557db1-8934-418b-b8c5-1841b72830e21.png', '7ba40918-d600-4469-a02e-bb4c12b6a533.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-06-05 12:00:00', '2024-06-17 12:00:00', 'No refunds. Proper workout attire required for fitness classes. Follow all safety guidelines.
+fitness-and-wellness-expo', 'Enhance your fitness journey at our Wellness Expo. Participate in classes, workshops, and explore health products.', 'Enhance your fitness journey at our Wellness Expo. Participate in classes, workshops, and explore health products.', 'Jawa Timur', 'Surabaya', '1124', '0', '0', NULL, 'fitness-and-wellness-expo');
 
 -- ----------------------------
 -- Table structure for events_category
@@ -337,14 +339,15 @@ CREATE TABLE "public"."events_category" (
   "name" varchar(255) COLLATE "pg_catalog"."default",
   "description" text COLLATE "pg_catalog"."default",
   "created_at" timestamp(6),
-  "updated_at" timestamp(6)
+  "updated_at" timestamp(6),
+  "deleted_at" timestamp(6)
 )
 ;
 
 -- ----------------------------
 -- Records of events_category
 -- ----------------------------
-INSERT INTO "public"."events_category" VALUES (2, 'Music', 'Event music', '2024-05-04 22:16:45', '2024-05-12 02:18:19');
+INSERT INTO "public"."events_category" VALUES (2, 'Music', 'Event music', '2024-05-04 22:16:45', '2024-05-12 02:18:19', NULL);
 
 -- ----------------------------
 -- Table structure for events_scanner_job
@@ -575,6 +578,7 @@ CREATE TABLE "public"."invoices" (
 -- Records of invoices
 -- ----------------------------
 INSERT INTO "public"."invoices" VALUES (24, 32, '005/INV/RIVE/05/24', '2024-05-31 04:15:35', '2024-06-01 04:15:35', 0, '2024-05-31 04:15:37', '2024-05-31 04:15:39', 'https://app.sandbox.midtrans.com/snap/v4/redirection/00005706-d157-426d-952a-d0c328f64825', '00005706-d157-426d-952a-d0c328f64825', '512398ed-f7d2-455d-8e12-9d05bcc54124', 175000, 5250, 180250);
+INSERT INTO "public"."invoices" VALUES (25, 33, '001/INV/RIVE/06/24', '2024-06-02 05:22:44', '2024-06-03 05:22:44', 0, '2024-06-02 05:22:44', '2024-06-02 05:22:46', 'https://app.sandbox.midtrans.com/snap/v4/redirection/ab3a6ff6-157d-40a8-93c3-7becf41f7e96', 'ab3a6ff6-157d-40a8-93c3-7becf41f7e96', '6fd693dc-50ca-49da-bf43-75a99077d9bb', 175000, 5250, 180250);
 INSERT INTO "public"."invoices" VALUES (20, 28, '001/INV/RIVE/05/24', '2024-05-23 03:40:07', '2024-05-24 03:40:07', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', 'https://app.sandbox.midtrans.com/snap/v4/redirection/ddec1ec7-c314-447e-b2f9-ad7f132d3d47', 'ddec1ec7-c314-447e-b2f9-ad7f132d3d47', '3feaba5a-eab1-49d7-95fa-4a8cdf630238', 575000, 17250, 592250);
 INSERT INTO "public"."invoices" VALUES (21, 29, '002/INV/RIVE/05/24', '2024-05-27 20:13:55', '2024-05-28 20:13:55', 1, '2024-05-27 20:13:57', '2024-05-27 20:15:51', 'https://app.sandbox.midtrans.com/snap/v4/redirection/83f04ee9-b13f-487b-879b-deb06f7cce0a', '83f04ee9-b13f-487b-879b-deb06f7cce0a', 'af5793f1-413a-475d-ab5f-db656c880f17', 600000, 18000, 618000);
 INSERT INTO "public"."invoices" VALUES (22, 30, '003/INV/RIVE/05/24', '2024-05-27 20:24:16', '2024-05-28 20:24:16', 0, '2024-05-27 20:24:16', '2024-05-27 20:24:16', 'https://app.sandbox.midtrans.com/snap/v4/redirection/84d87aa2-e228-4305-a841-fb257cad43ce', '84d87aa2-e228-4305-a841-fb257cad43ce', '6abdd96b-8578-4a8b-8203-54ba35c1e5c9', 175000, 5250, 180250);
@@ -598,6 +602,7 @@ CREATE TABLE "public"."jobs" (
 -- ----------------------------
 -- Records of jobs
 -- ----------------------------
+INSERT INTO "public"."jobs" VALUES (33, 'default', '{"uuid":"ac7296d1-a920-4298-8602-681d234806a2","displayName":"App\\Jobs\\SendBroadcastMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendBroadcastMailJob","command":"O:29:\"App\\Jobs\\SendBroadcastMailJob\":4:{s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000receivers\";a:1:{i:0;s:26:\"willysantoso1997@gmail.com\";}s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000subject\";s:27:\"Invoice #001\/INV\/RIVE\/06\/24\";s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000message\";s:1378:\"<h1 style=\"margin-top:0;margin-bottom:16px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;\">\r\n    Invoice #001\/INV\/RIVE\/06\/24\r\n<\/h1>\r\n<p style=\"margin:0;\">\r\n    Halo test,\r\n<\/p>\r\n<p>\r\n    Segera selesaikan pembayaran ticket anda sejumlah <strong>Rp. 180.250<\/strong> untuk mendapatkan ticket\r\n    yang anda inginkan!\r\n<\/p>\r\n<p>Invoice Details:<\/p>\r\n<ul>\r\n    <li><strong>Event :<\/strong> Rock Music Concert<\/li>\r\n    <li><strong>Subtotal :<\/strong> Rp. 175.000 <\/li>\r\n    <li><strong>Fee :<\/strong> Rp. 5.250<\/li>\r\n    <li><strong>Total :<\/strong> Rp. 180.250<\/li>\r\n<\/ul>\r\n<p>\r\n    Klik tautan dibawah untuk melanjutkan pembayaran\r\n    <br>\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/6fd693dc-50ca-49da-bf43-75a99077d9bb\"\r\n        style=\"background: #244379; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#244379\">\r\n        <span style=\"mso-text-raise:10pt;font-weight:bold;\">Bayar Sekarang<\/span>\r\n    <\/a>\r\n<\/p>\r\n<br>\r\n<p>\r\n    Jika tombol tidak dapat diklik, gunakan link berikut untuk melanjutkan pembayaran\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/6fd693dc-50ca-49da-bf43-75a99077d9bb\"\r\n        style=\"color:#213D6C;text-decoration:underline;\">http:\/\/rive.test\/events\/payment\/6fd693dc-50ca-49da-bf43-75a99077d9bb<\/a>\r\n<\/p>\r\n\r\n\";s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000invoiceId\";i:25;}"}}', 0, NULL, 1717280567, 1717280567);
 
 -- ----------------------------
 -- Table structure for local_notification
@@ -692,6 +697,7 @@ INSERT INTO "public"."orders" VALUES (29, 1, NULL, NULL, NULL, NULL, 618000.00, 
 INSERT INTO "public"."orders" VALUES (30, 1, NULL, NULL, NULL, NULL, 180250.00, NULL, 0, NULL, NULL, '2024-05-27 20:24:16', '2024-05-27 20:24:16', NULL);
 INSERT INTO "public"."orders" VALUES (31, 1, NULL, NULL, NULL, NULL, 566500.00, NULL, 1, NULL, NULL, '2024-05-30 04:22:20', '2024-05-30 04:34:00', '2024-05-30 04:34:00');
 INSERT INTO "public"."orders" VALUES (32, 1, NULL, NULL, NULL, NULL, 180250.00, NULL, 0, NULL, NULL, '2024-05-31 04:15:35', '2024-05-31 04:15:35', NULL);
+INSERT INTO "public"."orders" VALUES (33, 1, NULL, NULL, NULL, NULL, 180250.00, NULL, 0, NULL, NULL, '2024-06-02 05:22:44', '2024-06-02 05:22:44', NULL);
 
 -- ----------------------------
 -- Table structure for orders_detail
@@ -727,6 +733,7 @@ INSERT INTO "public"."orders_detail" VALUES (32, 4, 30, 'Presale 2', 175000.00, 
 INSERT INTO "public"."orders_detail" VALUES (33, 4, 31, 'Presale 2', 175000.00, '2024-05-30 04:22:20', '2024-05-30 04:22:20', 'Fairuz', '00000000000000000000000', 'willysantoso1997@gmail.com', '081249118805', 2, 175000.00, 350000.00, 'Jakarta');
 INSERT INTO "public"."orders_detail" VALUES (34, 5, 31, 'Presale 3', 200000.00, '2024-05-30 04:22:20', '2024-05-30 04:22:20', 'Willy', '00000000000000000000000', 'willysantoso1997@gmail.com', '081249118805', 1, 200000.00, 200000.00, 'Jakarta');
 INSERT INTO "public"."orders_detail" VALUES (35, 4, 32, 'Presale 2', 175000.00, '2024-05-31 04:15:35', '2024-05-31 04:15:35', 'Fairuz', '12318273813918239123918', 'willysantoso1997@gmail.com', '081249118805', 1, 175000.00, 175000.00, 'Jakarta');
+INSERT INTO "public"."orders_detail" VALUES (36, 4, 33, 'Presale 2', 175000.00, '2024-06-02 05:22:44', '2024-06-02 05:22:44', 'test', '1238912893', 'willysantoso1997@gmail.com', '123127892381', 1, 175000.00, 175000.00, '10');
 
 -- ----------------------------
 -- Table structure for organizers
@@ -758,7 +765,7 @@ CREATE TABLE "public"."organizers" (
 -- ----------------------------
 INSERT INTO "public"."organizers" VALUES (3, 11, 'Test Organizer', 'test123@gmail.com', '0812381293821', NULL, '2024-05-27 20:45:51', '2024-05-27 20:47:53', 'Lorem Ipsum', '0282ddff-59bf-418d-8f30-013111b90444.png', 'test123', 'JKT', 'JKT', '12312', 'Lorem Ipsum', 'cc12bb92-3fe2-443a-95a5-039fe3eabbd0.pdf', 1);
 INSERT INTO "public"."organizers" VALUES (4, 12, 'Willy Org', 'willysantoso1997@gmail.com', '081249118805', NULL, '2024-05-30 04:36:58', '2024-05-30 04:37:47', '-', 'd042591a-847a-4b85-8b62-0343fbc25667.png', 'willysantoso', 'DKI Jakarta', 'Jakarta', '20234', '-', 'c9f2c960-9143-4b20-844f-b7ece3adfee9.pdf', 1);
-INSERT INTO "public"."organizers" VALUES (1, 5, 'Rive Corp', 'rive@gmail.com', '0812123123128491', 'https://asfjklasjl.com', '2024-05-11 04:32:15', '2024-05-11 04:32:15', 'Lorem Ipsum', '60054755-a45a-4a4b-889a-23d3e5593b9d.png', 'rive2', 'DKI Jakarta', 'Jakarta Pusat', '99812', 'Lorem Ipsum todor', 'cb6b2391-c0f1-483e-9f54-84579b51ad17.pdf', 1);
+INSERT INTO "public"."organizers" VALUES (1, 5, 'Rive Corp', 'rive@gmail.com', '0812123123128491', 'https://asfjklasjl.com', '2024-05-11 04:32:15', '2024-06-02 04:30:54', 'Lorem Ipsum', '1049b1d2-79f0-4a56-8b54-88fed3de81f3.png', 'rive', 'DKI Jakarta', 'Jakarta Pusat', '99812', 'Lorem Ipsum todor', 'cb6b2391-c0f1-483e-9f54-84579b51ad17.pdf', 1);
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -836,8 +843,11 @@ COMMENT ON COLUMN "public"."sponsors"."status" IS 'ENUM(''active'', ''inactive''
 -- ----------------------------
 -- Records of sponsors
 -- ----------------------------
-INSERT INTO "public"."sponsors" VALUES (3, 'test', '5a79382a-24e9-4696-b3bb-d597e76c2f26.png', 1, 1, '2024-05-05 04:36:03', '2024-05-05 04:36:03');
-INSERT INTO "public"."sponsors" VALUES (5, 'test', '7b2e1e3d-f4c0-401c-9e36-0dee42383feb.png', 2, 1, '2024-05-05 12:52:57', '2024-05-21 02:14:42');
+INSERT INTO "public"."sponsors" VALUES (6, 'Sponsor', '4709bafa-7fc7-473a-b055-0525542d63f1.png', 2, 1, '2024-06-01 05:37:09', '2024-06-01 05:37:09');
+INSERT INTO "public"."sponsors" VALUES (8, 'Sponsor', 'dd16dba6-6129-487c-8b42-ea7e1cdd5371.png', 1, 1, '2024-06-01 05:38:28', '2024-06-01 05:38:28');
+INSERT INTO "public"."sponsors" VALUES (9, 'Sponsor', 'a7b434f7-225c-458a-9685-76d234418a31.png', 4, 1, '2024-06-01 05:38:43', '2024-06-01 05:38:43');
+INSERT INTO "public"."sponsors" VALUES (10, 'Sponsor', 'dae29875-0b96-49a1-81e4-167e6cb13bb5.png', 3, 1, '2024-06-01 05:39:15', '2024-06-01 05:39:15');
+INSERT INTO "public"."sponsors" VALUES (11, 'Sponsor', '3ff687e2-6fc8-4c4f-8ac2-b6c25fa1daa8.png', 5, 1, '2024-06-01 05:39:31', '2024-06-01 05:39:31');
 
 -- ----------------------------
 -- Table structure for tenant
@@ -899,7 +909,8 @@ CREATE TABLE "public"."ticket_variations" (
   "created_at" timestamp(6),
   "updated_at" timestamp(6),
   "description" text COLLATE "pg_catalog"."default",
-  "status" int2
+  "status" int2,
+  "deleted_at" timestamp(6)
 )
 ;
 COMMENT ON COLUMN "public"."ticket_variations"."status" IS '0: deactive, 1: active';
@@ -907,14 +918,13 @@ COMMENT ON COLUMN "public"."ticket_variations"."status" IS '0: deactive, 1: acti
 -- ----------------------------
 -- Records of ticket_variations
 -- ----------------------------
-INSERT INTO "public"."ticket_variations" VALUES (4, 1, 'Presale 2', 175000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1);
-INSERT INTO "public"."ticket_variations" VALUES (5, 1, 'Presale 3', 200000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1);
-INSERT INTO "public"."ticket_variations" VALUES (6, 1, 'Presale 4', 250000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1);
-INSERT INTO "public"."ticket_variations" VALUES (7, 2, 'Presale 1', 150000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1);
-INSERT INTO "public"."ticket_variations" VALUES (8, 2, 'Presale 2', 175000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1);
-INSERT INTO "public"."ticket_variations" VALUES (9, 2, 'Presale 3', 200000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1);
-INSERT INTO "public"."ticket_variations" VALUES (10, 2, 'Presale 4', 250000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1);
-INSERT INTO "public"."ticket_variations" VALUES (2, 1, 'Presale 1', 150000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 0);
+INSERT INTO "public"."ticket_variations" VALUES (4, 1, 'Presale 2', 175000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
+INSERT INTO "public"."ticket_variations" VALUES (5, 1, 'Presale 3', 200000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
+INSERT INTO "public"."ticket_variations" VALUES (6, 1, 'Presale 4', 250000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
+INSERT INTO "public"."ticket_variations" VALUES (7, 2, 'Presale 1', 150000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
+INSERT INTO "public"."ticket_variations" VALUES (8, 2, 'Presale 2', 175000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
+INSERT INTO "public"."ticket_variations" VALUES (9, 2, 'Presale 3', 200000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
+INSERT INTO "public"."ticket_variations" VALUES (10, 2, 'Presale 4', 250000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
 
 -- ----------------------------
 -- Table structure for tickets
@@ -929,24 +939,26 @@ CREATE TABLE "public"."tickets" (
   "created_at" timestamp(6),
   "updated_at" timestamp(6),
   "scanned_at" timestamp(6),
-  "scanned_by" int8
+  "scanned_by" int8,
+  "deleted_at" timestamp(6)
 )
 ;
 
 -- ----------------------------
 -- Records of tickets
 -- ----------------------------
-INSERT INTO "public"."tickets" VALUES (31, 29, 'TICKET-1716410407-3221', 'GjYyU83bmRzJh1k89j1A', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL, NULL);
-INSERT INTO "public"."tickets" VALUES (33, 30, 'TICKET-1716815635-5167', 'pBhkNnc2RgDK6Yl1Qs93Gx7K6y97YE6jKS6hpSH4', 1, '2024-05-27 20:13:55', '2024-05-27 20:15:51', NULL, NULL);
-INSERT INTO "public"."tickets" VALUES (34, 31, 'TICKET-1716815635-9938', '0qfm4afp6BrkEZN68ITubMY9okiOwVKVr38udVrV', 1, '2024-05-27 20:13:55', '2024-05-27 20:15:51', NULL, NULL);
-INSERT INTO "public"."tickets" VALUES (35, 32, 'TICKET-1716816256-1567', 'om62dfwJHAMmMZoDKxnU7AFQrzSJp3uFu52U0U7j', 0, '2024-05-27 20:24:16', '2024-05-27 20:24:16', NULL, NULL);
-INSERT INTO "public"."tickets" VALUES (29, 28, 'TICKET-1716410407-7873', 'aS9jtNinbjTqdNIcaO7c', 2, '2024-05-23 03:40:07', '2024-05-24 04:50:16', '2024-05-24 04:50:16', 9);
-INSERT INTO "public"."tickets" VALUES (32, 30, 'TICKET-1716815635-6648', '7GoK7ilwwaDTQy1axQrQybtU8r2JpDsg2xPB6urj', 2, '2024-05-27 20:13:55', '2024-05-27 20:21:17', '2024-05-27 20:21:17', 9);
-INSERT INTO "public"."tickets" VALUES (30, 29, 'TICKET-1716410407-4372', '4TXYMu8QOAUKQRglRmcs', 2, '2024-05-23 03:40:07', '2024-05-24 04:52:14', '2024-05-24 04:52:14', 9);
-INSERT INTO "public"."tickets" VALUES (36, 33, 'TICKET-1717017740-9007', '6FUWGVUSYscy8seVqwA7QEO7CIoUy8P04Da8HmjR', 1, '2024-05-30 04:22:20', '2024-05-30 04:34:00', NULL, NULL);
-INSERT INTO "public"."tickets" VALUES (37, 33, 'TICKET-1717017740-9150', 'R5ArF4GNAGZui5J3xRIJKRnE0kgVP8rcjNcNqHaI', 1, '2024-05-30 04:22:20', '2024-05-30 04:34:00', NULL, NULL);
-INSERT INTO "public"."tickets" VALUES (38, 34, 'TICKET-1717017740-3751', 'iWGGQivUUnF45zM3rfl72oNWmjpdY9kOoDNZo80I', 1, '2024-05-30 04:22:20', '2024-05-30 04:34:00', NULL, NULL);
-INSERT INTO "public"."tickets" VALUES (39, 35, 'TICKET-1717103735-2116', 'IxCDGdcKrezr7biojGs0wHDlVSVnlilV45k3Tghy', 0, '2024-05-31 04:15:35', '2024-05-31 04:15:35', NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (31, 29, 'TICKET-1716410407-3221', 'GjYyU83bmRzJh1k89j1A', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', NULL, NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (33, 30, 'TICKET-1716815635-5167', 'pBhkNnc2RgDK6Yl1Qs93Gx7K6y97YE6jKS6hpSH4', 1, '2024-05-27 20:13:55', '2024-05-27 20:15:51', NULL, NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (34, 31, 'TICKET-1716815635-9938', '0qfm4afp6BrkEZN68ITubMY9okiOwVKVr38udVrV', 1, '2024-05-27 20:13:55', '2024-05-27 20:15:51', NULL, NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (35, 32, 'TICKET-1716816256-1567', 'om62dfwJHAMmMZoDKxnU7AFQrzSJp3uFu52U0U7j', 0, '2024-05-27 20:24:16', '2024-05-27 20:24:16', NULL, NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (29, 28, 'TICKET-1716410407-7873', 'aS9jtNinbjTqdNIcaO7c', 2, '2024-05-23 03:40:07', '2024-05-24 04:50:16', '2024-05-24 04:50:16', 9, NULL);
+INSERT INTO "public"."tickets" VALUES (32, 30, 'TICKET-1716815635-6648', '7GoK7ilwwaDTQy1axQrQybtU8r2JpDsg2xPB6urj', 2, '2024-05-27 20:13:55', '2024-05-27 20:21:17', '2024-05-27 20:21:17', 9, NULL);
+INSERT INTO "public"."tickets" VALUES (30, 29, 'TICKET-1716410407-4372', '4TXYMu8QOAUKQRglRmcs', 2, '2024-05-23 03:40:07', '2024-05-24 04:52:14', '2024-05-24 04:52:14', 9, NULL);
+INSERT INTO "public"."tickets" VALUES (36, 33, 'TICKET-1717017740-9007', '6FUWGVUSYscy8seVqwA7QEO7CIoUy8P04Da8HmjR', 1, '2024-05-30 04:22:20', '2024-05-30 04:34:00', NULL, NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (37, 33, 'TICKET-1717017740-9150', 'R5ArF4GNAGZui5J3xRIJKRnE0kgVP8rcjNcNqHaI', 1, '2024-05-30 04:22:20', '2024-05-30 04:34:00', NULL, NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (38, 34, 'TICKET-1717017740-3751', 'iWGGQivUUnF45zM3rfl72oNWmjpdY9kOoDNZo80I', 1, '2024-05-30 04:22:20', '2024-05-30 04:34:00', NULL, NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (39, 35, 'TICKET-1717103735-2116', 'IxCDGdcKrezr7biojGs0wHDlVSVnlilV45k3Tghy', 0, '2024-05-31 04:15:35', '2024-05-31 04:15:35', NULL, NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (40, 36, 'TICKET-1717280564-3871', 'YM5MdBnZ8fC8xeRMYS7Rp7b3qcxgQKYlnirTCkDF', 0, '2024-06-02 05:22:44', '2024-06-02 05:22:44', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for users
@@ -967,19 +979,21 @@ CREATE TABLE "public"."users" (
   "username" varchar(255) COLLATE "pg_catalog"."default",
   "phone" varchar(255) COLLATE "pg_catalog"."default",
   "nik" varchar(255) COLLATE "pg_catalog"."default",
-  "organizer_id" int8
+  "organizer_id" int8,
+  "deleted_at" timestamp(6)
 )
 ;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO "public"."users" VALUES (5, 'Rive', 'rive@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'YzmBtC36wnKRRVmjEyXiObuEBZFQUMcmluGgjCXN1r8Urw2zTNjgVdlvxqLl', '2024-05-11 04:32:15', '2024-05-11 04:32:15', 2, 1, '9msZdJP9Ba5EO2KH6aKvULiW0Uq24C', NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (9, 'Budi', 'budiscanner@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-13 02:14:25', '2024-05-13 02:24:57', 3, 1, 'LpQoWberRIOmsxbB9qp8lXNw5UWysh', NULL, NULL, NULL, 1);
-INSERT INTO "public"."users" VALUES (12, 'Willy Org', 'willysantoso1997@gmail.com', NULL, '$2y$10$gbACGkjhYMX2fRWzn8y5c.V8nSr1r4Dnv7dUpIgu0Curxf3ULSY7a', NULL, '2024-05-30 04:36:58', '2024-05-30 04:37:47', 2, 1, 'yANKGCIBmOHeFqidblw5PBT1LGSx1P', NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (10, 'Rive 2', 'rive2@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-24 18:11:17', '2024-05-24 19:24:46', 2, 1, 'z4uTycyAkMDIzIchRNlvpuMkHrhInK', NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', '9a1ODraRgmXYbxDSbX7vlKjmVALREmtFNBR9IXs8hUB77v9BNQrAmHvBdCK0', '2024-05-04 22:16:12', '2024-05-04 22:16:12', 1, 1, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (11, 'Test Organizer', 'test123@gmail.com', NULL, '$2y$10$A5h8d3js4j50voZwSEelouAhFsjM05b/Q2cMHm/w.f4MTuQVcEBqG', NULL, '2024-05-27 20:45:51', '2024-05-27 20:47:53', 2, 1, 'wznhXiRk42Iw5YAfTcv81efq0FHovt', NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$ljJOE.GcEPSeThD1DhrNtuJliEJw0ZkVhSBRQ1nqR3Q7Sq10iEJzW', 'E0luo1juvFvhDiBWO0twVplC5tWd5fgk3TABzBQJewdtTw77cq7Nf3lEGWBW', '2024-05-04 22:16:12', '2024-06-02 04:39:35', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (9, 'Budi Scanner', 'budiscanner@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-13 02:14:25', '2024-06-02 03:38:40', 3, 1, 'LpQoWberRIOmsxbB9qp8lXNw5UWysh', NULL, NULL, NULL, 1, NULL);
+INSERT INTO "public"."users" VALUES (12, 'Willy Org', 'willysantoso1997@gmail.com', NULL, '$2y$10$gbACGkjhYMX2fRWzn8y5c.V8nSr1r4Dnv7dUpIgu0Curxf3ULSY7a', NULL, '2024-05-30 04:36:58', '2024-06-02 03:38:46', 2, 1, 'yANKGCIBmOHeFqidblw5PBT1LGSx1P', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (10, 'Rive Org 2', 'rive2@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-24 18:11:17', '2024-06-02 03:38:48', 2, 1, 'z4uTycyAkMDIzIchRNlvpuMkHrhInK', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (11, 'Test 123
+', 'test123@gmail.com', NULL, '$2y$10$A5h8d3js4j50voZwSEelouAhFsjM05b/Q2cMHm/w.f4MTuQVcEBqG', NULL, '2024-05-27 20:45:51', '2024-06-02 03:40:11', 2, 1, 'wznhXiRk42Iw5YAfTcv81efq0FHovt', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (5, 'Rive Organizer', 'rive@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'nAVgndISB1qElUcbgQOSIhiSdzrU22EsadReLARhgyGvZQEklt2dSDfhaFR6', '2024-05-11 04:32:15', '2024-06-02 03:38:38', 2, 1, '9msZdJP9Ba5EO2KH6aKvULiW0Uq24C', NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for withdrawl
@@ -1060,14 +1074,14 @@ SELECT setval('"public"."genreal_parameter_id_seq"', 1, false);
 -- ----------------------------
 ALTER SEQUENCE "public"."invoices_id_seq"
 OWNED BY "public"."invoices"."id";
-SELECT setval('"public"."invoices_id_seq"', 24, true);
+SELECT setval('"public"."invoices_id_seq"', 25, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."jobs_id_seq"
 OWNED BY "public"."jobs"."id";
-SELECT setval('"public"."jobs_id_seq"', 32, true);
+SELECT setval('"public"."jobs_id_seq"', 33, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -1088,14 +1102,14 @@ SELECT setval('"public"."migrations_id_seq"', 93, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."orders2_id_seq"
 OWNED BY "public"."orders_detail"."id";
-SELECT setval('"public"."orders2_id_seq"', 35, true);
+SELECT setval('"public"."orders2_id_seq"', 36, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."orders_id_seq"
 OWNED BY "public"."orders"."id";
-SELECT setval('"public"."orders_id_seq"', 32, true);
+SELECT setval('"public"."orders_id_seq"', 33, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -1123,7 +1137,7 @@ SELECT setval('"public"."role_id_seq"', 4, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."sponsors_id_seq"
 OWNED BY "public"."sponsors"."id";
-SELECT setval('"public"."sponsors_id_seq"', 5, true);
+SELECT setval('"public"."sponsors_id_seq"', 11, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -1144,7 +1158,7 @@ SELECT setval('"public"."thumbnails_id_seq"', 1, false);
 -- ----------------------------
 ALTER SEQUENCE "public"."tickets_id_seq"
 OWNED BY "public"."tickets"."id";
-SELECT setval('"public"."tickets_id_seq"', 39, true);
+SELECT setval('"public"."tickets_id_seq"', 40, true);
 
 -- ----------------------------
 -- Alter sequences owned by
