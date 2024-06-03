@@ -105,7 +105,7 @@ class UserController extends Controller
     public function destroy(User $admin)
     {
         try {
-            $adminLeft = User::where('role_id', RoleHelpers::$ADMIN)->where('id', Auth::user()->id)->count();
+            $adminLeft = User::where('role_id', RoleHelpers::$ADMIN)->count();
 
             if (RoleHelpers::isAdmin() && $adminLeft <= 1) {
                 noty("Minimal harus ada 1 admin tersedia", 'error');
@@ -113,6 +113,7 @@ class UserController extends Controller
             }
 
             $admin->delete();
+            noty("Berhasil menghapus user", 'info');
         } catch (\Exception $e) {
             noty("Gagal menghapus user", 'error');
         }
