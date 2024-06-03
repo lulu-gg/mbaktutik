@@ -47,9 +47,6 @@
                                             <a href="{{ url("$currentPath/$item->id/edit") }}" class="btn">
                                                 <i class="bx bx-edit"></i>
                                             </a>
-                                            <a href="{{ url("$currentPath/$item->id/") }}" class="btn">
-                                                <i class="bx bx-right-arrow-alt"></i>
-                                            </a>
 
                                             @csrf
                                             @method('DELETE')
