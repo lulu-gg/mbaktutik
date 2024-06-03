@@ -119,7 +119,7 @@ class EventsController extends Controller
                 "ticket"    => "required|array",
                 "ticket.*"  => "required|string",
                 "quantity"    => "required|array",
-                "quantity.*"  => "required|string",
+                "quantity.*"  => "required|numeric|min:1",
                 "fullname"    => "required|array",
                 "fullname.*"  => "required|string",
                 "email"    => "required|array",
@@ -207,11 +207,13 @@ class EventsController extends Controller
         $decryptedData = Crypt::decryptString($request->encData);
         $formData = json_decode($decryptedData, false);
 
+        $isFree = (bool) (($formData->subtotal + $formData->serviceFee) == 0);
+
         // create order
         $order = Order::create([
             'event_id' => $event->id,
             'total_amount' => $formData->subtotal + $formData->serviceFee,
-            'payment_status' => PaymentStatusEnum::Pending,
+            'payment_status' => $isFree ? PaymentStatusEnum::Done : PaymentStatusEnum::Pending,
         ]);
 
         // create order_detail
@@ -237,37 +239,46 @@ class EventsController extends Controller
                     'order_detail_id' => $orderDetail->id,
                     'ticket_code' => Ticket::generateTicketID(),
                     'qr_code' => Str::random(40),
-                    'status' => TicketStatusEnum::Pending,
+                    'status' => $isFree ? TicketStatusEnum::Active : TicketStatusEnum::Pending,
                 ]);
             }
         }
+
 
         // create invoices
         $invoice = Invoice::create([
             'order_id' => $order->id,
             'invoice_number' => Invoice::createInvoiceNumber(),
             'date' => Carbon::now(),
-            'due_date' => Carbon::now()->addDay(),
+            'due_date' => $isFree ? null : Carbon::now()->addDay(),
             'subtotal' => $formData->subtotal,
             'fee' => $formData->serviceFee,
             'total' => $formData->subtotal + $formData->serviceFee,
-            'status' => InvoiceStatusEnum::Pending,
+            'status' =>  $isFree ? InvoiceStatusEnum::Done : InvoiceStatusEnum::Pending,
             'midtrans_order_id' => Str::uuid()->toString(),
         ]);
 
-        // create midtrans transaction
-        $midtrans = new MidtransTransactionService($invoice);
-        $transaction = $midtrans->createTransaction();
-        $invoice->midtrans_snap_token = $transaction->token;
-        $invoice->midtrans_snap_redirect = $transaction->redirect_url;
-        $invoice->save();
+        if (!$isFree) {
+            // create midtrans transaction
+            $midtrans = new MidtransTransactionService($invoice);
+            $transaction = $midtrans->createTransaction();
+            $invoice->midtrans_snap_token = $transaction->token;
+            $invoice->midtrans_snap_redirect = $transaction->redirect_url;
+            $invoice->save();
 
-        // SEND EMAIL INVOICE TO CUSTOMER
-        $receivers = [$invoice->order->orderDetails->first()->buyer_email];
-        $subject =  "Invoice #" . $invoice->invoice_number;
-        $message = view('common.mail.invoice.invoice', ['invoice' => $invoice])->render();
+            // SEND EMAIL INVOICE TO CUSTOMER
+            $receivers = [$invoice->order->orderDetails->first()->buyer_email];
+            $subject =  "Invoice #" . $invoice->invoice_number;
+            $message = view('common.mail.invoice.invoice', ['invoice' => $invoice])->render();
 
-        dispatch(new SendBroadcastMailJob($receivers, $subject, $message, $invoice->id));
+            dispatch(new SendBroadcastMailJob($receivers, $subject, $message, $invoice->id));
+        } else {
+            // SEND EMAIL ETICKET TO CUSTOMER
+            $receivers = [$invoice->order->orderDetails->first()->buyer_email];
+            $subject =  "E-Ticket " . $invoice->order->event->name;
+            $message = view('common.mail.ticket.ticket', ['order' => $invoice->order])->render();
+            dispatch(new SendBroadcastMailJob($receivers, $subject, $message, $invoice->id));
+        }
 
         return redirect("/events/payment/$invoice->midtrans_order_id");
     }
