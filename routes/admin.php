@@ -106,6 +106,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
         Route::get('/', [OrganizerRegistrationController::class, 'index']);
         Route::get('/{organizer}', [OrganizerRegistrationController::class, 'show']);
         Route::post('/{organizer}/accept', [OrganizerRegistrationController::class, 'accept']);
+        Route::post('/{organizer}/reject', [OrganizerRegistrationController::class, 'reject']);
     })->middleware(AdminPermission::class);
 
     // Event Oragnizer Request

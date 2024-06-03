@@ -18,4 +18,6 @@ final class EventOganizerStatusEnum extends Enum
     const WaitingApproval = 0;
 
     const Active = 1;
+
+    const Reject = 2;
 }

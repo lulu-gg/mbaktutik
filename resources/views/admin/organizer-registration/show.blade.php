@@ -73,7 +73,8 @@
                             <p>Proposal</p>
                         </div>
                         <div class="col-8">
-                            <a href="{{ $data->proposal_path }}" class="btn btn-primary btn-sm"><i class='bx bxs-file-pdf'></i> &nbsp; View Document</a>
+                            <a href="{{ $data->proposal_path }}" class="btn btn-primary btn-sm"><i
+                                    class='bx bxs-file-pdf'></i> &nbsp; View Document</a>
                         </div>
                     </div>
                 </div>
@@ -123,9 +124,23 @@
     </div>
 
     <div class="mt-2">
-        <form action="{{ url()->current() . '/accept' }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-primary"><i class='bx bx-check' ></i> &nbsp; Accept Registration</button>
-        </form>
+        <div class="row">
+            <div class="col-auto">
+                <form action="{{ url()->current() . '/accept' }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary"><i class='bx bx-check'></i> &nbsp; Accept
+                        Registration</button>
+                </form>
+            </div>
+            <div class="col-auto">
+
+                <form action="{{ url()->current() . '/reject' }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger"><i class='bx bx-x'></i> &nbsp; Reject
+                        Registration</button>
+                </form>
+
+            </div>
+        </div>
     </div>
 </x-admin.app-layout>
