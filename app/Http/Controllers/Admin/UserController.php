@@ -81,7 +81,7 @@ class UserController extends Controller
      */
     public function edit(User $admin)
     {
-        //
+        return view('admin.user.edit', ['user' => $admin]);
     }
 
     /**
@@ -93,7 +93,13 @@ class UserController extends Controller
      */
     public function update(Request $request, User $admin)
     {
-        //
+        $request->validate(['name' => 'required']);
+
+        $admin->update(['name' => $request->name]);
+
+        noty('Berhasil update data','info');
+
+        return redirect('/dashboard/user/admin/' . $admin->id . '/edit');
     }
 
     /**
