@@ -43,7 +43,7 @@ class Order extends Model
      */
     public function tickets()
     {
-        return $this->hasMany('App\Models\Ticket');
+        return $this->hasMany('App\Models\Ticket')->withTrashed();
     }
 
     /**
@@ -51,7 +51,7 @@ class Order extends Model
      */
     public function event()
     {
-        return $this->belongsTo('App\Models\Events');
+        return $this->belongsTo('App\Models\Events')->withTrashed();
     }
 
     /**
@@ -59,7 +59,7 @@ class Order extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User')->withTrashed();
     }
 
     /**

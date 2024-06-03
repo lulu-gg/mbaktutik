@@ -70,7 +70,7 @@ class OrdersDetail extends Model
      */
     public function ticketVariation()
     {
-        return $this->belongsTo('App\Models\TicketVariation');
+        return $this->belongsTo('App\Models\TicketVariation')->withTrashed();
     }
 
     /**
