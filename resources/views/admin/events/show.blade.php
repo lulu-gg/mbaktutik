@@ -213,10 +213,6 @@
                                                     class="btn">
                                                     <i class="bx bx-edit"></i>
                                                 </a>
-                                                <a href="{{ url("dashboard/events/$data->slug/ticket/$item->id/") }}"
-                                                    class="btn">
-                                                    <i class="bx bx-right-arrow-alt"></i>
-                                                </a>
 
                                                 @csrf
                                                 @method('DELETE')
