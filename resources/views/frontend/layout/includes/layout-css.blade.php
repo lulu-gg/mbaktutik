@@ -1,3 +1,5 @@
+<link rel="shortcut icon" href="{{ asset('assets/ico/logo.ico') }}" type="image/x-icon">
+
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugins/fontawesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugins/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugins/slick.css') }}">
