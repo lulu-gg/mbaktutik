@@ -6,6 +6,7 @@ use App\Enums\EventOrganizer\EventOganizerStatusEnum;
 use App\Helpers\CustomHelpers;
 use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Controller;
+use App\Jobs\SendBroadcastMailJob;
 use App\Models\Organizer;
 use App\Models\Tenant;
 use App\Models\User;
@@ -91,7 +92,7 @@ class AuthController extends Controller
             'account_status' => 0,
         ]);
 
-        $eventOrganizer = Organizer::create([
+        $organizer = Organizer::create([
             ...$request->except(['logo', 'proposal']),
             'user_id' => $user->id,
             'status' => EventOganizerStatusEnum::WaitingApproval,
@@ -99,6 +100,12 @@ class AuthController extends Controller
             'logo' => $uploadLogo,
             'proposal' => $uploadProposal,
         ]);
+
+        // SEND EMAIL NOTIF TO EO
+        $receivers = [$organizer->user->email];
+        $subject =  "Pendaftaran Event Organizer Anda Sedang Diproses";
+        $message = view('common.mail.welcome.welcome', ['organizer' => $organizer])->render();
+        dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
 
         return redirect("/register/event-organizer/thankyou");
     }
@@ -118,7 +125,7 @@ class AuthController extends Controller
     public function registerTenantSubmit(Request $request)
     {
         $request->validate(Tenant::$rulesRegister);
-        
+
         $uploadPhoto = CustomHelpers::simpleFileUpload(requestFile: $request->photo, path: Tenant::$FILE_PATH);
 
         Tenant::create([

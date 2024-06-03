@@ -63,7 +63,7 @@ class OrganizerRegistrationController extends Controller
         // SEND EMAIL NOTIF TO EO
         $receivers = [$organizer->user->email];
         $subject =  "Selamat datang di Rive!";
-        $message = view('common.mail.welcome.welcome', ['organizer' => $organizer])->render();
+        $message = view('common.mail.welcome.accepted', ['organizer' => $organizer])->render();
         dispatch(new SendBroadcastMailJob($receivers, $subject, $message));
 
 
