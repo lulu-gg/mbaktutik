@@ -50,7 +50,7 @@
                     </div>
                     <div class="cs-header_btns_wrap">
                         <div class="cs-header_btns">
-                            <div class="cs-header_icon_btn cs-center cs-mobile_search_toggle">
+                            {{-- <div class="cs-header_icon_btn cs-center cs-mobile_search_toggle">
                                 <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -59,7 +59,7 @@
                                     <path d="M17.5 18L13.875 14.375" stroke="currentColor" stroke-linecap="round"
                                         stroke-linejoin="round" />
                                 </svg>
-                            </div>
+                            </div> --}}
 
                             @if (\App\Helpers\RoleHelpers::isScanOfficer())
                                 <div class="cs-toggle_box cs-profile_box">
