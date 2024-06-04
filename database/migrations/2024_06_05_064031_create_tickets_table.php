@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('local_notification', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('title')->nullable();
-            $table->string('description')->nullable();
-            $table->integer('status')->nullable()->comment('1: readed');
+            $table->bigInteger('order_detail_id')->nullable();
+            $table->string('ticket_code')->nullable();
+            $table->string('qr_code')->nullable();
+            $table->bigInteger('status')->nullable();
             $table->timestamps(6);
+            $table->timestamp('scanned_at', 6)->nullable();
+            $table->bigInteger('scanned_by')->nullable();
+            $table->softDeletes();
         });
     }
 
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('local_notification');
+        Schema::dropIfExists('tickets');
     }
 };

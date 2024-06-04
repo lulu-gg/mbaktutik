@@ -16,14 +16,12 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
-            $table->unsignedBigInteger('event_category_id');
-            $table->foreign('event_category_id')->references('id')->on('events_category');
+            $table->bigInteger('event_category_id')->nullable();
             $table->string('description')->nullable();
             $table->string('location')->nullable();
             $table->string('banner')->nullable();
             $table->string('thumbnail')->nullable();
-            $table->unsignedBigInteger('event_organizer_id');
-            $table->foreign('event_organizer_id')->references('id')->on('organizers');
+            $table->bigInteger('event_organizer_id')->nullable();
             $table->bigInteger('status')->nullable();
             $table->timestamps(6);
             $table->timestamp('start_date')->nullable();
@@ -36,6 +34,8 @@ return new class extends Migration
             $table->string('zip')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
+            $table->softDeletes('deleted_at', 6);
+            $table->string('slug')->nullable();
         });
     }
 

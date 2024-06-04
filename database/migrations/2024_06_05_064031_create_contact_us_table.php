@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('events_category', function (Blueprint $table) {
+        Schema::create('contact_us', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
-            $table->string('description')->nullable();
-            $table->timestamps(6);
+            $table->string('email')->nullable();
+            $table->string('subject')->nullable();
+            $table->string('message')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events_category');
+        Schema::dropIfExists('contact_us');
     }
 };

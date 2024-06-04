@@ -15,13 +15,22 @@ return new class extends Migration
     {
         Schema::create('organizers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('user_id')->nullable();
             $table->string('company_name')->nullable();
             $table->string('contact_person')->nullable();
             $table->string('phone')->nullable();
             $table->string('website')->nullable();
             $table->timestamps(6);
+            $table->string('about_us')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('username')->nullable();
+            $table->string('province')->nullable();
+            $table->string('city')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('address')->nullable();
+            $table->string('proposal')->nullable();
+            $table->bigInteger('status')->nullable();
+            $table->smallInteger('is_internal')->nullable();
         });
     }
 

@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('ticket_variations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('event_id');
-            $table->foreign('event_id')->references('id')->on('events');
+            $table->bigInteger('event_id')->nullable();
             $table->string('name')->nullable();
             $table->decimal('price', 10, 0)->nullable();
             $table->bigInteger('quota')->nullable();
@@ -24,6 +23,7 @@ return new class extends Migration
             $table->timestamps(6);
             $table->string('description')->nullable();
             $table->smallInteger('status')->nullable()->comment('0: deactive, 1: active');
+            $table->softDeletes('deleted_at', 6);
         });
     }
 

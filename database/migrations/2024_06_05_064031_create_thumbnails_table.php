@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('events_scanner_job', function (Blueprint $table) {
+        Schema::create('thumbnails', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('event_id');
-            $table->foreign('event_id')->references('id')->on('events');
+            $table->bigInteger('display_order')->nullable();
+            $table->string('image')->nullable();
+            $table->string('description')->nullable();
+            $table->bigInteger('status')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events_scanner_job');
+        Schema::dropIfExists('thumbnails');
     }
 };

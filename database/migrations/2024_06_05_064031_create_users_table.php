@@ -19,16 +19,17 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+            $table->bigInteger('role_id')->nullable();
+            $table->integer('account_status')->nullable();
+            $table->string('verify_token')->nullable();
             $table->string('username')->nullable();
             $table->string('phone')->nullable();
             $table->string('nik')->nullable();
-            $table->integer('account_status')->nullable();
-            $table->string('verify_token')->nullable();
-            $table->unsignedBigInteger('role_id');
-            $table->foreign('role_id')->references('id')->on('role');
-            $table->BigInteger('organizer_id')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
+            $table->bigInteger('organizer_id')->nullable();
+            $table->softDeletes('deleted_at', 6);
+            $table->string('photo')->nullable();
         });
     }
 

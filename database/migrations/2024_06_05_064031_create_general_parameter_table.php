@@ -17,8 +17,12 @@ return new class extends Migration
             $table->increments('id');
             $table->string('seo_keyword')->nullable();
             $table->string('seo_description')->nullable();
-            $table->smallInteger('transaction_tax')->nullable();
+            $table->decimal('transaction_tax', 7)->nullable();
             $table->timestamps();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('whatsapp_url')->nullable();
         });
     }
 

@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('thumbnails', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('display_order')->nullable();
-            $table->string('image')->nullable();
-            $table->text('description')->nullable();
-            $table->bigInteger('status')->nullable();
-            $table->timestamps();
+        Schema::table('ticket_variations', function (Blueprint $table) {
+            $table->foreign(['event_id'], 'event_variations_event_id_fkey')->references(['id'])->on('events');
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('thumbnails');
+        Schema::table('ticket_variations', function (Blueprint $table) {
+            $table->dropForeign('event_variations_event_id_fkey');
+        });
     }
 };

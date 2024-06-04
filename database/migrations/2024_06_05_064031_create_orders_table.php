@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('event_id');
-            $table->foreign('event_id')->references('id')->on('events');
+            $table->bigInteger('event_id')->nullable();
+            $table->bigInteger('user_id')->nullable();
             $table->string('date')->nullable();
             $table->string('time')->nullable();
             $table->bigInteger('quantity')->nullable();
@@ -28,6 +26,7 @@ return new class extends Migration
             $table->bigInteger('status')->nullable()->comment('Status of the ticket (0: inactive, 1: active, 2: scanned)');
             $table->bigInteger('invoice_id')->nullable();
             $table->timestamps(6);
+            $table->timestamp('paid_at')->nullable();
         });
     }
 

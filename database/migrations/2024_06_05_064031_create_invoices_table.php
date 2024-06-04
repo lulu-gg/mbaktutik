@@ -15,14 +15,18 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->bigInteger('order_id')->nullable();
             $table->string('invoice_number')->nullable();
-            $table->string('date')->nullable();
-            $table->string('due_date')->nullable();
-            $table->decimal('amount', 10)->nullable();
+            $table->timestamp('date')->nullable();
+            $table->timestamp('due_date')->nullable();
             $table->bigInteger('status')->nullable();
             $table->timestamps(6);
+            $table->string('midtrans_snap_redirect')->nullable();
+            $table->string('midtrans_snap_token')->nullable();
+            $table->string('midtrans_order_id')->nullable();
+            $table->decimal('subtotal', 10, 0)->nullable();
+            $table->decimal('fee', 255, 0)->nullable();
+            $table->decimal('total', 255, 0)->nullable();
         });
     }
 

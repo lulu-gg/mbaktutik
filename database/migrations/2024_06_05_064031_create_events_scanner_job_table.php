@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('events_scanner_job', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->string('ticket_code')->nullable();
-            $table->string('qr_code')->nullable();
-            $table->bigInteger('status')->nullable();
-            $table->timestamps(6);
+            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('event_id')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('events_scanner_job');
     }
 };
