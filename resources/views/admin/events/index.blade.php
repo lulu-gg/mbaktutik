@@ -26,6 +26,9 @@
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
+                            @if (\App\Helpers\RoleHelpers::isAdmin())
+                                <th>Organizer</th>
+                            @endif
                             <th>Title</th>
                             <th>Kategori</th>
                             <th>Ticket</th>
@@ -37,6 +40,9 @@
                         @foreach ($data as $item)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
+                                @if (\App\Helpers\RoleHelpers::isAdmin())
+                                    <td>{{ $item->organizer->company_name }}</td>
+                                @endif
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->eventsCategory->name }}</td>
                                 <td>{{ $item->ticket_variations_count }}</td>

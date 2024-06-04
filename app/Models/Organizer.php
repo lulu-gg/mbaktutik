@@ -84,4 +84,9 @@ class Organizer extends Model
     {
         return $this->proposal ? url(self::$FILE_PATH . $this->proposal) : null;
     }
+
+    public static function getInternalOrganizerId()
+    {
+        return Organizer::where('is_internal', 1)->first()->id;
+    }
 }

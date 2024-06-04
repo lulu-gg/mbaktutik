@@ -18,14 +18,12 @@
                             Security
                         </a>
                     </li>
-                    @if (\App\Helpers\RoleHelpers::isEventOrganizer())
-                        <li class="nav-item">
-                            <a class="nav-link active" href="javascript:void(0);">
-                                <i class='bx bx-podcast me-1'></i>
-                                Organizer
-                            </a>
-                        </li>
-                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link active" href="javascript:void(0);">
+                            <i class='bx bx-podcast me-1'></i>
+                            Organizer
+                        </a>
+                    </li>
                 </ul>
                 <div class="card mb-4">
                     <h5 class="card-header">Profile Details</h5>

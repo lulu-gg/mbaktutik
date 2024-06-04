@@ -21,14 +21,12 @@
                             Security
                         </a>
                     </li>
-                    @if (\App\Helpers\RoleHelpers::isEventOrganizer())
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/dashboard/profile/organizer') }}">
-                                <i class='bx bx-podcast me-1'></i>
-                                Organizer
-                            </a>
-                        </li>
-                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/dashboard/profile/organizer') }}">
+                            <i class='bx bx-podcast me-1'></i>
+                            Organizer
+                        </a>
+                    </li>
                 </ul>
                 <!-- Change Password -->
                 <div class="card mb-4">

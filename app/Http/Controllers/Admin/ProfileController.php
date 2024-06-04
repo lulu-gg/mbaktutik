@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Helpers\CustomHelpers;
+use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\Organizer;
 use App\Models\User;
@@ -85,7 +86,7 @@ class ProfileController extends Controller
 
     public function organizer()
     {
-        $data = Organizer::where(['user_id' => Auth::user()->id])->firstOrFail();
+        $data = RoleHelpers::isAdmin() ? Organizer::where(['id' => Organizer::getInternalOrganizerId()])->firstOrFail() : Organizer::where(['user_id' => Auth::user()->id])->firstOrFail();
         return view('admin.profile.organizer', [
             'data' => $data,
         ]);
@@ -105,7 +106,7 @@ class ProfileController extends Controller
             'address' => 'required',
         ]);
 
-        $data = Organizer::where(['user_id' => Auth::user()->id])->firstOrFail();
+        $data = RoleHelpers::isAdmin() ? Organizer::where(['id' => Organizer::getInternalOrganizerId()])->firstOrFail() : Organizer::where(['user_id' => Auth::user()->id])->firstOrFail();
 
         if ($request->hasFile('logo')) {
             // Validate the input

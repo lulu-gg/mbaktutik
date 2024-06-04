@@ -18,14 +18,12 @@
                             Security
                         </a>
                     </li>
-                    @if (\App\Helpers\RoleHelpers::isEventOrganizer())
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/dashboard/profile/organizer') }}">
-                                <i class='bx bx-podcast me-1'></i>
-                                Organizer
-                            </a>
-                        </li>
-                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/dashboard/profile/organizer') }}">
+                            <i class='bx bx-podcast me-1'></i>
+                            Organizer
+                        </a>
+                    </li>
                 </ul>
                 <div class="card mb-4">
                     <h5 class="card-header">Profile Details</h5>
@@ -35,9 +33,8 @@
                         <form id="formAccountSettings" method="POST" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="d-flex align-items-start align-items-sm-center gap-4">
-                                    <img src="{{ $data->photo_path }}"
-                                        alt="user-avatar" class="d-block rounded" height="100" width="100"
-                                        id="uploadedAvatar" />
+                                    <img src="{{ $data->photo_path }}" alt="user-avatar" class="d-block rounded"
+                                        height="100" width="100" id="uploadedAvatar" />
                                     <div class="button-wrapper">
                                         <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                                             <span class="d-none d-sm-block">Upload new photo</span>

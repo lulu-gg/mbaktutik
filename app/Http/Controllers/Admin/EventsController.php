@@ -9,6 +9,7 @@ use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\Events;
 use App\Models\EventsCategory;
+use App\Models\Organizer;
 use App\Models\TicketVariation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $query = Events::with(['eventsCategory'])->withCount('ticketVariations');
+        $query = Events::with(['eventsCategory', 'organizer'])->withCount('ticketVariations');
 
         $data = RoleHelpers::isAdmin() ? $query->get() : $query->where(['event_organizer_id' => Auth::user()->organizer->id])->get();
 
@@ -64,7 +65,7 @@ class EventsController extends Controller
             ...$request->all(),
             'thumbnail' => $thumbnail,
             'banner' => $banner,
-            'event_organizer_id' => Auth::user()->organizer->id
+            'event_organizer_id' => RoleHelpers::isAdmin() ? Organizer::getInternalOrganizerId() : Auth::user()->organizer->id,
         ]);
 
         noty('Berhasil Simpan Data', 'info');
@@ -161,7 +162,7 @@ class EventsController extends Controller
     public function report(Events $event)
     {
         $data = $event->ticketVariations;
-        return view('admin.events.report',[
+        return view('admin.events.report', [
             'data' => $data
         ]);
     }
