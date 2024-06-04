@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="cs-author_card cs-white_bg cs-box_shadow">
-                            <div class="cs-author_img"><img src="{{ asset('frontend/assets/img/avatar/avatar_1.png') }}"
+                            <div class="cs-author_img"><img src="{{ $event->organizer->logo_path }}"
                                     alt=""></div>
                             <div class="cs-author_right">
                                 <h3>Event Organizer</h3>
@@ -240,7 +240,7 @@
                     </a>
                     <div class="cs-card_info">
                         <a href="#" class="cs-avatar cs-white_bg">
-                            <img src="{{ asset('frontend/assets/img/avatar/avatar_12.png') }}" alt="Avatar">
+                            <img src="{{ $item->organizer->logo_path }}" alt="Avatar">
                             <span>{{ $item->organizer->company_name }}</span>
                         </a>
                         <h3 class="cs-card_title">

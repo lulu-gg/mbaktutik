@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="cs-author_card cs-white_bg cs-box_shadow">
-                            <div class="cs-author_img"><img src="{{ asset('frontend/assets/img/avatar/avatar_1.png') }}"
+                            <div class="cs-author_img"><img src="{{ $event->organizer->logo_path }}"
                                     alt=""></div>
                             <div class="cs-author_right">
                                 <h3>Event Organizer</h3>

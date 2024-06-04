@@ -43,7 +43,7 @@
                                             <div class="cs-card_info">
 
                                                 <a href="#" class="cs-avatar cs-white_bg">
-                                                    <img src="{{ asset('frontend/assets/img/avatar/avatar_12.png') }}"
+                                                    <img src="{{ $item->organizer->logo_path }}"
                                                         alt="Avatar">
                                                     <span>{{ $item->organizer->company_name }}</span>
                                                 </a>
@@ -131,7 +131,7 @@
                                     <div class="cs-card_info">
 
                                         <a href="#" class="cs-avatar cs-white_bg">
-                                            <img src="{{ asset('frontend/assets/img/avatar/avatar_12.png') }}"
+                                            <img src="{{ $item->organizer->logo_path }}"
                                                 alt="Avatar">
                                             <span>{{ $item->organizer->company_name }}</span>
                                         </a>
@@ -194,7 +194,7 @@
                                     <div class="cs-card_info">
 
                                         <a href="#" class="cs-avatar cs-white_bg">
-                                            <img src="{{ asset('frontend/assets/img/avatar/avatar_12.png') }}"
+                                            <img src="{{ $item->organizer->logo_path }}"
                                                 alt="Avatar">
                                             <span>{{ $item->organizer->company_name }}</span>
                                         </a>
