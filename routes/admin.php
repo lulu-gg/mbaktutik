@@ -46,6 +46,8 @@ Route::group(['middleware' => 'admin.auth'], function () {
 
     // Events
     Route::prefix('/events/{event}/')->group(function () {
+        Route::get('/report', [EventsController::class, 'report']);
+
         Route::prefix('/ticket')->group(function () {
             Route::get('/create', [TicketVariationsController::class, 'create'])->middleware(OrganizerPermission::class);;
             Route::post('/', [TicketVariationsController::class, 'store'])->middleware(OrganizerPermission::class);;

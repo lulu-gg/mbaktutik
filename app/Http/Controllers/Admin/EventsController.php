@@ -9,6 +9,7 @@ use App\Helpers\RoleHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\Events;
 use App\Models\EventsCategory;
+use App\Models\TicketVariation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -96,7 +97,7 @@ class EventsController extends Controller
     public function edit(Events $event)
     {
         EventPermissionHelpers::isEventOwner($event);
-        
+
         $categorys = EventsCategory::all();
         $statuses = EventStatusEnum::asSelectArray();
         return view('admin.events.edit', [
@@ -145,7 +146,7 @@ class EventsController extends Controller
     public function destroy(Events $event)
     {
         EventPermissionHelpers::isEventOwner($event);
-        
+
         try {
             // File::delete(public_path(events::$FILE_PATH . $event->thumbnail));
             $event->delete();
@@ -155,5 +156,13 @@ class EventsController extends Controller
         }
 
         return redirect($this->HOME_URL);
+    }
+
+    public function report(Events $event)
+    {
+        $data = $event->ticketVariations;
+        return view('admin.events.report',[
+            'data' => $data
+        ]);
     }
 }

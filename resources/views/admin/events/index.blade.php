@@ -43,6 +43,9 @@
                                 <td>{{ \App\Enums\Events\EventStatusEnum::getKey($item->status) }}</td>
                                 <td>
                                     <form action="{{ url("$currentPath/$item->slug") }}" method="POST">
+                                        <a href="{{ url("$currentPath/$item->slug/report") }}" class="btn">
+                                            <i class='bx bxs-report'></i>
+                                        </a>
                                         <a href="{{ url("$currentPath/$item->slug/edit") }}" class="btn">
                                             <i class="bx bx-edit"></i>
                                         </a>

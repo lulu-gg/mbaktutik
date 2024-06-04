@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Orders\PaymentStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -54,5 +55,37 @@ class TicketVariation extends Model
     public function event()
     {
         return $this->belongsTo('App\Models\Event');
+    }
+
+    public function getTotalSoldAttribute()
+    {
+        $total = 0;
+        $orderDetail = OrdersDetail::where('ticket_variation_id', $this->id)->with('order')->get();
+        foreach ($orderDetail as $detail) {
+            if ($detail->order->payment_status == PaymentStatusEnum::Done) {
+                $total += $detail->quantity;
+            }
+        }
+
+        return $total;
+    }
+
+    public function getTotalAvailableAttribute()
+    {
+        $sold = $this->getTotalSoldAttribute();
+        return $this->quota - $sold;
+    }
+
+    public function getTotalSalesAttribute()
+    {
+        $total = 0;
+        $orderDetail = OrdersDetail::where('ticket_variation_id', $this->id)->with('order')->get();
+        foreach ($orderDetail as $detail) {
+            if ($detail->order->payment_status == PaymentStatusEnum::Done) {
+                $total += $detail->total;
+            }
+        }
+
+        return $total;
     }
 }
