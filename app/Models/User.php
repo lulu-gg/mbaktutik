@@ -28,6 +28,7 @@ class User extends Authenticatable
         'role_id',
         'account_status',
         'organizer_id',
+        'photo',
     ];
 
     /**
@@ -65,6 +66,8 @@ class User extends Authenticatable
         'password' => 'required|min:8|confirmed'
     ];
 
+    public static $FILE_PATH = 'uploads/users/';
+
     public function role()
     {
         return $this->belongsTo(Role::class, 'role_id');
@@ -89,5 +92,10 @@ class User extends Authenticatable
         if ($this->account_status == AccountStatusEnum::Active) {
             return '<span class="badge bg-danger">Disabled</span>';
         }
+    }
+
+    public function getPhotoPathAttribute()
+    {
+        return $this->photo ? url(self::$FILE_PATH . $this->photo) : asset('images/default-profile.png');
     }
 }

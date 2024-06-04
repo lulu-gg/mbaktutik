@@ -30,6 +30,16 @@ class ProfileController extends Controller
             'name' => $request->name,
         ]);
 
+        if ($request->hasFile('photo')) {
+            // Validate the input
+            $request->validate([
+                'photo' => ['required', 'image', 'mimes:jpeg,png', 'max:2048'],
+            ]);
+
+            $photo = CustomHelpers::simpleFileUpload(requestFile: $request->photo, path: User::$FILE_PATH);
+            $data->update(['photo' => $photo]);
+        }
+
         noty('Berhasil Simpan Data', 'info');
 
         return redirect('/dashboard/profile');

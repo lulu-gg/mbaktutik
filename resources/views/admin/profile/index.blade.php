@@ -32,7 +32,30 @@
                     <!-- Account -->
                     <div class="card-body">
                         <x-admin.alert-message />
-                        <form id="formAccountSettings" method="POST">
+                        <form id="formAccountSettings" method="POST" enctype="multipart/form-data">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start align-items-sm-center gap-4">
+                                    <img src="{{ $data->photo_path }}"
+                                        alt="user-avatar" class="d-block rounded" height="100" width="100"
+                                        id="uploadedAvatar" />
+                                    <div class="button-wrapper">
+                                        <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                            <span class="d-none d-sm-block">Upload new photo</span>
+                                            <i class="bx bx-upload d-block d-sm-none"></i>
+                                            <input type="file" id="upload" class="account-file-input" hidden
+                                                accept="image/png, image/jpeg" name="photo" />
+                                        </label>
+                                        <button type="button"
+                                            class="btn btn-outline-secondary account-image-reset mb-4">
+                                            <i class="bx bx-reset d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Reset</span>
+                                        </button>
+
+                                        <p class="text-muted mb-0">Allowed JPG or PNG. Max size of 2MB</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-0 mb-4" />
                             @csrf
                             <div class="row">
                                 <div class="mb-3 col-md-6">
@@ -62,4 +85,21 @@
             </div>
         </div>
     </div>
+
+    @push('page-script')
+        <script>
+            let e = document.getElementById("uploadedAvatar");
+            const l = document.querySelector(".account-file-input")
+            const c = document.querySelector(".account-image-reset");
+            if (e) {
+                const r = e.src;
+                (l.onchange = () => {
+                    l.files[0] && (e.src = window.URL.createObjectURL(l.files[0]));
+                }),
+                (c.onclick = () => {
+                    (l.value = ""), (e.src = r);
+                });
+            }
+        </script>
+    @endpush
 </x-admin.app-layout>
