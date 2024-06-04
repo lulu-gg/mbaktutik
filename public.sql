@@ -12,7 +12,7 @@
  Target Server Version : 160002 (160002)
  File Encoding         : 65001
 
- Date: 02/06/2024 05:58:35
+ Date: 05/06/2024 06:41:01
 */
 
 
@@ -316,11 +316,7 @@ INSERT INTO "public"."events" VALUES (2, 'Food Festival Extravaganza', 2, 'A cul
 food-festival-extravaganza', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Jakarta', 'Jakarta', '1124', '0', '0', NULL, 'food-festival-extravaganza');
 INSERT INTO "public"."events" VALUES (4, 'Art and Craft Fair', 2, 'A vibrant fair showcasing handmade arts and crafts from local artisans. Enjoy workshops, live demonstrations, and purchase unique items directly from the makers.', 'Surabaya Town Square', 'c3557db1-8934-418b-b8c5-1841b72830e22.png', '7ba40918-d600-4469-a02e-bb4c12b6a534.png', 1, 1, '2024-05-11 04:35:30', '2024-06-02 05:15:24', '2024-06-06 12:00:00', '2024-06-18 12:00:00', 'No refunds. Children under 12 must be accompanied by an adult. No outside food and drinks allowed.
 art-and-craft-fair', 'Discover beautiful handmade arts and crafts at our fair. Join workshops and meet talented local artisans.', 'Discover beautiful handmade arts and crafts at our fair. Join workshops and meet talented local artisans.', 'Jawa Timur', 'Surabaya', '1124', '0', '0', NULL, 'art-and-craft-fair');
-INSERT INTO "public"."events" VALUES (1, 'Rock Music Concert', 2, '
-Rock Music Concert
-1
-An electrifying rock music concert featuring famous bands from both local and international scenes. Expect high-energy performances, stunning light shows, and an unforgettable experience for all rock enthusiasts.', 'Gelora Bung Karno Stadium', 'c3557db1-8934-418b-b8c5-1841b72830e2.png', '7ba40918-d600-4469-a02e-bb4c12b6a53a.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-06-05 12:00:00', '2024-06-17 12:00:00', 'No refunds. Ticket resale is prohibited. Attendees must comply with all event guidelines.
-rock-music-concert', 'Join us for an unforgettable night of rock music with top bands from around the world. Secure your tickets now!', 'Join us for an unforgettable night of rock music with top bands from around the world. Secure your tickets now!', 'Jakarta', 'Jakarta', '1124', '0', '0', NULL, 'rock-music-concert');
+INSERT INTO "public"."events" VALUES (7, 'afa', 2, 'asgfsgs', 'asdfad', '82a151a1-0132-48bd-a675-b437c232f80f.png', 'd2f5a176-eac1-42a5-8692-532450ca5c13.png', 4, 1, '2024-06-05 06:11:58', '2024-06-05 06:12:09', '2024-06-05 12:00:00', '2024-06-06 12:00:00', '-', 'asdfa', 'asdfasf', '123', '123', 'afzv', '0', '0', '2024-06-05 06:12:09', 'afa');
 INSERT INTO "public"."events" VALUES (3, 'Tech Innovation Summit', 2, 'A summit bringing together industry leaders to discuss the latest trends in technology and innovation. Includes keynote speeches, panel discussions, and networking opportunities.
 Bali International Convention Centre', 'Bali International Convention Centre', 'c3557db1-8934-418b-b8c5-1841b72830e25.png', '7ba40918-d600-4469-a02e-bb4c12b6a536.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-06-05 12:00:00', '2024-06-17 12:00:00', 'All sales are final. No on-site registration allowed. Attendees must present ID at check-in.
 tech-innovation-summit
@@ -329,6 +325,12 @@ INSERT INTO "public"."events" VALUES (6, 'Food Festival Extravaganza', 2, 'A cul
 food-festival-extravaganza', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Experience a world of flavors at our Food Festival Extravaganza. Get your taste buds ready for a culinary adventure!', 'Jakarta', 'Jakarta', '1124', '0', '0', NULL, 'food-festival-extravaganza-2');
 INSERT INTO "public"."events" VALUES (5, 'Fitness and Wellness Expo', 2, 'An expo dedicated to health and fitness enthusiasts. Features fitness classes, wellness workshops, and products from leading brands in the health industry.', 'Bandung Convention Center', 'c3557db1-8934-418b-b8c5-1841b72830e21.png', '7ba40918-d600-4469-a02e-bb4c12b6a533.png', 1, 1, '2024-05-11 04:35:30', '2024-05-13 03:39:00', '2024-06-05 12:00:00', '2024-06-17 12:00:00', 'No refunds. Proper workout attire required for fitness classes. Follow all safety guidelines.
 fitness-and-wellness-expo', 'Enhance your fitness journey at our Wellness Expo. Participate in classes, workshops, and explore health products.', 'Enhance your fitness journey at our Wellness Expo. Participate in classes, workshops, and explore health products.', 'Jawa Timur', 'Surabaya', '1124', '0', '0', NULL, 'fitness-and-wellness-expo');
+INSERT INTO "public"."events" VALUES (1, 'Rock Music Concert', 2, '
+Rock Music Concert
+1
+An electrifying rock music concert featuring famous bands from both local and international scenes. Expect high-energy performances, stunning light shows, and an unforgettable experience for all rock enthusiasts.', 'Gelora Bung Karno Stadium', 'c3557db1-8934-418b-b8c5-1841b72830e2.png', '7ba40918-d600-4469-a02e-bb4c12b6a53a.png', 1, 1, '2024-05-11 04:35:30', '2024-06-04 03:56:14', '2024-06-05 12:00:00', '2024-06-17 12:00:00', 'No refunds. Ticket resale is prohibited. Attendees must comply with all event guidelines.
+rock-music-concert', 'Join us for an unforgettable night of rock music with top bands from around the world. Secure your tickets now!', 'Join us for an unforgettable night of rock music with top bands from around the world. Secure your tickets now!', 'Jakarta', 'Jakarta', '1124', '0', '0', NULL, 'rock-music-concert');
+INSERT INTO "public"."events" VALUES (8, 'test', 2, 'afasf', 'asdfas', '86507633-4da4-4bcc-b654-3b0343e1aeeb.png', '5b6f1235-d92c-4e3a-bc4e-939f6f8882ba.png', 4, 1, '2024-06-05 06:12:34', '2024-06-05 06:12:56', '2024-06-05 12:00:00', '2024-06-07 12:00:00', 'asdfas', 'asdf', 'asdf', 'asdfa', 'asdfa', 'asdfas', '0', '0', '2024-06-05 06:12:56', 'test');
 
 -- ----------------------------
 -- Table structure for events_category
@@ -347,7 +349,7 @@ CREATE TABLE "public"."events_category" (
 -- ----------------------------
 -- Records of events_category
 -- ----------------------------
-INSERT INTO "public"."events_category" VALUES (2, 'Music', 'Event music', '2024-05-04 22:16:45', '2024-05-12 02:18:19', NULL);
+INSERT INTO "public"."events_category" VALUES (2, 'Music', 'Event music', '2024-05-04 22:16:45', '2024-06-04 02:48:48', NULL);
 
 -- ----------------------------
 -- Table structure for events_scanner_job
@@ -528,6 +530,61 @@ Stack trace:
 #18 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(155): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #19 D:\Project\web\rive\artisan(37): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #20 {main}', '2024-05-31 05:01:22');
+INSERT INTO "public"."failed_jobs" VALUES (8, 'eb43d4f9-12da-4923-bd2a-823876ba32f9', 'database', 'default', '{"uuid":"eb43d4f9-12da-4923-bd2a-823876ba32f9","displayName":"App\\Jobs\\SendBroadcastMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendBroadcastMailJob","command":"O:29:\"App\\Jobs\\SendBroadcastMailJob\":3:{s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000receivers\";a:1:{i:0;s:26:\"willysantoso1997@gmail.com\";}s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000subject\";s:57:\"Pendaftaran Event Organizer di Rive Tidak Dapat Diterima!\";s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000message\";s:1151:\"<h1 style=\"margin-top:0;margin-bottom:16px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;\">\r\n    Selamat datang di Rive!<\/h1>\r\n<p style=\"margin:0;\">\r\n    Halo Willy Org,\r\n<\/p>\r\n<p>\r\n    Terima kasih telah mendaftar sebagai Event Organizer di <a href=\"http:\/\/rive.test\"\r\n        style=\"color:#213D6C;text-decoration:underline;\">Rive<\/a>. Kami dengan senang hati menginformasikan bahwa\r\n    pendaftaran Anda telah berhasil diterima oleh tim admin kami.\r\n<\/p>\r\n<br>\r\n<p>\r\n    Segera kunjungi dashboard anda untuk mulai membuat event anda\r\n    <br>\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/dashboard\"\r\n        style=\"background: #244379; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#244379\">\r\n        <span style=\"mso-text-raise:10pt;font-weight:bold;\">Kunjungi Dashboard<\/span>\r\n    <\/a>\r\n<\/p>\r\n<br>\r\n<p>\r\n    Jika tombol tidak dapat diklik, gunakan link berikut untuk mengunjungi dashboard\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/dashboard\" style=\"color:#213D6C;text-decoration:underline;\">http:\/\/rive.test\/dashboard<\/a>\r\n<\/p>\r\n\r\n\";}"}}', 'ErrorException: Trying to access array offset on value of type null in D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\Stream\AbstractStream.php:91
+Stack trace:
+#0 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\HandleExceptions.php(270): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, ''Trying to acces...'', ''D:\\Project\\web\\...'', 91)
+#1 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\Stream\AbstractStream.php(91): Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}(2, ''Trying to acces...'', ''D:\\Project\\web\\...'', 91)
+#2 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\SmtpTransport.php(346): Symfony\Component\Mailer\Transport\Smtp\Stream\AbstractStream->readLine()
+#3 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\SmtpTransport.php(196): Symfony\Component\Mailer\Transport\Smtp\SmtpTransport->getFullResponse()
+#4 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\EsmtpTransport.php(118): Symfony\Component\Mailer\Transport\Smtp\SmtpTransport->executeCommand(''NOOP\r\n'', Array)
+#5 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\SmtpTransport.php(316): Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport->executeCommand(''NOOP\r\n'', Array)
+#6 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\SmtpTransport.php(205): Symfony\Component\Mailer\Transport\Smtp\SmtpTransport->ping()
+#7 D:\Project\web\rive\vendor\symfony\mailer\Transport\AbstractTransport.php(69): Symfony\Component\Mailer\Transport\Smtp\SmtpTransport->doSend(Object(Symfony\Component\Mailer\SentMessage))
+#8 D:\Project\web\rive\vendor\symfony\mailer\Transport\Smtp\SmtpTransport.php(137): Symfony\Component\Mailer\Transport\AbstractTransport->send(Object(Symfony\Component\Mime\Email), Object(Symfony\Component\Mailer\DelayedEnvelope))
+#9 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(523): Symfony\Component\Mailer\Transport\Smtp\SmtpTransport->send(Object(Symfony\Component\Mime\Email), Object(Symfony\Component\Mailer\DelayedEnvelope))
+#10 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(287): Illuminate\Mail\Mailer->sendSymfonyMessage(Object(Symfony\Component\Mime\Email))
+#11 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailable.php(212): Illuminate\Mail\Mailer->send(''common.mail.bro...'', Array, Object(Closure))
+#12 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Support\Traits\Localizable.php(19): Illuminate\Mail\Mailable->Illuminate\Mail\{closure}()
+#13 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailable.php(213): Illuminate\Mail\Mailable->withLocale(NULL, Object(Closure))
+#14 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(309): Illuminate\Mail\Mailable->send(Object(Illuminate\Mail\Mailer))
+#15 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\Mailer.php(253): Illuminate\Mail\Mailer->sendMailable(Object(App\Mail\BroadcastMail))
+#16 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Mail\PendingMail.php(124): Illuminate\Mail\Mailer->send(Object(App\Mail\BroadcastMail))
+#17 D:\Project\web\rive\app\Jobs\SendBroadcastMailJob.php(44): Illuminate\Mail\PendingMail->send(Object(App\Mail\BroadcastMail))
+#18 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): App\Jobs\SendBroadcastMailJob->handle()
+#19 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#20 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
+#21 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(37): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
+#22 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Container.php(661): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
+#23 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(128): Illuminate\Container\Container->call(Array)
+#24 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(141): Illuminate\Bus\Dispatcher->Illuminate\Bus\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#25 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(116): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#26 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(132): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#27 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(124): Illuminate\Bus\Dispatcher->dispatchNow(Object(App\Jobs\SendBroadcastMailJob), false)
+#28 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(141): Illuminate\Queue\CallQueuedHandler->Illuminate\Queue\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#29 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(116): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(App\Jobs\SendBroadcastMailJob))
+#30 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(126): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#31 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(70): Illuminate\Queue\CallQueuedHandler->dispatchThroughMiddleware(Object(Illuminate\Queue\Jobs\DatabaseJob), Object(App\Jobs\SendBroadcastMailJob))
+#32 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Jobs\Job.php(98): Illuminate\Queue\CallQueuedHandler->call(Object(Illuminate\Queue\Jobs\DatabaseJob), Array)
+#33 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(425): Illuminate\Queue\Jobs\Job->fire()
+#34 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(375): Illuminate\Queue\Worker->process(''database'', Object(Illuminate\Queue\Jobs\DatabaseJob), Object(Illuminate\Queue\WorkerOptions))
+#35 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Worker.php(173): Illuminate\Queue\Worker->runJob(Object(Illuminate\Queue\Jobs\DatabaseJob), ''database'', Object(Illuminate\Queue\WorkerOptions))
+#36 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(148): Illuminate\Queue\Worker->daemon(''database'', ''default'', Object(Illuminate\Queue\WorkerOptions))
+#37 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php(131): Illuminate\Queue\Console\WorkCommand->runWorker(''database'', ''default'')
+#38 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): Illuminate\Queue\Console\WorkCommand->handle()
+#39 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#40 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
+#41 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(37): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
+#42 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Container\Container.php(661): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
+#43 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(183): Illuminate\Container\Container->call(Array)
+#44 D:\Project\web\rive\vendor\symfony\console\Command\Command.php(326): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#45 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Command.php(153): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#46 D:\Project\web\rive\vendor\symfony\console\Application.php(1078): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#47 D:\Project\web\rive\vendor\symfony\console\Application.php(324): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Queue\Console\WorkCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#48 D:\Project\web\rive\vendor\symfony\console\Application.php(175): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#49 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Console\Application.php(102): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#50 D:\Project\web\rive\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(155): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#51 D:\Project\web\rive\artisan(37): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#52 {main}', '2024-06-04 03:22:30');
 
 -- ----------------------------
 -- Table structure for general_parameter
@@ -579,6 +636,7 @@ CREATE TABLE "public"."invoices" (
 -- ----------------------------
 INSERT INTO "public"."invoices" VALUES (24, 32, '005/INV/RIVE/05/24', '2024-05-31 04:15:35', '2024-06-01 04:15:35', 0, '2024-05-31 04:15:37', '2024-05-31 04:15:39', 'https://app.sandbox.midtrans.com/snap/v4/redirection/00005706-d157-426d-952a-d0c328f64825', '00005706-d157-426d-952a-d0c328f64825', '512398ed-f7d2-455d-8e12-9d05bcc54124', 175000, 5250, 180250);
 INSERT INTO "public"."invoices" VALUES (25, 33, '001/INV/RIVE/06/24', '2024-06-02 05:22:44', '2024-06-03 05:22:44', 0, '2024-06-02 05:22:44', '2024-06-02 05:22:46', 'https://app.sandbox.midtrans.com/snap/v4/redirection/ab3a6ff6-157d-40a8-93c3-7becf41f7e96', 'ab3a6ff6-157d-40a8-93c3-7becf41f7e96', '6fd693dc-50ca-49da-bf43-75a99077d9bb', 175000, 5250, 180250);
+INSERT INTO "public"."invoices" VALUES (26, 34, '002/INV/RIVE/06/24', '2024-06-04 02:45:07', NULL, 1, '2024-06-04 02:45:08', '2024-06-04 02:45:08', NULL, NULL, '6d2d2c2f-17f4-4bdc-9ca9-c1d4b52fed0d', 0, 0, 0);
 INSERT INTO "public"."invoices" VALUES (20, 28, '001/INV/RIVE/05/24', '2024-05-23 03:40:07', '2024-05-24 03:40:07', 1, '2024-05-23 03:40:07', '2024-05-23 03:40:41', 'https://app.sandbox.midtrans.com/snap/v4/redirection/ddec1ec7-c314-447e-b2f9-ad7f132d3d47', 'ddec1ec7-c314-447e-b2f9-ad7f132d3d47', '3feaba5a-eab1-49d7-95fa-4a8cdf630238', 575000, 17250, 592250);
 INSERT INTO "public"."invoices" VALUES (21, 29, '002/INV/RIVE/05/24', '2024-05-27 20:13:55', '2024-05-28 20:13:55', 1, '2024-05-27 20:13:57', '2024-05-27 20:15:51', 'https://app.sandbox.midtrans.com/snap/v4/redirection/83f04ee9-b13f-487b-879b-deb06f7cce0a', '83f04ee9-b13f-487b-879b-deb06f7cce0a', 'af5793f1-413a-475d-ab5f-db656c880f17', 600000, 18000, 618000);
 INSERT INTO "public"."invoices" VALUES (22, 30, '003/INV/RIVE/05/24', '2024-05-27 20:24:16', '2024-05-28 20:24:16', 0, '2024-05-27 20:24:16', '2024-05-27 20:24:16', 'https://app.sandbox.midtrans.com/snap/v4/redirection/84d87aa2-e228-4305-a841-fb257cad43ce', '84d87aa2-e228-4305-a841-fb257cad43ce', '6abdd96b-8578-4a8b-8203-54ba35c1e5c9', 175000, 5250, 180250);
@@ -602,7 +660,6 @@ CREATE TABLE "public"."jobs" (
 -- ----------------------------
 -- Records of jobs
 -- ----------------------------
-INSERT INTO "public"."jobs" VALUES (33, 'default', '{"uuid":"ac7296d1-a920-4298-8602-681d234806a2","displayName":"App\\Jobs\\SendBroadcastMailJob","job":"Illuminate\\Queue\\CallQueuedHandler@call","maxTries":null,"maxExceptions":null,"failOnTimeout":false,"backoff":null,"timeout":null,"retryUntil":null,"data":{"commandName":"App\\Jobs\\SendBroadcastMailJob","command":"O:29:\"App\\Jobs\\SendBroadcastMailJob\":4:{s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000receivers\";a:1:{i:0;s:26:\"willysantoso1997@gmail.com\";}s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000subject\";s:27:\"Invoice #001\/INV\/RIVE\/06\/24\";s:38:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000message\";s:1378:\"<h1 style=\"margin-top:0;margin-bottom:16px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;\">\r\n    Invoice #001\/INV\/RIVE\/06\/24\r\n<\/h1>\r\n<p style=\"margin:0;\">\r\n    Halo test,\r\n<\/p>\r\n<p>\r\n    Segera selesaikan pembayaran ticket anda sejumlah <strong>Rp. 180.250<\/strong> untuk mendapatkan ticket\r\n    yang anda inginkan!\r\n<\/p>\r\n<p>Invoice Details:<\/p>\r\n<ul>\r\n    <li><strong>Event :<\/strong> Rock Music Concert<\/li>\r\n    <li><strong>Subtotal :<\/strong> Rp. 175.000 <\/li>\r\n    <li><strong>Fee :<\/strong> Rp. 5.250<\/li>\r\n    <li><strong>Total :<\/strong> Rp. 180.250<\/li>\r\n<\/ul>\r\n<p>\r\n    Klik tautan dibawah untuk melanjutkan pembayaran\r\n    <br>\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/6fd693dc-50ca-49da-bf43-75a99077d9bb\"\r\n        style=\"background: #244379; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#244379\">\r\n        <span style=\"mso-text-raise:10pt;font-weight:bold;\">Bayar Sekarang<\/span>\r\n    <\/a>\r\n<\/p>\r\n<br>\r\n<p>\r\n    Jika tombol tidak dapat diklik, gunakan link berikut untuk melanjutkan pembayaran\r\n    <br>\r\n    <a href=\"http:\/\/rive.test\/events\/payment\/6fd693dc-50ca-49da-bf43-75a99077d9bb\"\r\n        style=\"color:#213D6C;text-decoration:underline;\">http:\/\/rive.test\/events\/payment\/6fd693dc-50ca-49da-bf43-75a99077d9bb<\/a>\r\n<\/p>\r\n\r\n\";s:40:\"\u0000App\\Jobs\\SendBroadcastMailJob\u0000invoiceId\";i:25;}"}}', 0, NULL, 1717280567, 1717280567);
 
 -- ----------------------------
 -- Table structure for local_notification
@@ -698,6 +755,7 @@ INSERT INTO "public"."orders" VALUES (30, 1, NULL, NULL, NULL, NULL, 180250.00, 
 INSERT INTO "public"."orders" VALUES (31, 1, NULL, NULL, NULL, NULL, 566500.00, NULL, 1, NULL, NULL, '2024-05-30 04:22:20', '2024-05-30 04:34:00', '2024-05-30 04:34:00');
 INSERT INTO "public"."orders" VALUES (32, 1, NULL, NULL, NULL, NULL, 180250.00, NULL, 0, NULL, NULL, '2024-05-31 04:15:35', '2024-05-31 04:15:35', NULL);
 INSERT INTO "public"."orders" VALUES (33, 1, NULL, NULL, NULL, NULL, 180250.00, NULL, 0, NULL, NULL, '2024-06-02 05:22:44', '2024-06-02 05:22:44', NULL);
+INSERT INTO "public"."orders" VALUES (34, 5, NULL, NULL, NULL, NULL, 0.00, NULL, 1, NULL, NULL, '2024-06-04 02:45:07', '2024-06-04 02:45:07', NULL);
 
 -- ----------------------------
 -- Table structure for orders_detail
@@ -734,6 +792,7 @@ INSERT INTO "public"."orders_detail" VALUES (33, 4, 31, 'Presale 2', 175000.00, 
 INSERT INTO "public"."orders_detail" VALUES (34, 5, 31, 'Presale 3', 200000.00, '2024-05-30 04:22:20', '2024-05-30 04:22:20', 'Willy', '00000000000000000000000', 'willysantoso1997@gmail.com', '081249118805', 1, 200000.00, 200000.00, 'Jakarta');
 INSERT INTO "public"."orders_detail" VALUES (35, 4, 32, 'Presale 2', 175000.00, '2024-05-31 04:15:35', '2024-05-31 04:15:35', 'Fairuz', '12318273813918239123918', 'willysantoso1997@gmail.com', '081249118805', 1, 175000.00, 175000.00, 'Jakarta');
 INSERT INTO "public"."orders_detail" VALUES (36, 4, 33, 'Presale 2', 175000.00, '2024-06-02 05:22:44', '2024-06-02 05:22:44', 'test', '1238912893', 'willysantoso1997@gmail.com', '123127892381', 1, 175000.00, 175000.00, '10');
+INSERT INTO "public"."orders_detail" VALUES (37, 11, 34, 'Test Ticket', 0.00, '2024-06-04 02:45:07', '2024-06-04 02:45:07', 'Paijo', '1231312', 'willysantoso1997@gmail.com', '081239182391', 1, 0.00, 0.00, 'ciasdfjak');
 
 -- ----------------------------
 -- Table structure for organizers
@@ -756,16 +815,19 @@ CREATE TABLE "public"."organizers" (
   "zip" varchar(255) COLLATE "pg_catalog"."default",
   "address" varchar(255) COLLATE "pg_catalog"."default",
   "proposal" varchar(255) COLLATE "pg_catalog"."default",
-  "status" int8
+  "status" int8,
+  "is_internal" int2
 )
 ;
 
 -- ----------------------------
 -- Records of organizers
 -- ----------------------------
-INSERT INTO "public"."organizers" VALUES (3, 11, 'Test Organizer', 'test123@gmail.com', '0812381293821', NULL, '2024-05-27 20:45:51', '2024-05-27 20:47:53', 'Lorem Ipsum', '0282ddff-59bf-418d-8f30-013111b90444.png', 'test123', 'JKT', 'JKT', '12312', 'Lorem Ipsum', 'cc12bb92-3fe2-443a-95a5-039fe3eabbd0.pdf', 1);
-INSERT INTO "public"."organizers" VALUES (4, 12, 'Willy Org', 'willysantoso1997@gmail.com', '081249118805', NULL, '2024-05-30 04:36:58', '2024-05-30 04:37:47', '-', 'd042591a-847a-4b85-8b62-0343fbc25667.png', 'willysantoso', 'DKI Jakarta', 'Jakarta', '20234', '-', 'c9f2c960-9143-4b20-844f-b7ece3adfee9.pdf', 1);
-INSERT INTO "public"."organizers" VALUES (1, 5, 'Rive Corp', 'rive@gmail.com', '0812123123128491', 'https://asfjklasjl.com', '2024-05-11 04:32:15', '2024-06-02 04:30:54', 'Lorem Ipsum', '1049b1d2-79f0-4a56-8b54-88fed3de81f3.png', 'rive', 'DKI Jakarta', 'Jakarta Pusat', '99812', 'Lorem Ipsum todor', 'cb6b2391-c0f1-483e-9f54-84579b51ad17.pdf', 1);
+INSERT INTO "public"."organizers" VALUES (3, 11, 'Test Organizer', 'test123@gmail.com', '0812381293821', NULL, '2024-05-27 20:45:51', '2024-05-27 20:47:53', 'Lorem Ipsum', '0282ddff-59bf-418d-8f30-013111b90444.png', 'test123', 'JKT', 'JKT', '12312', 'Lorem Ipsum', 'cc12bb92-3fe2-443a-95a5-039fe3eabbd0.pdf', 1, NULL);
+INSERT INTO "public"."organizers" VALUES (4, 12, 'Rive Internals', 'admin@mail.com', '081249118805', NULL, '2024-05-30 04:36:58', '2024-06-05 06:15:11', '-', 'd042591a-847a-4b85-8b62-0343fbc25667.png', 'riveeo', 'DKI Jakarta', 'Jakarta', '20234', '-', 'c9f2c960-9143-4b20-844f-b7ece3adfee9.pdf', 1, 1);
+INSERT INTO "public"."organizers" VALUES (5, 10, 'Rive Corp', 'rive2@gmail.com', '0812123123128491', 'https://asfjklasjl.com', '2024-05-11 04:32:15', '2024-06-02 04:30:54', 'Lorem Ipsum', '1049b1d2-79f0-4a56-8b54-88fed3de81f3.png', 'rive', 'DKI Jakarta', 'Jakarta Pusat', '99812', 'Lorem Ipsum todor', 'cb6b2391-c0f1-483e-9f54-84579b51ad17.pdf', 1, NULL);
+INSERT INTO "public"."organizers" VALUES (1, 5, 'Rive Corp', 'rive@gmail.com', '0812123123128491', 'https://asfjklasjl.com', '2024-05-11 04:32:15', '2024-06-02 04:30:54', 'Lorem Ipsum', '1049b1d2-79f0-4a56-8b54-88fed3de81f3.png', 'rive', 'DKI Jakarta', 'Jakarta Pusat', '99812', 'Lorem Ipsum todor', 'cb6b2391-c0f1-483e-9f54-84579b51ad17.pdf', 1, NULL);
+INSERT INTO "public"."organizers" VALUES (6, 19, 'Test', 'willysantoso1997@gmail.com', '018239218319', NULL, '2024-06-04 03:41:47', '2024-06-04 03:41:47', '-', '3f6cb25f-4d8b-4acc-862e-effa6ba80973.png', 'test12345', 'JKT', 'JKT', '12321', 'JKT', '7280b6c3-1bd7-4876-ae4e-7696f2b15317.pdf', 0, NULL);
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -918,13 +980,14 @@ COMMENT ON COLUMN "public"."ticket_variations"."status" IS '0: deactive, 1: acti
 -- ----------------------------
 -- Records of ticket_variations
 -- ----------------------------
-INSERT INTO "public"."ticket_variations" VALUES (4, 1, 'Presale 2', 175000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
 INSERT INTO "public"."ticket_variations" VALUES (5, 1, 'Presale 3', 200000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
 INSERT INTO "public"."ticket_variations" VALUES (6, 1, 'Presale 4', 250000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
-INSERT INTO "public"."ticket_variations" VALUES (7, 2, 'Presale 1', 150000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
 INSERT INTO "public"."ticket_variations" VALUES (8, 2, 'Presale 2', 175000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
 INSERT INTO "public"."ticket_variations" VALUES (9, 2, 'Presale 3', 200000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
 INSERT INTO "public"."ticket_variations" VALUES (10, 2, 'Presale 4', 250000, 8, 3, '2024-05-13 01:23:04', '2024-05-13 01:23:04', 'Test', 1, NULL);
+INSERT INTO "public"."ticket_variations" VALUES (11, 5, 'Test Tickets', 0, 100, 10, '2024-06-04 02:42:11', '2024-06-04 02:47:09', '-', 1, NULL);
+INSERT INTO "public"."ticket_variations" VALUES (7, 2, 'Presale 1', 0, 8, 3, '2024-05-13 01:23:04', '2024-06-05 06:27:12', 'Test', 1, NULL);
+INSERT INTO "public"."ticket_variations" VALUES (4, 1, 'Presale 2', 175000, 0, 3, '2024-05-13 01:23:04', '2024-06-05 06:28:02', 'Test', 1, NULL);
 
 -- ----------------------------
 -- Table structure for tickets
@@ -959,6 +1022,7 @@ INSERT INTO "public"."tickets" VALUES (37, 33, 'TICKET-1717017740-9150', 'R5ArF4
 INSERT INTO "public"."tickets" VALUES (38, 34, 'TICKET-1717017740-3751', 'iWGGQivUUnF45zM3rfl72oNWmjpdY9kOoDNZo80I', 1, '2024-05-30 04:22:20', '2024-05-30 04:34:00', NULL, NULL, NULL);
 INSERT INTO "public"."tickets" VALUES (39, 35, 'TICKET-1717103735-2116', 'IxCDGdcKrezr7biojGs0wHDlVSVnlilV45k3Tghy', 0, '2024-05-31 04:15:35', '2024-05-31 04:15:35', NULL, NULL, NULL);
 INSERT INTO "public"."tickets" VALUES (40, 36, 'TICKET-1717280564-3871', 'YM5MdBnZ8fC8xeRMYS7Rp7b3qcxgQKYlnirTCkDF', 0, '2024-06-02 05:22:44', '2024-06-02 05:22:44', NULL, NULL, NULL);
+INSERT INTO "public"."tickets" VALUES (41, 37, 'TICKET-1717443907-2492', 'CLnCRaWv07HWifQBr8Jt9wHvTP5O3xLwJ7nCkOso', 1, '2024-06-04 02:45:07', '2024-06-04 02:45:07', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for users
@@ -980,20 +1044,25 @@ CREATE TABLE "public"."users" (
   "phone" varchar(255) COLLATE "pg_catalog"."default",
   "nik" varchar(255) COLLATE "pg_catalog"."default",
   "organizer_id" int8,
-  "deleted_at" timestamp(6)
+  "deleted_at" timestamp(6),
+  "photo" varchar(255) COLLATE "pg_catalog"."default"
 )
 ;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$ljJOE.GcEPSeThD1DhrNtuJliEJw0ZkVhSBRQ1nqR3Q7Sq10iEJzW', 'E0luo1juvFvhDiBWO0twVplC5tWd5fgk3TABzBQJewdtTw77cq7Nf3lEGWBW', '2024-05-04 22:16:12', '2024-06-02 04:39:35', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (9, 'Budi Scanner', 'budiscanner@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-13 02:14:25', '2024-06-02 03:38:40', 3, 1, 'LpQoWberRIOmsxbB9qp8lXNw5UWysh', NULL, NULL, NULL, 1, NULL);
-INSERT INTO "public"."users" VALUES (12, 'Willy Org', 'willysantoso1997@gmail.com', NULL, '$2y$10$gbACGkjhYMX2fRWzn8y5c.V8nSr1r4Dnv7dUpIgu0Curxf3ULSY7a', NULL, '2024-05-30 04:36:58', '2024-06-02 03:38:46', 2, 1, 'yANKGCIBmOHeFqidblw5PBT1LGSx1P', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (10, 'Rive Org 2', 'rive2@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-24 18:11:17', '2024-06-02 03:38:48', 2, 1, 'z4uTycyAkMDIzIchRNlvpuMkHrhInK', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (5, 'Rive Organizer', 'rive@gmail.com', NULL, '$2y$10$ljJOE.GcEPSeThD1DhrNtuJliEJw0ZkVhSBRQ1nqR3Q7Sq10iEJzW', 'NnVG8kFFEdabaJfpHIaDzGGjL5JdFi4sehbWSGoJtozqmVfBkm4X9aqGaKx7', '2024-05-11 04:32:15', '2024-06-05 05:53:59', 2, 1, '9msZdJP9Ba5EO2KH6aKvULiW0Uq24C', NULL, NULL, NULL, NULL, NULL, 'b03b0465-06d6-49a0-8ea7-ff1f3ed728c9.png');
+INSERT INTO "public"."users" VALUES (2, 'Punggawa Admin', 'admin@mail.com', NULL, '$2y$10$ljJOE.GcEPSeThD1DhrNtuJliEJw0ZkVhSBRQ1nqR3Q7Sq10iEJzW', 'jV7T9KGNLjWHUbuVbgq6fs5QM9JxI5fJKxphdoL5lQ7J6waDFJTdjblnwXyJ', '2024-05-04 22:16:12', '2024-06-04 03:09:54', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (10, 'Rive Org 2', 'rive2@gmail.com', NULL, '$2y$10$ljJOE.GcEPSeThD1DhrNtuJliEJw0ZkVhSBRQ1nqR3Q7Sq10iEJzW', NULL, '2024-05-24 18:11:17', '2024-06-02 03:38:48', 2, 1, 'z4uTycyAkMDIzIchRNlvpuMkHrhInK', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (13, 'test', 'test@mail.com', NULL, '$2y$10$E0ly7vpinhGg4H1a7uc1tuzYC2P/.faBb3NUq7CC.DCp05WKOxUvm', NULL, '2024-06-04 02:52:03', '2024-06-04 02:53:52', 1, 1, 'wBT9ybo4n0Fu0EEV5682sWOJ8S6RFq', NULL, NULL, NULL, NULL, '2024-06-04 02:53:52', NULL);
+INSERT INTO "public"."users" VALUES (14, 'testadmin', 'testadmin@mail.com', NULL, '$2y$10$KMsd9d6n67VupGU5KVoGy.sCTaVqg4Ppnzoc1tYadFXUGgVY3uegK', NULL, '2024-06-04 02:54:10', '2024-06-04 02:54:13', 1, 1, 'FdY2vs13Lz93spo3yFL7I4L05AVTFD', NULL, NULL, NULL, NULL, '2024-06-04 02:54:13', NULL);
+INSERT INTO "public"."users" VALUES (15, 'usertest', 'usertest@mail.com', NULL, '$2y$10$X.18I44RWTIlcGncmaPIE.xCJQm9NiDziQeKwB5623N2TgdcTtXla', NULL, '2024-06-04 02:55:01', '2024-06-04 02:55:05', 1, 1, 'YtFDnsznL2Oe7avTrHweeJFufh7kCD', NULL, NULL, NULL, NULL, '2024-06-04 02:55:05', NULL);
+INSERT INTO "public"."users" VALUES (12, 'Willy Org', 'swillysantoso1997@gmail.com', NULL, '$2y$10$gbACGkjhYMX2fRWzn8y5c.V8nSr1r4Dnv7dUpIgu0Curxf3ULSY7a', NULL, '2024-05-30 04:36:58', '2024-06-04 03:22:09', 2, 2, 'yANKGCIBmOHeFqidblw5PBT1LGSx1P', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (19, 'Test', 'willysantoso1997@gmail.com', NULL, '$2y$10$THgeoAFEoyOV1wDguxN32u4iDjv/.cZkFl79Hqacvn4MUXRJbl1ue', NULL, '2024-06-04 03:41:47', '2024-06-04 03:41:47', 2, 0, 'TmfFeqSJ1DQYqDyx3jCFPkkjarnuBQ', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO "public"."users" VALUES (9, 'Budi Scanner', 'budiscanner@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', NULL, '2024-05-13 02:14:25', '2024-06-02 03:38:40', 3, 1, 'LpQoWberRIOmsxbB9qp8lXNw5UWysh', NULL, NULL, NULL, 1, NULL, NULL);
 INSERT INTO "public"."users" VALUES (11, 'Test 123
-', 'test123@gmail.com', NULL, '$2y$10$A5h8d3js4j50voZwSEelouAhFsjM05b/Q2cMHm/w.f4MTuQVcEBqG', NULL, '2024-05-27 20:45:51', '2024-06-02 03:40:11', 2, 1, 'wznhXiRk42Iw5YAfTcv81efq0FHovt', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO "public"."users" VALUES (5, 'Rive Organizer', 'rive@gmail.com', NULL, '$2y$10$qxxu6GvvKJyeyk4gibMIJevZF5zeFSXLabakn5LUwOb/Qvkks8VJK', 'nAVgndISB1qElUcbgQOSIhiSdzrU22EsadReLARhgyGvZQEklt2dSDfhaFR6', '2024-05-11 04:32:15', '2024-06-02 03:38:38', 2, 1, '9msZdJP9Ba5EO2KH6aKvULiW0Uq24C', NULL, NULL, NULL, NULL, NULL);
+', 'test123@gmail.com', NULL, '$2y$10$A5h8d3js4j50voZwSEelouAhFsjM05b/Q2cMHm/w.f4MTuQVcEBqG', NULL, '2024-05-27 20:45:51', '2024-06-02 03:40:11', 2, 1, 'wznhXiRk42Iw5YAfTcv81efq0FHovt', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for withdrawl
@@ -1032,7 +1101,7 @@ SELECT setval('"public"."contact_us_id_seq"', 1, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."event_variations_id_seq"
 OWNED BY "public"."ticket_variations"."id";
-SELECT setval('"public"."event_variations_id_seq"', 10, true);
+SELECT setval('"public"."event_variations_id_seq"', 11, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -1046,7 +1115,7 @@ SELECT setval('"public"."events_category_id_seq"', 4, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."events_id_seq"
 OWNED BY "public"."events"."id";
-SELECT setval('"public"."events_id_seq"', 5, true);
+SELECT setval('"public"."events_id_seq"', 8, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -1060,7 +1129,7 @@ SELECT setval('"public"."events_scanner_job_id_seq"', 3, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."failed_jobs_id_seq"
 OWNED BY "public"."failed_jobs"."id";
-SELECT setval('"public"."failed_jobs_id_seq"', 7, true);
+SELECT setval('"public"."failed_jobs_id_seq"', 40, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -1074,14 +1143,14 @@ SELECT setval('"public"."genreal_parameter_id_seq"', 1, false);
 -- ----------------------------
 ALTER SEQUENCE "public"."invoices_id_seq"
 OWNED BY "public"."invoices"."id";
-SELECT setval('"public"."invoices_id_seq"', 25, true);
+SELECT setval('"public"."invoices_id_seq"', 26, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."jobs_id_seq"
 OWNED BY "public"."jobs"."id";
-SELECT setval('"public"."jobs_id_seq"', 33, true);
+SELECT setval('"public"."jobs_id_seq"', 68, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -1102,21 +1171,21 @@ SELECT setval('"public"."migrations_id_seq"', 93, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."orders2_id_seq"
 OWNED BY "public"."orders_detail"."id";
-SELECT setval('"public"."orders2_id_seq"', 36, true);
+SELECT setval('"public"."orders2_id_seq"', 37, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."orders_id_seq"
 OWNED BY "public"."orders"."id";
-SELECT setval('"public"."orders_id_seq"', 33, true);
+SELECT setval('"public"."orders_id_seq"', 34, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."organizers_id_seq"
 OWNED BY "public"."organizers"."id";
-SELECT setval('"public"."organizers_id_seq"', 4, true);
+SELECT setval('"public"."organizers_id_seq"', 6, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -1158,14 +1227,14 @@ SELECT setval('"public"."thumbnails_id_seq"', 1, false);
 -- ----------------------------
 ALTER SEQUENCE "public"."tickets_id_seq"
 OWNED BY "public"."tickets"."id";
-SELECT setval('"public"."tickets_id_seq"', 40, true);
+SELECT setval('"public"."tickets_id_seq"', 41, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."users_id_seq"
 OWNED BY "public"."users"."id";
-SELECT setval('"public"."users_id_seq"', 12, true);
+SELECT setval('"public"."users_id_seq"', 20, true);
 
 -- ----------------------------
 -- Alter sequences owned by
