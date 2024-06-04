@@ -88,8 +88,17 @@ class EventsController extends Controller
             return abort(404);
         }
 
+        $ticketVariationsAvailable = [];
+        $ticketVariations = TicketVariation::where('event_id', $event->id)->where(['status' => 1])->orderBy('id', "ASC")->get();
+        foreach ($ticketVariations as $ticket) {
+            if ($ticket->total_available > 0) {
+                $ticketVariationsAvailable[] = $ticket;
+            }
+        }
+
         return view('frontend.events.purchase', [
             'event' => $event,
+            'ticketVariationsAvailable' => $ticketVariationsAvailable,
         ]);
     }
 
@@ -143,6 +152,11 @@ class EventsController extends Controller
             $ticket = TicketVariation::where(['id' => $item])->first();
             if ($ticket->status != 1) {
                 return back()->withErrors(['name' => "$ticket->name was unavailable at this moment"]);
+            }
+
+            // validate ticket availablity
+            if ($ticket->total_available <= 0) {
+                return back()->withErrors(['name' => "$ticket->name was sold out"]);
             }
 
             // validate max user purchase

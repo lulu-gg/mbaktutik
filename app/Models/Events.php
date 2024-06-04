@@ -155,15 +155,6 @@ class Events extends Model
     {
         return $this->hasMany('App\Models\TicketVariation', 'event_id', 'id')->orderBy('id', "ASC");
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function ticketVariationsAvailable()
-    {
-        return $this->hasMany('App\Models\TicketVariation', 'event_id', 'id')->where(['status' => 1])->orderBy('id', "ASC");
-    }
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

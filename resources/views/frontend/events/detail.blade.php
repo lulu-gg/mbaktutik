@@ -43,8 +43,7 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="cs-author_card cs-white_bg cs-box_shadow">
-                            <div class="cs-author_img"><img src="{{ $event->organizer->logo_path }}"
-                                    alt=""></div>
+                            <div class="cs-author_img"><img src="{{ $event->organizer->logo_path }}" alt=""></div>
                             <div class="cs-author_right">
                                 <h3>Event Organizer</h3>
                                 <p>{{ $event->organizer->company_name }}</p>
@@ -124,12 +123,16 @@
                                                             {{ $ticket->name }}
                                                         </p>
                                                         <p class="cs-activity_posted_by">
-                                                            @if ($ticket->status == 0)
-                                                                Not Available
-                                                            @endif
+                                                            @if ($ticket->total_available > 0)
+                                                                @if ($ticket->status == 0)
+                                                                    Not Available
+                                                                @endif
 
-                                                            @if ($ticket->status == 1)
-                                                                Available
+                                                                @if ($ticket->status == 1)
+                                                                    Available
+                                                                @endif
+                                                            @else
+                                                            Sold Out
                                                             @endif
                                                         </p>
                                                     </div>

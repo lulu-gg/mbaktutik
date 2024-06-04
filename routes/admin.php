@@ -49,20 +49,20 @@ Route::group(['middleware' => 'admin.auth'], function () {
         Route::get('/report', [EventsController::class, 'report']);
 
         Route::prefix('/ticket')->group(function () {
-            Route::get('/create', [TicketVariationsController::class, 'create'])->middleware(OrganizerPermission::class);;
-            Route::post('/', [TicketVariationsController::class, 'store'])->middleware(OrganizerPermission::class);;
+            Route::get('/create', [TicketVariationsController::class, 'create']);
+            Route::post('/', [TicketVariationsController::class, 'store']);
 
-            Route::get('/{ticket}/edit', [TicketVariationsController::class, 'edit'])->middleware(OrganizerPermission::class);;
-            Route::patch('/{ticket}', [TicketVariationsController::class, 'update'])->middleware(OrganizerPermission::class);;
+            Route::get('/{ticket}/edit', [TicketVariationsController::class, 'edit']);
+            Route::patch('/{ticket}', [TicketVariationsController::class, 'update']);
 
-            Route::delete('/{ticket}', [TicketVariationsController::class, 'destroy'])->middleware(OrganizerPermission::class);;
+            Route::delete('/{ticket}', [TicketVariationsController::class, 'destroy']);
         });
 
         Route::prefix('scanner')->group(function () {
-            Route::get('/create', [EventScannerJobController::class, 'create'])->middleware(OrganizerPermission::class);;
-            Route::post('/', [EventScannerJobController::class, 'store'])->middleware(OrganizerPermission::class);;
+            Route::get('/create', [EventScannerJobController::class, 'create']);
+            Route::post('/', [EventScannerJobController::class, 'store']);
 
-            Route::delete('/{scanner}', [EventScannerJobController::class, 'destroy'])->middleware(OrganizerPermission::class);;
+            Route::delete('/{scanner}', [EventScannerJobController::class, 'destroy']);
         });
     });
 
