@@ -55,7 +55,7 @@ class ScannerOfficerController extends Controller
             'verify_token' => Str::random(30),
             'role_id' => RoleHelpers::$SCAN_OFFICER,
             'account_status' => 1,
-            'organizer_id' => Auth::user()->organizer->id,
+            'organizer_id' => RoleHelpers::isAdmin() ? Organizer::getInternalOrganizerId() : Auth::user()->organizer->id,
         ]);
 
         noty("Berhasil membuat scan officer", 'info');
