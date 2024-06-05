@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="cs-main_header_in">
                 <div class="cs-main_header_left">
-                    {{-- <a class="cs-site_branding" href="/"><img src="{{ asset('frontend/assets/img/logo.svg') }}" alt="Logo"></a> --}}
+                    <a class="cs-site_branding" href="/"><img src="{{ asset('images/logo-white.png') }}" alt="Logo" style="height: 25px !important"></a>
                 </div>
                 <div class="cs-main_header_right">
                     {{-- <div class="cs-search_wrap">
