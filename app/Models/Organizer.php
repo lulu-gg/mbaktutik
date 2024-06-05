@@ -56,7 +56,7 @@ class Organizer extends Model
         'company_name' => 'required',
         'about_us' => 'required',
         'username' => 'required|unique:organizers',
-        'email' => 'required|email|unique:users|unique:organizers',
+        'email' => 'required|email|unique:users',
         'phone' => 'required',
         'province' => 'required',
         'city' => 'required',
