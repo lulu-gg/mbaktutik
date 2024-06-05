@@ -54,7 +54,7 @@
                         <tr>
                             <td style="padding:50px 30px 40px 30px;text-align:center;font-size:24px;font-weight:bold;">
                                 <a href="{{ url('/') }}" style="text-decoration:none;"><img
-                                        src="{{ asset('/images/logo-black.png') }}" width="350"
+                                        src="https://mbaktutik.com/images/logo-black.png" width="350"
                                         alt="Logo"
                                         style="width:350px;max-width:80%;height:auto;border:none;text-decoration:none;color:#ffffff;"></a>
                             </td>
