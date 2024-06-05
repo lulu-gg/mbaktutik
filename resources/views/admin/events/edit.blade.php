@@ -2,7 +2,7 @@
 
     @php
         $currentName = 'Events';
-        $currentPath = "dashboard/events/";
+        $currentPath = 'dashboard/events/';
     @endphp
 
     <div class="row">
@@ -15,7 +15,8 @@
             </h4>
         </div>
     </div>
-    <form action="{{ url($currentPath . $data->slug) }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
+    <form action="{{ url($currentPath . $data->slug) }}" method="POST" enctype="multipart/form-data"
+        data-parsley-validate>
         <div class="card mb-4">
             <h5 class="card-header d-flex justify-content-between align-items-center">
                 Banner & Thumbnail
@@ -28,7 +29,8 @@
                     <x-admin.form-image-upload label="Upload Banner" name="banner" value="{{ $data->banner_path }}" />
                 </div>
                 <div class="mb-3">
-                    <x-admin.form-image-upload label="Upload Thumbnail" name="thumbnail" value="{{ $data->thumbnail_path }}" />
+                    <x-admin.form-image-upload label="Upload Thumbnail" name="thumbnail"
+                        value="{{ $data->thumbnail_path }}" />
                 </div>
             </div>
         </div>
@@ -43,21 +45,25 @@
                 </div>
                 <div class="row">
                     <div class="mb-3 col">
-                        <x-admin.form-select label="Category" name="event_category_id" :options=$categorys value="{{ $data->event_category_id}}" />
+                        <x-admin.form-select label="Category" name="event_category_id" :options=$categorys
+                            value="{{ $data->event_category_id }}" />
                     </div>
                     <div class="mb-3 col">
-                        <x-admin.form-select label="Status" name="status" :options=$statuses isSelectArray=true value="{{ $data->status}}" />
+                        <x-admin.form-select label="Status" name="status" :options=$statuses isSelectArray=true
+                            value="{{ $data->status }}" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <div class="mb-3">
-                            <x-admin.form-flatpickr label="Start Date" name="start_date" withTime=true value="{{ $data->start_date }}" />
+                            <x-admin.form-flatpickr label="Start Date" name="start_date" withTime=true
+                                value="{{ $data->start_date }}" />
                         </div>
                     </div>
                     <div class="col">
                         <div class="mb-3">
-                            <x-admin.form-flatpickr label="End Date" name="end_date" withTime=true value="{{ $data->end_date }}" />
+                            <x-admin.form-flatpickr label="End Date" name="end_date" withTime=true
+                                value="{{ $data->end_date }}" />
                         </div>
                     </div>
                 </div>
@@ -91,10 +97,12 @@
                 </div>
                 <div class="row">
                     <div class="col mb-3">
-                        <x-admin.form-input label="Latitude" name="latitude" value="{{ $data->latitude }}" type="number" />
+                        <x-admin.form-input label="Latitude" name="latitude" value="{{ $data->latitude }}"
+                            type="number" step="any" />
                     </div>
                     <div class="col mb-3">
-                        <x-admin.form-input label="Longitude" name="longitude" value="{{ $data->longitude }}" type="number" />
+                        <x-admin.form-input label="Longitude" name="longitude" value="{{ $data->longitude }}"
+                            type="number" step="any" />
                     </div>
                 </div>
             </div>
@@ -109,7 +117,8 @@
                     <x-admin.form-input label="SEO" name="seo" value="{{ $data->seo }}" />
                 </div>
                 <div class="mb-3">
-                    <x-admin.form-textarea label="SEO Description" name="seo_description" value="{{ $data->seo_description }}" />
+                    <x-admin.form-textarea label="SEO Description" name="seo_description"
+                        value="{{ $data->seo_description }}" />
                 </div>
             </div>
         </div>

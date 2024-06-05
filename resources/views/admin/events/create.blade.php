@@ -90,10 +90,10 @@
                 </div>
                 <div class="row">
                     <div class="col mb-3">
-                        <x-admin.form-input label="Latitude" name="latitude" type="number" />
+                        <x-admin.form-input label="Latitude" name="latitude" type="number" step="any" />
                     </div>
                     <div class="col mb-3">
-                        <x-admin.form-input label="Longitude" name="longitude" type="number" />
+                        <x-admin.form-input label="Longitude" name="longitude" type="number" step="any" />
                     </div>
                 </div>
             </div>
