@@ -21,7 +21,7 @@
                 <div class="cs-height_0 cs-height_lg_40"></div>
                 <div class="cs-single_product_head">
                     <h2>{{ $event->name }}</h2>
-                    {!! $event->status_time_span !!}Going
+                    {!! $event->status_time_span !!}
                 </div>
                 <div class="cs-height_25 cs-height_lg_25"></div>
                 <div class="row">

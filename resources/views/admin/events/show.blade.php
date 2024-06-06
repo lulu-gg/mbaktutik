@@ -190,6 +190,7 @@
                                     <th>Name</th>
                                     <th class="col-1">Price</th>
                                     <th class="col-1">Quota</th>
+                                    <th class="col-1">Available</th>
                                     <th class="col-1">Max Purchase</th>
                                     <th>Status</th>
                                     <th class="col-3">Desc</th>
@@ -203,6 +204,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td>@format_currency($item->price)</td>
                                         <td>{{ $item->quota }}</td>
+                                        <td>{{ $item->total_available }}</td>
                                         <td>{{ $item->max_user_purchase }}</td>
                                         <td>{{ \App\Enums\Events\EventStatusEnum::getKey($item->status) }}</td>
                                         <td>{{ $item->description }}</td>
