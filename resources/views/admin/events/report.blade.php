@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @if (count($data) > 1)
+                        @if (count($data) >= 1)
                             @foreach ($data as $item)
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration }}</td>
