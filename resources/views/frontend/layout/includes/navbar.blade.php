@@ -62,7 +62,7 @@
                             </div> --}}
 
                             @if (\App\Helpers\RoleHelpers::isScanOfficer())
-                                <div class="cs-toggle_box cs-profile_box">
+                                {{-- <div class="cs-toggle_box cs-profile_box">
                                     <div class="cs-toggle_btn cs-header_icon_btn cs-center">
                                         <a href="{{ url('account') }}">
                                             <svg width="19" height="18" viewBox="0 0 19 18" fill="none"
@@ -78,7 +78,7 @@
                                             </svg>
                                         </a>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <a href="javascript:document.getElementById('signout-form').submit();"
                                     class="cs-btn cs-style1"><span>Logout</span></a>
                                 <div>
