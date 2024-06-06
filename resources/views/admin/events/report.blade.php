@@ -21,11 +21,11 @@
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th>Ticket</th>
-                            <th>Price</th>
-                            <th>Available</th>
-                            <th>Sold</th>
-                            <th>Sales</th>
+                            <th>Ticket Variation</th>
+                            <th>Ticket Price</th>
+                            <th>Ticket Available</th>
+                            <th>Ticket Sales</th>
+                            <th>Total Ticket Sales</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
