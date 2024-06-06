@@ -1,6 +1,32 @@
 @extends('frontend.layout.main')
 @section('title', 'Events Detail')
 @section('content')
+    <style>
+        .container-event {
+            width: 100%;
+            overflow: hidden;
+            /* Ensures no scrollbars if image overflows */
+        }
+
+        .banner-event {
+            width: 100%;
+            height: 400px;
+            /* Set the desired height for the banner */
+            position: relative;
+            /* Needed for absolute positioning of the image */
+        }
+
+        .banner-event img {
+            width: 100%;
+            height: auto;
+            /* Maintains aspect ratio */
+            position: absolute;
+            top: 0;
+            /* Positions the image at the top of the container */
+            left: 0;
+        }
+    </style>
+
     <div class="cs-height_90 cs-height_lg_80"></div>
     <section class="cs-page_head cs-bg" data-src="{{ asset('frontend/assets/img/page_head_bg.svg') }}">
         <div class="container">
@@ -15,22 +41,18 @@
     </section>
     <div class="cs-height_100 cs-height_lg_70"></div>
     <div class="container">
+        <div class="container-event">
+            <div class="banner-event">
+                <img src="{{ $event->banner_path }}" alt="Banner">
+            </div>
+        </div>
+    </div>
+    <div class="cs-height_75 cs-height_lg_50"></div>
+    <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <div class="slider-for">
-                    <div class="slider-item">
-                        <div class="cs-slider_thumb_lg">
-                            <img src="{{ $event->thumbnail_path }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="cs-height_25 cs-height_lg_25"></div>
-                <div class="slider-nav">
-                    <div class="slider-item">
-                        <div class="cs-slider_thumb_sm">
-                            <img src="{{ $event->thumbnail_path }}" alt="">
-                        </div>
-                    </div>
+                <div class="cs-slider_thumb_lg">
+                    <img src="{{ $event->thumbnail_path }}" alt="">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -132,7 +154,7 @@
                                                                     Available
                                                                 @endif
                                                             @else
-                                                            Sold Out
+                                                                Sold Out
                                                             @endif
                                                         </p>
                                                     </div>
