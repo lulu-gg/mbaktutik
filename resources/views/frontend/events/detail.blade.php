@@ -1,5 +1,7 @@
 @extends('frontend.layout.main')
 @section('title', 'Events Detail')
+@section('seo', $event->seo)
+@section('seo_description', $event->seo_description)
 @section('content')
     <style>
         .container-event {

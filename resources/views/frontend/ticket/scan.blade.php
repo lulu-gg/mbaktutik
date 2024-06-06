@@ -1,5 +1,5 @@
 @extends('frontend.layout.main')
-@section('title', 'Events Detail')
+@section('title', 'Scan Ticket')
 @section('content')
     <div class="cs-height_90 cs-height_lg_80"></div>
     <section class="cs-page_head cs-bg" data-src="{{ asset('frontend/assets/img/page_head_bg.svg') }}">

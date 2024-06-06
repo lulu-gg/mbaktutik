@@ -7,11 +7,19 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    
+@php 
+    $gp = App\Models\GeneralParamter::first();
+@endphp
 
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="keyword" content="@yield('seo', $gp->seo_keyword)">
+    <meta name="description" content="@yield('seo_description', $gp->seo_description)">
+
 
     @if (env('ENABLE_GOOGLE_ANALYTICS', false))
         <!-- -->
@@ -21,7 +29,10 @@
 
     @include('frontend.layout.includes.custom-css')
 
-    <title>Rive</title>
+    @if (View::hasSection('title'))
+        <title>Rive - @yield('title')</title>
+    @endif
+
 </head>
 
 <body class="cs-dark">
