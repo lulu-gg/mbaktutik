@@ -43,7 +43,7 @@ class AuthController extends Controller
             // Check if the user is a Scan Officer
             if (RoleHelpers::isScanOfficer()) {
                 $request->session()->regenerate();
-                return redirect()->intended('/');
+                return redirect()->intended('/?welcome');
             } else {
                 // Log out if not a Scan Officer
                 Auth::logout();

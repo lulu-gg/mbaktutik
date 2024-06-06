@@ -43,8 +43,7 @@
                                             <div class="cs-card_info">
 
                                                 <a href="#" class="cs-avatar cs-white_bg">
-                                                    <img src="{{ $item->organizer->logo_path }}"
-                                                        alt="Avatar">
+                                                    <img src="{{ $item->organizer->logo_path }}" alt="Avatar">
                                                     <span>{{ $item->organizer->company_name }}</span>
                                                 </a>
                                                 <div class="cs-height_10 cs-height_lg_10"></div>
@@ -131,8 +130,7 @@
                                     <div class="cs-card_info">
 
                                         <a href="#" class="cs-avatar cs-white_bg">
-                                            <img src="{{ $item->organizer->logo_path }}"
-                                                alt="Avatar">
+                                            <img src="{{ $item->organizer->logo_path }}" alt="Avatar">
                                             <span>{{ $item->organizer->company_name }}</span>
                                         </a>
                                         <div class="cs-height_10 cs-height_lg_10"></div>
@@ -194,8 +192,7 @@
                                     <div class="cs-card_info">
 
                                         <a href="#" class="cs-avatar cs-white_bg">
-                                            <img src="{{ $item->organizer->logo_path }}"
-                                                alt="Avatar">
+                                            <img src="{{ $item->organizer->logo_path }}" alt="Avatar">
                                             <span>{{ $item->organizer->company_name }}</span>
                                         </a>
                                         <div class="cs-height_10 cs-height_lg_10"></div>
@@ -357,4 +354,17 @@
             })
         </script>
     @endpush
+
+    @if (Request::has('welcome') && \App\Helpers\RoleHelpers::isScanOfficer())
+        @push('page-script')
+            <script>
+                $(function() {
+                    Swal.fire({
+                        title: "Selamat Datang",
+                        text: "Anda dapat melakukan scanning tiket yang ditunjukkan oleh customer. Buka aplikasi QRCode Scanner anda untuk melakukan scan tiket.",
+                    });
+                })
+            </script>
+        @endpush
+    @endif
 @endsection

@@ -6,4 +6,8 @@
     .slick-track {
         margin-left: 0;
     }
+
+    .swal2-title {
+        color: black!important;
+    }
 </style>
