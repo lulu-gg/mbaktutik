@@ -38,7 +38,7 @@
                                             </span>
                                             <a href="{{ url('/events/detail/' . $item->slug) }}"
                                                 class="cs-card_thumb cs-zoom_effect">
-                                                <img src="{{ $item->thumbnail_path }}" alt="Image" class="cs-zoom_item">
+                                                <img src="{{ $item->banner_path }}" alt="Image" class="cs-zoom_item">
                                             </a>
                                             <div class="cs-card_info">
 
