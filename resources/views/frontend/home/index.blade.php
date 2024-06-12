@@ -1,5 +1,5 @@
 @extends('frontend.layout.main')
-@section('title', 'Rive Ticketing')
+@section('title', 'Ticket')
 @section('content')
     <style>
         .slick-slide {
@@ -13,9 +13,9 @@
             <div class="cs-hero_in">
                 <div class="cs-hero_in_left">
                     <div class="cs-hero_text">
-                        <h1 class="cs-hero_title cs-white_color">Unleash Your Next Adventure with Rive Ticket!</h1>
+                        <h1 class="cs-hero_title cs-white_color">Unleash Your Next Adventure with Mbak Tutik!</h1>
                         <div class="cs-hero_subtitle cs-medium cs-white_color">Tired of missing out on unforgettable
-                            experiences? Rive Ticket is your gateway to epic events! Visit Rive Ticket today and transform
+                            experiences? Mbak Tutik Ticket is your gateway to epic events! Visit Mbak Tutik Ticket today and transform
                             your bucket list into reality!</div>
                         <div class="cs-hero_btns">
                             <a href="{{ url('/events') }}" class="cs-hero_btn cs-style1 cs-color3"><span>Explore</span></a>

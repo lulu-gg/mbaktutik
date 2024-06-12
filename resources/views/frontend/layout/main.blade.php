@@ -1,10 +1,3 @@
-<!--
-
-    Development By
-    Fairuz Minan - Punggawa Indonesia
-
--->
-
 <!DOCTYPE html>
 <html lang="en">
     
@@ -30,7 +23,7 @@
     @include('frontend.layout.includes.custom-css')
 
     @if (View::hasSection('title'))
-        <title>Rive - @yield('title')</title>
+        <title>Mbak Tutik - @yield('title')</title>
     @endif
 
 </head>
