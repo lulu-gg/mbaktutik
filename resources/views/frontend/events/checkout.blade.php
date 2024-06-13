@@ -32,8 +32,10 @@
                                 <div class="col-9">@format_currency($subtotal)</div>
                                 <div class="col-3 mb-3">Service Fee</div>
                                 <div class="col-9">@format_currency($serviceFee)</div>
+                                <div class="col-3 mb-3">Handling Fee</div>
+                                <div class="col-9">@format_currency($handlingFee)</div>
                                 <div class="col-3 mb-3">Total</div>
-                                <div class="col-9">@format_currency($serviceFee + $subtotal)</div>
+                                <div class="col-9">@format_currency($serviceFee + $handlingFee + $subtotal)</div>
                             </div>
                         </div>
                     </div>
@@ -50,6 +52,13 @@
                 <div class="cs-height_0 cs-height_lg_40"></div>
                 <div class="cs-single_product_head">
                     <h2>Personal Information</h2>
+                    <div class="mt-4 text-center">
+                        <div class="mt-2 ml-2">
+                                <div class="cs-activity cs-white_bg billing-info mb-4">
+                        <p><strong>Note:</strong> Your e-ticket will be sent to your email. Check your email carefully.</p>
+                                </div>
+                        </div>
+                    </div>
                     <div class="mt-2 ml-2">
                         @foreach ($formData as $item)
                             <div class="cs-activity cs-white_bg billing-info mb-4">
@@ -68,10 +77,6 @@
                                     <div class="col-10">{{ $item->ticket->name }}</div>
                                     <div class="col-2 mb-2">Quantity</div>
                                     <div class="col-10">{{ $item->quantity }}</div>
-                                    <div class="col-2 mb-2">Price</div>
-                                    <div class="col-10">@format_currency($item->price)</div>
-                                    <div class="col-2 mb-2">Total</div>
-                                    <div class="col-10">@format_currency($item->quantity * $item->price)</div>
                                 </div>
                             </div>
                         @endforeach
@@ -81,5 +86,4 @@
         </div>
     </div>
     <div class="cs-height_95 cs-height_lg_70"></div>
-
 @endsection

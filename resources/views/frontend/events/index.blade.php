@@ -38,7 +38,7 @@
                         </div>
                         <div class="cs-filter_widget">
                             <h2 class="cs-filter_toggle_btn">
-                                Catagory
+                                Category
                                 <span class="cs-arrow_icon">
                                     <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">

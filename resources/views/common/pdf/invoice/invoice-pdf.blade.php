@@ -59,10 +59,9 @@
             <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/images/logo-black.png'))) }}"
                 alt="" width="200px">
             <p class="mt-4">
-                <span class="fw-bold">PT. KREATIFIKA RIVE SINERGI</span>
+                <span class="fw-bold">MBAK TUTIK</span>
                 <br>
-                <span>{{ $generalParameter->address }}
-                </span>
+                <span>{{ $generalParameter->address }}</span>
                 <br>
                 <span>Phone: {{ $generalParameter->phone }}</span>
                 <br>
@@ -77,15 +76,15 @@
                 <span class="fw-bold">{{ $orderDetail->buyer_name }}</span>
                 <br>
                 <span>
-                    City : {{ $orderDetail->buyer_city }}
+                    City: {{ $orderDetail->buyer_city }}
                 </span>
                 <br>
                 <span>
-                    Phone : {{ $orderDetail->buyer_phone }}
+                    Phone: {{ $orderDetail->buyer_phone }}
                 </span>
                 <br>
                 <span>
-                    Email : {{ $orderDetail->buyer_email }}
+                    Email: {{ $orderDetail->buyer_email }}
                 </span>
             </p>
         </div>
@@ -136,24 +135,28 @@
                     <th class="td-item">Total</th>
                 </tr>
                 @foreach ($invoice->order->orderDetails as $item)
-                    <tr>
-                        <td class="td-item">{{ $loop->iteration }}</td>
-                        <td class="td-item">{{ $invoice->order->event->name }}</td>
-                        <td class="td-item">{{ $item->buyer_name }}</td>
-                        <td class="td-item">{{ $item->buyer_email }}</td>
-                        <td class="td-item">{{ $item->ticket_name }}</td>
-                        <td class="td-item">{{ $item->quantity }}</td>
-                        <td class="td-item">@format_currency($item->price)</td>
-                        <td class="td-item">@format_currency($item->quantity * $item->price)</td>
-                    </tr>
+                <tr>
+                    <td class="td-item">{{ $loop->iteration }}</td>
+                    <td class="td-item">{{ $invoice->order->event->name }}</td>
+                    <td class="td-item">{{ $item->buyer_name }}</td>
+                    <td class="td-item">{{ $item->buyer_email }}</td>
+                    <td class="td-item">{{ $item->ticket_name }}</td>
+                    <td class="td-item">{{ $item->quantity }}</td>
+                    <td class="td-item">@format_currency($item->price)</td>
+                    <td class="td-item">@format_currency($item->quantity * $item->price)</td>
+                </tr>
                 @endforeach
                 <tr>
                     <td colspan="7" class="text-right fw-bold td-item">SUB TOTAL</td>
                     <td class="td-item">@format_currency($invoice?->subtotal)</td>
                 </tr>
                 <tr>
-                    <td colspan="7" class="text-right fw-bold td-item">Tax</td>
+                    <td colspan="7" class="text-right fw-bold td-item">Service Fee</td>
                     <td class="td-item">@format_currency($invoice?->fee)</td>
+                </tr>
+                <tr>
+                    <td colspan="7" class="text-right fw-bold td-item">Handling Fee</td>
+                    <td class="td-item">@format_currency($invoice?->handling_fee)</td>
                 </tr>
                 <tr>
                     <td colspan="7" class="text-right fw-bold td-item">TOTAL</td>
@@ -177,7 +180,7 @@
                 <h5>{{ $invoice?->created_at?->format('d F Y') }}</h5>
                 <div class="mt-5"></div>
                 <div class="mt-6"></div>
-                <h5>PT. KREATIFIKA RIVE SINERGI</h5>
+                <h5>MBAK TUTIK</h5>
             </div>
         </div>
     </div>

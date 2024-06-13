@@ -23,16 +23,28 @@ class TransactionReportController extends Controller
 
         $data = RoleHelpers::isAdmin() ? $query->get() : $query->whereIn('event_id', $eventsId)->get();
 
-        return view('admin.transaction-report.index', [
-            'data' => $data,
-        ]);
+        if (RoleHelpers::isAdmin()) {
+            return view('admin.transaction-report.index', [
+                'data' => $data,
+            ]);
+        } else {
+            return view('organizer.transaction-report.index', [
+                'data' => $data,
+            ]);
+        }
     }
 
     public function show(Order $order)
     {
-        return view('admin.transaction-report.show', [
-            'data' => $order,
-        ]);
+        if (RoleHelpers::isAdmin()) {
+            return view('admin.transaction-report.show', [
+                'data' => $order,
+            ]);
+        } else {
+            return view('organizer.transaction-report.show', [
+                'data' => $order,
+            ]);
+        }
     }
 
     public function invoice(Order $order)

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $seo_keyword
  * @property string $seo_description
  * @property integer $transaction_tax
+ * @property float $handling_fee
  */
 class GeneralParamter extends Model
 {
@@ -25,6 +26,7 @@ class GeneralParamter extends Model
         'seo_keyword',
         'seo_description',
         'transaction_tax',
+        'handling_fee', // Add this line
         'email',
         'phone',
         'address',
@@ -35,6 +37,7 @@ class GeneralParamter extends Model
         'seo_keyword' => 'required',
         'seo_description' => 'required',
         'transaction_tax' => 'required',
+        'handling_fee' => 'required|numeric', // Add this line
         'email' => 'required',
         'phone' => 'required',
         'address' => 'required',

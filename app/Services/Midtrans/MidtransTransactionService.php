@@ -22,22 +22,12 @@ class MidtransTransactionService extends Midtrans
     {
         $generateParam = $this->buildParam();
         $params = [
-            /**
-             * 'order_id' => id order unik yang akan digunakan sebagai "primary key" oleh Midtrans untuk
-             * 				 membedakan order satu dengan order lain. Key ini harus unik (tidak boleh ada duplikat).
-             * 'gross_amount' => merupakan total harga yang harus dibayar customer.
-             */
             'transaction_details' => [
                 'order_id' => $generateParam['order_id'],
                 'gross_amount' => $generateParam['gross_amount'],
             ],
-            /**
-             * 'item_details' bisa diisi dengan detail item dalam order.
-             * Umumnya, data ini diambil dari tabel `order_items`.
-             */
             'item_details' => $generateParam['item_details'],
             'customer_details' => [
-                // Key `customer_details` dapat diisi dengan data customer yang melakukan order.
                 'first_name' => $generateParam['name'],
                 'last_name' => '',
                 'email' => $generateParam['email'],
@@ -73,14 +63,20 @@ class MidtransTransactionService extends Midtrans
         }
 
         $details[] = [
-            'id' => $key + 1,
+            'id' => count($details) + 1,
             'price' => (int) $invoice->fee,
             'quantity' => 1,
             'name' => "Service Fee",
         ];
 
-        $params['item_details'] = $details;
+        $details[] = [
+            'id' => count($details) + 1,
+            'price' => (int) $invoice->handling_fee,
+            'quantity' => 1,
+            'name' => "Handling Fee",
+        ];
 
+        $params['item_details'] = $details;
 
         return $params;
     }
@@ -94,22 +90,18 @@ class MidtransTransactionService extends Midtrans
             $fraudStatus = !empty($transaction->fraud_status) ? ($transaction->fraud_status == 'accept') : true;
 
             if ($transactionStatus == 'pending') {
-                // pending
                 $transaction->result = MidtransTransactionStatusEnum::Pending;
             }
 
             if ($fraudStatus && ($transactionStatus == 'capture' || $transactionStatus == 'settlement')) {
-                // success
                 $transaction->result = MidtransTransactionStatusEnum::Success;
             }
 
             if ($transactionStatus == 'expire') {
-                // expired
                 $transaction->result = MidtransTransactionStatusEnum::Expired;
             }
 
             if ($transactionStatus == 'cancel') {
-                // cancelled
                 $transaction->result = MidtransTransactionStatusEnum::Cancelled;
             }
 
@@ -119,3 +111,4 @@ class MidtransTransactionService extends Midtrans
         }
     }
 }
+

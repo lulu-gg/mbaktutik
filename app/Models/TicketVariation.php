@@ -6,31 +6,12 @@ use App\Enums\Orders\PaymentStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-/**
- * @property integer $id
- * @property integer $event_id
- * @property string $name
- * @property float $price
- * @property integer $quota
- * @property integer $max_quota
- * @property string $created_at
- * @property string $updated_at
- * @property Event $event
- */
 class TicketVariation extends Model
 {
     use SoftDeletes;
 
-    /**
-     * The "type" of the auto-incrementing ID.
-     * 
-     * @var string
-     */
     protected $keyType = 'integer';
 
-    /**
-     * @var array
-     */
     protected $fillable = [
         'event_id',
         'name',
@@ -49,9 +30,6 @@ class TicketVariation extends Model
         'description' => 'required',
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function event()
     {
         return $this->belongsTo('App\Models\Event');
@@ -83,6 +61,32 @@ class TicketVariation extends Model
         foreach ($orderDetail as $detail) {
             if ($detail->order->payment_status == PaymentStatusEnum::Done) {
                 $total += $detail->total;
+            }
+        }
+
+        return $total;
+    }
+
+    public function getTotalServiceFeeAttribute()
+    {
+        $total = 0;
+        $orderDetail = OrdersDetail::where('ticket_variation_id', $this->id)->with('order.invoice')->get();
+        foreach ($orderDetail as $detail) {
+            if ($detail->order->payment_status == PaymentStatusEnum::Done && $detail->order->invoice) {
+                $total += $detail->order->invoice->fee;
+            }
+        }
+
+        return $total;
+    }
+
+    public function getTotalHandlingFeeAttribute()
+    {
+        $total = 0;
+        $orderDetail = OrdersDetail::where('ticket_variation_id', $this->id)->with('order.invoice')->get();
+        foreach ($orderDetail as $detail) {
+            if ($detail->order->payment_status == PaymentStatusEnum::Done && $detail->order->invoice) {
+                $total += $detail->order->invoice->handling_fee;
             }
         }
 

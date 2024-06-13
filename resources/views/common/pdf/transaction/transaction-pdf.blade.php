@@ -1,7 +1,5 @@
 @php
-
     $dateNow = now();
-
 @endphp
 
 <!DOCTYPE html>
@@ -71,7 +69,10 @@
                     <th class="text-center">No</th>
                     <th>#Invoice</th>
                     <th>Event</th>
-                    <th>Amount</th>
+                    <th>Subtotal</th>
+                    <th>Service Fee</th>
+                    <th>Handling Fee</th>
+                    <th>Total Amount</th>
                     <th>Status</th>
                     <th>Order Date</th>
                 </tr>
@@ -82,6 +83,9 @@
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td>{{ $item->invoice->invoice_number }}</td>
                         <td>{{ $item->event->name }}</td>
+                        <td>@format_currency($item->subtotal)</td>
+                        <td>@format_currency($item->fee)</td>
+                        <td>@format_currency($item->handling_fee)</td>
                         <td>@format_currency($item->total_amount)</td>
                         <td>{{ $item->status_report }}</td>
                         <td>@format_date($item->created_at)</td>

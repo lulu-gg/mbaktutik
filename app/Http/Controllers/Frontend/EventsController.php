@@ -104,21 +104,22 @@ class EventsController extends Controller
 
     public function payment($midtrans_order_id)
     {
-        $invoice = Invoice::where(['midtrans_order_id' => $midtrans_order_id])->with(['order.event', 'order.orderDetails.tickets'])->firstOrFail();
-
+        $invoice = Invoice::where(['midtrans_order_id' => $midtrans_order_id])
+            ->with(['order.event', 'order.orderDetails.tickets'])
+            ->firstOrFail();
+    
         // manual check midtrans status 
         // just in case notification delay or failed to send
         $this->checkMidtransStatus($invoice);
-
+    
         return view('frontend.events.payment', [
             'event' => $invoice->order->event,
             'invoice' => $invoice,
         ]);
     }
-
+    
     public function checkout(Request $request, Events $event)
     {
-
         if ($event->isPast()) {
             return abort(404);
         }
@@ -146,6 +147,7 @@ class EventsController extends Controller
 
         $formData = [];
         $subtotal = 0;
+        $totalQuantity = 0;
 
         foreach ($request->ticket as $key => $item) {
             // validate event status
@@ -154,7 +156,7 @@ class EventsController extends Controller
                 return back()->withErrors(['name' => "$ticket->name was unavailable at this moment"]);
             }
 
-            // validate ticket availablity
+            // validate ticket availability
             if ($ticket->total_available <= 0) {
                 return back()->withErrors(['name' => "$ticket->name was sold out"]);
             }
@@ -178,6 +180,7 @@ class EventsController extends Controller
             }
 
             $subtotal += $ticket->price * $request->quantity[$key];
+            $totalQuantity += $request->quantity[$key]; // Accumulate total quantity
             $formData[] = (object) [
                 'ticket' => $ticket,
                 'quantity' => $request->quantity[$key],
@@ -191,14 +194,17 @@ class EventsController extends Controller
             ];
         }
 
-        $serviceFeePercentage = GeneralParamter::first()->transaction_tax ?? 3;
+        $generalParameter = GeneralParamter::first();
+        $serviceFeePercentage = $generalParameter->transaction_tax ?? 3;
         $serviceFee = $subtotal * ($serviceFeePercentage / 100);
+        $handlingFee = ($generalParameter->handling_fee ?? 0) * $totalQuantity; // Calculate total handling fee
 
         $encryptedData = Crypt::encryptString(json_encode([
             'event' => $event,
             'formData' => $formData,
             'subtotal' => $subtotal,
             'serviceFee' => $serviceFee,
+            'handlingFee' => $handlingFee,
         ]));
 
         return view('frontend.events.checkout', [
@@ -206,6 +212,7 @@ class EventsController extends Controller
             'formData' => $formData,
             'subtotal' => $subtotal,
             'serviceFee' => $serviceFee,
+            'handlingFee' => $handlingFee,
             'encryptedData' => $encryptedData,
         ]);
     }
@@ -221,12 +228,16 @@ class EventsController extends Controller
         $decryptedData = Crypt::decryptString($request->encData);
         $formData = json_decode($decryptedData, false);
 
-        $isFree = (bool) (($formData->subtotal + $formData->serviceFee) == 0);
+        $formData->handlingFee = $formData->handlingFee ?? 0;
+        $formData->serviceFee = $formData->serviceFee ?? 0;
+        $formData->subtotal = $formData->subtotal ?? 0;
+
+        $isFree = (bool) (($formData->subtotal + $formData->serviceFee + $formData->handlingFee) == 0);
 
         // create order
         $order = Order::create([
             'event_id' => $event->id,
-            'total_amount' => $formData->subtotal + $formData->serviceFee,
+            'total_amount' => $formData->subtotal + $formData->serviceFee + $formData->handlingFee,
             'payment_status' => $isFree ? PaymentStatusEnum::Done : PaymentStatusEnum::Pending,
         ]);
 
@@ -258,7 +269,6 @@ class EventsController extends Controller
             }
         }
 
-
         // create invoices
         $invoice = Invoice::create([
             'order_id' => $order->id,
@@ -267,7 +277,8 @@ class EventsController extends Controller
             'due_date' => $isFree ? null : Carbon::now()->addDay(),
             'subtotal' => $formData->subtotal,
             'fee' => $formData->serviceFee,
-            'total' => $formData->subtotal + $formData->serviceFee,
+            'handling_fee' => $formData->handlingFee, // Ensure handling_fee is set
+            'total' => $formData->subtotal + $formData->serviceFee + $formData->handlingFee,
             'status' =>  $isFree ? InvoiceStatusEnum::Done : InvoiceStatusEnum::Pending,
             'midtrans_order_id' => Str::uuid()->toString(),
         ]);
@@ -296,7 +307,7 @@ class EventsController extends Controller
 
         return redirect("/events/payment/$invoice->midtrans_order_id");
     }
-
+    
     public function checkMidtransStatus(Invoice $invoice)
     {
         if ($invoice->status != InvoiceStatusEnum::Pending) {

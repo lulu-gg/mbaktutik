@@ -49,7 +49,13 @@
                             <p>Invoice No</p>
                         </div>
                         <div class="col-8">
-                            <p>: {{ $data->invoice->invoice_number }}</p>
+                            <p>
+                                @if ($data->invoice)
+                                    : {{ $data->invoice->invoice_number }}
+                                @else
+                                    : N/A
+                                @endif
+                            </p>
                         </div>
                     </div>
                     <div class="row">
@@ -57,7 +63,13 @@
                             <p>Midtrans Order ID</p>
                         </div>
                         <div class="col-8">
-                            <p>: {{ $data->invoice->midtrans_order_id }}</p>
+                            <p>
+                                @if ($data->invoice)
+                                    : {{ $data->invoice->midtrans_order_id }}
+                                @else
+                                    : N/A
+                                @endif
+                            </p>
                         </div>
                     </div>
                     <div class="row">
@@ -65,15 +77,41 @@
                             <p>Subtotal</p>
                         </div>
                         <div class="col-8">
-                            <p>: @format_currency($data->invoice->subtotal)</p>
+                            <p>
+                                @if ($data->invoice)
+                                    : @format_currency($data->invoice->subtotal)
+                                @else
+                                    : N/A
+                                @endif
+                            </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-4">
-                            <p>Fee</p>
+                            <p>Service Fee</p>
                         </div>
                         <div class="col-8">
-                            <p>: @format_currency($data->invoice->fee)</p>
+                            <p>
+                                @if ($data->invoice)
+                                    : @format_currency($data->invoice->fee)
+                                @else
+                                    : N/A
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <p>Handling Fee</p>
+                        </div>
+                        <div class="col-8">
+                            <p>
+                                @if ($data->invoice)
+                                    : @format_currency($data->invoice->handling_fee)
+                                @else
+                                    : N/A
+                                @endif
+                            </p>
                         </div>
                     </div>
                     <div class="row">
@@ -97,8 +135,13 @@
                             <p>Invoice</p>
                         </div>
                         <div class="col-8">
-                            <p>: <a href="{{ url()->current() . '/invoice' }}" class="btn btn-sm btn-primary"
-                                    target="_blank">{{ $data->invoice->invoice_number }}.pdf</a>
+                            <p>
+                                @if ($data->invoice)
+                                    : <a href="{{ url()->current() . '/invoice' }}" class="btn btn-sm btn-primary"
+                                        target="_blank">{{ $data->invoice->invoice_number }}.pdf</a>
+                                @else
+                                    : N/A
+                                @endif
                             </p>
                         </div>
                     </div>
@@ -150,22 +193,6 @@
                             </div>
                             <div class="col-9">
                                 <p>: @format_number($detail->quantity)</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <p>Price</p>
-                            </div>
-                            <div class="col-9">
-                                <p>: @format_currency($detail->price)</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <p>Total</p>
-                            </div>
-                            <div class="col-9">
-                                <p>: @format_currency($detail->total)</p>
                             </div>
                         </div>
                     </div>

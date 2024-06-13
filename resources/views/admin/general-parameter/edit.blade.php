@@ -23,15 +23,19 @@
 
         <div class="card mb-4">
             <h5 class="card-header d-flex justify-content-between align-items-center">
-                Transaciton Setting
+                Transaction Setting
             </h5>
             <div class="card-body">
                 <div class="mb-3">
                     <x-admin.form-input label="Transaction Tax" name="transaction_tax"
                         value="{{ $data->transaction_tax }}" type="number" information="in percentage" step="0.1" />
                 </div>
+                <div class="mb-3">
+                    <x-admin.form-input label="Handling Fee" name="handling_fee"
+                        value="{{ $data->handling_fee }}" type="number" information="in currency" step="0.01" />
+                </div>
             </div>
-        </div>
+        </div>        
 
         <div class="card mb-4">
             <h5 class="card-header d-flex justify-content-between align-items-center">

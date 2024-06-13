@@ -29,11 +29,13 @@
                                 <div class="col-3 mb-3">Location</div>
                                 <div class="col-9">{{ $event->location }}</div>
                                 <div class="col-3 mb-3">Subtotal</div>
-                                <div class="col-9">@format_currency($invoice->subtotal)</div>
+                                <div class="col-9">@format_currency($invoice->subtotal ?? 0)</div>
                                 <div class="col-3 mb-3">Service Fee</div>
-                                <div class="col-9">@format_currency($invoice->fee)</div>
+                                <div class="col-9">@format_currency($invoice->fee ?? 0)</div>
+                                <div class="col-3 mb-3">Handling Fee</div>
+                                <div class="col-9">@format_currency($invoice->handling_fee ?? 0)</div> <!-- Ensure handling_fee is not null -->
                                 <div class="col-3 mb-3">Total</div>
-                                <div class="col-9">@format_currency($invoice->total)</div>
+                                <div class="col-9">@format_currency($invoice->total ?? 0)</div>
                                 <div class="col-3 mb-3">Payment Status</div>
                                 <div class="col-9">
                                     {!! $invoice->status_span !!}
@@ -86,6 +88,12 @@
                 <div class="cs-single_product_head">
                     <h2>Personal Information</h2>
                     <div class="mt-2 ml-2">
+                        <div class="cs-activity cs-white_bg billing-info mb-4">
+                <p><strong>Note:</strong> Your e-ticket will be sent to your email. Check your email carefully.</p>
+                        </div>
+                </div>
+            </div>
+                    <div class="mt-2 ml-2">
                         @foreach ($invoice->order->orderDetails as $item)
                             <div class="cs-activity cs-white_bg billing-info mb-4">
                                 <div class="row">
@@ -103,10 +111,6 @@
                                     <div class="col-10">{{ $item->ticket_name }}</div>
                                     <div class="col-2 mb-2">Quantity</div>
                                     <div class="col-10">{{ $item->quantity }}</div>
-                                    <div class="col-2 mb-2">Price</div>
-                                    <div class="col-10">@format_currency($item->price)</div>
-                                    <div class="col-2 mb-2">Total</div>
-                                    <div class="col-10">@format_currency($item->quantity * $item->price)</div>
                                 </div>
                             </div>
                         @endforeach

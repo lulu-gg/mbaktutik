@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $time
  * @property integer $quantity
  * @property float $total_amount
+ * @property float $service_fee
+ * @property float $handling_fee
  * @property string $payment_method
  * @property integer $payment_status
  * @property integer $status
@@ -36,7 +38,21 @@ class Order extends Model
     /**
      * @var array
      */
-    protected $fillable = ['event_id', 'user_id', 'date', 'time', 'quantity', 'total_amount', 'payment_method', 'payment_status', 'status', 'invoice_id', 'paid_at'];
+    protected $fillable = [
+        'event_id', 
+        'user_id', 
+        'date', 
+        'time', 
+        'quantity', 
+        'total_amount', 
+        'service_fee', 
+        'handling_fee',
+        'payment_method', 
+        'payment_status', 
+        'status', 
+        'invoice_id', 
+        'paid_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

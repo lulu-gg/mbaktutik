@@ -1,7 +1,5 @@
 @php
-
     $dateNow = now();
-
 @endphp
 
 <!DOCTYPE html>
@@ -96,6 +94,25 @@
                         @endforeach
                     @endforeach
                 @endforeach
+            </tbody>
+        </table>
+        <div class="mt-4"></div>
+        <table class="table table-custom mt-4">
+            <thead>
+                <tr>
+                    <th class="text-center">Subtotal</th>
+                    <th class="text-center">Service Fee</th>
+                    <th class="text-center">Handling Fee</th>
+                    <th class="text-center">Total</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                <tr>
+                    <td class="text-center">@format_currency($subtotal)</td>
+                    <td class="text-center">@format_currency($serviceFee)</td>
+                    <td class="text-center">@format_currency($handlingFee)</td>
+                    <td class="text-center">@format_currency($total)</td>
+                </tr>
             </tbody>
         </table>
     </div>

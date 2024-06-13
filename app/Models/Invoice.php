@@ -12,7 +12,10 @@ use Illuminate\Support\Carbon;
  * @property string $invoice_number
  * @property string $date
  * @property string $due_date
- * @property float $amount
+ * @property float $subtotal
+ * @property float $fee
+ * @property float $handling_fee
+ * @property float $total
  * @property integer $status
  * @property string $created_at
  * @property string $updated_at
@@ -43,6 +46,7 @@ class Invoice extends Model
         'midtrans_order_id',
         'subtotal',
         'fee',
+        'handling_fee', // Add this line
         'total',
     ];
 
@@ -53,7 +57,6 @@ class Invoice extends Model
     {
         return $this->belongsTo('App\Models\Order');
     }
-
 
     public static function createInvoiceNumber()
     {

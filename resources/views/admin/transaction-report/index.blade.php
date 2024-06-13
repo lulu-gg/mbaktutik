@@ -1,5 +1,4 @@
 <x-admin.app-layout>
-
     @php
         $currentName = 'Transaction Report';
         $currentPath = 'dashboard/transaction-report';
@@ -29,6 +28,8 @@
                             <th>#Invoice</th>
                             <th>Event</th>
                             <th>Amount</th>
+                            <th>Service Fee</th>
+                            <th>Handling Fee</th>
                             <th>Status</th>
                             <th>Order Date</th>
                             <th>Actions</th>
@@ -41,6 +42,8 @@
                                 <td>{{ $item->invoice->invoice_number }}</td>
                                 <td>{{ $item->event->name }}</td>
                                 <td>@format_currency($item->total_amount)</td>
+                                <td>@format_currency($item->invoice->fee)</td>
+                                <td>@format_currency($item->invoice->handling_fee)</td>
                                 <td>{!! $item->status_span !!}</td>
                                 <td>@format_date($item->created_at)</td>
                                 <td>
