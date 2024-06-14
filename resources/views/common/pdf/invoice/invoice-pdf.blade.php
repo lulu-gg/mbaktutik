@@ -8,7 +8,7 @@
     <style>
         {{ File::get(public_path('assets/kartik-bootstrap/css/bootstrap.min.css')) }}
     </style>
-    <title>Invoice {{ $invoice?->invoice_number }}</title>
+    <title>Invoice {{ $invoice->invoice_number }}</title>
 
     <style>
         .mt-3 {
@@ -97,24 +97,24 @@
                 </tr>
                 <tr>
                     <td class="td-custom">Tanggal</td>
-                    <td class="td-custom fw-bold">{{ $invoice?->created_at?->format('d-F-Y') }}</td>
+                    <td class="td-custom fw-bold">{{ $invoice->created_at->format('d-F-Y') }}</td>
                 </tr>
                 <tr>
                     <td class="td-custom">Invoice</td>
-                    <td class="td-custom fw-bold">{{ $invoice?->invoice_number }}</td>
+                    <td class="td-custom fw-bold">{{ $invoice->invoice_number }}</td>
                 </tr>
                 <tr>
                     <td class="td-custom">Customer</td>
-                    <td class="td-custom fw-bold">#{{ $orderDetail->buyer_name }}</td>
+                    <td class="td-custom fw-bold">{{ $orderDetail->buyer_name }}</td>
                 </tr>
                 <tr>
                     <td class="td-custom">No Order</td>
-                    <td class="td-custom">{{ $invoice?->midtrans_order_id }}</td>
+                    <td class="td-custom">{{ $invoice->midtrans_order_id }}</td>
                 </tr>
                 <tr>
                     <td class="td-custom">Status</td>
                     <td class="td-custom">
-                        {{ $invoice?->status_invoice }}
+                        {{ $invoice->status_invoice }}
                     </td>
                 </tr>
             </table>
@@ -148,19 +148,19 @@
                 @endforeach
                 <tr>
                     <td colspan="7" class="text-right fw-bold td-item">SUB TOTAL</td>
-                    <td class="td-item">@format_currency($invoice?->subtotal)</td>
+                    <td class="td-item">@format_currency($invoice->subtotal)</td>
                 </tr>
                 <tr>
                     <td colspan="7" class="text-right fw-bold td-item">Service Fee</td>
-                    <td class="td-item">@format_currency($invoice?->fee)</td>
+                    <td class="td-item">@format_currency($invoice->fee)</td>
                 </tr>
                 <tr>
                     <td colspan="7" class="text-right fw-bold td-item">Handling Fee</td>
-                    <td class="td-item">@format_currency($invoice?->handling_fee)</td>
+                    <td class="td-item">@format_currency($invoice->handling_fee)</td>
                 </tr>
                 <tr>
                     <td colspan="7" class="text-right fw-bold td-item">TOTAL</td>
-                    <td class="td-item">@format_currency($invoice?->total)</td>
+                    <td class="td-item">@format_currency($invoice->total)</td>
                 </tr>
             </table>
         </div>
@@ -177,7 +177,7 @@
         <div class="col-xs-6">
             <div class="mt-4"></div>
             <div class="text-center">
-                <h5>{{ $invoice?->created_at?->format('d F Y') }}</h5>
+                <h5>{{ $invoice->created_at->format('d F Y') }}</h5>
                 <div class="mt-5"></div>
                 <div class="mt-6"></div>
                 <h5>MBAK TUTIK</h5>

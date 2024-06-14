@@ -67,8 +67,8 @@
                         <tr>
                             <td
                                 style="padding:30px;text-align:center;font-size:12px;background-color:#404040;color:#cccccc;">
-                                <p style="margin:0;font-size:14px;line-height:20px;">&reg; Rive
-                                    {{ now()->year }}<br>Rive Indonesia </p>
+                                <p style="margin:0;font-size:14px;line-height:20px;">&reg; Mbak Tutik
+                                    {{ now()->year }}<br> Ana </p>
                             </td>
                         </tr>
                     </table>

@@ -23,6 +23,8 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail; // Tambahkan ini
 use Illuminate\Support\Str;
 use Nasution\Terbilang;
 
@@ -107,9 +109,6 @@ class EventsController extends Controller
         $invoice = Invoice::where(['midtrans_order_id' => $midtrans_order_id])
             ->with(['order.event', 'order.orderDetails.tickets'])
             ->firstOrFail();
-    
-        // manual check midtrans status 
-        // just in case notification delay or failed to send
         $this->checkMidtransStatus($invoice);
     
         return view('frontend.events.payment', [
@@ -222,25 +221,29 @@ class EventsController extends Controller
         if ($event->isPast()) {
             return abort(404);
         }
-
+    
         $request->validate(['encData' => 'required']);
-
+    
         $decryptedData = Crypt::decryptString($request->encData);
         $formData = json_decode($decryptedData, false);
-
+    
         $formData->handlingFee = $formData->handlingFee ?? 0;
         $formData->serviceFee = $formData->serviceFee ?? 0;
         $formData->subtotal = $formData->subtotal ?? 0;
-
+    
+        Log::info('Form Data after decryption:', ['formData' => $formData]);
+    
         $isFree = (bool) (($formData->subtotal + $formData->serviceFee + $formData->handlingFee) == 0);
-
+    
         // create order
         $order = Order::create([
             'event_id' => $event->id,
             'total_amount' => $formData->subtotal + $formData->serviceFee + $formData->handlingFee,
             'payment_status' => $isFree ? PaymentStatusEnum::Done : PaymentStatusEnum::Pending,
         ]);
-
+    
+        Log::info('Order created:', ['order' => $order]);
+    
         // create order_detail
         foreach ($formData->formData as $item) {
             $orderDetail = OrdersDetail::create([
@@ -257,18 +260,22 @@ class EventsController extends Controller
                 'price' => $item->ticket->price,
                 'total' => $item->ticket->price * $item->quantity,
             ]);
-
+    
+            Log::info('Order Detail created:', ['orderDetail' => $orderDetail]);
+    
             // create tickets
             for ($i = 0; $i < $item->quantity; $i++) {
-                Ticket::create([
+                $ticket = Ticket::create([
                     'order_detail_id' => $orderDetail->id,
                     'ticket_code' => Ticket::generateTicketID(),
                     'qr_code' => Str::random(40),
                     'status' => $isFree ? TicketStatusEnum::Active : TicketStatusEnum::Pending,
                 ]);
+    
+                Log::info('Ticket created:', ['ticket' => $ticket]);
             }
         }
-
+    
         // create invoices
         $invoice = Invoice::create([
             'order_id' => $order->id,
@@ -277,12 +284,14 @@ class EventsController extends Controller
             'due_date' => $isFree ? null : Carbon::now()->addDay(),
             'subtotal' => $formData->subtotal,
             'fee' => $formData->serviceFee,
-            'handling_fee' => $formData->handlingFee, // Ensure handling_fee is set
+            'handling_fee' => $formData->handlingFee,
             'total' => $formData->subtotal + $formData->serviceFee + $formData->handlingFee,
             'status' =>  $isFree ? InvoiceStatusEnum::Done : InvoiceStatusEnum::Pending,
             'midtrans_order_id' => Str::uuid()->toString(),
         ]);
-
+    
+        Log::info('Invoice created:', ['invoice' => $invoice]);
+    
         if (!$isFree) {
             // create midtrans transaction
             $midtrans = new MidtransTransactionService($invoice);
@@ -290,12 +299,14 @@ class EventsController extends Controller
             $invoice->midtrans_snap_token = $transaction->token;
             $invoice->midtrans_snap_redirect = $transaction->redirect_url;
             $invoice->save();
-
+    
+            Log::info('Midtrans transaction created:', ['transaction' => $transaction]);
+    
             // SEND EMAIL INVOICE TO CUSTOMER
             $receivers = [$invoice->order->orderDetails->first()->buyer_email];
             $subject =  "Invoice #" . $invoice->invoice_number;
             $message = view('common.mail.invoice.invoice', ['invoice' => $invoice])->render();
-
+    
             dispatch(new SendBroadcastMailJob($receivers, $subject, $message, $invoice->id));
         } else {
             // SEND EMAIL ETICKET TO CUSTOMER
@@ -304,9 +315,10 @@ class EventsController extends Controller
             $message = view('common.mail.ticket.ticket', ['order' => $invoice->order])->render();
             dispatch(new SendBroadcastMailJob($receivers, $subject, $message, $invoice->id));
         }
-
+    
         return redirect("/events/payment/$invoice->midtrans_order_id");
     }
+    
     
     public function checkMidtransStatus(Invoice $invoice)
     {
@@ -353,16 +365,29 @@ class EventsController extends Controller
 
     public function invoice($midtrans_order_id)
     {
-        $invoice = Invoice::where(['midtrans_order_id' => $midtrans_order_id])->with(['order.event', 'order.orderDetails.tickets'])->firstOrFail();
-
+        $invoice = Invoice::where(['midtrans_order_id' => $midtrans_order_id])
+            ->with(['order.event', 'order.orderDetails.tickets'])
+            ->firstOrFail();
+    
+        Log::info('Invoice data for PDF generation:', ['invoice' => $invoice]);
+    
         $generalParameter = GeneralParamter::first();
+        Log::info('General Parameter:', ['generalParameter' => $generalParameter]);
+    
         $pdf = Pdf::loadView('common.pdf.invoice.invoice-pdf', [
             'invoice' => $invoice,
             'orderDetail' => $invoice->order->orderDetails->first(),
             'generalParameter' => $generalParameter,
             'amountStr' => Terbilang::convert($invoice->total),
         ]);
-
+    
+        // Kirim email dengan PDF terlampir
+        Mail::send([], [], function($message) use ($pdf, $invoice) {
+            $message->to($invoice->order->orderDetails->first()->buyer_email)
+                    ->subject("Invoice #" . $invoice->invoice_number)
+                    ->attachData($pdf->output(), "invoice.pdf");
+        });
+    
         return $pdf->stream();
-    }
+    }    
 }

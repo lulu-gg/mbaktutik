@@ -28,16 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
-    /**
-     * The "type" of the auto-incrementing ID.
-     * 
-     * @var string
-     */
     protected $keyType = 'integer';
 
-    /**
-     * @var array
-     */
     protected $fillable = [
         'event_id', 
         'user_id', 
@@ -54,41 +46,26 @@ class Order extends Model
         'paid_at'
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function tickets()
     {
         return $this->hasMany('App\Models\Ticket')->withTrashed();
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function event()
     {
         return $this->belongsTo('App\Models\Events')->withTrashed();
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function user()
     {
         return $this->belongsTo('App\Models\User')->withTrashed();
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function invoice()
     {
         return $this->hasOne('App\Models\Invoice');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function orderDetails()
     {
         return $this->hasMany('App\Models\OrdersDetail');

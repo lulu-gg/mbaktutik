@@ -5,11 +5,11 @@
             </span>
             <span class="app-brand-text demo menu-text fw-bolder ms-2" style="text-transform: none!important">
                 @if (\App\Helpers\RoleHelpers::isAdmin())
-                    <small style="font-size: 70%;padding-left:5px"><i>Rive Administrator</i></small>
+                    <small style="font-size: 70%;padding-left:5px"><i>Administrator</i></small>
                 @endif
 
                 @if (\App\Helpers\RoleHelpers::isEventOrganizer())
-                    <small style="font-size: 70%;padding-left:5px"><i>Dashboard Organizer</i></small>
+                    <small style="font-size: 70%;padding-left:5px"><i>Organizer</i></small>
                 @endif
             </span>
         </a>

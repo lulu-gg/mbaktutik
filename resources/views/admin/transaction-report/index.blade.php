@@ -39,11 +39,11 @@
                         @foreach ($data as $item)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $item->invoice->invoice_number }}</td>
+                                <td>{{ optional($item->invoice)->invoice_number ?? 'N/A' }}</td>
                                 <td>{{ $item->event->name }}</td>
                                 <td>@format_currency($item->total_amount)</td>
-                                <td>@format_currency($item->invoice->fee)</td>
-                                <td>@format_currency($item->invoice->handling_fee)</td>
+                                <td>@format_currency(optional($item->invoice)->fee ?? 0)</td>
+                                <td>@format_currency(optional($item->invoice)->handling_fee ?? 0)</td>
                                 <td>{!! $item->status_span !!}</td>
                                 <td>@format_date($item->created_at)</td>
                                 <td>

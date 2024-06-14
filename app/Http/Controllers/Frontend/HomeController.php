@@ -30,7 +30,6 @@ class HomeController extends Controller
             'upcomingEvents' => $upcomingEvents->take(6),
             'ongoingEvents' => $upcomingEvents,
             'pastEvents' => $pastEvents,
-            // 'banner' => $banner,
             'sponsor' => $sponsor,
         ]);
     }
