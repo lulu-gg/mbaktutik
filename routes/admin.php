@@ -45,10 +45,10 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
     // Events
-    Route::prefix('/events/{event}/')->group(function () {
-        Route::get('/report', [EventsController::class, 'report']);
+    Route::prefix('/events')->group(function () {
+        Route::get('/{event}/report', [EventsController::class, 'report']);
 
-        Route::prefix('/ticket')->group(function () {
+        Route::prefix('/{event}/ticket')->group(function () {
             Route::get('/create', [TicketVariationsController::class, 'create']);
             Route::post('/', [TicketVariationsController::class, 'store']);
 
@@ -58,7 +58,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
             Route::delete('/{ticket}', [TicketVariationsController::class, 'destroy']);
         });
 
-        Route::prefix('scanner')->group(function () {
+        Route::prefix('/{event}/scanner')->group(function () {
             Route::get('/create', [EventScannerJobController::class, 'create']);
             Route::post('/', [EventScannerJobController::class, 'store']);
 
@@ -82,7 +82,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('/contact-us', [ContactUsController::class, 'index'])->middleware(AdminPermission::class);
 
     // Withdrawl
-    Route::prefix('/withdrawl/{withdrawl}/')->group(function () {
+    Route::prefix('/withdrawl/{withdrawl}')->group(function () {
         Route::post('/accept', [WithdrawlController::class, 'accept']);
         Route::post('/reject', [WithdrawlController::class, 'reject']);
     });
@@ -103,7 +103,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
         Route::get('/pdf', [TicketReportController::class, 'pdf']);
     });
 
-    // Event Oragnizer Request
+    // Event Organizer Request
     Route::prefix('/organizer-registration')->group(function () {
         Route::get('/', [OrganizerRegistrationController::class, 'index']);
         Route::get('/{organizer}', [OrganizerRegistrationController::class, 'show']);
@@ -111,7 +111,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
         Route::post('/{organizer}/reject', [OrganizerRegistrationController::class, 'reject']);
     })->middleware(AdminPermission::class);
 
-    // Event Oragnizer Request
+    // Event Tenant Request
     Route::prefix('/tenant-registration')->group(function () {
         Route::get('/', [TenantRegistrationController::class, 'index']);
         Route::get('/{tenant}', [TenantRegistrationController::class, 'show']);
@@ -145,7 +145,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
-// // 404 Page Handling
+// 404 Page Handling
 Route::fallback(function () {
     return view('admin.layout.404');
 });
