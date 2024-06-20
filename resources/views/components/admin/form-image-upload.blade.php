@@ -1,10 +1,8 @@
-@props(['value' => null, 'multiple' => false, 'information' => null])
+@props(['label', 'name', 'multiple' => false, 'information' => null, 'value' => null])
 
 <div class="form-group">
     <label for="{{ $name }}" class="mb-2">{{ $label }}</label>
-
-    <input type="file" id="xid-{{ $multiple ? str_replace('[]', '', $name) : $name }}" name="{{ $name }}"
-        {{ $multiple ? 'multiple' : '' }} />
+    <input type="file" id="xid-{{ $multiple ? str_replace('[]', '', $name) : $name }}" name="{{ $name }}" {{ $multiple ? 'multiple' : '' }} class="form-control @error($name) is-invalid @enderror">
 
     @if ($information)
         <small class="fw-bold">* <i>{{ $information }}</i> </small>

@@ -31,25 +31,26 @@ class MerchandiseController extends Controller
             'price' => 'required|numeric',
             'stock' => 'required|integer',
             'status' => 'required|string',
+            'images' => 'nullable|array',
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description' => 'nullable|string',
             'seo' => 'nullable|string|max:255',
             'seo_description' => 'nullable|string|max:255',
         ]);
-
+    
         $merchandise = new Merchandise($request->all());
         $merchandise->slug = Str::slug($request->name);
         $merchandise->save();
-
+    
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $imagePath = $image->store('merchandise_images', 'public');
                 // Simpan path gambar ke dalam database atau relasi lain jika diperlukan
             }
         }
-
-        return redirect()->route('merchandise.index')->with('success', 'Merchandise created successfully.');
+    
+        return redirect()->route('admin.merchandise.index')->with('success', 'Merchandise created successfully.');
     }
-
+    
     // Tambahkan method lainnya seperti show, edit, update, destroy sesuai kebutuhan
 }

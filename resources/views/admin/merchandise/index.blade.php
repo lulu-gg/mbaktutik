@@ -1,8 +1,8 @@
 <x-admin.app-layout>
 
     @php
-        $currentName = 'Merchandise Category';
-        $currentPath = 'dashboard/merchandise-category';
+        $currentName = 'Merchandise';
+        $currentPath = 'dashboard/merchandise';
     @endphp
 
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Menu /</span> {{ $currentName }}</h4>
@@ -21,19 +21,25 @@
                         <tr>
                             <th class="text-center">No</th>
                             <th>Name</th>
-                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @foreach ($categories as $category)
+                        @foreach ($data as $item)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $category->name }}</td>
-                                <td>{{ $category->description }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->category->name }}</td>
+                                <td>{{ $item->price }}</td>
+                                <td>{{ $item->stock }}</td>
+                                <td>{{ $item->status }}</td>
                                 <td>
-                                    <a href="{{ url("$currentPath/$category->id/edit") }}" class="btn btn-sm btn-primary">Edit</a>
-                                    <form action="{{ url("$currentPath/$category->id") }}" method="POST" style="display:inline-block;">
+                                    <a href="{{ url("$currentPath/$item->id/edit") }}" class="btn btn-sm btn-primary">Edit</a>
+                                    <form action="{{ url("$currentPath/$item->id") }}" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>

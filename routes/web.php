@@ -67,7 +67,14 @@ Route::get('/biaya', [HomeController::class, 'biaya']);
 
 Route::get('/organizer-register', [HomeController::class, 'organizerRegister']);
 
-Route::resource('dashboard/merchandise', MerchandiseController::class);
+Route::resource('dashboard/merchandise', MerchandiseController::class)->names([
+    'index' => 'admin.merchandise.index',
+    'create' => 'admin.merchandise.create',
+    'store' => 'admin.merchandise.store',
+    'edit' => 'admin.merchandise.edit',
+    'update' => 'admin.merchandise.update',
+    'destroy' => 'admin.merchandise.destroy',
+]);
 Route::resource('dashboard/merchandise-category', MerchandiseCategoryController::class)->names([
     'index' => 'admin.merchandise-category.index',
     'create' => 'admin.merchandise-category.create',
