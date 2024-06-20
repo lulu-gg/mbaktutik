@@ -319,7 +319,6 @@ class EventsController extends Controller
         return redirect("/events/payment/$invoice->midtrans_order_id");
     }
     
-    
     public function checkMidtransStatus(Invoice $invoice)
     {
         if ($invoice->status != InvoiceStatusEnum::Pending) {

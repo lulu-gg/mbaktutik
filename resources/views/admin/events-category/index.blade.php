@@ -1,5 +1,4 @@
 <x-admin.app-layout>
-
     @php
         $currentName = 'Events Category';
         $currentPath = 'dashboard/events-category';
@@ -47,7 +46,6 @@
                                             <a href="{{ url("$currentPath/$item->id/edit") }}" class="btn">
                                                 <i class="bx bx-edit"></i>
                                             </a>
-
                                             @csrf
                                             @method('DELETE')
                                             <button type="button" class="btn btn-delete">

@@ -27,8 +27,7 @@
 
         <!-- Menu -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Menu</span></li>
-        <li
-            class="menu-item {{ CustomHelpers::isActiveBool(['dashboard/events', 'dashboard/events-category']) ? 'open' : '' }}">
+        <li class="menu-item {{ CustomHelpers::isActiveBool(['dashboard/events', 'dashboard/events-category']) ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-calendar-event"></i>
                 <div class="text-truncate" data-i18n="Events">Events</div>
@@ -41,6 +40,46 @@
                 </li>
                 <li class="menu-item {{ CustomHelpers::isActive('dashboard/events-category') }}">
                     <a href="{{ url('dashboard/events-category') }}" class="menu-link">
+                        <div data-i18n="Category">Category</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Merchandise -->
+        <li class="menu-item {{ CustomHelpers::isActiveBool(['dashboard/merchandise', 'dashboard/merchandise-category']) ? 'open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-gift"></i>
+                <div class="text-truncate" data-i18n="Merchandise">Merchandise</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ CustomHelpers::isActive('dashboard/merchandise') }}">
+                    <a href="{{ url('dashboard/merchandise') }}" class="menu-link">
+                        <div data-i18n="Data">Data</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ CustomHelpers::isActive('dashboard/merchandise-category') }}">
+                    <a href="{{ url('dashboard/merchandise-category') }}" class="menu-link">
+                        <div data-i18n="Category">Category</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Tenant -->
+        <li class="menu-item {{ CustomHelpers::isActiveBool(['dashboard/tenant', 'dashboard/tenant-category']) ? 'open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-store"></i>
+                <div class="text-truncate" data-i18n="Tenant">Tenant</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ CustomHelpers::isActive('dashboard/tenant') }}">
+                    <a href="{{ url('dashboard/tenant') }}" class="menu-link">
+                        <div data-i18n="Data">Data</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ CustomHelpers::isActive('dashboard/tenant-category') }}">
+                    <a href="{{ url('dashboard/tenant-category') }}" class="menu-link">
                         <div data-i18n="Category">Category</div>
                     </a>
                 </li>
@@ -80,14 +119,6 @@
                 </a>
             </li>
 
-            <!-- Event Tenant Registration -->
-            <li class="menu-item {{ CustomHelpers::isActive('dashboard/tenant-registration') }}">
-                <a href="{{ url('dashboard/tenant-registration') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bxs-user-account"></i>
-                    <div data-i18n="Tenant Registration">Tenant Registration</div>
-                </a>
-            </li>
-
             <!-- Contact Us -->
             <li class="menu-item {{ CustomHelpers::isActive('dashboard/contact-us') }}">
                 <a href="{{ url('dashboard/contact-us') }}" class="menu-link">
@@ -97,11 +128,10 @@
             </li>
         @endif
 
-
         <!-- Report -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Report</span></li>
 
-        <!-- Transacation -->
+        <!-- Transaction -->
         <li class="menu-item {{ CustomHelpers::isActive('dashboard/transaction-report') }}">
             <a href="{{ url('dashboard/transaction-report') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-report"></i>
@@ -109,14 +139,13 @@
             </a>
         </li>
 
-        <!-- Transacation -->
+        <!-- Ticket -->
         <li class="menu-item {{ CustomHelpers::isActive('dashboard/ticket-report') }}">
             <a href="{{ url('dashboard/ticket-report') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-discount"></i>
                 <div data-i18n="Ticket">Ticket</div>
             </a>
         </li>
-
 
         @if (\App\Helpers\RoleHelpers::isAdmin())
             <!-- Master -->
@@ -129,10 +158,9 @@
                 </a>
             </li>
 
-            <li
-                class="menu-item {{ CustomHelpers::isActiveBool(['dashboard/user/admin', 'dashboard/user/organizer', 'dashboard/user/scanner-officer']) ? 'open' : '' }}">
+            <li class="menu-item {{ CustomHelpers::isActiveBool(['dashboard/user/admin', 'dashboard/user/organizer', 'dashboard/user/scanner-officer']) ? 'open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons bx bx bxs-user"></i>
+                    <i class="menu-icon tf-icons bx bxs-user"></i>
                     <div class="text-truncate" data-i18n="User">User</div>
                 </a>
                 <ul class="menu-sub">

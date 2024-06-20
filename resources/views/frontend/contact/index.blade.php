@@ -111,6 +111,13 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="cs-form_field_wrap">
+                                    <input type="text" class="cs-form_field" placeholder="Your WhatsApp" name="whatsapp"
+                                        required>
+                                </div>
+                                <div class="cs-height_20 cs-height_lg_20"></div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="cs-form_field_wrap">
                                     <input type="text" class="cs-form_field" placeholder="Wright Subject" name="subject" required>
                                 </div>
                                 <div class="cs-height_20 cs-height_lg_20"></div>
@@ -121,7 +128,7 @@
                                 </div>
                                 <div class="cs-height_20 cs-height_lg_20"></div>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 text-center"> <!-- Add text-center class here -->
                                 <button class="cs-btn cs-style1 cs-btn_lg"><span>Send Message</span></button>
                             </div>
                         </div>

@@ -4,6 +4,8 @@ use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\EventsController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TicketController;
+use App\Http\Controllers\Admin\MerchandiseController;
+use App\Http\Controllers\Admin\MerchandiseCategoryController;
 use App\Jobs\SendBroadcastMailJob;
 use App\Models\GeneralParamter;
 use App\Models\Invoice;
@@ -64,6 +66,16 @@ Route::get('/privacy-and-policy', [HomeController::class, 'privacyPolicy']);
 Route::get('/biaya', [HomeController::class, 'biaya']);
 
 Route::get('/organizer-register', [HomeController::class, 'organizerRegister']);
+
+Route::resource('dashboard/merchandise', MerchandiseController::class);
+Route::resource('dashboard/merchandise-category', MerchandiseCategoryController::class)->names([
+    'index' => 'admin.merchandise-category.index',
+    'create' => 'admin.merchandise-category.create',
+    'store' => 'admin.merchandise-category.store',
+    'edit' => 'admin.merchandise-category.edit',
+    'update' => 'admin.merchandise-category.update',
+    'destroy' => 'admin.merchandise-category.destroy',
+]);
 
 // Route::get('/invoice', function () {
 //     // // SEND EMAIL ETICKET TO CUSTOMER

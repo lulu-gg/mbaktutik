@@ -21,6 +21,7 @@
                             <th class="text-center">No</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>WhatsApp</th>
                             <th>Subject</th>
                             <th class="col-3">Message</th>
                             <th>Date</th>
@@ -32,6 +33,7 @@
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
+                                <td>{{ $item->whatsapp }}</td>
                                 <td>{{ $item->subject }}</td>
                                 <td>{{ $item->message }}</td>
                                 <td>@format_date($item->created_at)</td>
