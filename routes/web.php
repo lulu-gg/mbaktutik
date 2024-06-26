@@ -67,22 +67,28 @@ Route::get('/biaya', [HomeController::class, 'biaya']);
 
 Route::get('/organizer-register', [HomeController::class, 'organizerRegister']);
 
-Route::resource('dashboard/merchandise', MerchandiseController::class)->names([
-    'index' => 'admin.merchandise.index',
-    'create' => 'admin.merchandise.create',
-    'store' => 'admin.merchandise.store',
-    'edit' => 'admin.merchandise.edit',
-    'update' => 'admin.merchandise.update',
-    'destroy' => 'admin.merchandise.destroy',
-]);
-Route::resource('dashboard/merchandise-category', MerchandiseCategoryController::class)->names([
-    'index' => 'admin.merchandise-category.index',
-    'create' => 'admin.merchandise-category.create',
-    'store' => 'admin.merchandise-category.store',
-    'edit' => 'admin.merchandise-category.edit',
-    'update' => 'admin.merchandise-category.update',
-    'destroy' => 'admin.merchandise-category.destroy',
-]);
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+    Route::resource('merchandise', MerchandiseController::class)->names([
+        'index' => 'admin.merchandise.index',
+        'create' => 'admin.merchandise.create',
+        'store' => 'admin.merchandise.store',
+        'edit' => 'admin.merchandise.edit',
+        'update' => 'admin.merchandise.update',
+        'destroy' => 'admin.merchandise.destroy',
+        'show' => 'admin.merchandise.show',
+    ]);
+
+    Route::get('merchandise/{merchandise}/report', [MerchandiseController::class, 'report'])->name('admin.merchandise.report');
+
+    Route::resource('merchandise-category', MerchandiseCategoryController::class)->names([
+        'index' => 'admin.merchandise-category.index',
+        'create' => 'admin.merchandise-category.create',
+        'store' => 'admin.merchandise-category.store',
+        'edit' => 'admin.merchandise-category.edit',
+        'update' => 'admin.merchandise-category.update',
+        'destroy' => 'admin.merchandise-category.destroy',
+    ]);
+});
 
 // Route::get('/invoice', function () {
 //     // // SEND EMAIL ETICKET TO CUSTOMER
